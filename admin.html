@@ -71,10 +71,11 @@
     <table>
       <thead>
         <tr>
-          <th>Date</th>
+          <th>Reçu le</th>
           <th>Type</th>
           <th>Nom</th>
-          <th>Courriel</th>
+          <th>Forfait</th>
+          <th>Date souhaitée</th>
           <th>Téléphone</th>
           <th></th>
         </tr>
@@ -109,6 +110,15 @@
     }
   }
 
+  function formatRequestedDate(value) {
+    if (!value) return '—';
+    try {
+      return new Date(value + 'T00:00:00').toLocaleDateString('fr-CA', { dateStyle: 'medium' });
+    } catch (e) {
+      return value;
+    }
+  }
+
   function render() {
     const q = searchInput.value.trim().toLowerCase();
     const formFilter = filterForm.value;
@@ -122,14 +132,15 @@
     tableBody.innerHTML = '';
 
     if (filtered.length === 0) {
-      tableBody.innerHTML = '<tr><td colspan="6" class="empty">Aucune demande trouvée.</td></tr>';
+      tableBody.innerHTML = '<tr><td colspan="7" class="empty">Aucune demande trouvée.</td></tr>';
       return;
     }
 
     filtered.forEach((s) => {
       const d = s.data || {};
       const name = d.name || d.company || '—';
-      const email = d.email || '—';
+      const plan = d.plan || (s.form === 'entreprise' ? (d['bike-count'] ? d['bike-count'] + ' vélo(s) — soumission' : 'Soumission entreprise') : '—');
+      const requestedDate = formatRequestedDate(d.date);
       const phone = d.phone || '—';
       const tagClass = s.form === 'entreprise' ? 'tag-entreprise' : 'tag-reservation';
       const tagLabel = s.form === 'entreprise' ? 'Entreprise' : 'Réservation';
@@ -139,14 +150,15 @@
         '<td>' + formatDate(s.created_at) + '</td>' +
         '<td><span class="tag ' + tagClass + '">' + tagLabel + '</span></td>' +
         '<td>' + name + '</td>' +
-        '<td>' + email + '</td>' +
+        '<td>' + plan + '</td>' +
+        '<td>' + requestedDate + '</td>' +
         '<td>' + phone + '</td>' +
         '<td><button class="details-btn" type="button">Détails</button></td>';
 
       const detailsRow = document.createElement('tr');
       detailsRow.className = 'row-details';
       const detailsTd = document.createElement('td');
-      detailsTd.colSpan = 6;
+      detailsTd.colSpan = 7;
       detailsTd.textContent = JSON.stringify(d, null, 2);
       detailsRow.appendChild(detailsTd);
 
