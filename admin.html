@@ -201,6 +201,23 @@
     }
   }
 
+  function shortenPlan(plan) {
+    if (!plan) return plan;
+    const map = {
+      'MPV 1 — Mise au point essentielle (35 $ sans taxes)': 'MPV 1 — Essentielle',
+      'MPV 2 — Entretien transmission (65 $ sans taxes)': 'MPV 2 — Transmission',
+      'MPV 3 — Inspection approfondie (85 $ sans taxes)': 'MPV 3 — Inspection',
+      'MPV 4 — Entretien complet (135 $ sans taxes)': 'MPV 4 — Entretien complet',
+      'MPV 5 — Remise à neuf (160 $ sans taxes)': 'MPV 5 — Remise à neuf',
+      'Personnalisé — voir description': 'Personnalisé',
+    };
+    if (map[plan]) return map[plan];
+    const m = plan.match(/^(MPV\s*\d+)\s*—\s*([^(]+)/i);
+    if (m) return (m[1] + ' — ' + m[2].replace(/^Mise au point\s*/i, '').trim());
+    if (/^Personnalisé/i.test(plan)) return 'Personnalisé';
+    return plan;
+  }
+
   function escapeHtml(str) {
     return String(str).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
   }
@@ -249,7 +266,7 @@
       const value = d[key];
       if (!value) return;
       const label = FIELD_LABELS[key] || key;
-      const display = key === 'date' ? requestedDate : value;
+      const display = key === 'date' ? requestedDate : (key === 'plan' ? shortenPlan(value) : value);
       fieldsHtml += '<div class="detail-field"><b>' + escapeHtml(label) + '</b><span>' + escapeHtml(display) + '</span></div>';
     });
 
@@ -290,10 +307,11 @@
     let historyHtml = '';
     sorted.forEach((s) => {
       const d = s.data || {};
-      const plan = d.plan || (s.form === 'entreprise' ? 'Soumission entreprise' : '—');
+      const plan = shortenPlan(d.plan) || (s.form === 'entreprise' ? 'Soumission entreprise' : '—');
+      const reqDate = formatRequestedDate(d.date);
       historyHtml +=
         '<div class="history-row" data-id="' + s.id + '">' +
-          '<div class="history-main"><p class="history-plan">' + escapeHtml(plan) + '</p><div class="history-date">' + formatDate(s.created_at) + '</div></div>' +
+          '<div class="history-main"><p class="history-plan">' + escapeHtml(plan) + '</p><div class="history-date">' + escapeHtml(reqDate) + '</div></div>' +
           '<button class="trash-btn" data-id="' + s.id + '" aria-label="Supprimer">🗑</button>' +
         '</div>';
     });
@@ -365,7 +383,9 @@
       items.forEach((s) => {
         const d = s.data || {};
         const name = d.name || d.company || '—';
-        const plan = d.plan || (s.form === 'entreprise' ? (d['bike-count'] ? d['bike-count'] + ' vélo(s)' : 'Soumission') : '');
+        const plan = shortenPlan(d.plan) || (s.form === 'entreprise' ? (d['bike-count'] ? d['bike-count'] + ' vélo(s)' : 'Soumission') : '');
+        const reqDate = formatRequestedDate(d.date);
+        const sub = plan + (d.date ? ' · ' + reqDate : '');
 
         const row = document.createElement('div');
         row.className = 'row';
@@ -373,7 +393,7 @@
           '<div class="row-avatar' + (s.form === 'entreprise' ? ' entreprise' : '') + '">' + initials(name) + '</div>' +
           '<div class="row-main">' +
             '<p class="row-name">' + escapeHtml(name) + '</p>' +
-            '<div class="row-sub">' + escapeHtml(plan) + '</div>' +
+            '<div class="row-sub">' + escapeHtml(sub) + '</div>' +
           '</div>' +
           '<span class="row-chevron">›</span>';
 
