@@ -32,9 +32,13 @@
   .admin-top .sub { font-size:11px; color:#9a9a92; margin-top:2px; }
   .icon-btn { background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.15); color:#fff; width:36px; height:36px; border-radius:10px; display:flex; align-items:center; justify-content:center; font-size:15px; cursor:pointer; flex:none; }
   .icon-btn:active { background:rgba(255,255,255,.2); }
-  .toolbar { display:flex; gap:8px; }
+  .toolbar { display:flex; gap:8px; margin-bottom:10px; }
   .toolbar input[type="search"] { flex:1; font-size:15px; padding:10px 14px; border-radius:10px; border:1px solid rgba(255,255,255,.15); background:rgba(255,255,255,.08); color:#fff; }
   .toolbar input[type="search"]::placeholder { color:#8a8a82; }
+
+  .tabbar { display:flex; gap:6px; background:rgba(255,255,255,.06); border-radius:10px; padding:4px; }
+  .tabbar button { flex:1; border:none; background:transparent; color:#bbb; font-size:13px; font-weight:600; padding:8px 10px; border-radius:8px; cursor:pointer; }
+  .tabbar button.active { background:var(--lime); color:var(--dark); }
 
   main { padding:16px 14px 60px; max-width:640px; margin:0 auto; }
 
@@ -53,6 +57,7 @@
   .row-name { font-size:14.5px; font-weight:700; margin:0; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
   .row-sub { font-size:12px; color:#8b8b85; margin-top:1px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
   .row-chevron { color:#c4c4bb; font-size:16px; flex:none; }
+  .row-count { font-size:11px; background:#eef1e6; color:#4a5a2c; padding:3px 9px; border-radius:20px; font-weight:700; flex:none; }
 
   .empty { text-align:center; padding:60px 20px; color:#999; font-size:14px; }
   .empty .big { font-size:32px; display:block; margin-bottom:10px; }
@@ -76,12 +81,20 @@
   .pill-btn { flex:1; text-align:center; font-size:13px; padding:11px 10px; border-radius:10px; border:1px solid #ddd; background:#fafaf8; color:#333; cursor:pointer; text-decoration:none; font-weight:600; }
   .pill-btn:active { background:#f0f0ea; }
   .pill-btn.primary { background:var(--dark); color:#fff; border-color:var(--dark); }
+  .pill-btn.danger { background:#fdecea; color:#c0392b; border-color:#f6c9c3; }
 
-  .detail-fields { background:#fff; border-radius:14px; border:1px solid #ececE6; overflow:hidden; }
+  .detail-fields { background:#fff; border-radius:14px; border:1px solid #ececE6; overflow:hidden; margin-bottom:14px; }
   .detail-field { padding:12px 16px; border-bottom:1px solid #f1f1eb; }
   .detail-field:last-child { border-bottom:none; }
   .detail-field b { display:block; color:#9a9a92; font-weight:600; font-size:10.5px; text-transform:uppercase; letter-spacing:.4px; margin-bottom:3px; }
   .detail-field span { font-size:14.5px; color:#222; white-space:pre-wrap; word-break:break-word; }
+
+  .history-row { display:flex; align-items:center; justify-content:space-between; gap:10px; padding:12px 16px; border-bottom:1px solid #f1f1eb; }
+  .history-row:last-child { border-bottom:none; }
+  .history-main { flex:1; min-width:0; }
+  .history-plan { font-size:13.5px; font-weight:600; margin:0; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .history-date { font-size:11.5px; color:#9a9a92; margin-top:1px; }
+  .trash-btn { background:none; border:none; color:#c0392b; font-size:16px; cursor:pointer; padding:6px; flex:none; }
 
   @media (min-width:600px) {
     main { max-width:760px; }
@@ -104,7 +117,7 @@
   <header class="admin-top">
     <div class="admin-top-row">
       <div>
-        <h1>Demandes reçues</h1>
+        <h1 id="pageTitle">Demandes reçues</h1>
         <div class="sub" id="statusLine">Chargement...</div>
       </div>
       <div style="display:flex; gap:8px;">
@@ -115,14 +128,21 @@
     <div class="toolbar">
       <input type="search" id="search" placeholder="Rechercher un nom, une entreprise..." />
     </div>
+    <div class="tabbar">
+      <button class="active" data-tab="demandes" type="button">Demandes</button>
+      <button data-tab="clients" type="button">Clients</button>
+    </div>
   </header>
-  <main id="sections"></main>
+  <main>
+    <div id="sections"></div>
+    <div id="clientsList" class="hidden"></div>
+  </main>
 </div>
 
 <div class="overlay" id="overlay">
   <div class="overlay-top">
     <button class="overlay-back" id="overlayBack" type="button" aria-label="Retour">&#8592;</button>
-    <h2>Détails de la demande</h2>
+    <h2 id="overlayTitle">Détails de la demande</h2>
   </div>
   <div class="overlay-body" id="overlayBody"></div>
 </div>
@@ -136,15 +156,20 @@
   const unlockBtn = document.getElementById('unlockBtn');
   const adminApp = document.getElementById('adminApp');
   const statusLine = document.getElementById('statusLine');
+  const pageTitle = document.getElementById('pageTitle');
   const sectionsEl = document.getElementById('sections');
+  const clientsListEl = document.getElementById('clientsList');
   const refreshBtn = document.getElementById('refreshBtn');
   const lockBtn = document.getElementById('lockBtn');
   const searchInput = document.getElementById('search');
   const overlay = document.getElementById('overlay');
   const overlayBody = document.getElementById('overlayBody');
+  const overlayTitle = document.getElementById('overlayTitle');
   const overlayBack = document.getElementById('overlayBack');
+  const tabButtons = document.querySelectorAll('.tabbar button');
 
   let allSubmissions = [];
+  let activeTab = 'demandes';
 
   const FIELD_LABELS = {
     company: 'Entreprise',
@@ -186,6 +211,27 @@
     return (parts[0][0] + (parts[1] ? parts[1][0] : '')).toUpperCase();
   }
 
+  function clientKeyFor(s) {
+    const d = s.data || {};
+    return (d.email || d.phone || d.name || d.company || 'inconnu').toLowerCase().trim();
+  }
+
+  function getCode() {
+    return sessionStorage.getItem(STORAGE_KEY);
+  }
+
+  function deleteSubmission(id) {
+    const code = getCode();
+    return fetch('/.netlify/functions/delete-submission', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'x-admin-code': code },
+      body: JSON.stringify({ id }),
+    }).then((res) => {
+      if (!res.ok) throw new Error('delete-failed');
+      allSubmissions = allSubmissions.filter((s) => s.id !== id);
+    });
+  }
+
   function openDetail(s) {
     const d = s.data || {};
     const name = d.name || d.company || '—';
@@ -207,6 +253,7 @@
       fieldsHtml += '<div class="detail-field"><b>' + escapeHtml(label) + '</b><span>' + escapeHtml(display) + '</span></div>';
     });
 
+    overlayTitle.textContent = 'Détails de la demande';
     overlayBody.innerHTML =
       '<div class="detail-hero">' +
         '<p class="name">' + escapeHtml(name) + '</p>' +
@@ -217,20 +264,77 @@
           (email ? '<a class="pill-btn" href="mailto:' + escapeHtml(email) + '">✉️ Courriel</a>' : '') +
         '</div>' +
       '</div>' +
-      '<div class="detail-fields">' + fieldsHtml + '</div>';
+      '<div class="detail-fields">' + fieldsHtml + '</div>' +
+      '<button class="pill-btn danger" id="deleteBtn" type="button" style="width:100%;">🗑 Supprimer cette demande</button>';
+
+    document.getElementById('deleteBtn').addEventListener('click', () => {
+      if (!confirm('Supprimer définitivement cette demande (' + name + ')? Cette action est irréversible.')) return;
+      deleteSubmission(s.id)
+        .then(() => {
+          overlay.classList.remove('show');
+          render();
+        })
+        .catch(() => alert('Erreur lors de la suppression. Réessaie.'));
+    });
+
+    overlay.classList.add('show');
+  }
+
+  function openClientDetail(key, items) {
+    const d0 = items[0].data || {};
+    const name = d0.name || d0.company || '—';
+    const phone = d0.phone || '';
+    const email = d0.email || '';
+    const sorted = items.slice().sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
+
+    let historyHtml = '';
+    sorted.forEach((s) => {
+      const d = s.data || {};
+      const plan = d.plan || (s.form === 'entreprise' ? 'Soumission entreprise' : '—');
+      historyHtml +=
+        '<div class="history-row" data-id="' + s.id + '">' +
+          '<div class="history-main"><p class="history-plan">' + escapeHtml(plan) + '</p><div class="history-date">' + formatDate(s.created_at) + '</div></div>' +
+          '<button class="trash-btn" data-id="' + s.id + '" aria-label="Supprimer">🗑</button>' +
+        '</div>';
+    });
+
+    overlayTitle.textContent = 'Fiche client';
+    overlayBody.innerHTML =
+      '<div class="detail-hero">' +
+        '<p class="name">' + escapeHtml(name) + '</p>' +
+        '<div class="received">' + items.length + ' réservation(s) au total</div>' +
+        '<div class="detail-actions">' +
+          (phone ? '<a class="pill-btn primary" href="tel:' + escapeHtml(phone) + '">📞 Appeler</a>' : '') +
+          (email ? '<a class="pill-btn" href="mailto:' + escapeHtml(email) + '">✉️ Courriel</a>' : '') +
+        '</div>' +
+      '</div>' +
+      '<div class="detail-fields">' + historyHtml + '</div>';
+
+    overlayBody.querySelectorAll('.trash-btn').forEach((btn) => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const id = btn.dataset.id;
+        if (!confirm('Supprimer cette demande de l\\'historique de ' + name + '?')) return;
+        deleteSubmission(id)
+          .then(() => {
+            const remaining = allSubmissions.filter((s) => clientKeyFor(s) === key);
+            if (remaining.length === 0) {
+              overlay.classList.remove('show');
+            } else {
+              openClientDetail(key, remaining);
+            }
+            render();
+          })
+          .catch(() => alert('Erreur lors de la suppression. Réessaie.'));
+      });
+    });
 
     overlay.classList.add('show');
   }
 
   overlayBack.addEventListener('click', () => overlay.classList.remove('show'));
 
-  function render() {
-    const q = searchInput.value.trim().toLowerCase();
-    const filtered = allSubmissions.filter((s) => {
-      if (!q) return true;
-      return JSON.stringify(s.data).toLowerCase().includes(q);
-    });
-
+  function renderDemandes(filtered) {
     sectionsEl.innerHTML = '';
 
     if (filtered.length === 0) {
@@ -282,6 +386,82 @@
     });
   }
 
+  function renderClients(filtered) {
+    clientsListEl.innerHTML = '';
+
+    if (filtered.length === 0) {
+      clientsListEl.innerHTML = '<div class="empty"><span class="big">👤</span>Aucun client trouvé.</div>';
+      return;
+    }
+
+    const map = new Map();
+    filtered.forEach((s) => {
+      const key = clientKeyFor(s);
+      if (!map.has(key)) map.set(key, []);
+      map.get(key).push(s);
+    });
+
+    const clients = Array.from(map.entries()).sort((a, b) => b[1].length - a[1].length);
+
+    const section = document.createElement('div');
+    section.className = 'section';
+    const head = document.createElement('div');
+    head.className = 'section-head';
+    head.innerHTML = '<h2>Clients</h2><span class="section-count">' + clients.length + '</span>';
+    section.appendChild(head);
+
+    const list = document.createElement('div');
+    list.className = 'list';
+
+    clients.forEach(([key, items]) => {
+      const d0 = items[0].data || {};
+      const name = d0.name || d0.company || '—';
+      const isCorp = items.some((s) => s.form === 'entreprise');
+
+      const row = document.createElement('div');
+      row.className = 'row';
+      row.innerHTML =
+        '<div class="row-avatar' + (isCorp ? ' entreprise' : '') + '">' + initials(name) + '</div>' +
+        '<div class="row-main">' +
+          '<p class="row-name">' + escapeHtml(name) + '</p>' +
+          '<div class="row-sub">' + (d0.email || d0.phone || '') + '</div>' +
+        '</div>' +
+        '<span class="row-count">' + items.length + '</span>';
+
+      row.addEventListener('click', () => openClientDetail(key, items));
+      list.appendChild(row);
+    });
+
+    section.appendChild(list);
+    clientsListEl.appendChild(section);
+  }
+
+  function render() {
+    const q = searchInput.value.trim().toLowerCase();
+    const filtered = allSubmissions.filter((s) => {
+      if (!q) return true;
+      return JSON.stringify(s.data).toLowerCase().includes(q);
+    });
+
+    if (activeTab === 'demandes') {
+      renderDemandes(filtered);
+    } else {
+      renderClients(filtered);
+    }
+  }
+
+  tabButtons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      tabButtons.forEach((b) => b.classList.remove('active'));
+      btn.classList.add('active');
+      activeTab = btn.dataset.tab;
+      pageTitle.textContent = activeTab === 'demandes' ? 'Demandes reçues' : 'Espace clients';
+      sectionsEl.classList.toggle('hidden', activeTab !== 'demandes');
+      clientsListEl.classList.toggle('hidden', activeTab !== 'clients');
+      render();
+    });
+  });
+
   function loadSubmissions(code) {
     statusLine.textContent = 'Chargement...';
     return fetch('/.netlify/functions/get-submissions', {
@@ -331,7 +511,7 @@
   });
 
   refreshBtn.addEventListener('click', () => {
-    const code = sessionStorage.getItem(STORAGE_KEY);
+    const code = getCode();
     if (code) loadSubmissions(code);
   });
 
@@ -346,7 +526,7 @@
 
   searchInput.addEventListener('input', render);
 
-  const savedCode = sessionStorage.getItem(STORAGE_KEY);
+  const savedCode = getCode();
   if (savedCode) {
     unlock(savedCode);
   }
