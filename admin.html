@@ -203,17 +203,8 @@
 
   function shortenPlan(plan) {
     if (!plan) return plan;
-    const map = {
-      'MPV 1 — Mise au point essentielle (35 $ sans taxes)': 'MPV 1 — Essentielle',
-      'MPV 2 — Entretien transmission (65 $ sans taxes)': 'MPV 2 — Transmission',
-      'MPV 3 — Inspection approfondie (85 $ sans taxes)': 'MPV 3 — Inspection',
-      'MPV 4 — Entretien complet (135 $ sans taxes)': 'MPV 4 — Entretien complet',
-      'MPV 5 — Remise à neuf (160 $ sans taxes)': 'MPV 5 — Remise à neuf',
-      'Personnalisé — voir description': 'Personnalisé',
-    };
-    if (map[plan]) return map[plan];
-    const m = plan.match(/^(MPV\s*\d+)\s*—\s*([^(]+)/i);
-    if (m) return (m[1] + ' — ' + m[2].replace(/^Mise au point\s*/i, '').trim());
+    const m = plan.match(/^MPV\s*\d+/i);
+    if (m) return m[0].replace(/\s+/, ' ');
     if (/^Personnalisé/i.test(plan)) return 'Personnalisé';
     return plan;
   }
