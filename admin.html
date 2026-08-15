@@ -18,6 +18,7 @@
   .gate .logo-dot { width:44px; height:44px; border-radius:50%; background:var(--lime); display:flex; align-items:center; justify-content:center; font-weight:800; color:var(--dark); font-size:18px; margin-bottom:6px; }
   .gate h1 { font-size:18px; margin:0; font-weight:600; }
   .gate p { font-size:13px; color:#aaa; margin:0 0 10px; }
+  .gate form { display:flex; flex-direction:column; gap:16px; align-items:center; }
   .gate input { font-size:18px; padding:14px 16px; border:1px solid #333; border-radius:12px; width:min(280px,80vw); text-align:center; letter-spacing:3px; background:#1c1c1a; color:#fff; }
   .gate input:focus { outline:2px solid var(--lime); }
   .gate button { font-size:15px; padding:14px 26px; border:none; border-radius:12px; background:var(--lime); color:var(--dark); cursor:pointer; font-weight:700; width:min(280px,80vw); }
@@ -108,7 +109,7 @@
   <div class="logo-dot">W3R</div>
   <h1>Zone administrateur</h1>
   <p>Entre ton code d'accès pour voir les demandes</p>
-  <form id="gateForm" autocomplete="off">
+  <form id="gateForm" autocomplete="off" onsubmit="return false">
     <input type="text" inputmode="numeric" pattern="[0-9]*" autocapitalize="off" autocorrect="off" spellcheck="false" id="codeInput" placeholder="Code d'accès" autocomplete="one-time-code" />
     <button id="unlockBtn" type="submit">Déverrouiller</button>
   </form>
