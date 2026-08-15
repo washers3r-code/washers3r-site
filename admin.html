@@ -482,10 +482,14 @@ window.addEventListener('error', function (e) {
 
   function loadSubmissions(code) {
     statusLine.textContent = 'Chargement...';
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 12000);
     return fetch('/.netlify/functions/get-submissions', {
       headers: { 'x-admin-code': code },
+      signal: controller.signal,
     })
       .then((res) => {
+        clearTimeout(timeoutId);
         if (res.status === 401) throw new Error('unauthorized');
         if (!res.ok) throw new Error('server-error');
         return res.json();
@@ -494,14 +498,23 @@ window.addEventListener('error', function (e) {
         allSubmissions = data;
         statusLine.textContent = data.length + ' demande(s) · maj ' + new Date().toLocaleTimeString('fr-CA', { timeStyle: 'short' });
         render();
+      })
+      .catch((err) => {
+        clearTimeout(timeoutId);
+        if (err.name === 'AbortError') throw new Error('timeout');
+        throw err;
       });
   }
 
   function unlock(code) {
     gateError.textContent = '';
+    gateError.style.color = '';
+    gateError.textContent = 'Connexion en cours...';
     unlockBtn.disabled = true;
+    unlockBtn.textContent = 'Connexion...';
     loadSubmissions(code)
       .then(() => {
+        gateError.textContent = '';
         sessionStorage.setItem(STORAGE_KEY, code);
         gate.classList.add('hidden');
         adminApp.classList.remove('hidden');
@@ -509,12 +522,15 @@ window.addEventListener('error', function (e) {
       .catch((err) => {
         if (err.message === 'unauthorized') {
           gateError.textContent = 'Code incorrect.';
+        } else if (err.message === 'timeout') {
+          gateError.textContent = 'Ça prend trop de temps (réseau lent ou bloqué). Réessaie.';
         } else {
-          gateError.textContent = 'Erreur serveur. Réessaie plus tard.';
+          gateError.textContent = 'Erreur serveur: ' + err.message;
         }
       })
       .finally(() => {
         unlockBtn.disabled = false;
+        unlockBtn.textContent = 'Déverrouiller';
       });
   }
 
