@@ -108,8 +108,10 @@
   <div class="logo-dot">W3R</div>
   <h1>Zone administrateur</h1>
   <p>Entre ton code d'accès pour voir les demandes</p>
-  <input type="password" inputmode="numeric" id="codeInput" placeholder="Code d'accès" autocomplete="off" />
-  <button id="unlockBtn" type="button">Déverrouiller</button>
+  <form id="gateForm" autocomplete="off">
+    <input type="text" inputmode="numeric" pattern="[0-9]*" autocapitalize="off" autocorrect="off" spellcheck="false" id="codeInput" placeholder="Code d'accès" autocomplete="one-time-code" />
+    <button id="unlockBtn" type="submit">Déverrouiller</button>
+  </form>
   <p class="error" id="gateError"></p>
 </div>
 
@@ -148,6 +150,10 @@
 </div>
 
 <script>
+window.addEventListener('error', function (e) {
+  const el = document.getElementById('gateError');
+  if (el) el.textContent = 'Erreur: ' + e.message;
+});
 (function () {
   const STORAGE_KEY = 'w3r_admin_code';
   const gate = document.getElementById('gate');
@@ -511,14 +517,11 @@
       });
   }
 
-  unlockBtn.addEventListener('click', () => {
+  document.getElementById('gateForm').addEventListener('submit', (e) => {
+    e.preventDefault();
     const code = codeInput.value.trim();
     if (!code) return;
     unlock(code);
-  });
-
-  codeInput.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter') unlockBtn.click();
   });
 
   refreshBtn.addEventListener('click', () => {
