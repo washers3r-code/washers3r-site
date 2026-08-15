@@ -2,87 +2,129 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 <meta name="robots" content="noindex, nofollow" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="theme-color" content="#121210" />
 <title>Admin — Washers3R</title>
 <style>
-  :root { --lime:#c7f000; --dark:#121210; }
-  * { box-sizing:border-box; }
-  body { margin:0; font-family:'Helvetica Neue',Arial,sans-serif; background:#f6f6f4; color:#121210; }
-  .gate { min-height:100vh; display:flex; align-items:center; justify-content:center; flex-direction:column; gap:18px; padding:20px; }
-  .gate h1 { font-size:20px; margin:0; }
-  .gate input { font-size:16px; padding:12px 14px; border:1px solid #ccc; border-radius:8px; width:260px; text-align:center; letter-spacing:2px; }
-  .gate button { font-size:14px; padding:12px 22px; border:none; border-radius:8px; background:var(--dark); color:#fff; cursor:pointer; }
-  .gate button:hover { opacity:.85; }
-  .gate .error { color:#c0392b; font-size:13px; min-height:16px; }
+  :root { --lime:#c7f000; --dark:#121210; --bg:#f2f2ee; }
+  * { box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+  html, body { margin:0; height:100%; }
+  body { font-family:-apple-system,'Helvetica Neue',Arial,sans-serif; background:var(--bg); color:var(--dark); -webkit-font-smoothing:antialiased; }
+
+  .gate { min-height:100dvh; display:flex; align-items:center; justify-content:center; flex-direction:column; gap:16px; padding:24px; background:var(--dark); color:#fff; text-align:center; }
+  .gate .logo-dot { width:44px; height:44px; border-radius:50%; background:var(--lime); display:flex; align-items:center; justify-content:center; font-weight:800; color:var(--dark); font-size:18px; margin-bottom:6px; }
+  .gate h1 { font-size:18px; margin:0; font-weight:600; }
+  .gate p { font-size:13px; color:#aaa; margin:0 0 10px; }
+  .gate input { font-size:18px; padding:14px 16px; border:1px solid #333; border-radius:12px; width:min(280px,80vw); text-align:center; letter-spacing:3px; background:#1c1c1a; color:#fff; }
+  .gate input:focus { outline:2px solid var(--lime); }
+  .gate button { font-size:15px; padding:14px 26px; border:none; border-radius:12px; background:var(--lime); color:var(--dark); cursor:pointer; font-weight:700; width:min(280px,80vw); }
+  .gate button:active { transform:scale(.97); }
+  .gate button:disabled { opacity:.6; }
+  .gate .error { color:#ff8a7a; font-size:13px; min-height:16px; }
   .hidden { display:none !important; }
 
-  header.admin-top { background:var(--dark); color:#fff; padding:18px 24px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:10px; }
-  header.admin-top h1 { font-size:16px; margin:0; font-weight:600; }
-  header.admin-top .actions { display:flex; gap:10px; align-items:center; }
-  header.admin-top button, header.admin-top select, header.admin-top input[type="search"] {
-    font-size:13px; padding:8px 12px; border-radius:6px; border:1px solid rgba(255,255,255,.25); background:rgba(255,255,255,.08); color:#fff;
-  }
-  header.admin-top button { cursor:pointer; }
-  header.admin-top button:hover { background:rgba(255,255,255,.18); }
-  header.admin-top input[type="search"]::placeholder { color:#bbb; }
+  header.admin-top { position:sticky; top:0; z-index:10; background:var(--dark); color:#fff; padding:14px 16px; padding-top:max(14px, env(safe-area-inset-top)); }
+  .admin-top-row { display:flex; align-items:center; justify-content:space-between; gap:10px; margin-bottom:12px; }
+  .admin-top h1 { font-size:15px; margin:0; font-weight:700; letter-spacing:.2px; }
+  .admin-top .sub { font-size:11px; color:#9a9a92; margin-top:2px; }
+  .icon-btn { background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.15); color:#fff; width:36px; height:36px; border-radius:10px; display:flex; align-items:center; justify-content:center; font-size:15px; cursor:pointer; flex:none; }
+  .icon-btn:active { background:rgba(255,255,255,.2); }
+  .toolbar { display:flex; gap:8px; }
+  .toolbar input[type="search"] { flex:1; font-size:15px; padding:10px 14px; border-radius:10px; border:1px solid rgba(255,255,255,.15); background:rgba(255,255,255,.08); color:#fff; }
+  .toolbar input[type="search"]::placeholder { color:#8a8a82; }
 
-  main { padding:20px 24px 60px; max-width:1200px; margin:0 auto; }
-  .status-line { font-size:13px; color:#666; margin-bottom:14px; }
-  table { width:100%; border-collapse:collapse; background:#fff; border-radius:10px; overflow:hidden; box-shadow:0 1px 3px rgba(0,0,0,.08); }
-  thead { background:#eceae4; }
-  th, td { text-align:left; padding:10px 12px; font-size:13px; border-bottom:1px solid #eee; vertical-align:top; }
-  tbody tr:hover { background:#fafbe8; }
-  .tag { display:inline-block; font-size:11px; padding:3px 8px; border-radius:20px; font-weight:600; }
+  main { padding:16px 14px 60px; max-width:640px; margin:0 auto; }
+
+  .section { margin-bottom:24px; }
+  .section-head { display:flex; align-items:center; gap:8px; margin:0 4px 10px; }
+  .section-head h2 { font-size:13px; text-transform:uppercase; letter-spacing:.5px; margin:0; color:#666; font-weight:700; }
+  .section-count { font-size:11px; background:#e3e3dc; color:#666; padding:2px 8px; border-radius:10px; font-weight:700; }
+
+  .list { background:#fff; border-radius:14px; overflow:hidden; box-shadow:0 1px 2px rgba(0,0,0,.05); border:1px solid #ececE6; }
+  .row { display:flex; align-items:center; gap:12px; padding:13px 16px; cursor:pointer; border-bottom:1px solid #f1f1eb; }
+  .row:last-child { border-bottom:none; }
+  .row:active { background:#f7f7f1; }
+  .row-avatar { width:36px; height:36px; border-radius:50%; background:#eef1e6; color:#4a5a2c; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:13px; flex:none; }
+  .row-avatar.entreprise { background:#e4ecfb; color:#1c4e8c; }
+  .row-main { flex:1; min-width:0; }
+  .row-name { font-size:14.5px; font-weight:700; margin:0; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .row-sub { font-size:12px; color:#8b8b85; margin-top:1px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .row-chevron { color:#c4c4bb; font-size:16px; flex:none; }
+
+  .empty { text-align:center; padding:60px 20px; color:#999; font-size:14px; }
+  .empty .big { font-size:32px; display:block; margin-bottom:10px; }
+
+  /* Detail overlay */
+  .overlay { position:fixed; inset:0; background:var(--bg); z-index:50; display:flex; flex-direction:column; transform:translateX(100%); transition:transform .28s ease; }
+  .overlay.show { transform:translateX(0); }
+  .overlay-top { background:var(--dark); color:#fff; padding:14px 16px; padding-top:max(14px, env(safe-area-inset-top)); display:flex; align-items:center; gap:12px; }
+  .overlay-back { background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.15); color:#fff; width:36px; height:36px; border-radius:10px; display:flex; align-items:center; justify-content:center; font-size:17px; cursor:pointer; flex:none; }
+  .overlay-top h2 { font-size:15px; margin:0; font-weight:700; }
+  .overlay-body { flex:1; overflow-y:auto; padding:18px 16px 60px; -webkit-overflow-scrolling:touch; }
+
+  .detail-hero { background:#fff; border-radius:14px; padding:18px; margin-bottom:14px; border:1px solid #ececE6; }
+  .detail-hero .name { font-size:19px; font-weight:800; margin:0 0 4px; }
+  .detail-hero .received { font-size:12px; color:#9a9a92; }
+  .tag { display:inline-block; font-size:10.5px; padding:4px 10px; border-radius:20px; font-weight:700; letter-spacing:.2px; white-space:nowrap; margin-top:10px; }
   .tag-reservation { background:#e4f3d8; color:#3a6b1f; }
   .tag-entreprise { background:#dbe8fb; color:#1c4e8c; }
-  .empty { text-align:center; padding:40px 20px; color:#888; }
-  .details-btn { background:none; border:1px solid #ccc; border-radius:6px; padding:4px 8px; font-size:12px; cursor:pointer; }
-  .row-details { display:none; background:#fcfcf8; }
-  .row-details.show { display:table-row; }
-  .row-details td { white-space:pre-wrap; font-size:12px; color:#333; }
+
+  .detail-actions { display:flex; gap:8px; margin-top:16px; }
+  .pill-btn { flex:1; text-align:center; font-size:13px; padding:11px 10px; border-radius:10px; border:1px solid #ddd; background:#fafaf8; color:#333; cursor:pointer; text-decoration:none; font-weight:600; }
+  .pill-btn:active { background:#f0f0ea; }
+  .pill-btn.primary { background:var(--dark); color:#fff; border-color:var(--dark); }
+
+  .detail-fields { background:#fff; border-radius:14px; border:1px solid #ececE6; overflow:hidden; }
+  .detail-field { padding:12px 16px; border-bottom:1px solid #f1f1eb; }
+  .detail-field:last-child { border-bottom:none; }
+  .detail-field b { display:block; color:#9a9a92; font-weight:600; font-size:10.5px; text-transform:uppercase; letter-spacing:.4px; margin-bottom:3px; }
+  .detail-field span { font-size:14.5px; color:#222; white-space:pre-wrap; word-break:break-word; }
+
+  @media (min-width:600px) {
+    main { max-width:760px; }
+    .overlay { max-width:520px; left:auto; right:0; box-shadow:-4px 0 24px rgba(0,0,0,.15); }
+  }
 </style>
 </head>
 <body>
 
 <div class="gate" id="gate">
-  <h1>Zone administrateur — Washers3R</h1>
-  <input type="password" id="codeInput" placeholder="Code d'accès" autocomplete="off" />
+  <div class="logo-dot">W3R</div>
+  <h1>Zone administrateur</h1>
+  <p>Entre ton code d'accès pour voir les demandes</p>
+  <input type="password" inputmode="numeric" id="codeInput" placeholder="Code d'accès" autocomplete="off" />
   <button id="unlockBtn" type="button">Déverrouiller</button>
   <p class="error" id="gateError"></p>
 </div>
 
 <div id="adminApp" class="hidden">
   <header class="admin-top">
-    <h1>Historique des demandes — Washers3R</h1>
-    <div class="actions">
-      <input type="search" id="search" placeholder="Rechercher (nom, courriel...)" />
-      <select id="filterForm">
-        <option value="">Tous les formulaires</option>
-        <option value="reservation">Réservations</option>
-        <option value="entreprise">Entreprises</option>
-      </select>
-      <button id="refreshBtn" type="button">Rafraîchir</button>
-      <button id="lockBtn" type="button">Verrouiller</button>
+    <div class="admin-top-row">
+      <div>
+        <h1>Demandes reçues</h1>
+        <div class="sub" id="statusLine">Chargement...</div>
+      </div>
+      <div style="display:flex; gap:8px;">
+        <button class="icon-btn" id="refreshBtn" type="button" aria-label="Rafraîchir">&#8635;</button>
+        <button class="icon-btn" id="lockBtn" type="button" aria-label="Verrouiller">&#128274;</button>
+      </div>
+    </div>
+    <div class="toolbar">
+      <input type="search" id="search" placeholder="Rechercher un nom, une entreprise..." />
     </div>
   </header>
-  <main>
-    <p class="status-line" id="statusLine"></p>
-    <table>
-      <thead>
-        <tr>
-          <th>Reçu le</th>
-          <th>Type</th>
-          <th>Nom</th>
-          <th>Forfait</th>
-          <th>Date souhaitée</th>
-          <th>Téléphone</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody id="tableBody"></tbody>
-    </table>
-  </main>
+  <main id="sections"></main>
+</div>
+
+<div class="overlay" id="overlay">
+  <div class="overlay-top">
+    <button class="overlay-back" id="overlayBack" type="button" aria-label="Retour">&#8592;</button>
+    <h2>Détails de la demande</h2>
+  </div>
+  <div class="overlay-body" id="overlayBody"></div>
 </div>
 
 <script>
@@ -94,13 +136,28 @@
   const unlockBtn = document.getElementById('unlockBtn');
   const adminApp = document.getElementById('adminApp');
   const statusLine = document.getElementById('statusLine');
-  const tableBody = document.getElementById('tableBody');
+  const sectionsEl = document.getElementById('sections');
   const refreshBtn = document.getElementById('refreshBtn');
   const lockBtn = document.getElementById('lockBtn');
   const searchInput = document.getElementById('search');
-  const filterForm = document.getElementById('filterForm');
+  const overlay = document.getElementById('overlay');
+  const overlayBody = document.getElementById('overlayBody');
+  const overlayBack = document.getElementById('overlayBack');
 
   let allSubmissions = [];
+
+  const FIELD_LABELS = {
+    company: 'Entreprise',
+    name: 'Nom',
+    email: 'Courriel',
+    phone: 'Téléphone',
+    address: 'Adresse',
+    plan: 'Forfait',
+    date: 'Date souhaitée',
+    note: 'Détails / notes',
+    'bike-count': 'Nombre de vélos',
+    'custom-desc': 'Description personnalisée',
+  };
 
   function formatDate(iso) {
     try {
@@ -119,55 +176,109 @@
     }
   }
 
-  function render() {
-    const q = searchInput.value.trim().toLowerCase();
-    const formFilter = filterForm.value;
-    const filtered = allSubmissions.filter((s) => {
-      if (formFilter && s.form !== formFilter) return false;
-      if (!q) return true;
-      const haystack = JSON.stringify(s.data).toLowerCase();
-      return haystack.includes(q);
+  function escapeHtml(str) {
+    return String(str).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+  }
+
+  function initials(name) {
+    const parts = String(name).trim().split(/\s+/).filter(Boolean);
+    if (parts.length === 0) return '?';
+    return (parts[0][0] + (parts[1] ? parts[1][0] : '')).toUpperCase();
+  }
+
+  function openDetail(s) {
+    const d = s.data || {};
+    const name = d.name || d.company || '—';
+    const plan = d.plan || (s.form === 'entreprise' ? (d['bike-count'] ? d['bike-count'] + ' vélo(s) — soumission' : 'Soumission entreprise') : '—');
+    const requestedDate = formatRequestedDate(d.date);
+    const phone = d.phone || '';
+    const email = d.email || '';
+    const tagClass = s.form === 'entreprise' ? 'tag-entreprise' : 'tag-reservation';
+    const tagLabel = s.form === 'entreprise' ? 'Entreprise' : 'Réservation';
+
+    let fieldsHtml = '';
+    const skip = new Set(['form-name', 'submission-id', 'bot-field', 'name', 'company']);
+    Object.keys(d).forEach((key) => {
+      if (skip.has(key)) return;
+      const value = d[key];
+      if (!value) return;
+      const label = FIELD_LABELS[key] || key;
+      const display = key === 'date' ? requestedDate : value;
+      fieldsHtml += '<div class="detail-field"><b>' + escapeHtml(label) + '</b><span>' + escapeHtml(display) + '</span></div>';
     });
 
-    tableBody.innerHTML = '';
+    overlayBody.innerHTML =
+      '<div class="detail-hero">' +
+        '<p class="name">' + escapeHtml(name) + '</p>' +
+        '<div class="received">Reçu le ' + formatDate(s.created_at) + '</div>' +
+        '<span class="tag ' + tagClass + '">' + tagLabel + '</span>' +
+        '<div class="detail-actions">' +
+          (phone ? '<a class="pill-btn primary" href="tel:' + escapeHtml(phone) + '">📞 Appeler</a>' : '') +
+          (email ? '<a class="pill-btn" href="mailto:' + escapeHtml(email) + '">✉️ Courriel</a>' : '') +
+        '</div>' +
+      '</div>' +
+      '<div class="detail-fields">' + fieldsHtml + '</div>';
+
+    overlay.classList.add('show');
+  }
+
+  overlayBack.addEventListener('click', () => overlay.classList.remove('show'));
+
+  function render() {
+    const q = searchInput.value.trim().toLowerCase();
+    const filtered = allSubmissions.filter((s) => {
+      if (!q) return true;
+      return JSON.stringify(s.data).toLowerCase().includes(q);
+    });
+
+    sectionsEl.innerHTML = '';
 
     if (filtered.length === 0) {
-      tableBody.innerHTML = '<tr><td colspan="7" class="empty">Aucune demande trouvée.</td></tr>';
+      sectionsEl.innerHTML = '<div class="empty"><span class="big">📭</span>Aucune demande trouvée.</div>';
       return;
     }
 
-    filtered.forEach((s) => {
-      const d = s.data || {};
-      const name = d.name || d.company || '—';
-      const plan = d.plan || (s.form === 'entreprise' ? (d['bike-count'] ? d['bike-count'] + ' vélo(s) — soumission' : 'Soumission entreprise') : '—');
-      const requestedDate = formatRequestedDate(d.date);
-      const phone = d.phone || '—';
-      const tagClass = s.form === 'entreprise' ? 'tag-entreprise' : 'tag-reservation';
-      const tagLabel = s.form === 'entreprise' ? 'Entreprise' : 'Réservation';
+    const groups = [
+      { key: 'reservation', label: 'Réservations' },
+      { key: 'entreprise', label: 'Entreprises' },
+    ];
 
-      const tr = document.createElement('tr');
-      tr.innerHTML =
-        '<td>' + formatDate(s.created_at) + '</td>' +
-        '<td><span class="tag ' + tagClass + '">' + tagLabel + '</span></td>' +
-        '<td>' + name + '</td>' +
-        '<td>' + plan + '</td>' +
-        '<td>' + requestedDate + '</td>' +
-        '<td>' + phone + '</td>' +
-        '<td><button class="details-btn" type="button">Détails</button></td>';
+    groups.forEach((group) => {
+      const items = filtered.filter((s) => s.form === group.key);
+      if (items.length === 0) return;
 
-      const detailsRow = document.createElement('tr');
-      detailsRow.className = 'row-details';
-      const detailsTd = document.createElement('td');
-      detailsTd.colSpan = 7;
-      detailsTd.textContent = JSON.stringify(d, null, 2);
-      detailsRow.appendChild(detailsTd);
+      const section = document.createElement('div');
+      section.className = 'section';
 
-      tr.querySelector('.details-btn').addEventListener('click', () => {
-        detailsRow.classList.toggle('show');
+      const head = document.createElement('div');
+      head.className = 'section-head';
+      head.innerHTML = '<h2>' + group.label + '</h2><span class="section-count">' + items.length + '</span>';
+      section.appendChild(head);
+
+      const list = document.createElement('div');
+      list.className = 'list';
+
+      items.forEach((s) => {
+        const d = s.data || {};
+        const name = d.name || d.company || '—';
+        const plan = d.plan || (s.form === 'entreprise' ? (d['bike-count'] ? d['bike-count'] + ' vélo(s)' : 'Soumission') : '');
+
+        const row = document.createElement('div');
+        row.className = 'row';
+        row.innerHTML =
+          '<div class="row-avatar' + (s.form === 'entreprise' ? ' entreprise' : '') + '">' + initials(name) + '</div>' +
+          '<div class="row-main">' +
+            '<p class="row-name">' + escapeHtml(name) + '</p>' +
+            '<div class="row-sub">' + escapeHtml(plan) + '</div>' +
+          '</div>' +
+          '<span class="row-chevron">›</span>';
+
+        row.addEventListener('click', () => openDetail(s));
+        list.appendChild(row);
       });
 
-      tableBody.appendChild(tr);
-      tableBody.appendChild(detailsRow);
+      section.appendChild(list);
+      sectionsEl.appendChild(section);
     });
   }
 
@@ -183,7 +294,7 @@
       })
       .then((data) => {
         allSubmissions = data;
-        statusLine.textContent = data.length + ' demande(s) au total. Dernière mise à jour : ' + new Date().toLocaleTimeString('fr-CA');
+        statusLine.textContent = data.length + ' demande(s) · maj ' + new Date().toLocaleTimeString('fr-CA', { timeStyle: 'short' });
         render();
       });
   }
@@ -230,10 +341,10 @@
     gate.classList.remove('hidden');
     codeInput.value = '';
     codeInput.focus();
+    overlay.classList.remove('show');
   });
 
   searchInput.addEventListener('input', render);
-  filterForm.addEventListener('change', render);
 
   const savedCode = sessionStorage.getItem(STORAGE_KEY);
   if (savedCode) {
