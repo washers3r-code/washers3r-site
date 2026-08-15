@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Admin — Washers3R</title>
+<style>
+  :root { --lime:#c7f000; --dark:#121210; }
+  * { box-sizing:border-box; }
+  body { margin:0; font-family:'Helvetica Neue',Arial,sans-serif; background:#f6f6f4; color:#121210; }
+  .gate { min-height:100vh; display:flex; align-items:center; justify-content:center; flex-direction:column; gap:18px; padding:20px; }
+  .gate h1 { font-size:20px; margin:0; }
+  .gate input { font-size:16px; padding:12px 14px; border:1px solid #ccc; border-radius:8px; width:260px; text-align:center; letter-spacing:2px; }
+  .gate button { font-size:14px; padding:12px 22px; border:none; border-radius:8px; background:var(--dark); color:#fff; cursor:pointer; }
+  .gate button:hover { opacity:.85; }
+  .gate .error { color:#c0392b; font-size:13px; min-height:16px; }
+  .hidden { display:none !important; }
+
+  header.admin-top { background:var(--dark); color:#fff; padding:18px 24px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:10px; }
+  header.admin-top h1 { font-size:16px; margin:0; font-weight:600; }
+  header.admin-top .actions { display:flex; gap:10px; align-items:center; }
+  header.admin-top button, header.admin-top select, header.admin-top input[type="search"] {
+    font-size:13px; padding:8px 12px; border-radius:6px; border:1px solid rgba(255,255,255,.25); background:rgba(255,255,255,.08); color:#fff;
+  }
+  header.admin-top button { cursor:pointer; }
+  header.admin-top button:hover { background:rgba(255,255,255,.18); }
+  header.admin-top input[type="search"]::placeholder { color:#bbb; }
+
+  main { padding:20px 24px 60px; max-width:1200px; margin:0 auto; }
+  .status-line { font-size:13px; color:#666; margin-bottom:14px; }
+  table { width:100%; border-collapse:collapse; background:#fff; border-radius:10px; overflow:hidden; box-shadow:0 1px 3px rgba(0,0,0,.08); }
+  thead { background:#eceae4; }
+  th, td { text-align:left; padding:10px 12px; font-size:13px; border-bottom:1px solid #eee; vertical-align:top; }
+  tbody tr:hover { background:#fafbe8; }
+  .tag { display:inline-block; font-size:11px; padding:3px 8px; border-radius:20px; font-weight:600; }
+  .tag-reservation { background:#e4f3d8; color:#3a6b1f; }
+  .tag-entreprise { background:#dbe8fb; color:#1c4e8c; }
+  .empty { text-align:center; padding:40px 20px; color:#888; }
+  .details-btn { background:none; border:1px solid #ccc; border-radius:6px; padding:4px 8px; font-size:12px; cursor:pointer; }
+  .row-details { display:none; background:#fcfcf8; }
+  .row-details.show { display:table-row; }
+  .row-details td { white-space:pre-wrap; font-size:12px; color:#333; }
+</style>
+</head>
+<body>
+
+<div class="gate" id="gate">
+  <h1>Zone administrateur — Washers3R</h1>
+  <input type="password" id="codeInput" placeholder="Code d'accès" autocomplete="off" />
+  <button id="unlockBtn" type="button">Déverrouiller</button>
+  <p class="error" id="gateError"></p>
+</div>
+
+<div id="adminApp" class="hidden">
+  <header class="admin-top">
+    <h1>Historique des demandes — Washers3R</h1>
+    <div class="actions">
+      <input type="search" id="search" placeholder="Rechercher (nom, courriel...)" />
+      <select id="filterForm">
+        <option value="">Tous les formulaires</option>
+        <option value="reservation">Réservations</option>
+        <option value="entreprise">Entreprises</option>
+      </select>
+      <button id="refreshBtn" type="button">Rafraîchir</button>
+      <button id="lockBtn" type="button">Verrouiller</button>
+    </div>
+  </header>
+  <main>
+    <p class="status-line" id="statusLine"></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Type</th>
+          <th>Nom</th>
+          <th>Courriel</th>
+          <th>Téléphone</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody id="tableBody"></tbody>
+    </table>
+  </main>
+</div>
+
+<script>
+(function () {
+  const STORAGE_KEY = 'w3r_admin_code';
+  const gate = document.getElementById('gate');
+  const gateError = document.getElementById('gateError');
+  const codeInput = document.getElementById('codeInput');
+  const unlockBtn = document.getElementById('unlockBtn');
+  const adminApp = document.getElementById('adminApp');
+  const statusLine = document.getElementById('statusLine');
+  const tableBody = document.getElementById('tableBody');
+  const refreshBtn = document.getElementById('refreshBtn');
+  const lockBtn = document.getElementById('lockBtn');
+  const searchInput = document.getElementById('search');
+  const filterForm = document.getElementById('filterForm');
+
+  let allSubmissions = [];
+
+  function formatDate(iso) {
+    try {
+      return new Date(iso).toLocaleString('fr-CA', { dateStyle: 'medium', timeStyle: 'short' });
+    } catch (e) {
+      return iso;
+    }
+  }
+
+  function render() {
+    const q = searchInput.value.trim().toLowerCase();
+    const formFilter = filterForm.value;
+    const filtered = allSubmissions.filter((s) => {
+      if (formFilter && s.form !== formFilter) return false;
+      if (!q) return true;
+      const haystack = JSON.stringify(s.data).toLowerCase();
+      return haystack.includes(q);
+    });
+
+    tableBody.innerHTML = '';
+
+    if (filtered.length === 0) {
+      tableBody.innerHTML = '<tr><td colspan="6" class="empty">Aucune demande trouvée.</td></tr>';
+      return;
+    }
+
+    filtered.forEach((s) => {
+      const d = s.data || {};
+      const name = d.name || d.company || '—';
+      const email = d.email || '—';
+      const phone = d.phone || '—';
+      const tagClass = s.form === 'entreprise' ? 'tag-entreprise' : 'tag-reservation';
+      const tagLabel = s.form === 'entreprise' ? 'Entreprise' : 'Réservation';
+
+      const tr = document.createElement('tr');
+      tr.innerHTML =
+        '<td>' + formatDate(s.created_at) + '</td>' +
+        '<td><span class="tag ' + tagClass + '">' + tagLabel + '</span></td>' +
+        '<td>' + name + '</td>' +
+        '<td>' + email + '</td>' +
+        '<td>' + phone + '</td>' +
+        '<td><button class="details-btn" type="button">Détails</button></td>';
+
+      const detailsRow = document.createElement('tr');
+      detailsRow.className = 'row-details';
+      const detailsTd = document.createElement('td');
+      detailsTd.colSpan = 6;
+      detailsTd.textContent = JSON.stringify(d, null, 2);
+      detailsRow.appendChild(detailsTd);
+
+      tr.querySelector('.details-btn').addEventListener('click', () => {
+        detailsRow.classList.toggle('show');
+      });
+
+      tableBody.appendChild(tr);
+      tableBody.appendChild(detailsRow);
+    });
+  }
+
+  function loadSubmissions(code) {
+    statusLine.textContent = 'Chargement...';
+    return fetch('/.netlify/functions/get-submissions', {
+      headers: { 'x-admin-code': code },
+    })
+      .then((res) => {
+        if (res.status === 401) throw new Error('unauthorized');
+        if (!res.ok) throw new Error('server-error');
+        return res.json();
+      })
+      .then((data) => {
+        allSubmissions = data;
+        statusLine.textContent = data.length + ' demande(s) au total. Dernière mise à jour : ' + new Date().toLocaleTimeString('fr-CA');
+        render();
+      });
+  }
+
+  function unlock(code) {
+    gateError.textContent = '';
+    unlockBtn.disabled = true;
+    loadSubmissions(code)
+      .then(() => {
+        sessionStorage.setItem(STORAGE_KEY, code);
+        gate.classList.add('hidden');
+        adminApp.classList.remove('hidden');
+      })
+      .catch((err) => {
+        if (err.message === 'unauthorized') {
+          gateError.textContent = 'Code incorrect.';
+        } else {
+          gateError.textContent = 'Erreur serveur. Réessaie plus tard.';
+        }
+      })
+      .finally(() => {
+        unlockBtn.disabled = false;
+      });
+  }
+
+  unlockBtn.addEventListener('click', () => {
+    const code = codeInput.value.trim();
+    if (!code) return;
+    unlock(code);
+  });
+
+  codeInput.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') unlockBtn.click();
+  });
+
+  refreshBtn.addEventListener('click', () => {
+    const code = sessionStorage.getItem(STORAGE_KEY);
+    if (code) loadSubmissions(code);
+  });
+
+  lockBtn.addEventListener('click', () => {
+    sessionStorage.removeItem(STORAGE_KEY);
+    adminApp.classList.add('hidden');
+    gate.classList.remove('hidden');
+    codeInput.value = '';
+    codeInput.focus();
+  });
+
+  searchInput.addEventListener('input', render);
+  filterForm.addEventListener('change', render);
+
+  const savedCode = sessionStorage.getItem(STORAGE_KEY);
+  if (savedCode) {
+    unlock(savedCode);
+  }
+})();
+</script>
+</body>
+</html>
