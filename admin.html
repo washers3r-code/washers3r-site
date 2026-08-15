@@ -9,19 +9,19 @@
 <meta name="theme-color" content="#121210" />
 <title>Admin — Washers3R</title>
 <style>
-  :root { --lime:#c7f000; --dark:#121210; --bg:#f2f2ee; }
+  :root { --gold:#d4a653; --dark:#121210; --bg:#f4f0e8; --muted:#736a5d; }
   * { box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
   html, body { margin:0; height:100%; }
   body { font-family:-apple-system,'Helvetica Neue',Arial,sans-serif; background:var(--bg); color:var(--dark); -webkit-font-smoothing:antialiased; }
 
   .gate { min-height:100dvh; display:flex; align-items:center; justify-content:center; flex-direction:column; gap:16px; padding:24px; background:var(--dark); color:#fff; text-align:center; }
-  .gate .logo-dot { width:44px; height:44px; border-radius:50%; background:var(--lime); display:flex; align-items:center; justify-content:center; font-weight:800; color:var(--dark); font-size:18px; margin-bottom:6px; }
+  .gate .logo-dot { width:44px; height:44px; border-radius:50%; background:var(--gold); display:flex; align-items:center; justify-content:center; font-weight:800; color:var(--dark); font-size:18px; margin-bottom:6px; }
   .gate h1 { font-size:18px; margin:0; font-weight:600; }
   .gate p { font-size:13px; color:#aaa; margin:0 0 10px; }
   .gate form { display:flex; flex-direction:column; gap:16px; align-items:center; }
   .gate input { font-size:18px; padding:14px 16px; border:1px solid #333; border-radius:12px; width:min(280px,80vw); text-align:center; letter-spacing:3px; background:#1c1c1a; color:#fff; }
-  .gate input:focus { outline:2px solid var(--lime); }
-  .gate button { font-size:15px; padding:14px 26px; border:none; border-radius:12px; background:var(--lime); color:var(--dark); cursor:pointer; font-weight:700; width:min(280px,80vw); }
+  .gate input:focus { outline:2px solid var(--gold); }
+  .gate button { font-size:15px; padding:14px 26px; border:none; border-radius:12px; background:var(--gold); color:var(--dark); cursor:pointer; font-weight:700; width:min(280px,80vw); }
   .gate button:active { transform:scale(.97); }
   .gate button:disabled { opacity:.6; }
   .gate .error { color:#ff8a7a; font-size:13px; min-height:16px; }
@@ -39,26 +39,26 @@
 
   .tabbar { display:flex; gap:6px; background:rgba(255,255,255,.06); border-radius:10px; padding:4px; }
   .tabbar button { flex:1; border:none; background:transparent; color:#bbb; font-size:13px; font-weight:600; padding:8px 10px; border-radius:8px; cursor:pointer; }
-  .tabbar button.active { background:var(--lime); color:var(--dark); }
+  .tabbar button.active { background:var(--gold); color:var(--dark); }
 
   main { padding:16px 14px 60px; max-width:640px; margin:0 auto; }
 
   .section { margin-bottom:24px; }
   .section-head { display:flex; align-items:center; gap:8px; margin:0 4px 10px; }
-  .section-head h2 { font-size:13px; text-transform:uppercase; letter-spacing:.5px; margin:0; color:#666; font-weight:700; }
-  .section-count { font-size:11px; background:#e3e3dc; color:#666; padding:2px 8px; border-radius:10px; font-weight:700; }
+  .section-head h2 { font-size:13px; text-transform:uppercase; letter-spacing:.5px; margin:0; color:var(--muted); font-weight:700; }
+  .section-count { font-size:11px; background:#e9e2d3; color:var(--muted); padding:2px 8px; border-radius:10px; font-weight:700; }
 
-  .list { background:#fff; border-radius:14px; overflow:hidden; box-shadow:0 1px 2px rgba(0,0,0,.05); border:1px solid #ececE6; }
-  .row { display:flex; align-items:center; gap:12px; padding:13px 16px; cursor:pointer; border-bottom:1px solid #f1f1eb; }
+  .list { background:#fff; border-radius:14px; overflow:hidden; box-shadow:0 1px 2px rgba(0,0,0,.05); border:1px solid #ece6d8; }
+  .row { display:flex; align-items:center; gap:12px; padding:13px 16px; cursor:pointer; border-bottom:1px solid #f1ece0; }
   .row:last-child { border-bottom:none; }
-  .row:active { background:#f7f7f1; }
-  .row-avatar { width:36px; height:36px; border-radius:50%; background:#eef1e6; color:#4a5a2c; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:13px; flex:none; }
+  .row:active { background:#f7f4ec; }
+  .row-avatar { width:36px; height:36px; border-radius:50%; background:#f1e6cf; color:#8a642a; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:13px; flex:none; }
   .row-avatar.entreprise { background:#e4ecfb; color:#1c4e8c; }
   .row-main { flex:1; min-width:0; }
   .row-name { font-size:14.5px; font-weight:700; margin:0; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
-  .row-sub { font-size:12px; color:#8b8b85; margin-top:1px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
-  .row-chevron { color:#c4c4bb; font-size:16px; flex:none; }
-  .row-count { font-size:11px; background:#eef1e6; color:#4a5a2c; padding:3px 9px; border-radius:20px; font-weight:700; flex:none; }
+  .row-sub { font-size:12px; color:#8b8378; margin-top:1px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .row-chevron { color:#c9c0ac; font-size:16px; flex:none; }
+  .row-count { font-size:11px; background:#f1e6cf; color:#8a642a; padding:3px 9px; border-radius:20px; font-weight:700; flex:none; }
 
   .empty { text-align:center; padding:60px 20px; color:#999; font-size:14px; }
   .empty .big { font-size:32px; display:block; margin-bottom:10px; }
@@ -71,11 +71,11 @@
   .overlay-top h2 { font-size:15px; margin:0; font-weight:700; }
   .overlay-body { flex:1; overflow-y:auto; padding:18px 16px 60px; -webkit-overflow-scrolling:touch; }
 
-  .detail-hero { background:#fff; border-radius:14px; padding:18px; margin-bottom:14px; border:1px solid #ececE6; }
+  .detail-hero { background:#fff; border-radius:14px; padding:18px; margin-bottom:14px; border:1px solid #ece6d8; }
   .detail-hero .name { font-size:19px; font-weight:800; margin:0 0 4px; }
   .detail-hero .received { font-size:12px; color:#9a9a92; }
   .tag { display:inline-block; font-size:10.5px; padding:4px 10px; border-radius:20px; font-weight:700; letter-spacing:.2px; white-space:nowrap; margin-top:10px; }
-  .tag-reservation { background:#e4f3d8; color:#3a6b1f; }
+  .tag-reservation { background:#f1e6cf; color:#8a642a; }
   .tag-entreprise { background:#dbe8fb; color:#1c4e8c; }
 
   .detail-actions { display:flex; gap:8px; margin-top:16px; }
@@ -84,13 +84,13 @@
   .pill-btn.primary { background:var(--dark); color:#fff; border-color:var(--dark); }
   .pill-btn.danger { background:#fdecea; color:#c0392b; border-color:#f6c9c3; }
 
-  .detail-fields { background:#fff; border-radius:14px; border:1px solid #ececE6; overflow:hidden; margin-bottom:14px; }
-  .detail-field { padding:12px 16px; border-bottom:1px solid #f1f1eb; }
+  .detail-fields { background:#fff; border-radius:14px; border:1px solid #ece6d8; overflow:hidden; margin-bottom:14px; }
+  .detail-field { padding:12px 16px; border-bottom:1px solid #f1ece0; }
   .detail-field:last-child { border-bottom:none; }
   .detail-field b { display:block; color:#9a9a92; font-weight:600; font-size:10.5px; text-transform:uppercase; letter-spacing:.4px; margin-bottom:3px; }
   .detail-field span { font-size:14.5px; color:#222; white-space:pre-wrap; word-break:break-word; }
 
-  .history-row { display:flex; align-items:center; justify-content:space-between; gap:10px; padding:12px 16px; border-bottom:1px solid #f1f1eb; }
+  .history-row { display:flex; align-items:center; justify-content:space-between; gap:10px; padding:12px 16px; border-bottom:1px solid #f1ece0; }
   .history-row:last-child { border-bottom:none; }
   .history-main { flex:1; min-width:0; }
   .history-plan { font-size:13.5px; font-weight:600; margin:0; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
@@ -108,10 +108,10 @@
 <div class="gate" id="gate">
   <div class="logo-dot">W3R</div>
   <h1>Zone administrateur</h1>
-  <p>Entre ton code d'accès pour voir les demandes</p>
-  <form id="gateForm" autocomplete="off" onsubmit="return false">
-    <input type="text" inputmode="numeric" pattern="[0-9]*" autocapitalize="off" autocorrect="off" spellcheck="false" id="codeInput" placeholder="Code d'accès" autocomplete="one-time-code" />
-    <button id="unlockBtn" type="submit">Déverrouiller</button>
+  <p>Entre ton code d'acces pour voir les demandes</p>
+  <form id="gateForm" autocomplete="off">
+    <input type="text" inputmode="numeric" pattern="[0-9]*" autocapitalize="off" autocorrect="off" spellcheck="false" id="codeInput" placeholder="Code d'acces" autocomplete="one-time-code" />
+    <button id="unlockBtn" type="submit">Deverrouiller</button>
   </form>
   <p class="error" id="gateError"></p>
 </div>
@@ -120,11 +120,11 @@
   <header class="admin-top">
     <div class="admin-top-row">
       <div>
-        <h1 id="pageTitle">Demandes reçues</h1>
+        <h1 id="pageTitle">Demandes recues</h1>
         <div class="sub" id="statusLine">Chargement...</div>
       </div>
       <div style="display:flex; gap:8px;">
-        <button class="icon-btn" id="refreshBtn" type="button" aria-label="Rafraîchir">&#8635;</button>
+        <button class="icon-btn" id="refreshBtn" type="button" aria-label="Rafraichir">&#8635;</button>
         <button class="icon-btn" id="lockBtn" type="button" aria-label="Verrouiller">&#128274;</button>
       </div>
     </div>
@@ -145,64 +145,65 @@
 <div class="overlay" id="overlay">
   <div class="overlay-top">
     <button class="overlay-back" id="overlayBack" type="button" aria-label="Retour">&#8592;</button>
-    <h2 id="overlayTitle">Détails de la demande</h2>
+    <h2 id="overlayTitle">Details de la demande</h2>
   </div>
   <div class="overlay-body" id="overlayBody"></div>
 </div>
 
 <script>
-window.addEventListener('error', function (e) {
-  const el = document.getElementById('gateError');
-  if (el) el.textContent = 'Erreur: ' + e.message;
+window.addEventListener("error", function (e) {
+  var el = document.getElementById("gateError");
+  if (el) el.textContent = "Erreur: " + e.message;
 });
+
 (function () {
-  const STORAGE_KEY = 'w3r_admin_code';
-  const gate = document.getElementById('gate');
-  const gateError = document.getElementById('gateError');
-  const codeInput = document.getElementById('codeInput');
-  const unlockBtn = document.getElementById('unlockBtn');
-  const adminApp = document.getElementById('adminApp');
-  const statusLine = document.getElementById('statusLine');
-  const pageTitle = document.getElementById('pageTitle');
-  const sectionsEl = document.getElementById('sections');
-  const clientsListEl = document.getElementById('clientsList');
-  const refreshBtn = document.getElementById('refreshBtn');
-  const lockBtn = document.getElementById('lockBtn');
-  const searchInput = document.getElementById('search');
-  const overlay = document.getElementById('overlay');
-  const overlayBody = document.getElementById('overlayBody');
-  const overlayTitle = document.getElementById('overlayTitle');
-  const overlayBack = document.getElementById('overlayBack');
-  const tabButtons = document.querySelectorAll('.tabbar button');
+  var STORAGE_KEY = "w3r_admin_code";
+  var gate = document.getElementById("gate");
+  var gateError = document.getElementById("gateError");
+  var codeInput = document.getElementById("codeInput");
+  var unlockBtn = document.getElementById("unlockBtn");
+  var adminApp = document.getElementById("adminApp");
+  var statusLine = document.getElementById("statusLine");
+  var pageTitle = document.getElementById("pageTitle");
+  var sectionsEl = document.getElementById("sections");
+  var clientsListEl = document.getElementById("clientsList");
+  var refreshBtn = document.getElementById("refreshBtn");
+  var lockBtn = document.getElementById("lockBtn");
+  var searchInput = document.getElementById("search");
+  var overlay = document.getElementById("overlay");
+  var overlayBody = document.getElementById("overlayBody");
+  var overlayTitle = document.getElementById("overlayTitle");
+  var overlayBack = document.getElementById("overlayBack");
+  var tabButtons = document.querySelectorAll(".tabbar button");
 
-  let allSubmissions = [];
-  let activeTab = 'demandes';
+  var allSubmissions = [];
+  var activeTab = "demandes";
 
-  const FIELD_LABELS = {
-    company: 'Entreprise',
-    name: 'Nom',
-    email: 'Courriel',
-    phone: 'Téléphone',
-    address: 'Adresse',
-    plan: 'Forfait',
-    date: 'Date souhaitée',
-    note: 'Détails / notes',
-    'bike-count': 'Nombre de vélos',
-    'custom-desc': 'Description personnalisée',
+  var FIELD_LABELS = {
+    company: "Entreprise",
+    name: "Nom",
+    email: "Courriel",
+    phone: "Telephone",
+    address: "Adresse",
+    plan: "Forfait",
+    date: "Date souhaitee",
+    note: "Details / notes",
+    "bike-count": "Nombre de velos",
+    "custom-desc": "Description personnalisee"
   };
 
   function formatDate(iso) {
     try {
-      return new Date(iso).toLocaleString('fr-CA', { dateStyle: 'medium', timeStyle: 'short' });
+      return new Date(iso).toLocaleString("fr-CA", { dateStyle: "medium", timeStyle: "short" });
     } catch (e) {
       return iso;
     }
   }
 
   function formatRequestedDate(value) {
-    if (!value) return '—';
+    if (!value) return "-";
     try {
-      return new Date(value + 'T00:00:00').toLocaleDateString('fr-CA', { dateStyle: 'medium' });
+      return new Date(value + "T00:00:00").toLocaleDateString("fr-CA", { dateStyle: "medium" });
     } catch (e) {
       return value;
     }
@@ -210,25 +211,28 @@ window.addEventListener('error', function (e) {
 
   function shortenPlan(plan) {
     if (!plan) return plan;
-    const m = plan.match(/^MPV\s*\d+/i);
-    if (m) return m[0].replace(/\s+/, ' ');
-    if (/^Personnalisé/i.test(plan)) return 'Personnalisé';
+    var m = plan.match(/^MPV\s*\d+/i);
+    if (m) return m[0].replace(/\s+/, " ");
+    if (/^Personnalis/i.test(plan)) return "Personnalise";
     return plan;
   }
 
   function escapeHtml(str) {
-    return String(str).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+    return String(str).replace(/[&<>"']/g, function (c) {
+      var map = { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" };
+      return map[c];
+    });
   }
 
   function initials(name) {
-    const parts = String(name).trim().split(/\s+/).filter(Boolean);
-    if (parts.length === 0) return '?';
-    return (parts[0][0] + (parts[1] ? parts[1][0] : '')).toUpperCase();
+    var parts = String(name).trim().split(/\s+/).filter(Boolean);
+    if (parts.length === 0) return "?";
+    return (parts[0][0] + (parts[1] ? parts[1][0] : "")).toUpperCase();
   }
 
   function clientKeyFor(s) {
-    const d = s.data || {};
-    return (d.email || d.phone || d.name || d.company || 'inconnu').toLowerCase().trim();
+    var d = s.data || {};
+    return (d.email || d.phone || d.name || d.company || "inconnu").toLowerCase().trim();
   }
 
   function getCode() {
@@ -236,166 +240,166 @@ window.addEventListener('error', function (e) {
   }
 
   function deleteSubmission(id) {
-    const code = getCode();
-    return fetch('/.netlify/functions/delete-submission', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'x-admin-code': code },
-      body: JSON.stringify({ id }),
-    }).then((res) => {
-      if (!res.ok) throw new Error('delete-failed');
-      allSubmissions = allSubmissions.filter((s) => s.id !== id);
+    var code = getCode();
+    return fetch("/.netlify/functions/delete-submission", {
+      method: "POST",
+      headers: { "Content-Type": "application/json", "x-admin-code": code },
+      body: JSON.stringify({ id: id })
+    }).then(function (res) {
+      if (!res.ok) throw new Error("delete-failed");
+      allSubmissions = allSubmissions.filter(function (s) { return s.id !== id; });
     });
   }
 
   function openDetail(s) {
-    const d = s.data || {};
-    const name = d.name || d.company || '—';
-    const plan = d.plan || (s.form === 'entreprise' ? (d['bike-count'] ? d['bike-count'] + ' vélo(s) — soumission' : 'Soumission entreprise') : '—');
-    const requestedDate = formatRequestedDate(d.date);
-    const phone = d.phone || '';
-    const email = d.email || '';
-    const tagClass = s.form === 'entreprise' ? 'tag-entreprise' : 'tag-reservation';
-    const tagLabel = s.form === 'entreprise' ? 'Entreprise' : 'Réservation';
+    var d = s.data || {};
+    var name = d.name || d.company || "-";
+    var requestedDate = formatRequestedDate(d.date);
+    var phone = d.phone || "";
+    var email = d.email || "";
+    var tagClass = s.form === "entreprise" ? "tag-entreprise" : "tag-reservation";
+    var tagLabel = s.form === "entreprise" ? "Entreprise" : "Reservation";
 
-    let fieldsHtml = '';
-    const skip = new Set(['form-name', 'submission-id', 'bot-field', 'name', 'company']);
-    Object.keys(d).forEach((key) => {
-      if (skip.has(key)) return;
-      const value = d[key];
+    var fieldsHtml = "";
+    var skip = { "form-name": true, "submission-id": true, "bot-field": true, name: true, company: true };
+    Object.keys(d).forEach(function (key) {
+      if (skip[key]) return;
+      var value = d[key];
       if (!value) return;
-      const label = FIELD_LABELS[key] || key;
-      const display = key === 'date' ? requestedDate : (key === 'plan' ? shortenPlan(value) : value);
-      fieldsHtml += '<div class="detail-field"><b>' + escapeHtml(label) + '</b><span>' + escapeHtml(display) + '</span></div>';
+      var label = FIELD_LABELS[key] || key;
+      var display = key === "date" ? requestedDate : (key === "plan" ? shortenPlan(value) : value);
+      fieldsHtml += '<div class="detail-field"><b>' + escapeHtml(label) + "</b><span>" + escapeHtml(display) + "</span></div>";
     });
 
-    overlayTitle.textContent = 'Détails de la demande';
+    overlayTitle.textContent = "Details de la demande";
     overlayBody.innerHTML =
       '<div class="detail-hero">' +
-        '<p class="name">' + escapeHtml(name) + '</p>' +
-        '<div class="received">Reçu le ' + formatDate(s.created_at) + '</div>' +
-        '<span class="tag ' + tagClass + '">' + tagLabel + '</span>' +
+        '<p class="name">' + escapeHtml(name) + "</p>" +
+        '<div class="received">Recu le ' + formatDate(s.created_at) + "</div>" +
+        '<span class="tag ' + tagClass + '">' + tagLabel + "</span>" +
         '<div class="detail-actions">' +
-          (phone ? '<a class="pill-btn primary" href="tel:' + escapeHtml(phone) + '">📞 Appeler</a>' : '') +
-          (email ? '<a class="pill-btn" href="mailto:' + escapeHtml(email) + '">✉️ Courriel</a>' : '') +
-        '</div>' +
-      '</div>' +
-      '<div class="detail-fields">' + fieldsHtml + '</div>' +
-      '<button class="pill-btn danger" id="deleteBtn" type="button" style="width:100%;">🗑 Supprimer cette demande</button>';
+          (phone ? '<a class="pill-btn primary" href="tel:' + escapeHtml(phone) + '">Appeler</a>' : "") +
+          (email ? '<a class="pill-btn" href="mailto:' + escapeHtml(email) + '">Courriel</a>' : "") +
+        "</div>" +
+      "</div>" +
+      '<div class="detail-fields">' + fieldsHtml + "</div>" +
+      '<button class="pill-btn danger" id="deleteBtn" type="button" style="width:100%;">Supprimer cette demande</button>';
 
-    document.getElementById('deleteBtn').addEventListener('click', () => {
-      if (!confirm('Supprimer définitivement cette demande (' + name + ')? Cette action est irréversible.')) return;
+    document.getElementById("deleteBtn").addEventListener("click", function () {
+      if (!confirm("Supprimer definitivement cette demande de " + name + " ? Cette action est irreversible.")) return;
       deleteSubmission(s.id)
-        .then(() => {
-          overlay.classList.remove('show');
+        .then(function () {
+          overlay.classList.remove("show");
           render();
         })
-        .catch(() => alert('Erreur lors de la suppression. Réessaie.'));
+        .catch(function () { alert("Erreur lors de la suppression. Reessaie."); });
     });
 
-    overlay.classList.add('show');
+    overlay.classList.add("show");
   }
 
   function openClientDetail(key, items) {
-    const d0 = items[0].data || {};
-    const name = d0.name || d0.company || '—';
-    const phone = d0.phone || '';
-    const email = d0.email || '';
-    const sorted = items.slice().sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
+    var d0 = items[0].data || {};
+    var name = d0.name || d0.company || "-";
+    var phone = d0.phone || "";
+    var email = d0.email || "";
+    var sorted = items.slice().sort(function (a, b) { return new Date(b.created_at) - new Date(a.created_at); });
 
-    let historyHtml = '';
-    sorted.forEach((s) => {
-      const d = s.data || {};
-      const plan = shortenPlan(d.plan) || (s.form === 'entreprise' ? 'Soumission entreprise' : '—');
-      const reqDate = formatRequestedDate(d.date);
+    var historyHtml = "";
+    sorted.forEach(function (s) {
+      var d = s.data || {};
+      var plan = shortenPlan(d.plan) || (s.form === "entreprise" ? "Soumission entreprise" : "-");
+      var reqDate = formatRequestedDate(d.date);
       historyHtml +=
         '<div class="history-row" data-id="' + s.id + '">' +
-          '<div class="history-main"><p class="history-plan">' + escapeHtml(plan) + '</p><div class="history-date">' + escapeHtml(reqDate) + '</div></div>' +
-          '<button class="trash-btn" data-id="' + s.id + '" aria-label="Supprimer">🗑</button>' +
-        '</div>';
+          '<div class="history-main"><p class="history-plan">' + escapeHtml(plan) + '</p><div class="history-date">' + escapeHtml(reqDate) + "</div></div>" +
+          '<button class="trash-btn" data-id="' + s.id + '" aria-label="Supprimer">Suppr.</button>' +
+        "</div>";
     });
 
-    overlayTitle.textContent = 'Fiche client';
+    overlayTitle.textContent = "Fiche client";
     overlayBody.innerHTML =
       '<div class="detail-hero">' +
-        '<p class="name">' + escapeHtml(name) + '</p>' +
-        '<div class="received">' + items.length + ' réservation(s) au total</div>' +
+        '<p class="name">' + escapeHtml(name) + "</p>" +
+        '<div class="received">' + items.length + " reservation(s) au total</div>" +
         '<div class="detail-actions">' +
-          (phone ? '<a class="pill-btn primary" href="tel:' + escapeHtml(phone) + '">📞 Appeler</a>' : '') +
-          (email ? '<a class="pill-btn" href="mailto:' + escapeHtml(email) + '">✉️ Courriel</a>' : '') +
-        '</div>' +
-      '</div>' +
-      '<div class="detail-fields">' + historyHtml + '</div>';
+          (phone ? '<a class="pill-btn primary" href="tel:' + escapeHtml(phone) + '">Appeler</a>' : "") +
+          (email ? '<a class="pill-btn" href="mailto:' + escapeHtml(email) + '">Courriel</a>' : "") +
+        "</div>" +
+      "</div>" +
+      '<div class="detail-fields">' + historyHtml + "</div>";
 
-    overlayBody.querySelectorAll('.trash-btn').forEach((btn) => {
-      btn.addEventListener('click', (e) => {
+    var trashButtons = overlayBody.querySelectorAll(".trash-btn");
+    trashButtons.forEach(function (btn) {
+      btn.addEventListener("click", function (e) {
         e.stopPropagation();
-        const id = btn.dataset.id;
-        if (!confirm('Supprimer cette demande de l\\'historique de ' + name + '?')) return;
+        var id = btn.getAttribute("data-id");
+        if (!confirm("Supprimer cette demande de l'historique de " + name + " ?")) return;
         deleteSubmission(id)
-          .then(() => {
-            const remaining = allSubmissions.filter((s) => clientKeyFor(s) === key);
+          .then(function () {
+            var remaining = allSubmissions.filter(function (s) { return clientKeyFor(s) === key; });
             if (remaining.length === 0) {
-              overlay.classList.remove('show');
+              overlay.classList.remove("show");
             } else {
               openClientDetail(key, remaining);
             }
             render();
           })
-          .catch(() => alert('Erreur lors de la suppression. Réessaie.'));
+          .catch(function () { alert("Erreur lors de la suppression. Reessaie."); });
       });
     });
 
-    overlay.classList.add('show');
+    overlay.classList.add("show");
   }
 
-  overlayBack.addEventListener('click', () => overlay.classList.remove('show'));
+  overlayBack.addEventListener("click", function () { overlay.classList.remove("show"); });
 
   function renderDemandes(filtered) {
-    sectionsEl.innerHTML = '';
+    sectionsEl.innerHTML = "";
 
     if (filtered.length === 0) {
-      sectionsEl.innerHTML = '<div class="empty"><span class="big">📭</span>Aucune demande trouvée.</div>';
+      sectionsEl.innerHTML = '<div class="empty"><span class="big">-</span>Aucune demande trouvee.</div>';
       return;
     }
 
-    const groups = [
-      { key: 'reservation', label: 'Réservations' },
-      { key: 'entreprise', label: 'Entreprises' },
+    var groups = [
+      { key: "reservation", label: "Reservations" },
+      { key: "entreprise", label: "Entreprises" }
     ];
 
-    groups.forEach((group) => {
-      const items = filtered.filter((s) => s.form === group.key);
+    groups.forEach(function (group) {
+      var items = filtered.filter(function (s) { return s.form === group.key; });
       if (items.length === 0) return;
 
-      const section = document.createElement('div');
-      section.className = 'section';
+      var section = document.createElement("div");
+      section.className = "section";
 
-      const head = document.createElement('div');
-      head.className = 'section-head';
-      head.innerHTML = '<h2>' + group.label + '</h2><span class="section-count">' + items.length + '</span>';
+      var head = document.createElement("div");
+      head.className = "section-head";
+      head.innerHTML = "<h2>" + group.label + '</h2><span class="section-count">' + items.length + "</span>";
       section.appendChild(head);
 
-      const list = document.createElement('div');
-      list.className = 'list';
+      var list = document.createElement("div");
+      list.className = "list";
 
-      items.forEach((s) => {
-        const d = s.data || {};
-        const name = d.name || d.company || '—';
-        const plan = shortenPlan(d.plan) || (s.form === 'entreprise' ? (d['bike-count'] ? d['bike-count'] + ' vélo(s)' : 'Soumission') : '');
-        const reqDate = formatRequestedDate(d.date);
-        const sub = plan + (d.date ? ' · ' + reqDate : '');
+      items.forEach(function (s) {
+        var d = s.data || {};
+        var name = d.name || d.company || "-";
+        var plan = shortenPlan(d.plan) || (s.form === "entreprise" ? (d["bike-count"] ? d["bike-count"] + " velo(s)" : "Soumission") : "");
+        var reqDate = formatRequestedDate(d.date);
+        var sub = plan + (d.date ? " . " + reqDate : "");
 
-        const row = document.createElement('div');
-        row.className = 'row';
+        var row = document.createElement("div");
+        row.className = "row";
         row.innerHTML =
-          '<div class="row-avatar' + (s.form === 'entreprise' ? ' entreprise' : '') + '">' + initials(name) + '</div>' +
+          '<div class="row-avatar' + (s.form === "entreprise" ? " entreprise" : "") + '">' + initials(name) + "</div>" +
           '<div class="row-main">' +
-            '<p class="row-name">' + escapeHtml(name) + '</p>' +
-            '<div class="row-sub">' + escapeHtml(sub) + '</div>' +
-          '</div>' +
-          '<span class="row-chevron">›</span>';
+            '<p class="row-name">' + escapeHtml(name) + "</p>" +
+            '<div class="row-sub">' + escapeHtml(sub) + "</div>" +
+          "</div>" +
+          '<span class="row-chevron">&#8250;</span>';
 
-        row.addEventListener('click', () => openDetail(s));
+        row.addEventListener("click", function () { openDetail(s); });
         list.appendChild(row);
       });
 
@@ -405,48 +409,52 @@ window.addEventListener('error', function (e) {
   }
 
   function renderClients(filtered) {
-    clientsListEl.innerHTML = '';
+    clientsListEl.innerHTML = "";
 
     if (filtered.length === 0) {
-      clientsListEl.innerHTML = '<div class="empty"><span class="big">👤</span>Aucun client trouvé.</div>';
+      clientsListEl.innerHTML = '<div class="empty"><span class="big">-</span>Aucun client trouve.</div>';
       return;
     }
 
-    const map = new Map();
-    filtered.forEach((s) => {
-      const key = clientKeyFor(s);
-      if (!map.has(key)) map.set(key, []);
-      map.get(key).push(s);
+    var map = {};
+    var order = [];
+    filtered.forEach(function (s) {
+      var key = clientKeyFor(s);
+      if (!map[key]) { map[key] = []; order.push(key); }
+      map[key].push(s);
     });
 
-    const clients = Array.from(map.entries()).sort((a, b) => b[1].length - a[1].length);
+    var clients = order.map(function (key) { return [key, map[key]]; });
+    clients.sort(function (a, b) { return b[1].length - a[1].length; });
 
-    const section = document.createElement('div');
-    section.className = 'section';
-    const head = document.createElement('div');
-    head.className = 'section-head';
-    head.innerHTML = '<h2>Clients</h2><span class="section-count">' + clients.length + '</span>';
+    var section = document.createElement("div");
+    section.className = "section";
+    var head = document.createElement("div");
+    head.className = "section-head";
+    head.innerHTML = "<h2>Clients</h2><span class=\"section-count\">" + clients.length + "</span>";
     section.appendChild(head);
 
-    const list = document.createElement('div');
-    list.className = 'list';
+    var list = document.createElement("div");
+    list.className = "list";
 
-    clients.forEach(([key, items]) => {
-      const d0 = items[0].data || {};
-      const name = d0.name || d0.company || '—';
-      const isCorp = items.some((s) => s.form === 'entreprise');
+    clients.forEach(function (entry) {
+      var key = entry[0];
+      var items = entry[1];
+      var d0 = items[0].data || {};
+      var name = d0.name || d0.company || "-";
+      var isCorp = items.some(function (s) { return s.form === "entreprise"; });
 
-      const row = document.createElement('div');
-      row.className = 'row';
+      var row = document.createElement("div");
+      row.className = "row";
       row.innerHTML =
-        '<div class="row-avatar' + (isCorp ? ' entreprise' : '') + '">' + initials(name) + '</div>' +
+        '<div class="row-avatar' + (isCorp ? " entreprise" : "") + '">' + initials(name) + "</div>" +
         '<div class="row-main">' +
-          '<p class="row-name">' + escapeHtml(name) + '</p>' +
-          '<div class="row-sub">' + (d0.email || d0.phone || '') + '</div>' +
-        '</div>' +
-        '<span class="row-count">' + items.length + '</span>';
+          '<p class="row-name">' + escapeHtml(name) + "</p>" +
+          '<div class="row-sub">' + escapeHtml(d0.email || d0.phone || "") + "</div>" +
+        "</div>" +
+        '<span class="row-count">' + items.length + "</span>";
 
-      row.addEventListener('click', () => openClientDetail(key, items));
+      row.addEventListener("click", function () { openClientDetail(key, items); });
       list.appendChild(row);
     });
 
@@ -455,109 +463,107 @@ window.addEventListener('error', function (e) {
   }
 
   function render() {
-    const q = searchInput.value.trim().toLowerCase();
-    const filtered = allSubmissions.filter((s) => {
+    var q = searchInput.value.trim().toLowerCase();
+    var filtered = allSubmissions.filter(function (s) {
       if (!q) return true;
-      return JSON.stringify(s.data).toLowerCase().includes(q);
+      return JSON.stringify(s.data).toLowerCase().indexOf(q) !== -1;
     });
 
-    if (activeTab === 'demandes') {
+    if (activeTab === "demandes") {
       renderDemandes(filtered);
     } else {
       renderClients(filtered);
     }
   }
 
-  tabButtons.forEach((btn) => {
-    btn.addEventListener('click', () => {
-      tabButtons.forEach((b) => b.classList.remove('active'));
-      btn.classList.add('active');
-      activeTab = btn.dataset.tab;
-      pageTitle.textContent = activeTab === 'demandes' ? 'Demandes reçues' : 'Espace clients';
-      sectionsEl.classList.toggle('hidden', activeTab !== 'demandes');
-      clientsListEl.classList.toggle('hidden', activeTab !== 'clients');
+  tabButtons.forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      tabButtons.forEach(function (b) { b.classList.remove("active"); });
+      btn.classList.add("active");
+      activeTab = btn.getAttribute("data-tab");
+      pageTitle.textContent = activeTab === "demandes" ? "Demandes recues" : "Espace clients";
+      sectionsEl.classList.toggle("hidden", activeTab !== "demandes");
+      clientsListEl.classList.toggle("hidden", activeTab !== "clients");
       render();
     });
   });
 
   function loadSubmissions(code) {
-    statusLine.textContent = 'Chargement...';
-    const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 12000);
-    return fetch('/.netlify/functions/get-submissions', {
-      headers: { 'x-admin-code': code },
-      signal: controller.signal,
+    statusLine.textContent = "Chargement...";
+    var controller = new AbortController();
+    var timeoutId = setTimeout(function () { controller.abort(); }, 12000);
+    return fetch("/.netlify/functions/get-submissions", {
+      headers: { "x-admin-code": code },
+      signal: controller.signal
     })
-      .then((res) => {
+      .then(function (res) {
         clearTimeout(timeoutId);
-        if (res.status === 401) throw new Error('unauthorized');
-        if (!res.ok) throw new Error('server-error');
+        if (res.status === 401) throw new Error("unauthorized");
+        if (!res.ok) throw new Error("server-error");
         return res.json();
       })
-      .then((data) => {
+      .then(function (data) {
         allSubmissions = data;
-        statusLine.textContent = data.length + ' demande(s) · maj ' + new Date().toLocaleTimeString('fr-CA', { timeStyle: 'short' });
+        statusLine.textContent = data.length + " demande(s) - maj " + new Date().toLocaleTimeString("fr-CA", { timeStyle: "short" });
         render();
       })
-      .catch((err) => {
+      .catch(function (err) {
         clearTimeout(timeoutId);
-        if (err.name === 'AbortError') throw new Error('timeout');
+        if (err.name === "AbortError") throw new Error("timeout");
         throw err;
       });
   }
 
   function unlock(code) {
-    gateError.textContent = '';
-    gateError.style.color = '';
-    gateError.textContent = 'Connexion en cours...';
+    gateError.textContent = "Connexion en cours...";
     unlockBtn.disabled = true;
-    unlockBtn.textContent = 'Connexion...';
+    unlockBtn.textContent = "Connexion...";
     loadSubmissions(code)
-      .then(() => {
-        gateError.textContent = '';
+      .then(function () {
+        gateError.textContent = "";
         sessionStorage.setItem(STORAGE_KEY, code);
-        gate.classList.add('hidden');
-        adminApp.classList.remove('hidden');
+        gate.classList.add("hidden");
+        adminApp.classList.remove("hidden");
       })
-      .catch((err) => {
-        if (err.message === 'unauthorized') {
-          gateError.textContent = 'Code incorrect.';
-        } else if (err.message === 'timeout') {
-          gateError.textContent = 'Ça prend trop de temps (réseau lent ou bloqué). Réessaie.';
+      .catch(function (err) {
+        if (err.message === "unauthorized") {
+          gateError.textContent = "Code incorrect.";
+        } else if (err.message === "timeout") {
+          gateError.textContent = "Ca prend trop de temps (reseau lent ou bloque). Reessaie.";
         } else {
-          gateError.textContent = 'Erreur serveur: ' + err.message;
+          gateError.textContent = "Erreur serveur: " + err.message;
         }
       })
-      .finally(() => {
+      .finally(function () {
         unlockBtn.disabled = false;
-        unlockBtn.textContent = 'Déverrouiller';
+        unlockBtn.textContent = "Deverrouiller";
       });
   }
 
-  document.getElementById('gateForm').addEventListener('submit', (e) => {
+  document.getElementById("gateForm").addEventListener("submit", function (e) {
     e.preventDefault();
-    const code = codeInput.value.trim();
+    var code = codeInput.value.trim();
     if (!code) return;
     unlock(code);
   });
 
-  refreshBtn.addEventListener('click', () => {
-    const code = getCode();
+  refreshBtn.addEventListener("click", function () {
+    var code = getCode();
     if (code) loadSubmissions(code);
   });
 
-  lockBtn.addEventListener('click', () => {
+  lockBtn.addEventListener("click", function () {
     sessionStorage.removeItem(STORAGE_KEY);
-    adminApp.classList.add('hidden');
-    gate.classList.remove('hidden');
-    codeInput.value = '';
+    adminApp.classList.add("hidden");
+    gate.classList.remove("hidden");
+    codeInput.value = "";
     codeInput.focus();
-    overlay.classList.remove('show');
+    overlay.classList.remove("show");
   });
 
-  searchInput.addEventListener('input', render);
+  searchInput.addEventListener("input", render);
 
-  const savedCode = getCode();
+  var savedCode = getCode();
   if (savedCode) {
     unlock(savedCode);
   }
