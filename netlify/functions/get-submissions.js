@@ -33,7 +33,11 @@ exports.handler = async (event) => {
 
     if (!formsRes.ok) {
       const text = await formsRes.text();
-      return { statusCode: formsRes.status, body: JSON.stringify({ error: 'Failed to fetch forms', detail: text }) };
+      // Never forward a raw 401/403 from the Netlify API here — the frontend
+      // treats HTTP 401 as "wrong admin code", which is misleading when the
+      // real cause is an invalid/expired NETLIFY_API_TOKEN. Use 502 instead.
+      const status = formsRes.status === 401 || formsRes.status === 403 ? 502 : formsRes.status;
+      return { statusCode: status, body: JSON.stringify({ error: 'Failed to fetch forms from Netlify API (check NETLIFY_API_TOKEN)', detail: text }) };
     }
 
     const forms = await formsRes.json();

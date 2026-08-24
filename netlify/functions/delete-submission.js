@@ -37,7 +37,8 @@ exports.handler = async (event) => {
 
     if (!res.ok && res.status !== 404) {
       const text = await res.text();
-      return { statusCode: res.status, body: JSON.stringify({ error: 'Failed to delete submission', detail: text }) };
+      const status = res.status === 401 || res.status === 403 ? 502 : res.status;
+      return { statusCode: status, body: JSON.stringify({ error: 'Failed to delete submission (check NETLIFY_API_TOKEN)', detail: text }) };
     }
 
     return { statusCode: 200, headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ ok: true }) };
