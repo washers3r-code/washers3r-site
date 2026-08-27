@@ -348,7 +348,11 @@ if (galleryTrack) {
     galleryTrack.innerHTML = items
       .map((item) => {
         const src = item.type === 'blob' ? `/.netlify/functions/photo?key=${encodeURIComponent(item.key)}` : item.src;
-        return `<div class="gallery-slide"><img src="${src}" alt="Entretien de vélo par Washers3R" loading="lazy" /></div>`;
+        const x = item.pos && typeof item.pos.x === 'number' ? item.pos.x : 50;
+        const y = item.pos && typeof item.pos.y === 'number' ? item.pos.y : 50;
+        const zoom = typeof item.zoom === 'number' ? item.zoom : 1;
+        const style = `object-position:${x}% ${y}%; transform:scale(${zoom}); transform-origin:${x}% ${y}%;`;
+        return `<div class="gallery-slide"><img src="${src}" alt="Entretien de vélo par Washers3R" loading="lazy" style="${style}" /></div>`;
       })
       .join('');
     initGalleryCarousel();
