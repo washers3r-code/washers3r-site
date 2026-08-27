@@ -1,4 +1,4 @@
-const { getStore } = require('@netlify/blobs');
+const { getBlobStore } = require('./_shared/get-store');
 const { DEFAULT_CONTENT } = require('./_shared/default-content');
 
 exports.handler = async (event) => {
@@ -27,7 +27,7 @@ exports.handler = async (event) => {
   }
 
   try {
-    const store = getStore('site-content');
+    const store = getBlobStore('site-content');
     const raw = await store.get('content.json');
     const current = raw ? JSON.parse(raw) : { ...DEFAULT_CONTENT };
     current.mpv = mpv;

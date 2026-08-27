@@ -1,4 +1,4 @@
-const { getStore } = require('@netlify/blobs');
+const { getBlobStore } = require('./_shared/get-store');
 const { DEFAULT_CONTENT } = require('./_shared/default-content');
 
 exports.handler = async (event) => {
@@ -27,7 +27,7 @@ exports.handler = async (event) => {
   }
 
   try {
-    const contentStore = getStore('site-content');
+    const contentStore = getBlobStore('site-content');
     const raw = await contentStore.get('content.json');
     const current = raw ? JSON.parse(raw) : { ...DEFAULT_CONTENT };
     if (!current.gallery) current.gallery = DEFAULT_CONTENT.gallery;
@@ -37,7 +37,7 @@ exports.handler = async (event) => {
     await contentStore.set('content.json', JSON.stringify(current));
 
     if (entry && entry.type === 'blob' && entry.key) {
-      const photoStore = getStore('site-photos');
+      const photoStore = getBlobStore('site-photos');
       await photoStore.delete(entry.key);
     }
 

@@ -1,4 +1,4 @@
-const { getStore } = require('@netlify/blobs');
+const { getBlobStore } = require('./_shared/get-store');
 const { DEFAULT_CONTENT } = require('./_shared/default-content');
 
 const ALLOWED_TYPES = ['image/jpeg', 'image/png', 'image/webp', 'image/gif'];
@@ -38,12 +38,12 @@ exports.handler = async (event) => {
   }
 
   try {
-    const photoStore = getStore('site-photos');
+    const photoStore = getBlobStore('site-photos');
     const key = `${Date.now()}-${Math.random().toString(36).slice(2)}`;
     const buffer = Buffer.from(dataBase64, 'base64');
     await photoStore.set(key, buffer, { metadata: { contentType } });
 
-    const contentStore = getStore('site-content');
+    const contentStore = getBlobStore('site-content');
     const raw = await contentStore.get('content.json');
     const current = raw ? JSON.parse(raw) : { ...DEFAULT_CONTENT };
     if (!current.gallery) current.gallery = DEFAULT_CONTENT.gallery;

@@ -1,4 +1,4 @@
-const { getStore } = require('@netlify/blobs');
+const { getBlobStore } = require('./_shared/get-store');
 
 exports.handler = async (event) => {
   const key = event.queryStringParameters && event.queryStringParameters.key;
@@ -7,7 +7,7 @@ exports.handler = async (event) => {
   }
 
   try {
-    const store = getStore('site-photos');
+    const store = getBlobStore('site-photos');
     const result = await store.getWithMetadata(key, { type: 'arrayBuffer' });
     if (!result) {
       return { statusCode: 404, body: JSON.stringify({ error: 'Not found' }) };
