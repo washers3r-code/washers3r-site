@@ -574,6 +574,39 @@ window.addEventListener("error", function (e) {
   var photoState = {};
   var photoDirty = false;
 
+  function prepareUpload(file) {
+    if (file.type === "image/gif") {
+      return new Promise(function (resolve, reject) {
+        var reader = new FileReader();
+        reader.onload = function () { resolve({ contentType: file.type, base64: reader.result.split(",")[1] }); };
+        reader.onerror = function () { reject(new Error("lecture-echouee")); };
+        reader.readAsDataURL(file);
+      });
+    }
+    return new Promise(function (resolve, reject) {
+      var url = URL.createObjectURL(file);
+      var img = new Image();
+      img.onload = function () {
+        var maxDim = 1600;
+        var scale = Math.min(1, maxDim / Math.max(img.width, img.height));
+        var canvas = document.createElement("canvas");
+        canvas.width = Math.max(1, Math.round(img.width * scale));
+        canvas.height = Math.max(1, Math.round(img.height * scale));
+        canvas.getContext("2d").drawImage(img, 0, 0, canvas.width, canvas.height);
+        URL.revokeObjectURL(url);
+        canvas.toBlob(function (blob) {
+          if (!blob) { reject(new Error("compression-echouee")); return; }
+          var reader = new FileReader();
+          reader.onload = function () { resolve({ contentType: "image/jpeg", base64: reader.result.split(",")[1] }); };
+          reader.onerror = function () { reject(new Error("lecture-echouee")); };
+          reader.readAsDataURL(blob);
+        }, "image/jpeg", 0.82);
+      };
+      img.onerror = function () { URL.revokeObjectURL(url); reject(new Error("image-invalide")); };
+      img.src = url;
+    });
+  }
+
   function clamp(v, min, max) { return Math.max(min, Math.min(max, v)); }
 
   function getPhotoState(item) {
@@ -612,7 +645,7 @@ window.addEventListener("error", function (e) {
     photosTabEl.innerHTML =
       '<div class="photo-grid">' + gridHtml + "</div>" +
       (gallery.length ? '<div class="photo-hint">Glisse une photo pour la centrer, utilise le curseur pour zoomer. Double-clic pour reinitialiser.</div>' : "") +
-      '<label class="upload-btn">+ Ajouter une photo<input type="file" id="photoInput" accept="image/*" /></label>' +
+      '<label class="upload-btn">+ Ajouter des photos<input type="file" id="photoInput" accept="image/*" multiple /></label>' +
       '<div class="save-bar" id="photoSaveBar" style="display:none">' +
         '<button class="save-btn" id="photoSaveBtn" type="button">Enregistrer le cadrage</button>' +
       "</div>" +
@@ -723,30 +756,44 @@ window.addEventListener("error", function (e) {
 
     var photoInput = document.getElementById("photoInput");
     photoInput.addEventListener("change", function () {
-      var file = photoInput.files[0];
-      if (!file) return;
+      var files = Array.prototype.slice.call(photoInput.files);
+      if (!files.length) return;
       var msg = document.getElementById("photoMsg");
-      msg.textContent = "Envoi en cours...";
-      var reader = new FileReader();
-      reader.onload = function () {
-        var dataUrl = reader.result;
-        var base64 = dataUrl.split(",")[1];
-        fetch("/.netlify/functions/upload-photo", {
-          method: "POST",
-          headers: { "Content-Type": "application/json", "x-admin-code": getCode() },
-          body: JSON.stringify({ contentType: file.type, dataBase64: base64 })
-        })
+
+      var uploadNext = function (i) {
+        if (i >= files.length) {
+          renderPhotosTab();
+          var doneMsg = document.getElementById("photoMsg");
+          if (doneMsg) {
+            doneMsg.textContent = "Photos ajoutees.";
+            setTimeout(function () { doneMsg.textContent = ""; }, 2000);
+          }
+          return;
+        }
+        var file = files[i];
+        msg.textContent = "Envoi " + (i + 1) + "/" + files.length + " (" + file.name + ")...";
+        prepareUpload(file)
+          .then(function (prepared) {
+            return fetch("/.netlify/functions/upload-photo", {
+              method: "POST",
+              headers: { "Content-Type": "application/json", "x-admin-code": getCode() },
+              body: JSON.stringify({ contentType: prepared.contentType, dataBase64: prepared.base64 })
+            });
+          })
           .then(function (res) {
             if (!res.ok) return res.json().then(function (e) { throw new Error(e.error || "upload-failed"); });
             return res.json();
           })
           .then(function (result) {
             siteContent.gallery.push(result.entry);
-            renderPhotosTab();
+            uploadNext(i + 1);
           })
-          .catch(function (err) { msg.textContent = "Erreur: " + err.message; });
+          .catch(function (err) {
+            msg.textContent = "Erreur (" + file.name + "): " + err.message;
+            uploadNext(i + 1);
+          });
       };
-      reader.readAsDataURL(file);
+      uploadNext(0);
     });
   }
 
