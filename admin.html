@@ -560,13 +560,17 @@ window.addEventListener("error", function (e) {
         headers: { "Content-Type": "application/json", "x-admin-code": getCode() },
         body: JSON.stringify({ mpv: mpv })
       })
-        .then(function (res) { if (!res.ok) throw new Error("save-failed"); })
+        .then(function (res) {
+          if (!res.ok) return res.json().catch(function () { return {}; }).then(function (e) {
+            throw new Error((e && e.error) || ("HTTP " + res.status));
+          });
+        })
         .then(function () {
           siteContent.mpv = mpv;
           msg.textContent = "Enregistre.";
           setTimeout(function () { msg.textContent = ""; }, 2500);
         })
-        .catch(function () { msg.textContent = "Erreur lors de l'enregistrement."; })
+        .catch(function (err) { msg.textContent = "Erreur: " + err.message; })
         .finally(function () { btn.disabled = false; });
     });
   }
@@ -723,7 +727,11 @@ window.addEventListener("error", function (e) {
         headers: { "Content-Type": "application/json", "x-admin-code": getCode() },
         body: JSON.stringify({ gallery: newGallery })
       })
-        .then(function (res) { if (!res.ok) throw new Error("update-failed"); })
+        .then(function (res) {
+          if (!res.ok) return res.json().catch(function () { return {}; }).then(function (e) {
+            throw new Error((e && e.error) || ("HTTP " + res.status));
+          });
+        })
         .then(function () {
           siteContent.gallery = newGallery;
           photoDirty = false;
@@ -731,7 +739,7 @@ window.addEventListener("error", function (e) {
           msg.textContent = "Enregistre.";
           setTimeout(function () { msg.textContent = ""; }, 2500);
         })
-        .catch(function () { msg.textContent = "Erreur lors de l'enregistrement."; })
+        .catch(function (err) { msg.textContent = "Erreur: " + err.message; })
         .finally(function () { saveBtn.disabled = false; });
     });
 
