@@ -99,7 +99,7 @@
               <li>Inspection des pneus et vitesses</li>
               <li>Vérification des freins et de la chaîne</li>
             </ul>
-            <div class="card-footer"><strong>35 $ sans taxes</strong><button class="round-button open-booking" type="button" data-plan="MPV 1 — Mise au point essentielle (35 $ sans taxes)" aria-label="Réserver la MPV 1">↗</button></div>
+            <div class="card-footer"><div class="price-wrap"><strong id="mpv1-price">35 $ sans taxes</strong><div class="promo-text" id="mpv1-promo" style="display:none"></div></div><button class="round-button open-booking" type="button" data-mpv="1" data-plan="MPV 1 — Mise au point essentielle (35 $ sans taxes)" aria-label="Réserver la MPV 1">↗</button></div>
           </article>
           <article class="service-card featured reveal">
             <div class="popular">ENTRETIEN TRANSMISSION</div>
@@ -113,7 +113,7 @@
               <li>Lavage de la chaîne et du drivetrain</li>
               <li>Graissage des roues</li>
             </ul>
-            <div class="card-footer"><strong>65 $ sans taxes</strong><button class="round-button open-booking" type="button" data-plan="MPV 2 — Entretien transmission (65 $ sans taxes)" aria-label="Réserver la MPV 2">↗</button></div>
+            <div class="card-footer"><div class="price-wrap"><strong id="mpv2-price">65 $ sans taxes</strong><div class="promo-text" id="mpv2-promo" style="display:none"></div></div><button class="round-button open-booking" type="button" data-mpv="2" data-plan="MPV 2 — Entretien transmission (65 $ sans taxes)" aria-label="Réserver la MPV 2">↗</button></div>
           </article>
           <article class="service-card dark-card reveal">
             <div class="card-number">MPV 03</div>
@@ -126,7 +126,7 @@
               <li>Inspection du jeu de direction</li>
               <li>Inspection du bottom bracket</li>
             </ul>
-            <div class="card-footer"><strong>85 $ sans taxes</strong><button class="round-button open-booking" type="button" data-plan="MPV 3 — Inspection approfondie (85 $ sans taxes)" aria-label="Réserver la MPV 3">↗</button></div>
+            <div class="card-footer"><div class="price-wrap"><strong id="mpv3-price">85 $ sans taxes</strong><div class="promo-text" id="mpv3-promo" style="display:none"></div></div><button class="round-button open-booking" type="button" data-mpv="3" data-plan="MPV 3 — Inspection approfondie (85 $ sans taxes)" aria-label="Réserver la MPV 3">↗</button></div>
           </article>
           <article class="service-card reveal">
             <div class="card-number">MPV 04</div>
@@ -139,7 +139,7 @@
               <li>Graissage du bottom bracket et du jeu de direction</li>
               <li>Maintenance externe, câbles et problèmes connexes</li>
             </ul>
-            <div class="card-footer"><strong>135 $ sans taxes</strong><button class="round-button open-booking" type="button" data-plan="MPV 4 — Entretien complet (135 $ sans taxes)" aria-label="Réserver la MPV 4">↗</button></div>
+            <div class="card-footer"><div class="price-wrap"><strong id="mpv4-price">135 $ sans taxes</strong><div class="promo-text" id="mpv4-promo" style="display:none"></div></div><button class="round-button open-booking" type="button" data-mpv="4" data-plan="MPV 4 — Entretien complet (135 $ sans taxes)" aria-label="Réserver la MPV 4">↗</button></div>
           </article>
           <article class="service-card dark-card reveal">
             <div class="card-number">MPV 05</div>
@@ -152,7 +152,7 @@
               <li>Entretien approfondi de chaque composante</li>
               <li>Remontage complet et remise à neuf</li>
             </ul>
-            <div class="card-footer"><strong>160 $ sans taxes</strong><button class="round-button open-booking" type="button" data-plan="MPV 5 — Remise à neuf (160 $ sans taxes)" aria-label="Réserver la MPV 5">↗</button></div>
+            <div class="card-footer"><div class="price-wrap"><strong id="mpv5-price">160 $ sans taxes</strong><div class="promo-text" id="mpv5-promo" style="display:none"></div></div><button class="round-button open-booking" type="button" data-mpv="5" data-plan="MPV 5 — Remise à neuf (160 $ sans taxes)" aria-label="Réserver la MPV 5">↗</button></div>
           </article>
         </div>
         <p class="tax-note">Tous les prix sont sans taxes.</p>
@@ -269,11 +269,11 @@
         <div class="form-step active" data-step="1">
           <div class="plan-options">
             <label><input type="radio" name="plan" value="Personnalisé — voir description" id="planCustom" /><span><b>Personnaliser</b><small>Prix variable — décrivez votre besoin</small></span><i>→</i></label>
-            <label><input type="radio" name="plan" value="MPV 1 — Mise au point essentielle (35 $ sans taxes)" checked /><span><b>MPV 1 — Essentielle</b><small>35 $ sans taxes</small></span><i>→</i></label>
-            <label><input type="radio" name="plan" value="MPV 2 — Entretien transmission (65 $ sans taxes)" /><span><b>MPV 2 — Transmission</b><small>65 $ sans taxes</small></span><i>→</i></label>
-            <label><input type="radio" name="plan" value="MPV 3 — Inspection approfondie (85 $ sans taxes)" /><span><b>MPV 3 — Inspection</b><small>85 $ sans taxes</small></span><i>→</i></label>
-            <label><input type="radio" name="plan" value="MPV 4 — Entretien complet (135 $ sans taxes)" /><span><b>MPV 4 — Entretien complet</b><small>135 $ sans taxes</small></span><i>→</i></label>
-            <label><input type="radio" name="plan" value="MPV 5 — Remise à neuf (160 $ sans taxes)" /><span><b>MPV 5 — Remise à neuf</b><small>160 $ sans taxes</small></span><i>→</i></label>
+            <label><input type="radio" name="plan" data-mpv="1" value="MPV 1 — Mise au point essentielle (35 $ sans taxes)" checked /><span><b>MPV 1 — Essentielle</b><small data-mpv-price="1">35 $ sans taxes</small></span><i>→</i></label>
+            <label><input type="radio" name="plan" data-mpv="2" value="MPV 2 — Entretien transmission (65 $ sans taxes)" /><span><b>MPV 2 — Transmission</b><small data-mpv-price="2">65 $ sans taxes</small></span><i>→</i></label>
+            <label><input type="radio" name="plan" data-mpv="3" value="MPV 3 — Inspection approfondie (85 $ sans taxes)" /><span><b>MPV 3 — Inspection</b><small data-mpv-price="3">85 $ sans taxes</small></span><i>→</i></label>
+            <label><input type="radio" name="plan" data-mpv="4" value="MPV 4 — Entretien complet (135 $ sans taxes)" /><span><b>MPV 4 — Entretien complet</b><small data-mpv-price="4">135 $ sans taxes</small></span><i>→</i></label>
+            <label><input type="radio" name="plan" data-mpv="5" value="MPV 5 — Remise à neuf (160 $ sans taxes)" /><span><b>MPV 5 — Remise à neuf</b><small data-mpv-price="5">160 $ sans taxes</small></span><i>→</i></label>
           </div>
           <div class="custom-plan-note" id="customPlanNote" style="display:none;">
             <span class="time-select-label">Type de personnalisation</span>

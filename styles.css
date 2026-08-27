@@ -153,4 +153,8 @@ footer { background:#e5ded1; }
 .time-pill { background:#fff; border:1px solid #d7dcd4; color:var(--ink); font-size:11px; font-weight:700; padding:10px 14px; transition:background .2s, color .2s, border-color .2s; }
 .time-pill.active,.time-pill:hover { background:var(--ink); border-color:var(--ink); color:var(--lime); }
 
+.price-wrap { display:flex; flex-direction:column; gap:4px; }
+.promo-text { background:var(--lime); color:var(--ink); font:700 10px 'DM Mono',monospace; letter-spacing:.02em; padding:3px 7px; width:fit-content; }
+.dark-card .promo-text,.featured .promo-text { background:var(--ink); color:var(--lime); }
+
 @media (max-width:760px) { .stats { grid-template-columns:1fr; gap:26px; padding:40px 18px; } .testimonial-card { padding:36px 20px; } .testimonial-card .quote { font-size:17px; } }

@@ -300,41 +300,104 @@ if (track) {
 
 // Carrousel de photos (réalisations)
 const galleryTrack = document.querySelector('#galleryTrack');
+let stopGalleryAutoplay = () => {};
 if (galleryTrack) {
-  const slides = galleryTrack.querySelectorAll('.gallery-slide');
   const galleryDotsWrap = document.querySelector('#galleryDots');
   const galleryPrevBtn = document.querySelector('#galleryPrev');
   const galleryNextBtn = document.querySelector('#galleryNext');
   let galleryIndex = 0;
   let galleryAutoplay;
 
-  slides.forEach((_, i) => {
-    const dot = document.createElement('button');
-    dot.type = 'button';
-    dot.setAttribute('aria-label', `Photo ${i + 1}`);
-    dot.addEventListener('click', () => { galleryGoTo(i); stopGalleryAutoplay(); startGalleryAutoplay(); });
-    galleryDotsWrap.appendChild(dot);
-  });
-  const galleryDots = galleryDotsWrap.querySelectorAll('button');
+  function initGalleryCarousel() {
+    const slides = galleryTrack.querySelectorAll('.gallery-slide');
+    galleryDotsWrap.innerHTML = '';
+    galleryIndex = 0;
 
-  function galleryGoTo(i) {
-    galleryIndex = (i + slides.length) % slides.length;
-    slides.forEach((slide, si) => slide.classList.toggle('active', si === galleryIndex));
-    galleryDots.forEach((dot, di) => dot.classList.toggle('active', di === galleryIndex));
-  }
-  function startGalleryAutoplay() {
-    galleryAutoplay = setInterval(() => galleryGoTo(galleryIndex + 1), 5000);
-  }
-  function stopGalleryAutoplay() {
-    clearInterval(galleryAutoplay);
+    slides.forEach((_, i) => {
+      const dot = document.createElement('button');
+      dot.type = 'button';
+      dot.setAttribute('aria-label', `Photo ${i + 1}`);
+      dot.addEventListener('click', () => { galleryGoTo(i); stopGalleryAutoplay(); startGalleryAutoplay(); });
+      galleryDotsWrap.appendChild(dot);
+    });
+
+    function galleryGoTo(i) {
+      const dots = galleryDotsWrap.querySelectorAll('button');
+      galleryIndex = (i + slides.length) % slides.length;
+      slides.forEach((slide, si) => slide.classList.toggle('active', si === galleryIndex));
+      dots.forEach((dot, di) => dot.classList.toggle('active', di === galleryIndex));
+    }
+    function startGalleryAutoplay() {
+      clearInterval(galleryAutoplay);
+      if (slides.length > 1) galleryAutoplay = setInterval(() => galleryGoTo(galleryIndex + 1), 5000);
+    }
+    stopGalleryAutoplay = () => clearInterval(galleryAutoplay);
+
+    galleryPrevBtn.onclick = () => { galleryGoTo(galleryIndex - 1); stopGalleryAutoplay(); startGalleryAutoplay(); };
+    galleryNextBtn.onclick = () => { galleryGoTo(galleryIndex + 1); stopGalleryAutoplay(); startGalleryAutoplay(); };
+    const galleryWrap = galleryTrack.closest('.gallery-carousel');
+    galleryWrap.onmouseenter = stopGalleryAutoplay;
+    galleryWrap.onmouseleave = startGalleryAutoplay;
+
+    galleryGoTo(0);
+    startGalleryAutoplay();
   }
 
-  galleryPrevBtn.addEventListener('click', () => { galleryGoTo(galleryIndex - 1); stopGalleryAutoplay(); startGalleryAutoplay(); });
-  galleryNextBtn.addEventListener('click', () => { galleryGoTo(galleryIndex + 1); stopGalleryAutoplay(); startGalleryAutoplay(); });
-  const galleryWrap = galleryTrack.closest('.gallery-carousel');
-  galleryWrap.addEventListener('mouseenter', stopGalleryAutoplay);
-  galleryWrap.addEventListener('mouseleave', startGalleryAutoplay);
+  function renderGallerySlides(items) {
+    if (!items || !items.length) return;
+    galleryTrack.innerHTML = items
+      .map((item) => {
+        const src = item.type === 'blob' ? `/.netlify/functions/photo?key=${encodeURIComponent(item.key)}` : item.src;
+        return `<div class="gallery-slide"><img src="${src}" alt="Entretien de vélo par Washers3R" loading="lazy" /></div>`;
+      })
+      .join('');
+    initGalleryCarousel();
+  }
 
-  galleryGoTo(0);
-  startGalleryAutoplay();
+  window.renderGallerySlides = renderGallerySlides;
+  initGalleryCarousel();
 }
+
+// Contenu editable (prix, promos, galerie) charge depuis l'admin
+const MPV_META = {
+  1: 'Mise au point essentielle',
+  2: 'Entretien transmission',
+  3: 'Inspection approfondie',
+  4: 'Entretien complet',
+  5: 'Remise à neuf',
+};
+
+function applySiteContent(content) {
+  if (content && content.mpv) {
+    Object.keys(MPV_META).forEach((n) => {
+      const entry = content.mpv['mpv' + n];
+      if (!entry || !entry.price) return;
+      const planLabel = `MPV ${n} — ${MPV_META[n]} (${entry.price})`;
+
+      const priceEl = document.getElementById(`mpv${n}-price`);
+      if (priceEl) priceEl.textContent = entry.price;
+
+      const promoEl = document.getElementById(`mpv${n}-promo`);
+      if (promoEl) {
+        promoEl.textContent = entry.promo || '';
+        promoEl.style.display = entry.promo ? 'block' : 'none';
+      }
+
+      document.querySelectorAll(`[data-mpv="${n}"]`).forEach((el) => {
+        if (el.tagName === 'BUTTON') el.dataset.plan = planLabel;
+        if (el.tagName === 'INPUT') el.value = planLabel;
+      });
+
+      const smallEl = document.querySelector(`small[data-mpv-price="${n}"]`);
+      if (smallEl) smallEl.textContent = entry.price;
+    });
+  }
+  if (content && content.gallery && window.renderGallerySlides) {
+    window.renderGallerySlides(content.gallery);
+  }
+}
+
+fetch('/.netlify/functions/get-content')
+  .then((res) => (res.ok ? res.json() : null))
+  .then((data) => { if (data) applySiteContent(data); })
+  .catch(() => {});

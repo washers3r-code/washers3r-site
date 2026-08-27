@@ -97,6 +97,24 @@
   .history-date { font-size:11.5px; color:#9a9a92; margin-top:1px; }
   .trash-btn { background:none; border:none; color:#c0392b; font-size:16px; cursor:pointer; padding:6px; flex:none; }
 
+  .field-card { background:#fff; border-radius:14px; border:1px solid #ece6d8; padding:14px 16px; margin-bottom:12px; }
+  .field-card h3 { font-size:14px; margin:0 0 10px; }
+  .field-row { display:flex; flex-direction:column; gap:5px; margin-bottom:10px; }
+  .field-row:last-child { margin-bottom:0; }
+  .field-row label { font-size:10.5px; text-transform:uppercase; letter-spacing:.4px; color:#9a9a92; font-weight:700; }
+  .field-row input[type="text"] { font-size:14.5px; padding:10px 12px; border-radius:9px; border:1px solid #ddd; background:#fafaf8; }
+  .save-bar { position:sticky; bottom:0; padding:12px 0 4px; background:linear-gradient(to top, var(--bg) 70%, transparent); }
+  .save-btn { width:100%; font-size:15px; padding:14px; border:none; border-radius:12px; background:var(--dark); color:#fff; font-weight:700; cursor:pointer; }
+  .save-btn:disabled { opacity:.6; }
+  .save-msg { text-align:center; font-size:12.5px; margin-top:8px; min-height:16px; }
+
+  .photo-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:10px; margin-bottom:14px; }
+  .photo-item { position:relative; border-radius:12px; overflow:hidden; aspect-ratio:4/3; background:#eee; }
+  .photo-item img { width:100%; height:100%; object-fit:cover; display:block; }
+  .photo-remove { position:absolute; top:6px; right:6px; background:rgba(0,0,0,.6); color:#fff; border:none; border-radius:8px; width:28px; height:28px; font-size:14px; cursor:pointer; }
+  .upload-btn { display:block; width:100%; text-align:center; font-size:14px; padding:14px; border-radius:12px; border:1px dashed #c9c0ac; background:#fafaf8; color:var(--dark); font-weight:700; cursor:pointer; }
+  .upload-btn input { display:none; }
+
   @media (min-width:600px) {
     main { max-width:760px; }
     .overlay { max-width:520px; left:auto; right:0; box-shadow:-4px 0 24px rgba(0,0,0,.15); }
@@ -134,11 +152,15 @@
     <div class="tabbar">
       <button class="active" data-tab="demandes" type="button">Demandes</button>
       <button data-tab="clients" type="button">Clients</button>
+      <button data-tab="contenu" type="button">Contenu</button>
+      <button data-tab="photos" type="button">Photos</button>
     </div>
   </header>
   <main>
     <div id="sections"></div>
     <div id="clientsList" class="hidden"></div>
+    <div id="contentTab" class="hidden"></div>
+    <div id="photosTab" class="hidden"></div>
   </main>
 </div>
 
@@ -167,6 +189,8 @@ window.addEventListener("error", function (e) {
   var pageTitle = document.getElementById("pageTitle");
   var sectionsEl = document.getElementById("sections");
   var clientsListEl = document.getElementById("clientsList");
+  var contentTabEl = document.getElementById("contentTab");
+  var photosTabEl = document.getElementById("photosTab");
   var refreshBtn = document.getElementById("refreshBtn");
   var lockBtn = document.getElementById("lockBtn");
   var searchInput = document.getElementById("search");
@@ -476,15 +500,159 @@ window.addEventListener("error", function (e) {
     }
   }
 
+  var MPV_META = {
+    1: "Mise au point essentielle",
+    2: "Entretien transmission",
+    3: "Inspection approfondie",
+    4: "Entretien complet",
+    5: "Remise a neuf"
+  };
+  var siteContent = null;
+
+  function loadSiteContent() {
+    return fetch("/.netlify/functions/get-content")
+      .then(function (res) { return res.json(); })
+      .then(function (data) { siteContent = data; return data; });
+  }
+
+  function renderContentTab() {
+    if (!siteContent) {
+      contentTabEl.innerHTML = '<div class="empty">Chargement...</div>';
+      loadSiteContent().then(renderContentTab).catch(function () {
+        contentTabEl.innerHTML = '<div class="empty">Erreur de chargement.</div>';
+      });
+      return;
+    }
+    var html = "";
+    Object.keys(MPV_META).forEach(function (n) {
+      var entry = (siteContent.mpv && siteContent.mpv["mpv" + n]) || { price: "", promo: "" };
+      html +=
+        '<div class="field-card">' +
+          "<h3>MPV " + n + " — " + MPV_META[n] + "</h3>" +
+          '<div class="field-row"><label>Prix</label><input type="text" data-mpv-field="price" data-mpv="' + n + '" value="' + escapeHtml(entry.price || "") + '" placeholder="ex: 35 $ sans taxes" /></div>' +
+          '<div class="field-row"><label>Texte promo (optionnel, affiche sous le prix)</label><input type="text" data-mpv-field="promo" data-mpv="' + n + '" value="' + escapeHtml(entry.promo || "") + '" placeholder="ex: Rabais 10$ jusqu\'au 30 aout" /></div>' +
+        "</div>";
+    });
+    html +=
+      '<div class="save-bar">' +
+        '<button class="save-btn" id="saveContentBtn" type="button">Enregistrer</button>' +
+        '<div class="save-msg" id="saveContentMsg"></div>' +
+      "</div>";
+    contentTabEl.innerHTML = html;
+
+    document.getElementById("saveContentBtn").addEventListener("click", function () {
+      var mpv = {};
+      Object.keys(MPV_META).forEach(function (n) {
+        var priceInput = contentTabEl.querySelector('input[data-mpv-field="price"][data-mpv="' + n + '"]');
+        var promoInput = contentTabEl.querySelector('input[data-mpv-field="promo"][data-mpv="' + n + '"]');
+        mpv["mpv" + n] = { price: priceInput.value.trim(), promo: promoInput.value.trim() };
+      });
+      var btn = document.getElementById("saveContentBtn");
+      var msg = document.getElementById("saveContentMsg");
+      btn.disabled = true;
+      msg.textContent = "Enregistrement...";
+      fetch("/.netlify/functions/save-content", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "x-admin-code": getCode() },
+        body: JSON.stringify({ mpv: mpv })
+      })
+        .then(function (res) { if (!res.ok) throw new Error("save-failed"); })
+        .then(function () {
+          siteContent.mpv = mpv;
+          msg.textContent = "Enregistre.";
+          setTimeout(function () { msg.textContent = ""; }, 2500);
+        })
+        .catch(function () { msg.textContent = "Erreur lors de l'enregistrement."; })
+        .finally(function () { btn.disabled = false; });
+    });
+  }
+
+  function renderPhotosTab() {
+    if (!siteContent) {
+      photosTabEl.innerHTML = '<div class="empty">Chargement...</div>';
+      loadSiteContent().then(renderPhotosTab).catch(function () {
+        photosTabEl.innerHTML = '<div class="empty">Erreur de chargement.</div>';
+      });
+      return;
+    }
+    var gallery = siteContent.gallery || [];
+    var gridHtml = gallery.map(function (item) {
+      var src = item.type === "blob" ? "/.netlify/functions/photo?key=" + encodeURIComponent(item.key) : item.src;
+      return (
+        '<div class="photo-item">' +
+          '<img src="' + escapeHtml(src) + '" alt="Photo galerie" />' +
+          '<button class="photo-remove" data-id="' + escapeHtml(item.id) + '" type="button" aria-label="Supprimer">&#10005;</button>' +
+        "</div>"
+      );
+    }).join("");
+
+    photosTabEl.innerHTML =
+      '<div class="photo-grid">' + gridHtml + "</div>" +
+      '<label class="upload-btn">+ Ajouter une photo<input type="file" id="photoInput" accept="image/*" /></label>' +
+      '<div class="save-msg" id="photoMsg"></div>';
+
+    photosTabEl.querySelectorAll(".photo-remove").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var id = btn.getAttribute("data-id");
+        if (!confirm("Supprimer cette photo ?")) return;
+        fetch("/.netlify/functions/delete-photo", {
+          method: "POST",
+          headers: { "Content-Type": "application/json", "x-admin-code": getCode() },
+          body: JSON.stringify({ id: id })
+        })
+          .then(function (res) { if (!res.ok) throw new Error("delete-failed"); })
+          .then(function () {
+            siteContent.gallery = siteContent.gallery.filter(function (g) { return g.id !== id; });
+            renderPhotosTab();
+          })
+          .catch(function () { alert("Erreur lors de la suppression."); });
+      });
+    });
+
+    var photoInput = document.getElementById("photoInput");
+    photoInput.addEventListener("change", function () {
+      var file = photoInput.files[0];
+      if (!file) return;
+      var msg = document.getElementById("photoMsg");
+      msg.textContent = "Envoi en cours...";
+      var reader = new FileReader();
+      reader.onload = function () {
+        var dataUrl = reader.result;
+        var base64 = dataUrl.split(",")[1];
+        fetch("/.netlify/functions/upload-photo", {
+          method: "POST",
+          headers: { "Content-Type": "application/json", "x-admin-code": getCode() },
+          body: JSON.stringify({ contentType: file.type, dataBase64: base64 })
+        })
+          .then(function (res) {
+            if (!res.ok) return res.json().then(function (e) { throw new Error(e.error || "upload-failed"); });
+            return res.json();
+          })
+          .then(function (result) {
+            siteContent.gallery.push(result.entry);
+            renderPhotosTab();
+          })
+          .catch(function (err) { msg.textContent = "Erreur: " + err.message; });
+      };
+      reader.readAsDataURL(file);
+    });
+  }
+
   tabButtons.forEach(function (btn) {
     btn.addEventListener("click", function () {
       tabButtons.forEach(function (b) { b.classList.remove("active"); });
       btn.classList.add("active");
       activeTab = btn.getAttribute("data-tab");
-      pageTitle.textContent = activeTab === "demandes" ? "Demandes recues" : "Espace clients";
+      var titles = { demandes: "Demandes recues", clients: "Espace clients", contenu: "Contenu du site", photos: "Galerie photos" };
+      pageTitle.textContent = titles[activeTab] || "";
       sectionsEl.classList.toggle("hidden", activeTab !== "demandes");
       clientsListEl.classList.toggle("hidden", activeTab !== "clients");
-      render();
+      contentTabEl.classList.toggle("hidden", activeTab !== "contenu");
+      photosTabEl.classList.toggle("hidden", activeTab !== "photos");
+      searchInput.style.display = (activeTab === "contenu" || activeTab === "photos") ? "none" : "";
+      if (activeTab === "demandes" || activeTab === "clients") render();
+      if (activeTab === "contenu") renderContentTab();
+      if (activeTab === "photos") renderPhotosTab();
     });
   });
 
