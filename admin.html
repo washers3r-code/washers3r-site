@@ -834,7 +834,13 @@ window.addEventListener("error", function (e) {
       .then(function (res) {
         clearTimeout(timeoutId);
         if (res.status === 401) throw new Error("unauthorized");
-        if (!res.ok) throw new Error("server-error");
+        if (!res.ok) {
+          return res.json().catch(function () { return {}; }).then(function (e) {
+            var err = new Error((e && (e.error || e.detail)) || ("HTTP " + res.status));
+            err.isServerError = true;
+            throw err;
+          });
+        }
         return res.json();
       })
       .then(function (data) {
