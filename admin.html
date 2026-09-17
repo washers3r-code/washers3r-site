@@ -77,6 +77,7 @@
   .tag { display:inline-block; font-size:10.5px; padding:4px 10px; border-radius:20px; font-weight:700; letter-spacing:.2px; white-space:nowrap; margin-top:10px; }
   .tag-reservation { background:#f1e6cf; color:#8a642a; }
   .tag-entreprise { background:#dbe8fb; color:#1c4e8c; }
+  .tag-bmx3r { background:#f3d9c4; color:#8a4a1c; }
 
   .detail-actions { display:flex; gap:8px; margin-top:16px; }
   .pill-btn { flex:1; text-align:center; font-size:13px; padding:11px 10px; border-radius:10px; border:1px solid #ddd; background:#fafaf8; color:#333; cursor:pointer; text-decoration:none; font-weight:600; }
@@ -217,8 +218,19 @@ window.addEventListener("error", function (e) {
     date: "Date souhaitee",
     note: "Details / notes",
     "bike-count": "Nombre de velos",
-    "custom-desc": "Description personnalisee"
+    "custom-desc": "Description personnalisee",
+    time: "Heure"
   };
+
+  var FORM_META = {
+    entreprise: { tagClass: "tag-entreprise", tagLabel: "Entreprise", groupLabel: "Entreprises" },
+    "bmx3r-clinique": { tagClass: "tag-bmx3r", tagLabel: "Clinique BMX3R", groupLabel: "Clinique BMX3R" },
+    reservation: { tagClass: "tag-reservation", tagLabel: "Reservation", groupLabel: "Reservations" }
+  };
+
+  function formMeta(formName) {
+    return FORM_META[formName] || FORM_META.reservation;
+  }
 
   function formatDate(iso) {
     try {
@@ -285,8 +297,9 @@ window.addEventListener("error", function (e) {
     var requestedDate = formatRequestedDate(d.date);
     var phone = d.phone || "";
     var email = d.email || "";
-    var tagClass = s.form === "entreprise" ? "tag-entreprise" : "tag-reservation";
-    var tagLabel = s.form === "entreprise" ? "Entreprise" : "Reservation";
+    var meta = formMeta(s.form);
+    var tagClass = meta.tagClass;
+    var tagLabel = meta.tagLabel;
 
     var fieldsHtml = "";
     var skip = { "form-name": true, "submission-id": true, "bot-field": true, name: true, company: true };
@@ -392,11 +405,15 @@ window.addEventListener("error", function (e) {
 
     var groups = [
       { key: "reservation", label: "Reservations" },
+      { key: "bmx3r-clinique", label: "Clinique BMX3R" },
       { key: "entreprise", label: "Entreprises" }
     ];
 
     groups.forEach(function (group) {
-      var items = filtered.filter(function (s) { return s.form === group.key; });
+      var items = filtered.filter(function (s) {
+        if (group.key === "reservation") return s.form !== "entreprise" && s.form !== "bmx3r-clinique";
+        return s.form === group.key;
+      });
       if (items.length === 0) return;
 
       var section = document.createElement("div");
@@ -415,7 +432,7 @@ window.addEventListener("error", function (e) {
         var name = d.name || d.company || "-";
         var plan = shortenPlan(d.plan) || (s.form === "entreprise" ? (d["bike-count"] ? d["bike-count"] + " velo(s)" : "Soumission") : "");
         var reqDate = formatRequestedDate(d.date);
-        var sub = plan + (d.date ? " . " + reqDate : "");
+        var sub = plan + (d.time ? " . " + d.time : "") + (d.date ? " . " + reqDate : "");
 
         var row = document.createElement("div");
         row.className = "row";

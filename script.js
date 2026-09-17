@@ -214,6 +214,75 @@ corporateForm.addEventListener('submit', (event) => {
     });
 });
 
+// Modal clinique BMX3R
+const bmx3rModal = document.querySelector('#bmx3rModal');
+const openBmx3rButtons = document.querySelectorAll('.open-bmx3r');
+const closeBmx3rButton = document.querySelector('#closeBmx3r');
+const bmx3rForm = document.querySelector('#bmx3rForm');
+const bmx3rSuccess = document.querySelector('#bmx3rFormSuccess');
+const bmx3rFormHeading = bmx3rForm.querySelector('.form-heading');
+const bmx3rStep = bmx3rForm.querySelector('.form-step');
+const doneBmx3rButton = document.querySelector('#doneBmx3r');
+
+function openBmx3r() {
+  bmx3rForm.reset();
+  bmx3rFormHeading.style.display = 'block';
+  bmx3rStep.style.display = 'block';
+  bmx3rSuccess.classList.remove('show');
+  bmx3rModal.showModal();
+}
+
+openBmx3rButtons.forEach((button) => button.addEventListener('click', openBmx3r));
+closeBmx3rButton.addEventListener('click', () => bmx3rModal.close());
+doneBmx3rButton.addEventListener('click', () => bmx3rModal.close());
+bmx3rModal.addEventListener('click', (event) => { if (event.target === bmx3rModal) bmx3rModal.close(); });
+
+function buildBmx3rMailtoFallback(data) {
+  const message = [
+    'Bonjour Gabriel,',
+    '',
+    'Je souhaite reserver ma place a la clinique d\'entretien BMX3R du 27 septembre.',
+    '',
+    `Nom : ${data.name}`,
+    `Telephone : ${data.phone}`,
+    `Heure souhaitee : ${data.time}`,
+    `Nombre de velos : ${data['bike-count']}`,
+    `Forfait souhaite : ${data.plan}`,
+  ].join('\n');
+  return `mailto:Washers3R@gmail.com?subject=${encodeURIComponent('Reservation clinique BMX3R — Washers3R')}&body=${encodeURIComponent(message)}`;
+}
+
+bmx3rForm.addEventListener('submit', (event) => {
+  event.preventDefault();
+  if (!bmx3rForm.checkValidity()) { bmx3rForm.reportValidity(); return; }
+  const formData = new FormData(bmx3rForm);
+  const data = Object.fromEntries(formData.entries());
+  data['submission-id'] = `${Date.now()}-${Math.random().toString(36).slice(2)}`;
+  const submitButton = bmx3rForm.querySelector('button[type="submit"]');
+  if (submitButton) submitButton.disabled = true;
+
+  fetch('/', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: encodeFormData(data),
+  })
+    .then((response) => {
+      if (!response.ok) throw new Error('Network response was not ok');
+      bmx3rStep.style.display = 'none';
+      bmx3rFormHeading.style.display = 'none';
+      bmx3rSuccess.classList.add('show');
+    })
+    .catch(() => {
+      window.location.href = buildBmx3rMailtoFallback(data);
+      bmx3rStep.style.display = 'none';
+      bmx3rFormHeading.style.display = 'none';
+      bmx3rSuccess.classList.add('show');
+    })
+    .finally(() => {
+      if (submitButton) submitButton.disabled = false;
+    });
+});
+
 // Animations au défilement
 const revealItems = document.querySelectorAll('.reveal');
 if (revealItems.length && 'IntersectionObserver' in window) {

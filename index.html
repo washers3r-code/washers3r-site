@@ -19,6 +19,7 @@
         <span>WASHERS<em>3R</em></span>
       </a>
       <nav aria-label="Navigation principale">
+        <a href="#clinique-bmx3r">Partenariat BMX3R</a>
         <a href="#services">Forfaits</a>
         <a href="#comment-ca-marche">Comment ça marche</a>
         <a href="#entreprises">Entreprises</a>
@@ -55,6 +56,20 @@
           <div class="art-tag"><span>✓</span> Nettoyé<br />avec soin</div>
           <p class="art-label bottom">DEPUIS<br /><strong>2024</strong></p>
           <div class="hero-sticker">ROULEZ<br />LÉGER <span>↗</span></div>
+        </div>
+      </section>
+
+      <section class="corporate section" id="clinique-bmx3r">
+        <div class="corporate-copy reveal">
+          <p class="eyebrow eyebrow-light"><span></span> Partenariat BMX3R</p>
+          <h2>Clinique d’entretien <em>à la Party de fin de saison.</em></h2>
+          <p>On s’associe à BMX3R pour préparer vos vélos avant l’hiver! Passez nous voir lors de la Party de fin de saison de la 1<sup>re</sup> saison de BMX3R.</p>
+          <ul class="corporate-points">
+            <li><span>✓</span> Dimanche 27 septembre, 11 h à 17 h</li>
+            <li><span>✓</span> 300, rue Chapeleau (Piste du CAP)</li>
+            <li><span>✓</span> Clinique d’entretien sur place, dîner et jeux avec BMX3R</li>
+          </ul>
+          <button class="button button-lime open-bmx3r" type="button">Réserver ma place <span>↗</span></button>
         </div>
       </section>
 
@@ -328,6 +343,44 @@
           <button class="button button-dark" type="submit">Envoyer ma demande <span>↗</span></button>
         </div>
         <div class="form-success" id="corporateFormSuccess"><span>✓</span><h2>Demande envoyée!</h2><p>Votre demande de soumission a bien été reçue. Nous vous contactons rapidement avec une proposition.</p><button class="text-link" type="button" id="doneCorporate">Fermer</button></div>
+      </form>
+    </dialog>
+    <dialog class="booking-modal" id="bmx3rModal" aria-labelledby="bmx3rTitle">
+      <button class="modal-close" id="closeBmx3r" type="button" aria-label="Fermer">×</button>
+      <div class="booking-aside"><p class="eyebrow eyebrow-light"><span></span> Partenariat BMX3R</p><h2>Clinique<br />d’entretien.</h2><p>Dimanche 27 septembre, 11 h à 17 h, à la Piste du CAP (300, rue Chapeleau). Réservez votre heure de passage.</p><div class="aside-bubble">27 sept<br /><b>11h-17h</b></div></div>
+      <form class="booking-form" id="bmx3rForm" name="bmx3r-clinique" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="bmx3r-clinique" />
+        <input type="hidden" name="submission-id" value="" />
+        <p class="visually-hidden" style="position:absolute;left:-9999px"><label>Ne pas remplir : <input name="bot-field" tabindex="-1" autocomplete="off" /></label></p>
+        <div class="form-heading"><p>CLINIQUE BMX3R — 27 SEPTEMBRE</p><h2 id="bmx3rTitle">Votre rendez-vous</h2></div>
+        <div class="form-step active" data-step="1">
+          <div class="form-row"><label>Nom<input required name="name" autocomplete="name" placeholder="Prénom et nom" /></label><label>Téléphone<input required name="phone" type="tel" autocomplete="tel" placeholder="(514) 000-0000" /></label></div>
+          <div class="form-row">
+            <label>Heure souhaitée
+              <select required name="time">
+                <option value="" disabled selected>Choisir une heure</option>
+                <option value="11h">11 h</option>
+                <option value="12h">12 h</option>
+                <option value="13h">13 h</option>
+                <option value="14h">14 h</option>
+                <option value="15h">15 h</option>
+                <option value="16h">16 h</option>
+                <option value="17h">17 h</option>
+              </select>
+            </label>
+            <label>Nombre de vélos<input required name="bike-count" type="number" min="1" placeholder="Ex : 2" /></label>
+          </div>
+          <label>Forfait souhaité
+            <select required name="plan">
+              <option value="" disabled selected>Choisir un forfait</option>
+              <option value="MPV 1 — Mise au point essentielle (35 $ sans taxes)">MPV 1 — Mise au point essentielle</option>
+              <option value="MPV 2 — Entretien transmission (65 $ sans taxes)">MPV 2 — Entretien transmission</option>
+              <option value="MPV 3 — Inspection approfondie (85 $ sans taxes)">MPV 3 — Inspection approfondie</option>
+            </select>
+          </label>
+          <button class="button button-dark" type="submit">Réserver ma place <span>↗</span></button>
+        </div>
+        <div class="form-success" id="bmx3rFormSuccess"><span>✓</span><h2>Demande envoyée!</h2><p>Votre demande pour la clinique BMX3R a bien été reçue. Nous vous contactons rapidement pour confirmer.</p><button class="text-link" type="button" id="doneBmx3r">Fermer</button></div>
       </form>
     </dialog>
     <script src="script.js"></script>
