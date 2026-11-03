@@ -1,0 +1,31 @@
+<template>
+  <style>
+    @font-face { font-family: "Space Grotesk"; font-weight: 700; src: url("assets/fonts/space-grotesk-latin-700-normal.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; overflow: hidden; }
+    #cl-flood { position: absolute; inset: 0; background: #f4f0e8; }
+    #cl-text { position: absolute; left: 96px; right: 96px; top: 470px; color: #121210;
+      font: 700 132px/1.0 "Space Grotesk", sans-serif; letter-spacing: -0.06em; }
+    #cl-text p { margin: 0 0 70px; }
+    #cl-text .w { display: inline-block; color: #121210; }
+    #cl-text .hl { background: #d8fb54; padding: 0 14px; margin-left: -14px; border-radius: 10px; }
+  </style>
+  <div id="root" data-composition-id="claim" data-width="1080" data-height="1920">
+    <div id="cl-flood"></div>
+    <div id="cl-text">
+      <p><span class="w">Plus</span> <span class="w">de</span> <span class="w">temps</span> <span class="w">à</span> <span class="w hl">rouler.</span></p>
+      <p><span class="w">Moins</span> <span class="w">de</span> <span class="w">temps</span> <span class="w">à</span> <span class="w">gosser.</span></p>
+    </div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#cl-flood", { clipPath: "inset(0 0 100% 0)" }, { clipPath: "inset(0 0 0% 0)", duration: 0.4, ease: "power2.inOut" }, 0);
+    // Per word, light grey to ink, no position change
+    const words = gsap.utils.toArray("#cl-text .w");
+    words.forEach((w, i) => {
+      const at = 0.35 + i * 0.08 + (i >= 5 ? 0.5 : 0);
+      tl.fromTo(w, { opacity: 0, color: "#d9d3c6" }, { opacity: 1, color: "#121210", duration: 0.22, ease: "power2.out" }, at);
+    });
+    tl.fromTo("#cl-text", { opacity: 1, filter: "blur(0px)" }, { opacity: 0, filter: "blur(10px)", duration: 0.2, ease: "power3.in" }, 3.15);
+    window.__timelines["claim"] = tl;
+  </script>
+</template>

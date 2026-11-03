@@ -1,0 +1,46 @@
+<template>
+  <style>
+    @font-face { font-family: "Space Grotesk"; font-weight: 700; src: url("assets/fonts/space-grotesk-latin-700-normal.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; overflow: hidden; background: #121210; }
+    .ga-shot { position: absolute; inset: 0; overflow: hidden; background: #121210; }
+    .ga-full img { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; object-fit: cover; }
+    .ga-wide img { position: absolute; left: 0; top: 470px; width: 1080px; height: 810px; object-fit: cover; }
+    .ga-stamp { position: absolute; padding: 20px 36px; background: #d8fb54; color: #121210; border-radius: 14px;
+      font: 700 104px/1 "Space Grotesk", sans-serif; letter-spacing: -0.04em; white-space: nowrap;
+      box-shadow: 0 16px 40px rgba(0,0,0,.35); }
+  </style>
+  <div id="root" data-composition-id="gallery" data-width="1080" data-height="1920">
+    <div id="ga-s1" class="clip ga-shot ga-full" data-start="0" data-duration="1.2" data-track-index="1">
+      <img id="ga-i1" src="assets/img/gallery-1.jpg" alt="Vélo de montagne vert sur un terrain de basketball" />
+      <div id="ga-t1" class="ga-stamp" style="left:96px; top:300px;">PRÊT ✓</div>
+    </div>
+    <div id="ga-s2" class="clip ga-shot ga-wide" data-layout-allow-overflow data-start="1.2" data-duration="1.2" data-track-index="1">
+      <img id="ga-i2" src="assets/img/gallery-2.jpg" alt="Vélo de ville blanc sur le gazon" />
+      <div id="ga-t2" class="ga-stamp" style="left:560px; top:300px;">PRÊT ✓</div>
+    </div>
+    <div id="ga-s3" class="clip ga-shot ga-full" data-start="2.4" data-duration="1.2" data-track-index="1">
+      <img id="ga-i3" src="assets/img/gallery-3.jpg" alt="Vélo de route noir dans l’herbe" />
+      <div id="ga-t3" class="ga-stamp" style="left:96px; top:360px;">PRÊT ✓</div>
+    </div>
+    <div id="ga-s4" class="clip ga-shot ga-wide" data-layout-allow-overflow data-start="3.6" data-duration="1.2" data-track-index="1">
+      <img id="ga-i4" src="assets/img/gallery-5.jpg" alt="Vélo bleu et rose devant une piscine" />
+      <div id="ga-t4" class="ga-stamp" style="left:500px; top:1110px;">PRÊT ✓</div>
+    </div>
+    <div id="ga-s5" class="clip ga-shot ga-full" data-start="4.8" data-duration="1.2" data-track-index="1">
+      <img id="ga-i5" src="assets/img/gallery-4.jpg" alt="BMX de course devant les arbres d’automne" />
+      <div id="ga-t5" class="ga-stamp" style="left:540px; top:300px;">PRÊT ✓</div>
+    </div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    for (let i = 1; i <= 5; i++) {
+      const t0 = (i - 1) * 1.2;
+      // Each photo arrives slightly large and settles (cut lands on a moving frame)
+      tl.fromTo("#ga-i" + i, { scale: 1.08 }, { scale: 1.0, duration: 1.2, ease: "power2.out" }, t0);
+      // PRÊT stamp slams in — the ticket's EN ATTENTE, answered
+      const rot = i % 2 ? -7 : 6;
+      tl.fromTo("#ga-t" + i, { opacity: 0, scale: 1.7, rotation: rot - 4 }, { opacity: 1, scale: 1, rotation: rot, duration: 0.16, ease: "power4.in" }, t0 + 0.2);
+    }
+    window.__timelines["gallery"] = tl;
+  </script>
+</template>

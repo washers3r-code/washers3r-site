@@ -1,0 +1,32 @@
+<template>
+  <style>
+    @font-face { font-family: "Space Grotesk"; font-weight: 700; src: url("assets/fonts/space-grotesk-latin-700-normal.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; overflow: hidden; }
+    #q-flood { position: absolute; inset: 0; background: #121210; }
+    #q-text { position: absolute; left: 96px; right: 96px; top: 420px; color: #f4f0e8;
+      font: 700 168px/0.98 "Space Grotesk", sans-serif; letter-spacing: -0.06em; }
+    #q-text .w { display: inline-block; }
+    #q-text .hl { color: #d8fb54; }
+  </style>
+  <div id="root" data-composition-id="question" data-width="1080" data-height="1920">
+    <div id="q-flood"></div>
+    <div id="q-text">
+      <div><span class="w">Et</span> <span class="w">si</span></div>
+      <div><span class="w">on</span> <span class="w">venait</span></div>
+      <div><span class="w hl">chez</span> <span class="w hl">vous?</span></div>
+    </div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    // Ink floods up from the bottom, following the ticket's exit direction
+    tl.fromTo("#q-flood", { clipPath: "inset(100% 0 0 0)" }, { clipPath: "inset(0% 0 0 0)", duration: 0.4, ease: "power2.inOut" }, 0);
+    // Word-by-word blur-in, no translate
+    const words = gsap.utils.toArray("#q-text .w");
+    words.forEach((w, i) => {
+      tl.fromTo(w, { opacity: 0, filter: "blur(10px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.16, ease: "power4.out" }, 0.35 + i * 0.14 + (i >= 4 ? 0.12 : 0));
+    });
+    // Exit: words blur out together
+    tl.fromTo("#q-text", { opacity: 1, filter: "blur(0px)" }, { opacity: 0, filter: "blur(10px)", duration: 0.2, ease: "power3.in" }, 3.1);
+    window.__timelines["question"] = tl;
+  </script>
+</template>

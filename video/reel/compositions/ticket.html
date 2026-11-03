@@ -1,0 +1,65 @@
+<template>
+  <style>
+    @font-face { font-family: "Space Grotesk"; font-weight: 700; src: url("assets/fonts/space-grotesk-latin-700-normal.woff2") format("woff2"); }
+    @font-face { font-family: "Space Grotesk"; font-weight: 500; src: url("assets/fonts/space-grotesk-latin-500-normal.woff2") format("woff2"); }
+    @font-face { font-family: "Manrope"; font-weight: 600; src: url("assets/fonts/manrope-latin-600-normal.woff2") format("woff2"); }
+    @font-face { font-family: "Manrope"; font-weight: 800; src: url("assets/fonts/manrope-latin-800-normal.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; background: #f4f0e8; overflow: hidden; }
+    #tk-slip {
+      position: absolute; left: 140px; top: 270px; width: 800px; height: 1000px;
+      background: #fffdf7; color: #121210; padding: 72px 72px 0;
+      box-shadow: 0 24px 60px rgba(18,18,16,.18);
+      -webkit-mask: radial-gradient(circle 14px at 50% 0, transparent 13px, #000 14px) 0 0 / 56px 100% repeat-x;
+              mask: radial-gradient(circle 14px at 50% 0, transparent 13px, #000 14px) 0 0 / 56px 100% repeat-x;
+    }
+    .tk-head { display: flex; justify-content: space-between; font: 800 32px/1 Manrope, sans-serif; letter-spacing: .14em; }
+    .tk-head span:last-child { color: #736a5d; letter-spacing: .04em; font-weight: 600; }
+    .tk-rule { border-top: 4px dashed rgba(18,18,16,.25); margin: 44px 0 52px; }
+    .tk-label { font: 600 46px/1.2 Manrope, sans-serif; color: #3d3a34; }
+    .tk-big { font: 700 250px/0.9 "Space Grotesk", sans-serif; letter-spacing: -0.06em; margin-top: 26px; }
+    .tk-unit { font: 700 104px/1 "Space Grotesk", sans-serif; letter-spacing: -0.05em; }
+    .tk-day { position: absolute; left: 72px; right: 72px; bottom: 76px; display: flex; align-items: center; justify-content: space-between;
+      font: 800 44px/1 Manrope, sans-serif; border-top: 4px dashed rgba(18,18,16,.25); padding-top: 52px; }
+    .tk-counter { display: flex; align-items: baseline; gap: 14px; }
+    .tk-slot { display: inline-block; position: relative; width: 56px; height: 64px; overflow: hidden; vertical-align: bottom; }
+    .tk-reel { position: absolute; left: 0; top: 0; }
+    .tk-reel div { height: 64px; font: 700 64px/64px "Space Grotesk", sans-serif; text-align: center; }
+    .tk-bike { color: #736a5d; font-weight: 600; }
+    #tk-stamp {
+      position: absolute; left: 300px; top: 905px; padding: 18px 34px;
+      border: 10px solid #c8432b; color: #c8432b; border-radius: 14px;
+      font: 700 92px/1 "Space Grotesk", sans-serif; letter-spacing: -0.02em; white-space: nowrap;
+    }
+  </style>
+  <div id="root" data-composition-id="ticket" data-width="1080" data-height="1920">
+    <div id="tk-wrap" data-layout-allow-overflow>
+      <div id="tk-slip">
+        <div class="tk-head"><span>ATELIER VÉLO</span><span>Billet n° 0417</span></div>
+        <div class="tk-rule"></div>
+        <div class="tk-label">Votre vélo sera prêt dans</div>
+        <div class="tk-big">3 à 5</div>
+        <div class="tk-unit">jours</div>
+        <div class="tk-day">
+          <span class="tk-bike">Vélo à l’atelier</span>
+          <span class="tk-counter">Jour
+            <span class="tk-slot"><span class="tk-reel" id="tk-reel"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div></span></span>
+          </span>
+        </div>
+      </div>
+      <div id="tk-stamp" data-layout-allow-overlap>EN ATTENTE</div>
+    </div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    // Stamp slams onto the slip
+    tl.fromTo("#tk-stamp", { opacity: 0, scale: 1.6, rotation: -14 }, { opacity: 1, scale: 1, rotation: -12, duration: 0.16, ease: "power4.in" }, 0.67);
+    tl.fromTo("#tk-slip", { x: 0, y: 0 }, { x: 0, y: 6, duration: 0.06, yoyo: true, repeat: 1, ease: "power1.out" }, 0.83);
+    // Days roll 1 -> 5, one tick each 0.4 s
+    for (let i = 1; i <= 4; i++) {
+      tl.fromTo("#tk-reel", { y: -(i - 1) * 64 }, { y: -i * 64, duration: 0.14, ease: "power3.out", immediateRender: i === 1 }, 1.4 + i * 0.4);
+    }
+    // Ticket whips up out of frame
+    tl.fromTo("#tk-wrap", { y: 0, filter: "blur(0px)" }, { y: -1700, filter: "blur(18px)", duration: 0.36, ease: "power3.in" }, 3.82);
+    window.__timelines["ticket"] = tl;
+  </script>
+</template>
