@@ -2,7 +2,7 @@ entreprise,secteur,ville,telephone,site,courriel_public,score,lien_maquette,stat
 Siboire,restauration,Sherbrooke,819-565-3636,siboire.ca,,6,,a_verifier
 Le Vintage 5080,restauration,Sherbrooke,819-565-5080,levintage5080.com (contenu douteux),,4,,a_verifier
 Le Chou de Bruxelles,restauration,Sherbrooke,819-564-1848,restaurantlechoudebruxelles.com,,6,,a_verifier
-Westley,restauration,Sherbrooke,819-791-2229,,,1,,priorite
+Westley,restauration,Sherbrooke,819-791-2229,,,1,https://claude.ai/artifact/7CuV2wMDPhpA1DJ35jAYsb,maquette_prete
 OMG Resto,restauration,Sherbrooke,819-823-7001,omgresto.com,info@omgresto.com,6,,a_verifier
 Antidote FoodLab,restauration,Sherbrooke,819-791-9117,antidotefoodlab.com,,6,,a_verifier
 Le Snack,restauration,Sherbrooke,819-791-5511,,,1,,priorite
@@ -13,11 +13,11 @@ Institut de Beaute Carrefour de l'Estrie,esthetique,Sherbrooke,819-678-0585,fran
 Icon Loft Esthetique,esthetique,Sherbrooke,819-943-4944,Fresha seulement + FB/IG,,2,,priorite
 Salon D'esthetique Profil Enr,esthetique,Sherbrooke,819-566-0661,,,1,,priorite
 Clinique Medico-Esthetique Allure,esthetique,Sherbrooke,819-821-5582,cliniqueallure.ca,,6,,a_verifier
-Esthetique Helene Chatelois,esthetique,Sherbrooke,819-564-0176,,,1,,priorite
+Esthetique Helene Chatelois,esthetique,Sherbrooke,819-564-0176,,,1,https://claude.ai/artifact/BZQpLC7rNn5UrJ4Quj9gEj,maquette_prete
 Beaute Nouvelle,esthetique,Sherbrooke,819-564-2312,beautenouvelle.com,,6,,a_verifier
 Service Mecanique Begin,mecanique,Sherbrooke,819-569-0540,,,1,,priorite
 Le Centre Mecanique LL Tech,mecanique,Sherbrooke,819-566-7262,lltech.ca,,6,,a_verifier
-Groupe Pro-Transmission Pneu de Sherbrooke,mecanique,Sherbrooke,819-569-8363,,,1,,priorite
+Groupe Pro-Transmission Pneu de Sherbrooke,mecanique,Sherbrooke,819-569-8363,,,1,https://claude.ai/artifact/MESbTsfqeYL6twcqUnZpBG,maquette_prete
 Mecanique King,mecanique,Sherbrooke,819-829-1234,mecaniqueking.com,info@mecaniqueking.com,6,,a_verifier
 Bumper to Bumper Garage GRJ Deauville,mecanique,Sherbrooke,819-864-4278,page reseau franchise seulement,,3,,hors_cible_franchise
 Raymond Auto,mecanique,Sherbrooke,819-823-2366,normandraymondauto.com,,6,,a_verifier
@@ -32,7 +32,7 @@ Salon De Coiffure Kardie,coiffure,Sherbrooke,819-563-3216,kardiecoiffure.com,,6,
 Tresses Africaines,coiffure,Sherbrooke,819-823-8881,tresses-africaines.com,tresses.africaines@videotron.ca,6,,a_verifier
 Le Sacristain,restauration,Trois-Rivieres,819-694-1344,lesacristain.ca,lesacristain@lesacristain.com,6,,a_verifier
 Le Bureau de Poste,restauration,Trois-Rivieres,819-840-3389,page chaine Warehouse Group (pas de site propre),,3,,hors_cible_franchise
-Cafe Lewis,restauration,Trois-Rivieres,819-841-1334,,,1,,priorite
+Cafe Lewis,restauration,Trois-Rivieres,819-841-1334,,,1,https://claude.ai/artifact/3ePQMmwFcwztRXKUQzN2Z8,maquette_prete
 Restaurant Patachou,restauration,Trois-Rivieres,819-376-9242,patachou.ca,,6,,a_verifier
 Le Buck Pub Gastronomique,restauration,Trois-Rivieres,819-519-2825,lebuck.ca,info@lebuck.ca,6,,a_verifier
 Les Contrebandiers,restauration,Trois-Rivieres,819-370-2005,lescontrebandiers.ca,,6,,a_verifier
@@ -53,7 +53,7 @@ Mchip Performance,mecanique,Trois-Rivieres,819-694-1108,mchip.ca,,6,,a_verifier
 Antirouille Pronovost,mecanique,Trois-Rivieres,819-378-1633,acquis par Antirouille Champlain (2019),,3,,a_confirmer_nom
 Auto Value Garage BP Electrofrank,mecanique,Trois-Rivieres,819-373-5424,,,1,,priorite
 Mecanique Trois-Rivieres,mecanique,Trois-Rivieres,819-448-2645,mecaniquetroisrivieres.com,,6,,a_verifier
-Coiffure Sensass,coiffure,Trois-Rivieres,819-378-2171,,,1,,priorite
+Coiffure Sensass,coiffure,Trois-Rivieres,819-378-2171,,,1,https://claude.ai/artifact/F73tJuiAdnvAPtYoRHmQfF,maquette_prete
 Exacto Coiffure,coiffure,Trois-Rivieres,819-371-0394,,,1,,priorite
 Lynne Desrochers et Patricia Guenard,coiffure,Trois-Rivieres,819-693-0060,salonocarre.com (sous le nom Salon O Carre),,5,,a_confirmer_nom
 L'Extase,coiffure,Trois-Rivieres,819-375-2999,,,1,,priorite
