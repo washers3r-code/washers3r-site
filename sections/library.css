@@ -13,7 +13,8 @@
 /* === EN-TÊTES === */
 .sec-header{ padding:16px 0; }
 .sec-header .wrap{ align-items:center; display:flex; justify-content:space-between; }
-.sec-header .logo{ align-items:center; display:flex; font:700 20px var(--b-font-h); gap:9px; }
+.sec-header .logo{ align-items:center; color:var(--b-ink); display:flex; font:700 20px var(--b-font-h); gap:9px; text-decoration:none; }
+.sec-header.h-robuste .logo{ color:#fff; }
 .sec-header .logo img{ border-radius:6px; height:34px; width:34px; object-fit:cover; }
 .sec-header nav{ display:flex; gap:22px; }
 .sec-header nav a{ color:var(--b-ink); font-size:13px; font-weight:600; text-decoration:none; }
@@ -102,6 +103,9 @@
 
 @media (max-width:760px){
   .sec-header nav,.sec-header.h-elegant nav{ display:none; }
+  .sec-header .logo{ font-size:16px; }
+  .sec-header .btn{ flex-shrink:0; font-size:12px; padding:11px 14px; }
+  .sec-header.h-chaleureux .tagline{ display:none; }
   .sec-services.s-grille .grid,.sec-services.s-image .grid,.sec-services.s-tarifs .grid,.sec-avis.a-grille .grid{ grid-template-columns:1fr; }
   .sec-avis.a-contact{ grid-template-columns:1fr; }
   .sec-reservation.r-formulaire form{ grid-template-columns:1fr; }
