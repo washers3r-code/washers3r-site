@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bibliothèque de sections — Washers3R</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="library.css">
+<style>
+  body{ font-family:Manrope,Arial,sans-serif; margin:0; }
+  .exemple-bandeau{ background:#121210; color:#fff; font:700 12px/1 'Space Grotesk',sans-serif; letter-spacing:.04em; padding:10px 16px; position:sticky; text-align:center; text-transform:uppercase; top:0; z-index:10; }
+  .exemple-bandeau span{ color:#d4a653; }
+  .cat-titre{ margin:46px 22px 10px; }
+  .cat-titre h2{ font:700 22px 'Space Grotesk',sans-serif; margin:0; }
+  .cat-titre p{ color:#687269; font-size:13px; margin:2px 0 0; }
+  .label{ color:#687269; font:700 10px 'Space Grotesk',sans-serif; letter-spacing:.06em; margin:0 22px 6px; text-transform:uppercase; }
+  .cadre{ border-bottom:1px solid #e3e1d9; margin-bottom:28px; }
+</style>
+</head>
+<body>
+
+<div class="exemple-bandeau">⚠ Bibliothèque de démonstration — <span>données 100% fictives</span>, aucun lien avec une vraie entreprise</div>
+
+<div class="cat-titre"><h2>1. En-têtes (5 styles)</h2><p>Chaque style convient à un type d'image de marque différent.</p></div>
+
+<p class="label">Élégant — ex. spa, cabinet, services hauts de gamme</p>
+<div class="cadre">
+<header class="sec sec-header h-elegant"><div class="wrap"><a class="logo" href="#">Café Lumière (exemple)</a><nav><a href="#services">Services</a><a href="#avis">Avis</a><a href="#contact">Contact</a></nav><a class="btn btn-outline" href="#reservation">Réserver une table</a></div></header>
+</div>
+
+<p class="label">Robuste — ex. garage, construction, services techniques</p>
+<div class="cadre">
+<header class="sec sec-header h-robuste"><div class="wrap"><a class="logo" href="#">Café Lumière (exemple)</a><nav><a href="#services">Services</a><a href="#avis">Avis</a></nav><a class="btn" href="tel:819-555-0100">📞 819-555-0100</a></div></header>
+</div>
+
+<p class="label">Moderne — ex. salon, resto branché, boutique</p>
+<div class="cadre">
+<header class="sec sec-header h-moderne"><div class="wrap"><a class="logo" href="#">Café Lumière (exemple)</a><nav><a href="#services">Services</a><a href="#avis">Avis</a><a href="#contact">Contact</a></nav><a class="btn" href="#reservation">Réserver une table</a></div></header>
+</div>
+
+<p class="label">Chaleureux — ex. boulangerie, café, garderie</p>
+<div class="cadre">
+<header class="sec sec-header h-chaleureux"><div class="wrap"><span class="logo"><img src="https://via.placeholder.com/60" alt="Café Lumière"> Café Lumière (exemple)<span class="tagline">Torréfaction locale (exemple)</span></span><a class="btn" href="#reservation">Réserver une table</a></div></header>
+</div>
+
+<p class="label">Minimaliste — ex. consultant, architecte, services pro</p>
+<div class="cadre">
+<header class="sec sec-header h-minimaliste"><div class="wrap"><a class="logo" href="#">Café Lumière (exemple)</a><a class="btn" href="#reservation">Réserver une table</a></div></header>
+</div>
+
+<div class="cat-titre"><h2>2. Présentation des services (4 styles)</h2><p>Le choix dépend du nombre de services et de l'image visuelle du secteur.</p></div>
+
+<p class="label">Grille de cartes — usage général</p>
+<div class="cadre">
+<section class="sec sec-services s-grille"><div class="wrap"><p class="eyebrow">Nos services</p><h2>Ce qu'on vous offre</h2><div class="grid">
+<div class="card"><h3>Espresso maison (exemple)</h3><p>Grains torréfiés sur place.</p><span class="prix">3,50 $</span></div>
+<div class="card"><h3>Brunch du midi (exemple)</h3><p>Servi tous les jours jusqu'à 14h.</p><span class="prix">16 $</span></div>
+<div class="card"><h3>Pâtisseries maison (exemple)</h3><p>Préparées chaque matin.</p><span class="prix">4,25 $</span></div>
+</div></div></section>
+</div>
+
+<p class="label">Liste — ex. menu, salon de coiffure</p>
+<div class="cadre">
+<section class="sec sec-services s-liste"><div class="wrap"><p class="eyebrow">Nos services</p><h2>Menu de services</h2>
+<div class="ligne"><div><h3>Espresso maison (exemple)</h3><p>Grains torréfiés sur place.</p></div><span class="prix">3,50 $</span></div>
+<div class="ligne"><div><h3>Brunch du midi (exemple)</h3><p>Servi tous les jours jusqu'à 14h.</p></div><span class="prix">16 $</span></div>
+<div class="ligne"><div><h3>Pâtisseries maison (exemple)</h3><p>Préparées chaque matin.</p></div><span class="prix">4,25 $</span></div>
+<div class="ligne"><div><h3>Salle privée (exemple)</h3><p>Pour réunions ou événements.</p></div><span class="prix">Sur demande</span></div>
+</div></section>
+</div>
+
+<p class="label">Cartes-images — ex. resto, esthétique</p>
+<div class="cadre">
+<section class="sec sec-services s-image"><div class="wrap"><p class="eyebrow">Nos services</p><h2>Découvrez nos services</h2><div class="grid">
+<div class="card"><img src="https://via.placeholder.com/400x300" alt="Espresso"><div class="txt"><h3>Espresso maison (exemple)</h3><p>3,50 $</p></div></div>
+<div class="card"><img src="https://via.placeholder.com/400x300" alt="Brunch"><div class="txt"><h3>Brunch du midi (exemple)</h3><p>16 $</p></div></div>
+<div class="card"><img src="https://via.placeholder.com/400x300" alt="Pâtisseries"><div class="txt"><h3>Pâtisseries maison (exemple)</h3><p>4,25 $</p></div></div>
+</div></div></section>
+</div>
+
+<p class="label">Forfaits/tarifs — ex. abonnements</p>
+<div class="cadre">
+<section class="sec sec-services s-tarifs"><div class="wrap"><p class="eyebrow">Forfaits</p><h2>Choisissez votre forfait</h2><div class="grid">
+<div class="plan"><h3>Carte café (exemple)</h3><div class="prix">25 $</div><ul><li>10 cafés</li><li>Valide 3 mois</li></ul><a class="btn btn-outline" href="#reservation">Choisir</a></div>
+<div class="plan pop"><h3>Abonnement mensuel (exemple)</h3><div class="prix">45 $</div><ul><li>Café illimité</li><li>1 pâtisserie/jour</li></ul><a class="btn" href="#reservation">Choisir</a></div>
+<div class="plan"><h3>Événement privé (exemple)</h3><div class="prix">Sur devis</div><ul><li>Salle fermée</li><li>Menu personnalisé</li></ul><a class="btn btn-outline" href="#reservation">Choisir</a></div>
+</div></div></section>
+</div>
+
+<div class="cat-titre"><h2>3. Réservation (3 styles)</h2><p>Selon que l'entreprise prend des rendez-vous précis ou préfère le téléphone.</p></div>
+
+<p class="label">Formulaire — réservation générale</p>
+<div class="cadre">
+<section class="sec sec-reservation r-formulaire"><div class="wrap"><p class="eyebrow">Réservation</p><h2>Réservez en ligne</h2><form>
+<input placeholder="Nom complet" type="text"><input placeholder="Téléphone" type="tel">
+<select><option>Espresso maison</option><option>Brunch du midi</option></select><input type="date">
+<button class="btn full" type="submit">Envoyer la demande</button>
+</form></div></section>
+</div>
+
+<p class="label">Créneaux — ex. coiffeur, dentiste</p>
+<div class="cadre">
+<section class="sec sec-reservation r-creneaux"><div class="wrap"><p class="eyebrow">Réservation</p><h2>Choisissez un créneau</h2><div class="creneaux">
+<button>9h00</button><button class="pris">10h00</button><button>11h00</button><button>13h00</button><button>14h00</button><button class="pris">15h00</button><button>16h00</button>
+</div><a class="btn" href="#" style="margin-top:20px">Confirmer le créneau</a></div></section>
+</div>
+
+<p class="label">Téléphone seulement — ex. petite entreprise sans système de rendez-vous</p>
+<div class="cadre">
+<section class="sec sec-reservation r-telephone"><div class="wrap"><p class="eyebrow">Réservation</p><h2>Appelez-nous pour réserver</h2><a class="num" href="tel:819-555-0100">819-555-0100</a><p class="heures">Lun–Ven 7h–17h, Sam–Dim 8h–15h (exemple)</p></div></section>
+</div>
+
+<div class="cat-titre"><h2>4. Avis / contact (2 styles)</h2><p>Pour afficher la preuve sociale et les coordonnées.</p></div>
+
+<p class="label">Grille d'avis</p>
+<div class="cadre">
+<section class="sec sec-avis a-grille"><div class="wrap"><p class="eyebrow">Avis clients</p><h2>Ce qu'on dit de nous</h2><div class="grid">
+<div class="card"><div class="etoiles">★★★★★</div><p>Super accueil et café excellent. (exemple)</p><div class="auteur">J. Tremblay (exemple)</div></div>
+<div class="card"><div class="etoiles">★★★★★</div><p>Mon endroit préféré pour travailler. (exemple)</p><div class="auteur">M. Gagnon (exemple)</div></div>
+<div class="card"><div class="etoiles">★★★★★</div><p>Brunch toujours délicieux. (exemple)</p><div class="auteur">S. Roy (exemple)</div></div>
+</div></div></section>
+</div>
+
+<p class="label">Avis + coordonnées combinés</p>
+<div class="cadre">
+<section class="sec sec-avis a-contact">
+<div class="card"><div class="etoiles">★★★★★</div><p>Super accueil et café excellent. (exemple)</p><div class="auteur">J. Tremblay (exemple)</div></div>
+<div class="coords"><p class="eyebrow">Contact</p><h2>Venez nous voir</h2><p><strong>Café Lumière (exemple)</strong><br>123 rue Fictive, Trois-Rivières (exemple)<br>819-555-0100<br>Lun–Ven 7h–17h, Sam–Dim 8h–15h (exemple)</p></div>
+</section>
+</div>
+
+</body>
+</html>

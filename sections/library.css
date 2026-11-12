@@ -1,0 +1,107 @@
+/* Bibliothèque de sections Washers3R — variables par entreprise, à écraser via le JSON du prospect */
+.sec{ --b-primary:#2f6f5e; --b-primary-dark:#1f4b3f; --b-ink:#15201c; --b-bg:#f7f6f2; --b-surface:#fff; --b-muted:#687269; --b-line:rgba(21,32,28,.14); --b-radius:10px; --b-font-h:'Space Grotesk',sans-serif; --b-font-b:'Manrope',Arial,sans-serif; }
+.sec{ font-family:var(--b-font-b); color:var(--b-ink); background:var(--b-bg); }
+.sec *{ box-sizing:border-box; }
+.sec h1,.sec h2,.sec h3{ font-family:var(--b-font-h); letter-spacing:-.03em; margin:0 0 10px; }
+.sec p{ margin:0; }
+.sec .wrap{ margin:0 auto; max-width:1100px; padding:0 22px; }
+.sec .btn{ background:var(--b-primary); border:0; border-radius:var(--b-radius); color:#fff; cursor:pointer; display:inline-flex; font:700 13px var(--b-font-b); gap:8px; padding:13px 20px; text-decoration:none; transition:transform .15s; }
+.sec .btn:hover{ transform:translateY(-1px); }
+.sec .btn-outline{ background:transparent; border:1.5px solid var(--b-ink); color:var(--b-ink); }
+.sec .eyebrow{ color:var(--b-muted); font-size:11px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; }
+
+/* === EN-TÊTES === */
+.sec-header{ padding:16px 0; }
+.sec-header .wrap{ align-items:center; display:flex; justify-content:space-between; }
+.sec-header .logo{ align-items:center; display:flex; font:700 20px var(--b-font-h); gap:9px; }
+.sec-header .logo img{ border-radius:6px; height:34px; width:34px; object-fit:cover; }
+.sec-header nav{ display:flex; gap:22px; }
+.sec-header nav a{ color:var(--b-ink); font-size:13px; font-weight:600; text-decoration:none; }
+
+.sec-header.h-elegant{ background:var(--b-surface); border-bottom:1px solid var(--b-line); }
+.sec-header.h-elegant .logo{ font-weight:500; letter-spacing:.04em; text-transform:uppercase; }
+.sec-header.h-elegant nav a{ font-weight:400; letter-spacing:.03em; text-transform:uppercase; }
+
+.sec-header.h-robuste{ background:var(--b-ink); color:#fff; padding:20px 0; }
+.sec-header.h-robuste .logo{ color:#fff; font-weight:800; text-transform:uppercase; }
+.sec-header.h-robuste nav a{ color:#dfe3e0; font-weight:700; }
+.sec-header.h-robuste .btn{ background:var(--b-primary); font-weight:800; }
+
+.sec-header.h-moderne{ background:linear-gradient(135deg,var(--b-surface),var(--b-bg)); }
+.sec-header.h-moderne .logo{ background:linear-gradient(135deg,var(--b-primary),var(--b-primary-dark)); -webkit-background-clip:text; background-clip:text; color:transparent; }
+.sec-header.h-moderne .btn{ border-radius:999px; }
+
+.sec-header.h-chaleureux{ background:var(--b-bg); padding:22px 0; }
+.sec-header.h-chaleureux .logo{ background:var(--b-surface); border-radius:999px; padding:6px 16px 6px 6px; }
+.sec-header.h-chaleureux .tagline{ color:var(--b-muted); font-size:11px; margin-left:8px; }
+
+.sec-header.h-minimaliste{ background:var(--b-surface); padding:26px 0; }
+.sec-header.h-minimaliste .wrap{ justify-content:space-between; }
+.sec-header.h-minimaliste nav{ display:none; }
+.sec-header.h-minimaliste .logo{ font-weight:600; letter-spacing:-.02em; }
+.sec-header.h-minimaliste .btn{ background:transparent; border:1px solid var(--b-line); color:var(--b-ink); }
+
+/* === SERVICES === */
+.sec-services{ padding:60px 0; }
+.sec-services h2{ font-size:clamp(28px,4vw,40px); margin-bottom:28px; }
+
+.sec-services.s-grille .grid{ display:grid; gap:14px; grid-template-columns:repeat(3,1fr); }
+.sec-services.s-grille .card{ background:var(--b-surface); border-radius:var(--b-radius); padding:22px; }
+.sec-services.s-grille .card h3{ font-size:19px; }
+.sec-services.s-grille .card p{ color:var(--b-muted); font-size:13px; line-height:1.6; margin-bottom:12px; }
+.sec-services.s-grille .card .prix{ color:var(--b-primary); font-weight:800; }
+
+.sec-services.s-liste .ligne{ align-items:center; border-bottom:1px solid var(--b-line); display:flex; justify-content:space-between; padding:16px 0; }
+.sec-services.s-liste .ligne h3{ font-size:16px; margin:0; }
+.sec-services.s-liste .ligne p{ color:var(--b-muted); font-size:12px; margin-top:3px; }
+.sec-services.s-liste .ligne .prix{ font:700 15px var(--b-font-h); white-space:nowrap; }
+
+.sec-services.s-image .grid{ display:grid; gap:16px; grid-template-columns:repeat(3,1fr); }
+.sec-services.s-image .card{ border-radius:var(--b-radius); overflow:hidden; }
+.sec-services.s-image .card img{ aspect-ratio:4/3; display:block; object-fit:cover; width:100%; }
+.sec-services.s-image .card .txt{ background:var(--b-surface); padding:16px; }
+.sec-services.s-image .card h3{ font-size:16px; }
+
+.sec-services.s-tarifs .grid{ display:grid; gap:14px; grid-template-columns:repeat(3,1fr); }
+.sec-services.s-tarifs .plan{ background:var(--b-surface); border-radius:var(--b-radius); padding:26px 20px; text-align:center; }
+.sec-services.s-tarifs .plan.pop{ background:var(--b-ink); color:#fff; }
+.sec-services.s-tarifs .prix{ font:800 32px var(--b-font-h); margin:10px 0; }
+.sec-services.s-tarifs ul{ list-style:none; margin:14px 0; padding:0; text-align:left; }
+.sec-services.s-tarifs li{ border-top:1px solid var(--b-line); font-size:12px; padding:9px 0; }
+.sec-services.s-tarifs .plan.pop li{ border-color:rgba(255,255,255,.2); }
+
+/* === RÉSERVATION === */
+.sec-reservation{ background:var(--b-surface); padding:60px 0; }
+.sec-reservation h2{ font-size:clamp(26px,3.6vw,36px); }
+
+.sec-reservation.r-formulaire form{ display:grid; gap:12px; grid-template-columns:1fr 1fr; margin-top:20px; max-width:560px; }
+.sec-reservation.r-formulaire input,.sec-reservation.r-formulaire select{ background:var(--b-bg); border:1px solid var(--b-line); border-radius:8px; font:inherit; padding:11px; width:100%; }
+.sec-reservation.r-formulaire .full{ grid-column:1/-1; }
+
+.sec-reservation.r-creneaux .creneaux{ display:flex; flex-wrap:wrap; gap:9px; margin-top:18px; max-width:560px; }
+.sec-reservation.r-creneaux .creneaux button{ background:var(--b-bg); border:1px solid var(--b-line); border-radius:8px; cursor:pointer; font:600 12px var(--b-font-b); padding:9px 14px; }
+.sec-reservation.r-creneaux .creneaux button.pris{ color:var(--b-muted); opacity:.4; text-decoration:line-through; }
+
+.sec-reservation.r-telephone{ background:var(--b-ink); color:#fff; text-align:center; }
+.sec-reservation.r-telephone h2{ color:#fff; }
+.sec-reservation.r-telephone .num{ font:800 34px var(--b-font-h); }
+.sec-reservation.r-telephone .heures{ color:#cdd3cf; font-size:12px; margin-top:6px; }
+
+/* === AVIS / CONTACT === */
+.sec-avis{ padding:60px 0; }
+.sec-avis.a-grille .grid{ display:grid; gap:14px; grid-template-columns:repeat(3,1fr); }
+.sec-avis.a-grille .card{ background:var(--b-surface); border-radius:var(--b-radius); padding:20px; }
+.sec-avis.a-grille .etoiles{ color:var(--b-primary); font-size:13px; }
+.sec-avis.a-grille p{ font-size:13px; line-height:1.6; margin:10px 0; }
+.sec-avis.a-grille .auteur{ color:var(--b-muted); font-size:12px; font-weight:700; }
+
+.sec-avis.a-contact{ background:var(--b-surface); display:grid; gap:40px; grid-template-columns:1fr 1fr; }
+.sec-avis.a-contact .coords p{ color:var(--b-muted); font-size:13px; line-height:1.8; }
+.sec-avis.a-contact .coords strong{ color:var(--b-ink); }
+
+@media (max-width:760px){
+  .sec-header nav,.sec-header.h-elegant nav{ display:none; }
+  .sec-services.s-grille .grid,.sec-services.s-image .grid,.sec-services.s-tarifs .grid,.sec-avis.a-grille .grid{ grid-template-columns:1fr; }
+  .sec-avis.a-contact{ grid-template-columns:1fr; }
+  .sec-reservation.r-formulaire form{ grid-template-columns:1fr; }
+}

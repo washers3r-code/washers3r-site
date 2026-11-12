@@ -1,0 +1,27 @@
+{
+  "_avertissement": "EXEMPLE FICTIF — sert uniquement à démontrer la bibliothèque de sections, aucun lien avec une vraie entreprise",
+  "entreprise": "Café Lumière (exemple)",
+  "secteur": "Café / restauration",
+  "adresse": "123 rue Fictive, Trois-Rivières (exemple)",
+  "telephone": "819-555-0100",
+  "heures": "Lun–Ven 7h–17h, Sam–Dim 8h–15h (exemple)",
+  "logo_url": "https://via.placeholder.com/60",
+  "tagline": "Torréfaction locale (exemple)",
+  "cta_texte": "Réserver une table",
+  "services": [
+    {"nom":"Espresso maison (exemple)","desc":"Grains torréfiés sur place.","prix":"3,50 $","image":"https://via.placeholder.com/400x300"},
+    {"nom":"Brunch du midi (exemple)","desc":"Servi tous les jours jusqu'à 14h.","prix":"16 $","image":"https://via.placeholder.com/400x300"},
+    {"nom":"Pâtisseries maison (exemple)","desc":"Préparées chaque matin.","prix":"4,25 $","image":"https://via.placeholder.com/400x300"},
+    {"nom":"Salle privée (exemple)","desc":"Pour réunions ou événements.","prix":"Sur demande","image":"https://via.placeholder.com/400x300"}
+  ],
+  "forfaits": [
+    {"nom":"Carte café (exemple)","prix":"25 $","a":"10 cafés","b":"Valide 3 mois"},
+    {"nom":"Abonnement mensuel (exemple)","prix":"45 $","a":"Café illimité","b":"1 pâtisserie/jour"},
+    {"nom":"Événement privé (exemple)","prix":"Sur devis","a":"Salle fermée","b":"Menu personnalisé"}
+  ],
+  "avis": [
+    {"texte":"Super accueil et café excellent. (exemple)","auteur":"J. Tremblay (exemple)"},
+    {"texte":"Mon endroit préféré pour travailler. (exemple)","auteur":"M. Gagnon (exemple)"},
+    {"texte":"Brunch toujours délicieux. (exemple)","auteur":"S. Roy (exemple)"}
+  ]
+}
