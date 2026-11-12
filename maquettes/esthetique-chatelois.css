@@ -1,0 +1,24 @@
+/* Surcharge de couleurs — Esthétique Hélène Chatelois (institut d'esthétique) */
+/* Les variables sont déclarées sur .sec dans library.css ; on les réécrit ici sur .sec également. */
+.sec{
+  --b-primary:#9c4f63;
+  --b-primary-dark:#6e2f3f;
+  --b-ink:#2b2220;
+  --b-bg:#faf3ef;
+  --b-surface:#ffffff;
+  --b-muted:#8a7570;
+  --b-line:rgba(43,34,32,.14);
+  --b-radius:12px;
+  --b-font-h:'Playfair Display',serif;
+  --b-font-b:'Manrope',Arial,sans-serif;
+}
+
+/* Section "À propos" — remplace la carte d'avis (aucun avis public avec texte n'a été trouvé) */
+.a-propos{ background:var(--b-surface); display:grid; gap:40px; grid-template-columns:1fr 1fr; align-items:center; }
+.a-propos .texte p{ color:var(--b-muted); font-size:14px; line-height:1.8; }
+.a-propos .coords p{ color:var(--b-muted); font-size:13px; line-height:1.8; }
+.a-propos .coords strong{ color:var(--b-ink); }
+
+@media (max-width:760px){
+  .a-propos{ grid-template-columns:1fr; }
+}

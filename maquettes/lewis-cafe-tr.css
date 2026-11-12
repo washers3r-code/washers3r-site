@@ -1,0 +1,11 @@
+/* Surcharge de couleurs — Lewis Café TR (café chaleureux : bois, crème, vert sarriette) */
+.sec{
+  --b-primary:#9a5b32;      /* bois / café torréfié */
+  --b-primary-dark:#6e3f20;
+  --b-ink:#2e2015;          /* brun très foncé */
+  --b-bg:#f8f1e6;           /* crème */
+  --b-surface:#fffaf2;
+  --b-muted:#7a6a57;
+  --b-line:rgba(46,32,21,.14);
+  --b-radius:12px;
+}

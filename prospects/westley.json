@@ -1,0 +1,29 @@
+{
+  "entreprise": "Westley - Artisans restaurateurs",
+  "secteur": "Bistro / restaurant",
+  "adresse": "3200, rue King Ouest, suite A-140, Sherbrooke, QC J1L 1C9",
+  "telephone": "819-791-2229",
+  "heures": "Mar-Mer 11h30-14h30 et 17h-22h, Jeu-Ven 11h30-14h30 et 17h-00h, Sam 17h-00h, Dim-Lun fermé",
+  "logo_url": "",
+  "tagline": "Un bistro au menu saisonnier, vins d'importation privée et cocktails signature",
+  "cta_texte": "Réserver une table",
+  "services": [
+    {"nom": "Menu saisonnier", "desc": "Cuisine du terroir québécois, au fil des saisons et des produits locaux."},
+    {"nom": "Vins d'importation privée", "desc": "Une sélection de vins importés directement, à découvrir sur place."},
+    {"nom": "Cocktails signature", "desc": "Cocktails maison et large sélection de spiritueux."},
+    {"nom": "Traiteur et événements privés", "desc": "Service de traiteur, cocktail de réception et menu de groupe sur réservation."}
+  ],
+  "avis": [
+    {
+      "texte": "Westley, and the incredible people there, continues to exceed our high expectations. This restaurant offers a blend of fine dining in a comfortable environment that makes you feel at home. Each member of the staff, and even the owners, checked in on us throughout the meal.",
+      "auteur": "RecognizeExcellentPp, avis TripAdvisor"
+    }
+  ],
+  "_sources": [
+    "https://www.bonjourquebec.com/en-us/listing/restaurants/westley-artisans-restaurateurs/0qo8",
+    "https://restoenligne.com/en/restaurants/home/westley-artisans-restaurateurs",
+    "https://www.tripadvisor.com/Restaurant_Review-g155035-d14013707-Reviews-Westley_Artisans_Restaurateurs-Sherbrooke_Quebec.html",
+    "https://www.facebook.com/westleyartisans/ (non accessible au scraping direct, info confirmée via recherche)"
+  ],
+  "_notes": "Facebook et Yelp n'ont pas pu être scrapés directement (sites non supportés par l'outil) ; les données d'heures et de contact ont été croisées via bonjourquebec.com et restoenligne.com (qui cite la même adresse/téléphone). Pas de vraies couleurs de marque trouvées publiquement — palette sobre bistro moderne choisie par défaut. Aucun prix de menu public trouvé — champ 'prix' omis pour tous les services."
+}

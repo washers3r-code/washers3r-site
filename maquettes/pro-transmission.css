@@ -1,0 +1,12 @@
+/* Surcharge de couleurs — Groupe Pro-Transmission / Pneu de Sherbrooke */
+/* Palette sobre type garage : bleu foncé / gris acier, rouge discret en accent */
+.sec{
+  --b-primary:#b23a2e;        /* rouge discret (accent CTA) */
+  --b-primary-dark:#8a2b22;
+  --b-ink:#1b2430;            /* bleu-gris foncé, quasi anthracite */
+  --b-bg:#f2f3f5;             /* gris très pâle */
+  --b-surface:#ffffff;
+  --b-muted:#5c6673;
+  --b-line:rgba(27,36,48,.14);
+  --b-radius:8px;
+}

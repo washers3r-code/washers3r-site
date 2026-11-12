@@ -1,0 +1,18 @@
+{
+  "entreprise": "Lewis Café TR",
+  "secteur": "Café / déjeuner-dîner (100% végétalien)",
+  "adresse": "15 Rue des Forges, Trois-Rivières, QC G9A 6A8",
+  "telephone": "819-841-1334",
+  "heures": "",
+  "logo_url": "",
+  "tagline": "Café chaleureux, cuisine maison 100% végétalienne",
+  "cta_texte": "Nous appeler",
+  "services": [
+    {"nom":"Casserole Béné","desc":"Patates grelots, sauce hollandaise crémeuse aux légumes, cajous et tournesol, kale, tomates cerises, huile d'herbes, servie avec toasts.","prix":"19,50 $","image":""},
+    {"nom":"Shakshuka","desc":"Mijoté de poivrons grillés et tomates épicées, mozzarella de cajous et tournesol, tofu mariné et herbes fraîches, servi avec focaccia maison.","prix":"18,50 $","image":""},
+    {"nom":"Pancakes à la cannelle","desc":"Coulis de fraises à la vanille, glaçage royal, graines de citrouille et tournesol pralinées au vrai sirop d'érable.","prix":"18,50 $","image":""},
+    {"nom":"Toast Nutella","desc":"Pain, Nutella de tournesol, bananes, servi avec fruits.","prix":"12 $","image":""}
+  ],
+  "forfaits": [],
+  "avis": []
+}

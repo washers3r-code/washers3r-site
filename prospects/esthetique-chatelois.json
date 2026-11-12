@@ -1,0 +1,18 @@
+{
+  "entreprise": "Esthétique Hélène Chatelois",
+  "secteur": "Institut d'esthétique",
+  "adresse": "1050 Boulevard Jacques-Cartier N, Sherbrooke, QC J1J 3A7",
+  "telephone": "819-564-0176",
+  "heures": "Lun-Mer 9h-17h, Jeu 9h-12h, Ven-Dim fermé (sur rendez-vous)",
+  "logo_url": "",
+  "tagline": "Une pause détente pour votre bien-être, depuis 1996",
+  "cta_texte": "Réserver un rendez-vous",
+  "services": [
+    {"nom":"Maquillage permanent","desc":"Microblading et maquillage permanent (sourcils, yeux, lèvres).","prix":""},
+    {"nom":"Épilation à la cire","desc":"Service d'épilation à la cire.","prix":""},
+    {"nom":"Électrolyse","desc":"Épilation électrique permanente.","prix":""},
+    {"nom":"Rehaussement de cils","desc":"Lash lift pour un regard naturel.","prix":""}
+  ],
+  "forfaits": [],
+  "avis": []
+}

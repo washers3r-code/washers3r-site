@@ -1,0 +1,22 @@
+{
+  "entreprise": "Groupe Pro-Transmission / Pneu de Sherbrooke",
+  "secteur": "Garage / mécanique automobile (pneus, freins, transmission)",
+  "adresse": "1997 Rue Galt E, Sherbrooke, QC J1G 3H9",
+  "telephone": "819-569-8363",
+  "heures": "Lun–Ven 8h–17h, Sam–Dim fermé",
+  "logo_url": "",
+  "tagline": "Votre garage de confiance à Sherbrooke depuis des années",
+  "cta_texte": "Appelez-nous",
+  "services": [
+    {"nom":"Pneus","desc":"Vente, installation et équilibrage de pneus toutes saisons."},
+    {"nom":"Freins","desc":"Inspection et réparation du système de freinage."},
+    {"nom":"Transmission","desc":"Diagnostic et réparation de transmission, différentiels."},
+    {"nom":"Silencieux et suspension","desc":"Réparation du système d'échappement et de la suspension."}
+  ],
+  "avis": [
+    {"texte":"J'ai adoré mon expérience là-bas! Un ami qui travaille là-bas en tant que mécanicien m'a référé et je suis agréablement surpris du service. Tout d'abord, le prix est très abordable. Pour un changement du système d'échappement, ça m'a coûté 1500 $ de moins que ce qu'on me faisait à un autre garage. Ensuite, le propriétaire est très sympathique et travaille bien. Les mécaniciens ont fait une belle job et j'ai été super bien traité. Je vais définitivement y retourner pour mes prochaines réparations. Je vous recommande ce garage à 100 % !","auteur":"Anthony (Google)"},
+    {"texte":"Très bon service. J'ai fait changer mon différentiel et un support de transmission pour mon véhicule. Le prix était juste ça fait 6 mois que je roule avec et j'ai aucun problème. Je les recommandes pour de travaux de transmission et différentiels.","auteur":"nasa444444 (Google)"},
+    {"texte":"Excellent service! Je voulais faire une inspection pour l'achat de véhicule et malgré leur achalandage élevé, ils ont été en mesure de me donner un rendez-vous rapidement.","auteur":"Jean-Sébastien Paré (Google)"},
+    {"texte":"Bonne réception, il trouve les solutions pour bien répondre au problème, bon prix, et on peut aussi avoir droit à une auto de courtoisie. À mes quelques réparations je peux que donner 5 étoiles, MERCI à l'équipe!","auteur":"Donald Chamberland (Google)"}
+  ]
+}
