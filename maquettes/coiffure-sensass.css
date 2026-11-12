@@ -1,0 +1,10 @@
+/* Surcharge de couleurs — Coiffure Sensass (salon de coiffure, Trois-Rivières) */
+.sec{
+  --b-primary:#b5485a;
+  --b-primary-dark:#7f2f3c;
+  --b-ink:#241b1d;
+  --b-bg:#faf4f2;
+  --b-surface:#fff;
+  --b-muted:#8a7a7c;
+  --b-line:rgba(36,27,29,.14);
+}

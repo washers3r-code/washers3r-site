@@ -1,0 +1,17 @@
+{
+  "entreprise": "Coiffure Sensass",
+  "secteur": "Salon de coiffure",
+  "adresse": "959, boulevard des Forges, Trois-Rivières (Québec) G8Z 1T7",
+  "telephone": "819-378-2171",
+  "heures": "",
+  "logo_url": "",
+  "tagline": "Salon de coiffure à Trois-Rivières",
+  "cta_texte": "Réserver une place",
+  "services": [
+    {"nom":"Coupe","desc":"Coupe de cheveux (description reprise d'un répertoire public : \"trendy cuts and styles\" — à confirmer auprès du salon).","prix":""},
+    {"nom":"Coiffage","desc":"Mise en forme / coiffage (à confirmer auprès du salon).","prix":""},
+    {"nom":"Coloration (à confirmer)","desc":"Mentionnée sur la page Instagram du salon (ex. mise en valeur des cheveux blonds), service non détaillé publiquement.","prix":""}
+  ],
+  "avis": [],
+  "sources_notes": "Heures d'ouverture non confirmées : sources publiques contradictoires (Birdeye : lun-ven 9h-20h, sam 9h-15h, dim fermé, profil non réclamé ; Yelp mobile : fermé lundi et dimanche, ouvert mar-sam 9h; PagesJaunes : horaire des Fêtes 9h-21h, non représentatif de l'horaire régulier). Aucun menu de services avec prix trouvé (absent de Fresha). Aucun avis public avec texte intégral trouvé (Yelp : 0 avis ; Birdeye : 4.7/49 avis mais texte non accessible, page non réclamée)."
+}
