@@ -1,0 +1,11 @@
+/* Surcharge de couleurs — Westley (bistro, Sherbrooke) */
+.sec{
+  --b-primary:#7a3b2e;
+  --b-primary-dark:#4f2419;
+  --b-ink:#201915;
+  --b-bg:#f6f1ea;
+  --b-surface:#fffdfb;
+  --b-muted:#6d6459;
+  --b-line:rgba(32,25,21,.14);
+  --b-radius:10px;
+}

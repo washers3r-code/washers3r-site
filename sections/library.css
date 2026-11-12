@@ -42,17 +42,28 @@
 .sec-header.h-minimaliste .logo{ font-weight:600; letter-spacing:-.02em; }
 .sec-header.h-minimaliste .btn{ background:transparent; border:1px solid var(--b-line); color:var(--b-ink); }
 
+/* === HERO (accroche sous l'en-tête) === */
+.sec-hero{ padding:56px 0 48px; }
+.sec-hero h1{ font-size:clamp(28px,4.2vw,44px); line-height:1.08; max-width:760px; }
+.sec-hero .sous{ color:var(--b-muted); font-size:15px; margin-top:14px; max-width:520px; }
+.sec-hero .btn{ margin-top:22px; }
+@media (max-width:760px){ .sec-hero{ padding:40px 0 32px; } }
+
 /* === SERVICES === */
 .sec-services{ padding:60px 0; }
 .sec-services h2{ font-size:clamp(28px,4vw,40px); margin-bottom:28px; }
 
-.sec-services.s-grille .grid{ display:grid; gap:14px; grid-template-columns:repeat(3,1fr); }
-.sec-services.s-grille .card{ background:var(--b-surface); border-radius:var(--b-radius); padding:22px; }
+.sec-services.s-grille .grid{ counter-reset:svc; display:grid; gap:14px; grid-template-columns:repeat(3,1fr); }
+.sec-services.s-grille .card{ background:var(--b-surface); border-radius:var(--b-radius); border-top:3px solid var(--b-primary); counter-increment:svc; padding:26px 22px 22px; position:relative; }
+.sec-services.s-grille .card:before{ color:var(--b-primary); content:counter(svc,decimal-leading-zero); display:block; font:700 12px var(--b-font-h); letter-spacing:.06em; margin-bottom:10px; opacity:.55; }
 .sec-services.s-grille .card h3{ font-size:19px; }
 .sec-services.s-grille .card p{ color:var(--b-muted); font-size:13px; line-height:1.6; margin-bottom:12px; }
 .sec-services.s-grille .card .prix{ color:var(--b-primary); font-weight:800; }
 
-.sec-services.s-liste .ligne{ align-items:center; border-bottom:1px solid var(--b-line); display:flex; justify-content:space-between; padding:16px 0; }
+.sec-services.s-liste .wrap{ counter-reset:svc; }
+.sec-services.s-liste .ligne{ align-items:flex-start; border-bottom:1px solid var(--b-line); display:flex; gap:16px; padding:18px 0; }
+.sec-services.s-liste .ligne:before{ align-items:center; background:var(--b-bg); border:1.5px solid var(--b-primary); border-radius:50%; color:var(--b-primary); content:counter(svc,decimal-leading-zero); counter-increment:svc; display:flex; flex:none; font:700 11px var(--b-font-h); height:30px; justify-content:center; width:30px; }
+.sec-services.s-liste .ligne > div:first-of-type{ flex:1; }
 .sec-services.s-liste .ligne h3{ font-size:16px; margin:0; }
 .sec-services.s-liste .ligne p{ color:var(--b-muted); font-size:12px; margin-top:3px; }
 .sec-services.s-liste .ligne .prix{ font:700 15px var(--b-font-h); white-space:nowrap; }
@@ -97,7 +108,9 @@
 .sec-avis.a-grille p{ font-size:13px; line-height:1.6; margin:10px 0; }
 .sec-avis.a-grille .auteur{ color:var(--b-muted); font-size:12px; font-weight:700; }
 
-.sec-avis.a-contact{ background:var(--b-surface); display:grid; gap:40px; grid-template-columns:1fr 1fr; }
+.sec-avis.a-contact{ background:var(--b-surface); padding:60px 0; }
+.sec-avis.a-contact .wrap{ display:grid; gap:40px; grid-template-columns:1fr 1fr; }
+.sec-avis.a-contact .card{ background:var(--b-bg); border-radius:var(--b-radius); padding:22px; align-self:start; }
 .sec-avis.a-contact .coords p{ color:var(--b-muted); font-size:13px; line-height:1.8; }
 .sec-avis.a-contact .coords strong{ color:var(--b-ink); }
 
