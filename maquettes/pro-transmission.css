@@ -10,3 +10,16 @@
   --b-line:rgba(27,36,48,.14);
   --b-radius:8px;
 }
+
+/* Hero avec photo */
+.hero-photo .hero-grid{ align-items:center; display:grid; gap:40px; grid-template-columns:1.1fr 1fr; }
+.hero-photo .hero-img img{ border-radius:var(--b-radius); display:block; height:auto; object-fit:cover; width:100%; }
+@media (max-width:760px){
+  .hero-photo .hero-grid{ grid-template-columns:1fr; }
+  .hero-photo .hero-img{ order:-1; }
+}
+
+/* Galerie de photos (section services) */
+.sec-services .galerie{ display:grid; gap:16px; grid-template-columns:1fr 1fr; margin-top:28px; }
+.sec-services .galerie img{ aspect-ratio:4/3; border-radius:var(--b-radius); display:block; height:auto; object-fit:cover; width:100%; }
+@media (max-width:600px){ .sec-services .galerie{ grid-template-columns:1fr; } }

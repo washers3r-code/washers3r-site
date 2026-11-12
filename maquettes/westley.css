@@ -9,3 +9,27 @@
   --b-line:rgba(32,25,21,.14);
   --b-radius:10px;
 }
+
+/* Hero avec photo d'ambiance (intérieur de bistro) */
+.sec-hero.h-photo{
+  background:
+    linear-gradient(135deg, rgba(79,36,25,.78), rgba(32,25,21,.55)),
+    url("https://images.unsplash.com/photo-1766832255363-c9f060ade8b0?auto=format&fit=crop&w=1600&q=80") center/cover no-repeat;
+  color:#fff;
+  padding:90px 0 70px;
+}
+.sec-hero.h-photo .eyebrow{ color:#f0e4da; }
+.sec-hero.h-photo h1{ color:#fff; font-size:clamp(30px,5vw,46px); max-width:720px; }
+
+/* Lignes de services avec photo */
+.sec-services.s-liste .ligne-photo{ align-items:center; }
+.sec-services.s-liste .ligne-photo img{
+  border-radius:var(--b-radius);
+  flex:none;
+  height:72px;
+  object-fit:cover;
+  width:96px;
+}
+@media (max-width:760px){
+  .sec-services.s-liste .ligne-photo img{ height:56px; width:72px; }
+}

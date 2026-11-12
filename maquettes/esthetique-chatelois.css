@@ -21,4 +21,5 @@
 
 @media (max-width:760px){
   .a-propos{ grid-template-columns:1fr; }
+  .sec-services.s-liste .wrap[style*="grid-template-columns"]{ grid-template-columns:1fr !important; }
 }
