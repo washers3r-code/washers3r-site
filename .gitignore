@@ -3,3 +3,4 @@
 *.zip
 node_modules/
 .netlify/
+.cowork-mem/
