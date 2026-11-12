@@ -58,7 +58,8 @@
 
 .sec-services.s-image .grid{ display:grid; gap:16px; grid-template-columns:repeat(3,1fr); }
 .sec-services.s-image .card{ border-radius:var(--b-radius); overflow:hidden; }
-.sec-services.s-image .card img{ aspect-ratio:4/3; display:block; object-fit:cover; width:100%; }
+.sec-services.s-image .card img,.sec-services.s-image .card .img-placeholder{ aspect-ratio:4/3; display:block; object-fit:cover; width:100%; }
+.sec-services.s-image .card .img-placeholder{ align-items:center; background:linear-gradient(135deg,var(--b-primary),var(--b-primary-dark)); color:#fff; display:flex; font:600 12px var(--b-font-b); justify-content:center; }
 .sec-services.s-image .card .txt{ background:var(--b-surface); padding:16px; }
 .sec-services.s-image .card h3{ font-size:16px; }
 
