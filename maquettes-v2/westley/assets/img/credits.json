@@ -19,20 +19,6 @@
    "source": "Wikimedia Commons"
   },
   {
-   "file": "photo-f199837380-960.webp",
-   "files": [
-    "photo-f199837380-500.webp",
-    "photo-f199837380-960.webp"
-   ],
-   "id": "f199837380",
-   "alt": "Restaurant dining room with brick walls and set tables, Colombia",
-   "by": "Diego F. Parra",
-   "licence": "CC BY-SA 4.0",
-   "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-   "page": "https://commons.wikimedia.org/wiki/File:Restaurant_dining_room_with_brick_walls_and_set_tables,_Colombia.jpg",
-   "source": "Wikimedia Commons"
-  },
-  {
    "file": "photo-f157389569.webp",
    "files": [
     "photo-f157389569-500.webp",
@@ -191,6 +177,22 @@
    "licence": "CC BY-SA 4.0",
    "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
    "page": "https://commons.wikimedia.org/wiki/File:Bread_Basket_02.jpg",
+   "source": "Wikimedia Commons"
+  },
+  {
+   "file": "photo-f199837380-1280.webp",
+   "files": [
+    "photo-f199837380-500.webp",
+    "photo-f199837380-960.webp",
+    "photo-f199837380-1280.webp",
+    "photo-f199837380-780x975.webp"
+   ],
+   "id": "f199837380",
+   "alt": "Restaurant dining room with brick walls and set tables, Colombia",
+   "by": "Diego F. Parra",
+   "licence": "CC BY-SA 4.0",
+   "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Restaurant_dining_room_with_brick_walls_and_set_tables,_Colombia.jpg",
    "source": "Wikimedia Commons"
   }
  ]
