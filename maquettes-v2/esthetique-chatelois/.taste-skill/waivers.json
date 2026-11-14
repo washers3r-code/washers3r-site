@@ -1,0 +1,4 @@
+[
+  { "check": "street-number", "target": "address.visit__address", "reason": "1050 boulevard Jacques-Cartier Nord is the real, verified public address of this client (prospects/esthetique-chatelois.json)" },
+  { "check": "phone-number", "target": "a[href^=\"tel:\"]", "reason": "819-564-0176 is the client's real, verified public phone number, the only booking channel this appointment-only institute gives" }
+]

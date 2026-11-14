@@ -1,0 +1,71 @@
+{
+ "moments": [
+  {
+   "id": "photo-chapters",
+   "at": "2026-11-14T07:10:06.341Z",
+   "seed": "ef0caf2b"
+  },
+  {
+   "id": "picture-develops",
+   "at": "2026-11-14T07:10:19.711Z",
+   "seed": "9f48738f"
+  }
+ ],
+ "palettes": [
+  "putty-black-teal"
+ ],
+ "types": [
+  "nunito"
+ ],
+ "dealt": [
+  "nunito",
+  "literata",
+  "instrument-sans"
+ ],
+ "photos": [
+  {
+   "trade": "cafe",
+   "lead": "m61716670",
+   "ids": [
+    "m61716670"
+   ],
+   "sections": [
+    "hero",
+    "visit",
+    "place",
+    "place",
+    "place",
+    "close"
+   ],
+   "seed": "5z056p",
+   "at": "2026-11-14T07:10:28.060Z"
+  },
+  {
+   "trade": "cafe",
+   "draft": true,
+   "lead": "m61713028",
+   "ids": [
+    "m61713028",
+    "m189498721",
+    "m147143894",
+    "m147143963",
+    "m62054123",
+    "m147143898",
+    "m187311853",
+    "m28989985",
+    "m61713103",
+    "m61713362",
+    "m201752739",
+    "m61714648"
+   ],
+   "sections": [
+    "hero",
+    "bar",
+    "roast",
+    "bar"
+   ],
+   "seed": "608itf",
+   "at": "2026-11-14T07:10:36.168Z"
+  }
+ ]
+}

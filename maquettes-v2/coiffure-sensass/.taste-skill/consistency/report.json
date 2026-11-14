@@ -1,0 +1,1896 @@
+{
+ "page": "/home/user/washers3r-site/maquettes-v2/coiffure-sensass/index.html",
+ "url": "http://127.0.0.1:5200/index.html",
+ "at": "2026-11-14T07:08:54.908Z",
+ "out": "/home/user/washers3r-site/maquettes-v2/coiffure-sensass/.taste-skill/consistency",
+ "widths": [
+  {
+   "width": 1440,
+   "height": 900,
+   "screens": 4,
+   "held": 0,
+   "errors": [
+    "effect-kind: could not read http://127.0.0.1:5200/assets/backgrounds/backgrounds.js (HTTP 404)"
+   ],
+   "findings": [
+    {
+     "check": "assets",
+     "sev": "FAIL",
+     "sel": "(the page)",
+     "text": "",
+     "stop": null,
+     "msg": "the script assets/backgrounds/backgrounds.js did not load (404)",
+     "fix": "fix the path, or remove the reference"
+    },
+    {
+     "check": "assets",
+     "sev": "FAIL",
+     "sel": "(the page)",
+     "text": "",
+     "stop": null,
+     "msg": "the script assets/ui/ui.js did not load (404)",
+     "fix": "fix the path, or remove the reference"
+    },
+    {
+     "check": "empty-visual",
+     "sev": "FAIL",
+     "sel": "main#top > section.hero.hero--place > picture > img.hero__bg",
+     "text": "photo-f152759009.webp",
+     "stop": 1,
+     "msg": "the picture shows nothing here: 72% of it is one colour (#edecea); its image photo-f152759009.webp did not load",
+     "crop": "1440-05-empty-visual.jpg",
+     "fix": "make the visual draw at every width: a picture that loads, an effect that renders, or its still fallback; never an empty frame"
+    },
+    {
+     "check": "flush",
+     "sev": "FAIL",
+     "sel": "div.hero-text > div.hero__text > div.btn-row > a.btn.btn--primary",
+     "text": "Réserver une place",
+     "msg": "section.hero.hero--place and section#offer run together: -512px between their content, on one ground",
+     "stop": 1,
+     "crop": "1440-06-flush.jpg",
+     "fix": "give the section its padding at the edge where the ground changes (the closing call keeps a clear gap above the footer)"
+    },
+    {
+     "check": "flush",
+     "sev": "FAIL",
+     "sel": "div#visit > div.grid > div.span-4.stack-4:nth-of-type(2) > p.t-small.muted",
+     "text": "Horaire type d'un salon de quartier, non confirm",
+     "msg": "section#offer and footer#contact run together: -179px between their content, on one ground",
+     "stop": 2,
+     "crop": "1440-17-flush.jpg",
+     "fix": "give the section its padding at the edge where the ground changes (the closing call keeps a clear gap above the footer)"
+    },
+    {
+     "check": "spill",
+     "sev": "FAIL",
+     "sel": "div.wrap > div.grid.grid--top > figure.pl-photo.span-6 > img",
+     "text": "img: Ciseaux de coiffure professionnels sur fond ",
+     "msg": "runs 406px past the bottom edge of the panel it sits on (main#top > section.hero.hero--place > picture > img.hero__bg)",
+     "stop": 1,
+     "crop": "1440-07-spill.jpg",
+     "fix": "keep the box inside the panel it starts on: shrink it, or grow the panel to hold it"
+    },
+    {
+     "check": "off-viewport",
+     "sev": "FAIL",
+     "sel": "div.wrap > div.closing__cta.close--word > div.section-head--split > a.btn.btn--primary",
+     "text": "Réserver une place",
+     "msg": "runs 89px off the right side of the screen",
+     "stop": 2,
+     "crop": "1440-18-off-viewport.jpg",
+     "fix": "keep it inside the screen at this width: let it shrink, wrap or stack"
+    },
+    {
+     "check": "off-viewport",
+     "sev": "FAIL",
+     "sel": "(the page)",
+     "text": "",
+     "stop": null,
+     "msg": "the page is 1529px wide on a 1440px screen and scrolls sideways",
+     "fix": "keep it inside the screen at this width: let it shrink, wrap or stack"
+    },
+    {
+     "check": "overlap-text",
+     "sev": "FAIL",
+     "sel": "div.wrap > div.grid.grid--top > figure.pl-photo.span-6 > img",
+     "text": "img: Ciseaux de coiffure professionnels sur fond ",
+     "msg": "lies over the text \"Coupe, coiffage et coloration sur rendez\" (div.hero__text > p.hero__lead)",
+     "stop": 1,
+     "crop": "1440-08-overlap-text.jpg",
+     "fix": "move the box off the text (or the text off the box)"
+    },
+    {
+     "check": "overlap-text",
+     "sev": "FAIL",
+     "sel": "h2#close-h",
+     "text": "Réserver une place",
+     "msg": "lies over the text \"Boulevard des Forges Trois-Rivières\" (div.span-4.stack-4:nth-of-type(1) > address.visit__address)",
+     "stop": 2,
+     "crop": "1440-19-overlap-text.jpg",
+     "fix": "move the box off the text (or the text off the box)"
+    },
+    {
+     "check": "cut-text",
+     "sev": "FAIL",
+     "sel": "div.wrap > div.closing__cta.close--word > div.section-head--split > a.btn.btn--primary",
+     "text": "Réserver une place",
+     "msg": "cut 46px by the right edge of the screen (and 1 more like it: \"Coiffure Sensass\")",
+     "stop": 2,
+     "crop": "1440-20-cut-text.jpg",
+     "fix": "give the text room: no overflow clipping a line, no line past its box"
+    },
+    {
+     "check": "copy-fact",
+     "sev": "FAIL",
+     "sel": "h1#hero-h",
+     "text": "Salon de coiffure, boulevard des Forges",
+     "msg": "the first screen holds no number, price, date, place, platform or genre",
+     "stop": 1,
+     "crop": "1440-09-copy-fact.jpg",
+     "fix": "put one hard fact from the brief on the first screen: a number, a price, a date, the place, the platforms it runs on or a game's genre; take it from the brief or remove the claim"
+    },
+    {
+     "check": "text-contrast",
+     "sev": "FAIL",
+     "sel": "div#visit > div.grid > div.span-4.stack-4:nth-of-type(2) > p.t-small.muted",
+     "text": "Horaire type d'un salon de quartier, non confirm",
+     "stop": 2,
+     "msg": "body text in #625f5b on #eeecea reads 5.39:1 (needs 7:1)",
+     "crop": "1440-21-text-contrast.jpg",
+     "fix": "body text in the ink at 7:1 or more; grey (4.5:1 or more) only for captions and labels"
+    },
+    {
+     "check": "photo-upscale",
+     "sev": "FAIL",
+     "sel": "div.wrap > div.grid.grid--top > figure.pl-photo.span-6 > img",
+     "text": "img: Ciseaux de coiffure professionnels sur fond ",
+     "msg": "photo-f118141964-960.webp: 720x405 shown at 588x784, blown up 1.94x",
+     "stop": 1,
+     "crop": "1440-10-photo-upscale.jpg",
+     "fix": "use a source at least as wide as the picture is shown (twice that for sharp screens)"
+    },
+    {
+     "check": "fold-action",
+     "sev": "FAIL",
+     "sel": "div.hero-text > div.hero__text > div.btn-row > a.btn.btn--primary",
+     "text": "",
+     "msg": "the hero's main button \"Réserver une place\" starts 582px below the first screen (900px tall): it is not seen on load",
+     "stop": 1,
+     "crop": "1440-11-fold-action.jpg",
+     "fix": "bring the hero's buttons onto the first screen: a shorter headline or line, the picture under the buttons"
+    },
+    {
+     "check": "phone-number",
+     "sev": "FAIL",
+     "sel": "header.nav > div.wrap.nav__bar > div.nav__actions > a.btn.btn--primary",
+     "text": "tel:+18193782171",
+     "stop": 0,
+     "msg": "a tel: link calls a number in a real dialable format: \"tel:+18193782171\"; a visitor can dial it and reach a stranger (and 5 more like it: div.hero-text > div.hero__text > div.btn-row > a.btn.btn--primary, div.grid > div.span-4.stack-4:nth-of-type(3) > p:nth-of-type(2) > a.link, div.wrap > div.closing__cta.close--word > div.section-head--split > a.btn.btn--primary, ...)",
+     "crop": "1440-01-phone-number.jpg",
+     "fix": "drop the number and its tel: link (a \"Request a call\" form may stand in), unless the brief gives the number"
+    },
+    {
+     "check": "empty-area",
+     "sev": "FAIL",
+     "sel": "main#top > section.hero.hero--place",
+     "text": "Salon de coiffure, boulevard des Forges",
+     "msg": "61% of the section is empty: 448px above its first content, in its 728px of rows (WARN over 35%, FAIL over 50%)",
+     "stop": 0,
+     "crop": "1440-02-empty-area.jpg",
+     "fix": "fill the section: a picture or a second column beside the words, or more of its own content; the section stays one or two screens tall (T-height)"
+    },
+    {
+     "check": "cut-text",
+     "sev": "WARN",
+     "sel": "h1#hero-h",
+     "text": "Salon de coiffure, boulevard des Forges",
+     "msg": "sits across the edge of a panel behind it",
+     "stop": 1,
+     "crop": "1440-12-cut-text.jpg",
+     "fix": "give the text room: no overflow clipping a line, no line past its box"
+    },
+    {
+     "check": "scroll-reveal",
+     "sev": "WARN",
+     "sel": "section#offer > div.wrap > div.grid.grid--top > figure.pl-photo.span-6",
+     "text": "",
+     "msg": "animates in when scrolled into view (shrinks from 1.06, unblurs) (inside a dealt moment's section, [data-moment]: an enter moment is expected on every kind; its still is judged under reduced motion)",
+     "stop": 1,
+     "crop": "1440-13-scroll-reveal.jpg",
+     "fix": "show it at rest: no fade, rise or unmask when it is scrolled into view"
+    },
+    {
+     "check": "copy-buttons",
+     "sev": "WARN",
+     "sel": "header.nav > div.wrap.nav__bar > div.nav__actions > a.btn.btn--primary",
+     "text": "Réserver une place",
+     "msg": "\"Réserver une place\" does not start with a verb (book, buy, try, start, get, see...)",
+     "stop": 0,
+     "crop": "1440-03-copy-buttons.jpg",
+     "fix": "label buttons with a verb and what the visitor gets (\"Book a room\", \"Start free trial\")"
+    },
+    {
+     "check": "section-gaps",
+     "sev": "WARN",
+     "sel": "main#top > section.hero.hero--place / section#offer",
+     "text": "",
+     "stop": 1,
+     "msg": "the sections overlap by 512px",
+     "crop": "1440-14-section-gaps.jpg",
+     "fix": "use one gap between sections (all within 25% of each other)"
+    },
+    {
+     "check": "section-gaps",
+     "sev": "WARN",
+     "sel": "section#offer / footer#contact",
+     "text": "",
+     "stop": 2,
+     "msg": "the sections overlap by 179px",
+     "crop": "1440-22-section-gaps.jpg",
+     "fix": "use one gap between sections (all within 25% of each other)"
+    },
+    {
+     "check": "links",
+     "sev": "WARN",
+     "sel": "div.closing__links > div.footer__legal > span > a:nth-of-type(1)",
+     "text": "Confidentialité",
+     "msg": "\"Confidentialité\" goes to privacy.html, which does not exist here",
+     "stop": 3,
+     "crop": "1440-24-links.jpg",
+     "fix": "point every link at a real section, page or file"
+    },
+    {
+     "check": "links",
+     "sev": "WARN",
+     "sel": "div.closing__links > div.footer__legal > span > a:nth-of-type(2)",
+     "text": "Conditions",
+     "msg": "\"Conditions\" goes to terms.html, which does not exist here",
+     "stop": 3,
+     "crop": "1440-25-links.jpg",
+     "fix": "point every link at a real section, page or file"
+    },
+    {
+     "check": "photo-credit",
+     "sev": "WARN",
+     "sel": "(the page text)",
+     "text": "",
+     "stop": null,
+     "msg": "1 library source (wikimedia): the page credits wikimedia; confirm each shows the client's own product, place or people",
+     "fix": "confirm the library photograph shows the client's own product, place or people; otherwise replace it"
+    },
+    {
+     "check": "label-centre",
+     "sev": "WARN",
+     "sel": "header.nav > div.wrap.nav__bar > div.nav__actions > a.btn.btn--primary",
+     "text": "Réserver une place",
+     "msg": "its label sits 18px off-centre (25px of room at the left, 43px at the right) (and 1 more like it: \"Réserver une place\")",
+     "stop": 0,
+     "crop": "1440-04-label-centre.jpg",
+     "fix": "centre the label in its button, or fill the empty side with an icon"
+    },
+    {
+     "check": "button-contrast",
+     "sev": "WARN",
+     "sel": "div.hero-text > div.hero__text > div.btn-row > a.btn.btn--primary",
+     "text": "Réserver une place",
+     "stop": 1,
+     "msg": "the button \"Réserver une place\" (#5c6b54) stands only 1.15:1 off the ground around it: it reads as part of the ground, or as switched off",
+     "crop": "1440-15-button-contrast.jpg",
+     "fix": "give the button a fill that stands at least 1.5:1 off what is around it, or an outline in the ink"
+    },
+    {
+     "check": "hover",
+     "sev": "WARN",
+     "sel": "div.grid > div.span-4.stack-4:nth-of-type(1) > p:nth-of-type(2) > a.link",
+     "text": "Obtenir l'itinéraire",
+     "msg": "the text link (\"Obtenir l'itinéraire\") looks the same hovered as at rest, while the nav link, filled button answer",
+     "stop": 2,
+     "crop": "1440-23-hover.jpg",
+     "fix": "give buttons and links a small answer to the pointer (the motion layer: a fill change, a drawn underline, an arrow that moves)"
+    },
+    {
+     "check": "assumed",
+     "sev": "WARN",
+     "sel": "div.span-6 > ul.rows > li:nth-of-type(1) > span.rows__value:nth-of-type(2)",
+     "text": "Prix sur demande",
+     "msg": "4 facts marked as assumed, for the report: \"Prix sur demande\", \"Prix sur demande\", \"Prix sur demande\", \"Mardi à vendredi 9 h à 17 h Samedi 9 h à 15 h Dimanche et lu\"",
+     "stop": 1,
+     "crop": "1440-16-assumed.jpg",
+     "fix": "list each assumed fact in the report for the client to confirm, or take it from the brief"
+    },
+    {
+     "check": "hero-screen",
+     "sev": "FAIL",
+     "sel": "main#top > section.hero.hero--place",
+     "text": "Salon de coiffure, boulevard des Forges ",
+     "msg": "the hero's content is 745px taller than the hero (scrollHeight 1645, clientHeight 900): it spills out or scrolls inside it (SR-1)",
+     "fix": "fit the hero's content inside the hero's box: shorten the text or the picture, never let it spill",
+     "rule": "SR-1 T3",
+     "crop": "1440-rhythm-01-hero-screen.jpg"
+    },
+    {
+     "check": "hero-screen",
+     "sev": "FAIL",
+     "sel": "main#top > section.hero.hero--place > picture",
+     "text": "",
+     "msg": "the <picture> lies outside the hero's box (589-1398px, the hero 0-900px) (SR-1)",
+     "fix": "fit the hero's content inside the hero's box: shorten the text or the picture, never let it spill",
+     "rule": "SR-1 T3",
+     "crop": "1440-rhythm-02-hero-screen.jpg"
+    },
+    {
+     "check": "hero-screen",
+     "sev": "FAIL",
+     "sel": "main#top > section.hero.hero--place > picture > img.hero__bg",
+     "text": "Salon de coiffure moderne aux fauteuils ",
+     "msg": "\"Salon de coiffure moderne aux fa\" lies outside the hero's box (589-1398px, the hero 0-900px) (and 7 more like it: \"Salon de coiffure, boule\", \"Salon de coiffure, boule\", \"Salon de coiffure, boule\") (SR-1)",
+     "fix": "fit the hero's content inside the hero's box: shorten the text or the picture, never let it spill",
+     "rule": "SR-1 T3",
+     "crop": "1440-rhythm-03-hero-screen.jpg"
+    },
+    {
+     "check": "hero-screen",
+     "sev": "FAIL",
+     "sel": "div.hero-text > div.hero__text > div.btn-row > a.btn.btn--primary",
+     "text": "Réserver une place",
+     "msg": "\"Réserver une place\" ends at 1517px, below the hero's content line at 876px (the 900px screen less 24px) (SR-1)",
+     "fix": "keep the hero's content between the nav and 24px above the fold (and the action bar): shorten the picture or the text; a docked strip 96px at most",
+     "rule": "SR-1 T4",
+     "crop": "1440-rhythm-04-hero-screen.jpg"
+    },
+    {
+     "check": "hero-screen",
+     "sev": "FAIL",
+     "sel": "h1#hero-h",
+     "text": "Salon de coiffure, boulevard des Forges",
+     "msg": "\"Salon de coiffure, boulevard des\" ends at 1449px, below the hero's content line at 876px (the 900px screen less 24px) (SR-1)",
+     "fix": "keep the hero's content between the nav and 24px above the fold (and the action bar): shorten the picture or the text; a docked strip 96px at most",
+     "rule": "SR-1 T4",
+     "crop": "1440-rhythm-05-hero-screen.jpg"
+    },
+    {
+     "check": "hero-screen",
+     "sev": "FAIL",
+     "sel": "div.wrap > div.hero-text > div.hero__text > p.hero__lead",
+     "text": "Coupe, coiffage et coloration sur rendez",
+     "msg": "\"Coupe, coiffage et coloration su\" ends at 1426px, below the hero's content line at 876px (the 900px screen less 24px) (SR-1)",
+     "fix": "keep the hero's content between the nav and 24px above the fold (and the action bar): shorten the picture or the text; a docked strip 96px at most",
+     "rule": "SR-1 T4",
+     "crop": "1440-rhythm-06-hero-screen.jpg"
+    },
+    {
+     "check": "section-height",
+     "sev": "FAIL",
+     "sel": "section#offer",
+     "text": "Services CoupePrix sur demande CoiffageP",
+     "msg": "the section's content does not fit it: its content is 298px taller than the section (scrollHeight 1198, clientHeight 900); its lowest content ends 1197px below its top, past 828px (the section less 72px of bottom padding); 24 parts lie outside the section's box (SR-2)",
+     "fix": "fit the content above the section's bottom padding (--padb), or make it two screens (.g2) in two groups",
+     "rule": "SR-2 T-fit",
+     "crop": "1440-rhythm-07-section-height.jpg"
+    },
+    {
+     "check": "section-height",
+     "sev": "FAIL",
+     "sel": "section#offer > div.wrap > div.grid.grid--top",
+     "text": "Services CoupePrix sur demande CoiffageP",
+     "msg": "\"Services CoupePrix sur demande C\" lies outside section 2 (120 to 904px from its top; the section is 900px tall) (SR-2)",
+     "fix": "fit the content above the section's bottom padding (--padb), or make it two screens (.g2) in two groups",
+     "rule": "SR-2 T-fit",
+     "crop": "1440-rhythm-08-section-height.jpg"
+    },
+    {
+     "check": "section-height",
+     "sev": "FAIL",
+     "sel": "div#visit",
+     "text": "Nous trouver Adresse Boulevard des Forge",
+     "msg": "\"Nous trouver Adresse Boulevard d\" lies outside section 2 (952 to 1198px from its top; the section is 900px tall) (and 1 more like it: \"Nous trouver\") (SR-2)",
+     "fix": "fit the content above the section's bottom padding (--padb), or make it two screens (.g2) in two groups",
+     "rule": "SR-2 T-fit",
+     "crop": "1440-rhythm-09-section-height.jpg"
+    },
+    {
+     "check": "one-section",
+     "sev": "FAIL",
+     "sel": "h1#hero-h",
+     "text": "Salon de coiffure, boulevard des Forges",
+     "msg": "the screen at scroll 900px (stride 1) shows 558px of section 1 and the heading of section 1 whole and the content of 2 sections, over 24px each beside section 2: a screen shows one section (another may peek 8px, 24px WARN) (SR-4)",
+     "fix": "make each section exactly one screen or two, so a screen shows one section and no neighbour peeks",
+     "rule": "SR-4 T-views",
+     "crop": "1440-rhythm-10-one-section.jpg"
+    },
+    {
+     "check": "one-section",
+     "sev": "WARN",
+     "sel": "section#offer",
+     "text": "Services CoupePrix sur demande CoiffageP",
+     "msg": "the screen at scroll 1800px (stride 2) shows 166px of section 2 and the content of 2 sections, over 24px each beside section 3: a screen shows one section (another may peek 8px, 24px WARN) (it is in a scroll scene: told as a WARN) (SR-4)",
+     "fix": "make each section exactly one screen or two, so a screen shows one section and no neighbour peeks",
+     "rule": "SR-4 T-views",
+     "crop": "1440-rhythm-22-one-section.jpg"
+    },
+    {
+     "check": "container-edges",
+     "sev": "FAIL",
+     "sel": "main#top > section.hero.hero--place",
+     "text": "Salon de coiffure, boulevard des Forges ",
+     "msg": "the section needs exactly one in-flow child .wrap (it has 2 in-flow children, 1 .wrap) (SR-6)",
+     "fix": "build the page as header.nav, a main of sections (each one in-flow .wrap plus background layers) and footer.closing",
+     "rule": "SR-6 T1-structure",
+     "crop": "1440-rhythm-11-container-edges.jpg"
+    },
+    {
+     "check": "container-edges",
+     "sev": "FAIL",
+     "sel": "footer#contact > div.wrap > div.closing__cta.close--word > p.close__word",
+     "text": "Coiffure Sensass",
+     "msg": "\"Coiffure Sensass\" runs 120-1529px, outside the container lines of section 3 at 120-1320px: full width is for background layers and grounds only (SR-6)",
+     "fix": "keep it inside the container lines (.wrap): full width is for background layers and grounds only",
+     "rule": "SR-6 T2-containment",
+     "crop": "1440-rhythm-12-container-edges.jpg"
+    },
+    {
+     "check": "container-edges",
+     "sev": "FAIL",
+     "sel": "div.wrap > div.closing__cta.close--word > div.section-head--split > a.btn.btn--primary",
+     "text": "Réserver une place",
+     "msg": "a box runs 1323-1529px, outside the container lines of section 3 at 120-1320px: full width is for background layers and grounds only (SR-6)",
+     "fix": "keep it inside the container lines (.wrap): full width is for background layers and grounds only",
+     "rule": "SR-6 T2-containment",
+     "crop": "1440-rhythm-13-container-edges.jpg"
+    },
+    {
+     "check": "container-edges",
+     "sev": "FAIL",
+     "sel": "footer#contact > div.wrap > div.closing__links > div.footer__legal",
+     "text": "© 2026 Coiffure Sensass Confidentialité ",
+     "msg": "a box runs 120-1529px, outside the container lines of section 3 at 120-1320px: full width is for background layers and grounds only (and 1 more like it: \"Réserver une place\") (SR-6)",
+     "fix": "keep it inside the container lines (.wrap): full width is for background layers and grounds only",
+     "rule": "SR-6 T2-containment",
+     "crop": "1440-rhythm-14-container-edges.jpg"
+    },
+    {
+     "check": "container-edges",
+     "sev": "FAIL",
+     "sel": "footer#contact > div.wrap > div.closing__cta.close--word",
+     "text": "Réserver une placePar téléphone, au 819 ",
+     "msg": "the page scrolls sideways (1529px wide on a 1440px screen): \"Réserver une placePar téléphone,\" ends at 1529px (SR-6)",
+     "fix": "take the sideways scroll away: nothing wider than the screen (overflow-x: clip on the part that spills)",
+     "rule": "SR-6 T5-overflow",
+     "crop": "1440-rhythm-15-container-edges.jpg"
+    },
+    {
+     "check": "container-edges",
+     "sev": "FAIL",
+     "sel": "footer#contact > div.wrap > div.closing__cta.close--word > div.section-head--split",
+     "text": "Réserver une placePar téléphone, au 819 ",
+     "msg": "the page scrolls sideways (1529px wide on a 1440px screen): \"Réserver une placePar téléphone,\" ends at 1529px (SR-6)",
+     "fix": "take the sideways scroll away: nothing wider than the screen (overflow-x: clip on the part that spills)",
+     "rule": "SR-6 T5-overflow",
+     "crop": "1440-rhythm-16-container-edges.jpg"
+    },
+    {
+     "check": "container-edges",
+     "sev": "FAIL",
+     "sel": "div.wrap > div.closing__cta.close--word > div.section-head--split > a.btn.btn--primary",
+     "text": "Réserver une place",
+     "msg": "the page scrolls sideways (1529px wide on a 1440px screen): \"Réserver une place\" ends at 1529px (and 3 more like it: \"Coiffure Sensass\", \"Coiffure Sensass Salon d\", \"Coiffure Sensass Salon d\") (SR-6)",
+     "fix": "take the sideways scroll away: nothing wider than the screen (overflow-x: clip on the part that spills)",
+     "rule": "SR-6 T5-overflow",
+     "crop": "1440-rhythm-17-container-edges.jpg"
+    },
+    {
+     "check": "container-edges",
+     "sev": "FAIL",
+     "sel": "footer#contact > div.wrap > div.closing__links > div.footer__legal",
+     "text": "© 2026 Coiffure Sensass Confidentialité ",
+     "msg": "a box over half the container wide runs 120-1529px, not on the container's lines at 120-1320px (SR-6)",
+     "fix": "run the picture or box from the container's left line to its right line, or put it in a row or a split",
+     "rule": "SR-6 T6-right-edges",
+     "crop": "1440-rhythm-18-container-edges.jpg"
+    },
+    {
+     "check": "row-lines",
+     "sev": "FAIL",
+     "sel": "footer#contact > div.wrap > div.closing__links > div.grid",
+     "text": "Coiffure Sensass Salon de coiffure sur l",
+     "msg": "a row of 4 items: its last item ends at 1290px, the container's right line at 1320px (2px either way) (SR-7)",
+     "fix": "start the row's first item on the container's left line and end its last on the right line, every item one height",
+     "rule": "SR-7 T-rows",
+     "crop": "1440-rhythm-19-row-lines.jpg"
+    },
+    {
+     "check": "row-lines",
+     "sev": "FAIL",
+     "sel": "footer#contact > div.wrap > div.closing__cta.close--word > p.close__word",
+     "text": "Coiffure Sensass",
+     "msg": "\"Coiffure Sensass\" ends at 1529px, past the container's right line at 1320px (SR-7)",
+     "fix": "end it at the container's right line",
+     "rule": "SR-7 T-right",
+     "crop": "1440-rhythm-20-row-lines.jpg"
+    },
+    {
+     "check": "row-lines",
+     "sev": "FAIL",
+     "sel": "div.wrap > div.closing__cta.close--word > div.section-head--split > a.btn.btn--primary",
+     "text": "Réserver une place",
+     "msg": "\"Réserver une place\" ends at 1486px, past the container's right line at 1320px (SR-7)",
+     "fix": "end it at the container's right line",
+     "rule": "SR-7 T-right",
+     "crop": "1440-rhythm-21-row-lines.jpg"
+    }
+   ],
+   "glAsked": 0
+  },
+  {
+   "width": 1024,
+   "height": 768,
+   "screens": 4,
+   "held": 0,
+   "errors": [],
+   "findings": [
+    {
+     "check": "empty-visual",
+     "sev": "FAIL",
+     "sel": "main#top > section.hero.hero--place > picture > img.hero__bg",
+     "text": "photo-f152759009-1280.webp",
+     "stop": 1,
+     "msg": "the picture shows nothing here: 78% of it is one colour (#edecea); its image photo-f152759009-1280.webp did not load",
+     "crop": "1024-03-empty-visual.jpg",
+     "fix": "make the visual draw at every width: a picture that loads, an effect that renders, or its still fallback; never an empty frame"
+    },
+    {
+     "check": "flush",
+     "sev": "FAIL",
+     "sel": "h1#hero-h",
+     "text": "Salon de coiffure, boulevard des Forges",
+     "msg": "section.hero.hero--place and section#offer run together: -345px between their content, on one ground",
+     "stop": 1,
+     "crop": "1024-04-flush.jpg",
+     "fix": "give the section its padding at the edge where the ground changes (the closing call keeps a clear gap above the footer)"
+    },
+    {
+     "check": "spill",
+     "sev": "FAIL",
+     "sel": "div.wrap > div.grid.grid--top > figure.pl-photo.span-6 > img",
+     "text": "img: Ciseaux de coiffure professionnels sur fond ",
+     "msg": "runs 300px past the bottom edge of the panel it sits on (main#top > section.hero.hero--place > picture > img.hero__bg)",
+     "stop": 1,
+     "crop": "1024-05-spill.jpg",
+     "fix": "keep the box inside the panel it starts on: shrink it, or grow the panel to hold it"
+    },
+    {
+     "check": "off-viewport",
+     "sev": "FAIL",
+     "sel": "div.wrap > div.closing__cta.close--word > div.section-head--split > a.btn.btn--primary",
+     "text": "Réserver une place",
+     "msg": "runs 98px off the right side of the screen",
+     "stop": 2,
+     "crop": "1024-16-off-viewport.jpg",
+     "fix": "keep it inside the screen at this width: let it shrink, wrap or stack"
+    },
+    {
+     "check": "off-viewport",
+     "sev": "FAIL",
+     "sel": "(the page)",
+     "text": "",
+     "stop": null,
+     "msg": "the page is 1122px wide on a 1024px screen and scrolls sideways",
+     "fix": "keep it inside the screen at this width: let it shrink, wrap or stack"
+    },
+    {
+     "check": "overlap-text",
+     "sev": "FAIL",
+     "sel": "div.span-6 > ul.rows > li:nth-of-type(3) > span.rows__name",
+     "text": "Coloration",
+     "msg": "lies over the text \"Salon de coiffure, boulevard des Forges\" (h1#hero-h)",
+     "stop": 1,
+     "crop": "1024-06-overlap-text.jpg",
+     "fix": "move the box off the text (or the text off the box)"
+    },
+    {
+     "check": "overlap-text",
+     "sev": "FAIL",
+     "sel": "div.wrap > div.grid.grid--top > figure.pl-photo.span-6 > img",
+     "text": "img: Ciseaux de coiffure professionnels sur fond ",
+     "msg": "lies over the text \"Coupe, coiffage et coloration sur rendez\" (div.hero__text > p.hero__lead)",
+     "stop": 1,
+     "crop": "1024-07-overlap-text.jpg",
+     "fix": "move the box off the text (or the text off the box)"
+    },
+    {
+     "check": "cut-text",
+     "sev": "FAIL",
+     "sel": "div.wrap > div.closing__cta.close--word > div.section-head--split > a.btn.btn--primary",
+     "text": "Réserver une place",
+     "msg": "cut 55px by the right edge of the screen (and 1 more like it: \"Coiffure Sensass\")",
+     "stop": 2,
+     "crop": "1024-17-cut-text.jpg",
+     "fix": "give the text room: no overflow clipping a line, no line past its box"
+    },
+    {
+     "check": "off-grid",
+     "sev": "FAIL",
+     "sel": "div.wrap > div.grid.grid--top > figure.pl-photo.span-6 > img",
+     "text": "img: Ciseaux de coiffure professionnels sur fond ",
+     "stop": 1,
+     "msg": "left edge at 524px, 20px off a common edge of its section at 544px (3 elements)",
+     "crop": "1024-08-off-grid.jpg",
+     "fix": "move it onto the page margin, or the column edge its section uses"
+    },
+    {
+     "check": "text-contrast",
+     "sev": "FAIL",
+     "sel": "div.wrap > div.grid.grid--top > div.span-6 > p.t-small.muted",
+     "text": "Aucune grille de prix publique trouvée : un appe",
+     "stop": 1,
+     "msg": "body text in #625f5b on #eeecea reads 5.39:1 (needs 7:1); 2 like it, like \"Horaire type d'un salo\"",
+     "crop": "1024-09-text-contrast.jpg",
+     "fix": "body text in the ink at 7:1 or more; grey (4.5:1 or more) only for captions and labels"
+    },
+    {
+     "check": "photo-upscale",
+     "sev": "FAIL",
+     "sel": "div.wrap > div.grid.grid--top > figure.pl-photo.span-6 > img",
+     "text": "img: Ciseaux de coiffure professionnels sur fond ",
+     "msg": "photo-f118141964-960.webp: 512x288 shown at 380x507, blown up 1.76x",
+     "stop": 1,
+     "crop": "1024-10-photo-upscale.jpg",
+     "fix": "use a source at least as wide as the picture is shown (twice that for sharp screens)"
+    },
+    {
+     "check": "fold-action",
+     "sev": "FAIL",
+     "sel": "div.hero-text > div.hero__text > div.btn-row > a.btn.btn--primary",
+     "text": "",
+     "msg": "the hero's main button \"Réserver une place\" starts 410px below the first screen (768px tall): it is not seen on load",
+     "stop": 1,
+     "crop": "1024-11-fold-action.jpg",
+     "fix": "bring the hero's buttons onto the first screen: a shorter headline or line, the picture under the buttons"
+    },
+    {
+     "check": "empty-area",
+     "sev": "FAIL",
+     "sel": "main#top > section.hero.hero--place",
+     "text": "Salon de coiffure, boulevard des Forges",
+     "msg": "64% of the section is empty: 400px above its first content, in its 612px of rows (WARN over 35%, FAIL over 50%)",
+     "stop": 0,
+     "crop": "1024-01-empty-area.jpg",
+     "fix": "fill the section: a picture or a second column beside the words, or more of its own content; the section stays one or two screens tall (T-height)"
+    },
+    {
+     "check": "cut-text",
+     "sev": "WARN",
+     "sel": "h1#hero-h",
+     "text": "Salon de coiffure, boulevard des Forges",
+     "msg": "sits across the edge of a panel behind it (and 2 more like it: \"Coloration\", \"Prix sur demande\")",
+     "stop": 1,
+     "crop": "1024-12-cut-text.jpg",
+     "fix": "give the text room: no overflow clipping a line, no line past its box"
+    },
+    {
+     "check": "scroll-reveal",
+     "sev": "WARN",
+     "sel": "section#offer > div.wrap > div.grid.grid--top > figure.pl-photo.span-6",
+     "text": "",
+     "msg": "animates in when scrolled into view (shrinks from 1.06, unblurs) (inside a dealt moment's section, [data-moment]: an enter moment is expected on every kind; its still is judged under reduced motion)",
+     "stop": 1,
+     "crop": "1024-13-scroll-reveal.jpg",
+     "fix": "show it at rest: no fade, rise or unmask when it is scrolled into view"
+    },
+    {
+     "check": "section-gaps",
+     "sev": "WARN",
+     "sel": "main#top > section.hero.hero--place / section#offer",
+     "text": "",
+     "stop": 1,
+     "msg": "the sections overlap by 345px",
+     "crop": "1024-14-section-gaps.jpg",
+     "fix": "use one gap between sections (all within 25% of each other)"
+    },
+    {
+     "check": "label-centre",
+     "sev": "WARN",
+     "sel": "header.nav > div.wrap.nav__bar > div.nav__actions > a.btn.btn--primary",
+     "text": "Réserver une place",
+     "msg": "its label sits 18px off-centre (25px of room at the left, 43px at the right) (and 1 more like it: \"Réserver une place\")",
+     "stop": 0,
+     "crop": "1024-02-label-centre.jpg",
+     "fix": "centre the label in its button, or fill the empty side with an icon"
+    },
+    {
+     "check": "button-contrast",
+     "sev": "WARN",
+     "sel": "div.hero-text > div.hero__text > div.btn-row > a.btn.btn--primary",
+     "text": "Réserver une place",
+     "stop": 1,
+     "msg": "the button \"Réserver une place\" (#5c6b54) stands only 1.20:1 off the ground around it: it reads as part of the ground, or as switched off",
+     "crop": "1024-15-button-contrast.jpg",
+     "fix": "give the button a fill that stands at least 1.5:1 off what is around it, or an outline in the ink"
+    }
+   ],
+   "glAsked": 0
+  },
+  {
+   "width": 820,
+   "height": 1180,
+   "screens": 5,
+   "held": 0,
+   "errors": [],
+   "findings": [
+    {
+     "check": "empty-visual",
+     "sev": "FAIL",
+     "sel": "main#top > section.hero.hero--place > picture > img.hero__bg",
+     "text": "photo-f152759009-960.webp",
+     "stop": 0,
+     "msg": "the picture shows nothing here: 99% of it is one colour (#edecea); its image photo-f152759009-960.webp did not load",
+     "crop": "820-01-empty-visual.jpg",
+     "fix": "make the visual draw at every width: a picture that loads, an effect that renders, or its still fallback; never an empty frame"
+    },
+    {
+     "check": "flush",
+     "sev": "FAIL",
+     "sel": "div.hero-text > div.hero__text > div.btn-row > a.btn.btn--primary",
+     "text": "Réserver une place",
+     "msg": "section.hero.hero--place and section#offer run together: -118px between their content, on one ground",
+     "stop": 1,
+     "crop": "820-04-flush.jpg",
+     "fix": "give the section its padding at the edge where the ground changes (the closing call keeps a clear gap above the footer)"
+    },
+    {
+     "check": "off-viewport",
+     "sev": "FAIL",
+     "sel": "div.wrap > div.closing__cta.close--word > div.section-head--split > a.btn.btn--primary",
+     "text": "Réserver une place",
+     "msg": "runs 30px off the right side of the screen",
+     "stop": 3,
+     "crop": "820-15-off-viewport.jpg",
+     "fix": "keep it inside the screen at this width: let it shrink, wrap or stack"
+    },
+    {
+     "check": "off-viewport",
+     "sev": "FAIL",
+     "sel": "(the page)",
+     "text": "",
+     "stop": null,
+     "msg": "the page is 850px wide on a 820px screen and scrolls sideways",
+     "fix": "keep it inside the screen at this width: let it shrink, wrap or stack"
+    },
+    {
+     "check": "overlap-text",
+     "sev": "FAIL",
+     "sel": "h2#offer-h",
+     "text": "Services",
+     "msg": "lies over the text \"Coupe, coiffage et coloration sur rendez\" (div.hero__text > p.hero__lead)",
+     "stop": 1,
+     "crop": "820-05-overlap-text.jpg",
+     "fix": "move the box off the text (or the text off the box)"
+    },
+    {
+     "check": "overlap-text",
+     "sev": "FAIL",
+     "sel": "div.span-6 > ul.rows > li:nth-of-type(1) > span.rows__name",
+     "text": "Coupe",
+     "msg": "lies over the text \"Réserver une place\" (div.btn-row > a.btn.btn--primary)",
+     "stop": 1,
+     "crop": "820-06-overlap-text.jpg",
+     "fix": "move the box off the text (or the text off the box)"
+    },
+    {
+     "check": "cut-text",
+     "sev": "FAIL",
+     "sel": "footer#contact > div.wrap > div.closing__cta.close--word > p.close__word",
+     "text": "Coiffure Sensass",
+     "msg": "cut 30px by the right edge of the screen",
+     "stop": 3,
+     "crop": "820-16-cut-text.jpg",
+     "fix": "give the text room: no overflow clipping a line, no line past its box"
+    },
+    {
+     "check": "text-contrast",
+     "sev": "FAIL",
+     "sel": "div.span-6 > ul.rows > li:nth-of-type(1) > span.rows__name",
+     "text": "Coupe",
+     "stop": 1,
+     "msg": "a caption, label or muted line in #333231 on #5c6b54 reads 2.25:1 (needs 4.5:1)",
+     "crop": "820-07-text-contrast.jpg",
+     "fix": "body text in the ink at 7:1 or more; grey (4.5:1 or more) only for captions and labels"
+    },
+    {
+     "check": "text-contrast",
+     "sev": "FAIL",
+     "sel": "div.wrap > div.grid.grid--top > div.span-6 > p.t-small.muted",
+     "text": "Aucune grille de prix publique trouvée : un appe",
+     "stop": 1,
+     "msg": "body text in #625f5b on #eeecea reads 5.39:1 (needs 7:1); 2 like it, like \"Horaire type d'un salo\"",
+     "crop": "820-08-text-contrast.jpg",
+     "fix": "body text in the ink at 7:1 or more; grey (4.5:1 or more) only for captions and labels"
+    },
+    {
+     "check": "photo-upscale",
+     "sev": "FAIL",
+     "sel": "div.wrap > div.grid.grid--top > figure.pl-photo.span-6 > img",
+     "text": "img: Ciseaux de coiffure professionnels sur fond ",
+     "msg": "photo-f118141964-500.webp: 410x230 shown at 724x965, blown up 4.20x",
+     "stop": 1,
+     "crop": "820-09-photo-upscale.jpg",
+     "fix": "use a source at least as wide as the picture is shown (twice that for sharp screens)"
+    },
+    {
+     "check": "fold-action",
+     "sev": "FAIL",
+     "sel": "div.hero-text > div.hero__text > div.btn-row > a.btn.btn--primary",
+     "text": "",
+     "msg": "the hero's main button \"Réserver une place\" starts 188px below the first screen (1180px tall): it is not seen on load",
+     "stop": 1,
+     "crop": "820-10-fold-action.jpg",
+     "fix": "bring the hero's buttons onto the first screen: a shorter headline or line, the picture under the buttons"
+    },
+    {
+     "check": "empty-area",
+     "sev": "FAIL",
+     "sel": "main#top > section.hero.hero--place",
+     "text": "Salon de coiffure, boulevard des Forges",
+     "msg": "61% of the section is empty: 592px above its first content, in its 974px of rows (WARN over 35%, FAIL over 50%)",
+     "stop": 0,
+     "crop": "820-02-empty-area.jpg",
+     "fix": "fill the section: a picture or a second column beside the words, or more of its own content; the section stays one or two screens tall (T-height)"
+    },
+    {
+     "check": "cut-text",
+     "sev": "WARN",
+     "sel": "h1#hero-h",
+     "text": "Salon de coiffure, boulevard des Forges",
+     "msg": "sits across the edge of a panel behind it",
+     "stop": 1,
+     "crop": "820-11-cut-text.jpg",
+     "fix": "give the text room: no overflow clipping a line, no line past its box"
+    },
+    {
+     "check": "scroll-reveal",
+     "sev": "WARN",
+     "sel": "section#offer > div.wrap > div.grid.grid--top > figure.pl-photo.span-6",
+     "text": "",
+     "msg": "starts an animation (1.6 s) the moment it is scrolled into view (an IntersectionObserver) on img (inside a dealt moment's section, [data-moment]: an enter moment is expected on every kind; its still is judged under reduced motion)",
+     "stop": 1,
+     "crop": "820-12-scroll-reveal.jpg",
+     "fix": "show it at rest: no fade, rise or unmask when it is scrolled into view"
+    },
+    {
+     "check": "section-gaps",
+     "sev": "WARN",
+     "sel": "main#top > section.hero.hero--place / section#offer",
+     "text": "",
+     "stop": 1,
+     "msg": "the sections overlap by 118px",
+     "crop": "820-13-section-gaps.jpg",
+     "fix": "use one gap between sections (all within 25% of each other)"
+    },
+    {
+     "check": "proximity",
+     "sev": "WARN",
+     "sel": "section#offer > div.wrap > div.grid.grid--top > figure.pl-photo.span-6",
+     "text": "Services Coupe Prix sur demande Coiffage Prix su",
+     "msg": "stacked at this width, the visual starts 17px under the text and buttons above it (\"Services Coupe Prix sur demand\"): it reads glued to them",
+     "fix": "give the stacked split the section's own gap between text and visual (40px or more on a phone)",
+     "stop": 1,
+     "crop": "820-14-proximity.jpg"
+    },
+    {
+     "check": "label-centre",
+     "sev": "WARN",
+     "sel": "header.nav > div.wrap.nav__bar > div.nav__actions > a.btn.btn--primary",
+     "text": "Réserver une place",
+     "msg": "its label sits 18px off-centre (25px of room at the left, 43px at the right) (and 1 more like it: \"Réserver une place\")",
+     "stop": 0,
+     "crop": "820-03-label-centre.jpg",
+     "fix": "centre the label in its button, or fill the empty side with an icon"
+    },
+    {
+     "check": "hero-screen",
+     "sev": "FAIL",
+     "sel": "main#top > section.hero.hero--place",
+     "text": "Salon de coiffure, boulevard des Forges ",
+     "msg": "the hero's content is 397px taller than the hero (scrollHeight 1577, clientHeight 1180): it spills out or scrolls inside it (SR-1)",
+     "fix": "fit the hero's content inside the hero's box: shorten the text or the picture, never let it spill",
+     "rule": "SR-1 T3",
+     "crop": "820-rhythm-01-hero-screen.jpg"
+    },
+    {
+     "check": "hero-screen",
+     "sev": "FAIL",
+     "sel": "main#top > section.hero.hero--place > picture",
+     "text": "",
+     "msg": "the <picture> lies outside the hero's box (768-1229px, the hero 0-1180px) (SR-1)",
+     "fix": "fit the hero's content inside the hero's box: shorten the text or the picture, never let it spill",
+     "rule": "SR-1 T3",
+     "crop": "820-rhythm-02-hero-screen.jpg"
+    },
+    {
+     "check": "hero-screen",
+     "sev": "FAIL",
+     "sel": "main#top > section.hero.hero--place > picture > img.hero__bg",
+     "text": "Salon de coiffure moderne aux fauteuils ",
+     "msg": "\"Salon de coiffure moderne aux fa\" lies outside the hero's box (768-1229px, the hero 0-1180px) (and 7 more like it: \"Salon de coiffure, boule\", \"Salon de coiffure, boule\", \"Salon de coiffure, boule\") (SR-1)",
+     "fix": "fit the hero's content inside the hero's box: shorten the text or the picture, never let it spill",
+     "rule": "SR-1 T3",
+     "crop": "820-rhythm-03-hero-screen.jpg"
+    },
+    {
+     "check": "hero-screen",
+     "sev": "FAIL",
+     "sel": "div.hero-text > div.hero__text > div.btn-row > a.btn.btn--primary",
+     "text": "Réserver une place",
+     "msg": "\"Réserver une place\" ends at 1403px, below the hero's content line at 1156px (the 1180px screen less 24px) (SR-1)",
+     "fix": "keep the hero's content between the nav and 24px above the fold (and the action bar): shorten the picture or the text; a docked strip 96px at most",
+     "rule": "SR-1 T4",
+     "crop": "820-rhythm-04-hero-screen.jpg"
+    },
+    {
+     "check": "hero-screen",
+     "sev": "FAIL",
+     "sel": "div.wrap > div.hero-text > div.hero__text > p.hero__lead",
+     "text": "Coupe, coiffage et coloration sur rendez",
+     "msg": "\"Coupe, coiffage et coloration su\" ends at 1315px, below the hero's content line at 1156px (the 1180px screen less 24px) (SR-1)",
+     "fix": "keep the hero's content between the nav and 24px above the fold (and the action bar): shorten the picture or the text; a docked strip 96px at most",
+     "rule": "SR-1 T4",
+     "crop": "820-rhythm-05-hero-screen.jpg"
+    },
+    {
+     "check": "hero-screen",
+     "sev": "FAIL",
+     "sel": "h1#hero-h",
+     "text": "Salon de coiffure, boulevard des Forges",
+     "msg": "\"Salon de coiffure, boulevard des\" ends at 1270px, below the hero's content line at 1156px (the 1180px screen less 24px) (SR-1)",
+     "fix": "keep the hero's content between the nav and 24px above the fold (and the action bar): shorten the picture or the text; a docked strip 96px at most",
+     "rule": "SR-1 T4",
+     "crop": "820-rhythm-06-hero-screen.jpg"
+    },
+    {
+     "check": "section-height",
+     "sev": "FAIL",
+     "sel": "section#offer",
+     "text": "Services CoupePrix sur demande CoiffageP",
+     "msg": "the scene's section is 1937px tall (1.6 screens), 423px short of two screens (2360px): every section after the hero is one screen or two, 2px either way; a pinned scene is (hold + 1) screens tall, so write data-big-scene-opts='{\"hold\": 1}' (two screens) and keep --h on the section (SR-2)",
+     "fix": "set the section to one screen or two (height: calc(var(--h,1) * 100vh), --h 1 or 2) and cut or split its content to fit",
+     "rule": "SR-2 T-height",
+     "crop": "820-rhythm-07-section-height.jpg"
+    },
+    {
+     "check": "section-height",
+     "sev": "FAIL",
+     "sel": "footer#contact",
+     "text": "Réserver une placePar téléphone, au 819 ",
+     "msg": "the section starts at 3117px, 423px above the screen grid (3 x 1180px): sections start on whole screens (SR-2)",
+     "fix": "make every section above it exactly one or two screens tall, so this one starts on a whole screen",
+     "rule": "SR-2 T-grid",
+     "crop": "820-rhythm-08-section-height.jpg"
+    },
+    {
+     "check": "one-section",
+     "sev": "FAIL",
+     "sel": "h2#close-h",
+     "text": "Réserver une place",
+     "msg": "the screen at scroll 2360px (stride 2) shows 423px of section 3 and the heading of section 3 whole and the content of 2 sections, over 24px each beside section 2: a screen shows one section (another may peek 8px, 24px WARN) (SR-4)",
+     "fix": "make each section exactly one screen or two, so a screen shows one section and no neighbour peeks",
+     "rule": "SR-4 T-views",
+     "crop": "820-rhythm-09-one-section.jpg"
+    },
+    {
+     "check": "one-section",
+     "sev": "FAIL",
+     "sel": "main#top > section.hero.hero--place",
+     "text": "Salon de coiffure, boulevard des Forges ",
+     "msg": "the screen at scroll 1180px (stride 1) shows 114px of section 1 and the content of 2 sections, over 24px each beside section 2: a screen shows one section (another may peek 8px, 24px WARN) (SR-4)",
+     "fix": "make each section exactly one screen or two, so a screen shows one section and no neighbour peeks",
+     "rule": "SR-4 T-views",
+     "crop": "820-rhythm-10-one-section.jpg"
+    },
+    {
+     "check": "container-edges",
+     "sev": "FAIL",
+     "sel": "main#top > section.hero.hero--place",
+     "text": "Salon de coiffure, boulevard des Forges ",
+     "msg": "the section needs exactly one in-flow child .wrap (it has 2 in-flow children, 1 .wrap) (SR-6)",
+     "fix": "build the page as header.nav, a main of sections (each one in-flow .wrap plus background layers) and footer.closing",
+     "rule": "SR-6 T1-structure",
+     "crop": "820-rhythm-11-container-edges.jpg"
+    },
+    {
+     "check": "container-edges",
+     "sev": "FAIL",
+     "sel": "div.wrap > div.closing__cta.close--word > div.section-head--split > a.btn.btn--primary",
+     "text": "Réserver une place",
+     "msg": "a box runs 644-850px, outside the container lines of section 3 at 48-772px: full width is for background layers and grounds only (SR-6)",
+     "fix": "keep it inside the container lines (.wrap): full width is for background layers and grounds only",
+     "rule": "SR-6 T2-containment",
+     "crop": "820-rhythm-12-container-edges.jpg"
+    },
+    {
+     "check": "container-edges",
+     "sev": "FAIL",
+     "sel": "footer#contact > div.wrap > div.closing__links > div.footer__legal",
+     "text": "© 2026 Coiffure Sensass Confidentialité ",
+     "msg": "a box runs 48-850px, outside the container lines of section 3 at 48-772px: full width is for background layers and grounds only (SR-6)",
+     "fix": "keep it inside the container lines (.wrap): full width is for background layers and grounds only",
+     "rule": "SR-6 T2-containment",
+     "crop": "820-rhythm-13-container-edges.jpg"
+    },
+    {
+     "check": "container-edges",
+     "sev": "FAIL",
+     "sel": "footer#contact > div.wrap > div.closing__cta.close--word > p.close__word",
+     "text": "Coiffure Sensass",
+     "msg": "\"Coiffure Sensass\" runs 48-850px, outside the container lines of section 3 at 48-772px: full width is for background layers and grounds only (and 1 more like it: \"Réserver une place\") (SR-6)",
+     "fix": "keep it inside the container lines (.wrap): full width is for background layers and grounds only",
+     "rule": "SR-6 T2-containment",
+     "crop": "820-rhythm-14-container-edges.jpg"
+    },
+    {
+     "check": "container-edges",
+     "sev": "FAIL",
+     "sel": "footer#contact > div.wrap > div.closing__cta.close--word",
+     "text": "Réserver une placePar téléphone, au 819 ",
+     "msg": "the page scrolls sideways (850px wide on a 820px screen): \"Réserver une placePar téléphone,\" ends at 850px (SR-6)",
+     "fix": "take the sideways scroll away: nothing wider than the screen (overflow-x: clip on the part that spills)",
+     "rule": "SR-6 T5-overflow",
+     "crop": "820-rhythm-15-container-edges.jpg"
+    },
+    {
+     "check": "container-edges",
+     "sev": "FAIL",
+     "sel": "footer#contact > div.wrap > div.closing__cta.close--word > div.section-head--split",
+     "text": "Réserver une placePar téléphone, au 819 ",
+     "msg": "the page scrolls sideways (850px wide on a 820px screen): \"Réserver une placePar téléphone,\" ends at 850px (SR-6)",
+     "fix": "take the sideways scroll away: nothing wider than the screen (overflow-x: clip on the part that spills)",
+     "rule": "SR-6 T5-overflow",
+     "crop": "820-rhythm-16-container-edges.jpg"
+    },
+    {
+     "check": "container-edges",
+     "sev": "FAIL",
+     "sel": "div.wrap > div.closing__cta.close--word > div.section-head--split > a.btn.btn--primary",
+     "text": "Réserver une place",
+     "msg": "the page scrolls sideways (850px wide on a 820px screen): \"Réserver une place\" ends at 850px (and 3 more like it: \"Coiffure Sensass\", \"Coiffure Sensass Salon d\", \"Coiffure Sensass Salon d\") (SR-6)",
+     "fix": "take the sideways scroll away: nothing wider than the screen (overflow-x: clip on the part that spills)",
+     "rule": "SR-6 T5-overflow",
+     "crop": "820-rhythm-17-container-edges.jpg"
+    },
+    {
+     "check": "container-edges",
+     "sev": "FAIL",
+     "sel": "footer#contact > div.wrap > div.closing__links > div.footer__legal",
+     "text": "© 2026 Coiffure Sensass Confidentialité ",
+     "msg": "a box over half the container wide runs 48-850px, not on the container's lines at 48-772px (SR-6)",
+     "fix": "run the picture or box from the container's left line to its right line, or put it in a row or a split",
+     "rule": "SR-6 T6-right-edges",
+     "crop": "820-rhythm-18-container-edges.jpg"
+    },
+    {
+     "check": "row-lines",
+     "sev": "FAIL",
+     "sel": "footer#contact > div.wrap > div.closing__links > div.grid",
+     "text": "Coiffure Sensass Salon de coiffure sur l",
+     "msg": "a row of 3 items: its last item ends at 644px, the container's right line at 772px (2px either way) (SR-7)",
+     "fix": "start the row's first item on the container's left line and end its last on the right line, every item one height",
+     "rule": "SR-7 T-rows",
+     "crop": "820-rhythm-19-row-lines.jpg"
+    },
+    {
+     "check": "row-lines",
+     "sev": "FAIL",
+     "sel": "footer#contact > div.wrap > div.closing__cta.close--word > p.close__word",
+     "text": "Coiffure Sensass",
+     "msg": "\"Coiffure Sensass\" ends at 850px, past the container's right line at 772px (SR-7)",
+     "fix": "end it at the container's right line",
+     "rule": "SR-7 T-right",
+     "crop": "820-rhythm-20-row-lines.jpg"
+    },
+    {
+     "check": "row-lines",
+     "sev": "FAIL",
+     "sel": "div.wrap > div.closing__cta.close--word > div.section-head--split > a.btn.btn--primary",
+     "text": "Réserver une place",
+     "msg": "\"Réserver une place\" ends at 807px, past the container's right line at 772px (SR-7)",
+     "fix": "end it at the container's right line",
+     "rule": "SR-7 T-right",
+     "crop": "820-rhythm-21-row-lines.jpg"
+    }
+   ],
+   "glAsked": 0
+  },
+  {
+   "width": 768,
+   "height": 1024,
+   "screens": 5,
+   "held": 0,
+   "errors": [],
+   "findings": [
+    {
+     "check": "empty-visual",
+     "sev": "FAIL",
+     "sel": "main#top > section.hero.hero--place > picture > img.hero__bg",
+     "text": "photo-f152759009-960.webp",
+     "stop": 0,
+     "msg": "the picture shows nothing here: 98% of it is one colour (#edecea); its image photo-f152759009-960.webp did not load",
+     "crop": "768-01-empty-visual.jpg",
+     "fix": "make the visual draw at every width: a picture that loads, an effect that renders, or its still fallback; never an empty frame"
+    },
+    {
+     "check": "flush",
+     "sev": "FAIL",
+     "sel": "div.hero-text > div.hero__text > div.btn-row > a.btn.btn--primary",
+     "text": "Réserver une place",
+     "msg": "section.hero.hero--place and section#offer run together: -160px between their content, on one ground",
+     "stop": 1,
+     "crop": "768-04-flush.jpg",
+     "fix": "give the section its padding at the edge where the ground changes (the closing call keeps a clear gap above the footer)"
+    },
+    {
+     "check": "off-viewport",
+     "sev": "FAIL",
+     "sel": "div.wrap > div.closing__cta.close--word > div.section-head--split > a.btn.btn--primary",
+     "text": "Réserver une place",
+     "msg": "runs 31px off the right side of the screen",
+     "stop": 3,
+     "crop": "768-12-off-viewport.jpg",
+     "fix": "keep it inside the screen at this width: let it shrink, wrap or stack"
+    },
+    {
+     "check": "off-viewport",
+     "sev": "FAIL",
+     "sel": "(the page)",
+     "text": "",
+     "stop": null,
+     "msg": "the page is 799px wide on a 768px screen and scrolls sideways",
+     "fix": "keep it inside the screen at this width: let it shrink, wrap or stack"
+    },
+    {
+     "check": "cut-text",
+     "sev": "FAIL",
+     "sel": "footer#contact > div.wrap > div.closing__cta.close--word > p.close__word",
+     "text": "Coiffure Sensass",
+     "msg": "cut 31px by the right edge of the screen",
+     "stop": 3,
+     "crop": "768-13-cut-text.jpg",
+     "fix": "give the text room: no overflow clipping a line, no line past its box"
+    },
+    {
+     "check": "text-contrast",
+     "sev": "FAIL",
+     "sel": "div.wrap > div.grid.grid--top > div.span-6 > p.t-small.muted",
+     "text": "Aucune grille de prix publique trouvée : un appe",
+     "stop": 1,
+     "msg": "body text in #625f5b on #eeecea reads 5.39:1 (needs 7:1); 2 like it, like \"Horaire type d'un salo\"",
+     "crop": "768-05-text-contrast.jpg",
+     "fix": "body text in the ink at 7:1 or more; grey (4.5:1 or more) only for captions and labels"
+    },
+    {
+     "check": "photo-upscale",
+     "sev": "FAIL",
+     "sel": "div.wrap > div.grid.grid--top > figure.pl-photo.span-6 > img",
+     "text": "img: Ciseaux de coiffure professionnels sur fond ",
+     "msg": "photo-f118141964-500.webp: 383x215 shown at 672x896, blown up 4.17x",
+     "stop": 2,
+     "crop": "768-10-photo-upscale.jpg",
+     "fix": "use a source at least as wide as the picture is shown (twice that for sharp screens)"
+    },
+    {
+     "check": "fold-action",
+     "sev": "FAIL",
+     "sel": "div.hero-text > div.hero__text > div.btn-row > a.btn.btn--primary",
+     "text": "",
+     "msg": "the hero's main button \"Réserver une place\" starts 230px below the first screen (1024px tall): it is not seen on load",
+     "stop": 1,
+     "crop": "768-06-fold-action.jpg",
+     "fix": "bring the hero's buttons onto the first screen: a shorter headline or line, the picture under the buttons"
+    },
+    {
+     "check": "empty-area",
+     "sev": "FAIL",
+     "sel": "main#top > section.hero.hero--place",
+     "text": "Salon de coiffure, boulevard des Forges",
+     "msg": "62% of the section is empty: 528px above its first content, in its 837px of rows (WARN over 35%, FAIL over 50%)",
+     "stop": 0,
+     "crop": "768-02-empty-area.jpg",
+     "fix": "fill the section: a picture or a second column beside the words, or more of its own content; the section stays one or two screens tall (T-height)"
+    },
+    {
+     "check": "cut-text",
+     "sev": "WARN",
+     "sel": "h1#hero-h",
+     "text": "Salon de coiffure, boulevard des Forges",
+     "msg": "sits across the edge of a panel behind it (and 1 more like it: \"Coiffage\")",
+     "stop": 1,
+     "crop": "768-07-cut-text.jpg",
+     "fix": "give the text room: no overflow clipping a line, no line past its box"
+    },
+    {
+     "check": "scroll-reveal",
+     "sev": "WARN",
+     "sel": "section#offer > div.wrap > div.grid.grid--top > figure.pl-photo.span-6",
+     "text": "",
+     "msg": "starts an animation (1.6 s) the moment it is scrolled into view (an IntersectionObserver) on img (inside a dealt moment's section, [data-moment]: an enter moment is expected on every kind; its still is judged under reduced motion)",
+     "stop": 2,
+     "crop": "768-11-scroll-reveal.jpg",
+     "fix": "show it at rest: no fade, rise or unmask when it is scrolled into view"
+    },
+    {
+     "check": "section-gaps",
+     "sev": "WARN",
+     "sel": "main#top > section.hero.hero--place / section#offer",
+     "text": "",
+     "stop": 1,
+     "msg": "the sections overlap by 160px",
+     "crop": "768-08-section-gaps.jpg",
+     "fix": "use one gap between sections (all within 25% of each other)"
+    },
+    {
+     "check": "proximity",
+     "sev": "WARN",
+     "sel": "section#offer > div.wrap > div.grid.grid--top > figure.pl-photo.span-6",
+     "text": "Services Coupe Prix sur demande Coiffage Prix su",
+     "msg": "stacked at this width, the visual starts 17px under the text and buttons above it (\"Services Coupe Prix sur demand\"): it reads glued to them",
+     "fix": "give the stacked split the section's own gap between text and visual (40px or more on a phone)",
+     "stop": 1,
+     "crop": "768-09-proximity.jpg"
+    },
+    {
+     "check": "label-centre",
+     "sev": "WARN",
+     "sel": "header.nav > div.wrap.nav__bar > div.nav__actions > a.btn.btn--primary",
+     "text": "Réserver une place",
+     "msg": "its label sits 18px off-centre (25px of room at the left, 43px at the right) (and 1 more like it: \"Réserver une place\")",
+     "stop": 0,
+     "crop": "768-03-label-centre.jpg",
+     "fix": "centre the label in its button, or fill the empty side with an icon"
+    },
+    {
+     "check": "hero-screen",
+     "sev": "FAIL",
+     "sel": "main#top > section.hero.hero--place",
+     "text": "Salon de coiffure, boulevard des Forges ",
+     "msg": "the hero's content is 368px taller than the hero (scrollHeight 1392, clientHeight 1024): it spills out or scrolls inside it (SR-1)",
+     "fix": "fit the hero's content inside the hero's box: shorten the text or the picture, never let it spill",
+     "rule": "SR-1 T3",
+     "crop": "768-rhythm-01-hero-screen.jpg"
+    },
+    {
+     "check": "hero-screen",
+     "sev": "FAIL",
+     "sel": "main#top > section.hero.hero--place > picture",
+     "text": "",
+     "msg": "the <picture> lies outside the hero's box (685-1117px, the hero 0-1024px) (SR-1)",
+     "fix": "fit the hero's content inside the hero's box: shorten the text or the picture, never let it spill",
+     "rule": "SR-1 T3",
+     "crop": "768-rhythm-02-hero-screen.jpg"
+    },
+    {
+     "check": "hero-screen",
+     "sev": "FAIL",
+     "sel": "main#top > section.hero.hero--place > picture > img.hero__bg",
+     "text": "Salon de coiffure moderne aux fauteuils ",
+     "msg": "\"Salon de coiffure moderne aux fa\" lies outside the hero's box (685-1117px, the hero 0-1024px) (and 7 more like it: \"Salon de coiffure, boule\", \"Salon de coiffure, boule\", \"Salon de coiffure, boule\") (SR-1)",
+     "fix": "fit the hero's content inside the hero's box: shorten the text or the picture, never let it spill",
+     "rule": "SR-1 T3",
+     "crop": "768-rhythm-03-hero-screen.jpg"
+    },
+    {
+     "check": "hero-screen",
+     "sev": "FAIL",
+     "sel": "div.hero-text > div.hero__text > div.btn-row > a.btn.btn--primary",
+     "text": "Réserver une place",
+     "msg": "\"Réserver une place\" ends at 1289px, below the hero's content line at 1000px (the 1024px screen less 24px) (SR-1)",
+     "fix": "keep the hero's content between the nav and 24px above the fold (and the action bar): shorten the picture or the text; a docked strip 96px at most",
+     "rule": "SR-1 T4",
+     "crop": "768-rhythm-04-hero-screen.jpg"
+    },
+    {
+     "check": "hero-screen",
+     "sev": "FAIL",
+     "sel": "div.wrap > div.hero-text > div.hero__text > p.hero__lead",
+     "text": "Coupe, coiffage et coloration sur rendez",
+     "msg": "\"Coupe, coiffage et coloration su\" ends at 1201px, below the hero's content line at 1000px (the 1024px screen less 24px) (SR-1)",
+     "fix": "keep the hero's content between the nav and 24px above the fold (and the action bar): shorten the picture or the text; a docked strip 96px at most",
+     "rule": "SR-1 T4",
+     "crop": "768-rhythm-05-hero-screen.jpg"
+    },
+    {
+     "check": "hero-screen",
+     "sev": "FAIL",
+     "sel": "h1#hero-h",
+     "text": "Salon de coiffure, boulevard des Forges",
+     "msg": "\"Salon de coiffure, boulevard des\" ends at 1157px, below the hero's content line at 1000px (the 1024px screen less 24px) (SR-1)",
+     "fix": "keep the hero's content between the nav and 24px above the fold (and the action bar): shorten the picture or the text; a docked strip 96px at most",
+     "rule": "SR-1 T4",
+     "crop": "768-rhythm-06-hero-screen.jpg"
+    },
+    {
+     "check": "section-height",
+     "sev": "FAIL",
+     "sel": "section#offer",
+     "text": "Services CoupePrix sur demande CoiffageP",
+     "msg": "the scene's section is 1867px tall (1.8 screens), 181px short of two screens (2048px): every section after the hero is one screen or two, 2px either way; a pinned scene is (hold + 1) screens tall, so write data-big-scene-opts='{\"hold\": 1}' (two screens) and keep --h on the section (SR-2)",
+     "fix": "set the section to one screen or two (height: calc(var(--h,1) * 100vh), --h 1 or 2) and cut or split its content to fit",
+     "rule": "SR-2 T-height",
+     "crop": "768-rhythm-07-section-height.jpg"
+    },
+    {
+     "check": "section-height",
+     "sev": "FAIL",
+     "sel": "footer#contact",
+     "text": "Réserver une placePar téléphone, au 819 ",
+     "msg": "the section starts at 2891px, 181px above the screen grid (3 x 1024px): sections start on whole screens (SR-2)",
+     "fix": "make every section above it exactly one or two screens tall, so this one starts on a whole screen",
+     "rule": "SR-2 T-grid",
+     "crop": "768-rhythm-08-section-height.jpg"
+    },
+    {
+     "check": "one-section",
+     "sev": "FAIL",
+     "sel": "h2#close-h",
+     "text": "Réserver une place",
+     "msg": "the screen at scroll 2048px (stride 2) shows 181px of section 3 and the heading of section 3 whole and the content of 2 sections, over 24px each beside section 2: a screen shows one section (another may peek 8px, 24px WARN) (SR-4)",
+     "fix": "make each section exactly one screen or two, so a screen shows one section and no neighbour peeks",
+     "rule": "SR-4 T-views",
+     "crop": "768-rhythm-09-one-section.jpg"
+    },
+    {
+     "check": "one-section",
+     "sev": "FAIL",
+     "sel": "h1#hero-h",
+     "text": "Salon de coiffure, boulevard des Forges",
+     "msg": "the screen at scroll 1024px (stride 1) shows 157px of section 1 and the heading of section 1 whole and the content of 2 sections, over 24px each beside section 2: a screen shows one section (another may peek 8px, 24px WARN) (SR-4)",
+     "fix": "make each section exactly one screen or two, so a screen shows one section and no neighbour peeks",
+     "rule": "SR-4 T-views",
+     "crop": "768-rhythm-10-one-section.jpg"
+    },
+    {
+     "check": "container-edges",
+     "sev": "FAIL",
+     "sel": "main#top > section.hero.hero--place",
+     "text": "Salon de coiffure, boulevard des Forges ",
+     "msg": "the section needs exactly one in-flow child .wrap (it has 2 in-flow children, 1 .wrap) (SR-6)",
+     "fix": "build the page as header.nav, a main of sections (each one in-flow .wrap plus background layers) and footer.closing",
+     "rule": "SR-6 T1-structure",
+     "crop": "768-rhythm-11-container-edges.jpg"
+    },
+    {
+     "check": "container-edges",
+     "sev": "FAIL",
+     "sel": "div.wrap > div.closing__cta.close--word > div.section-head--split > a.btn.btn--primary",
+     "text": "Réserver une place",
+     "msg": "a box runs 593-799px, outside the container lines of section 3 at 48-720px: full width is for background layers and grounds only (SR-6)",
+     "fix": "keep it inside the container lines (.wrap): full width is for background layers and grounds only",
+     "rule": "SR-6 T2-containment",
+     "crop": "768-rhythm-12-container-edges.jpg"
+    },
+    {
+     "check": "container-edges",
+     "sev": "FAIL",
+     "sel": "footer#contact > div.wrap > div.closing__links > div.footer__legal",
+     "text": "© 2026 Coiffure Sensass Confidentialité ",
+     "msg": "a box runs 48-799px, outside the container lines of section 3 at 48-720px: full width is for background layers and grounds only (SR-6)",
+     "fix": "keep it inside the container lines (.wrap): full width is for background layers and grounds only",
+     "rule": "SR-6 T2-containment",
+     "crop": "768-rhythm-13-container-edges.jpg"
+    },
+    {
+     "check": "container-edges",
+     "sev": "FAIL",
+     "sel": "footer#contact > div.wrap > div.closing__cta.close--word > p.close__word",
+     "text": "Coiffure Sensass",
+     "msg": "\"Coiffure Sensass\" runs 48-799px, outside the container lines of section 3 at 48-720px: full width is for background layers and grounds only (and 1 more like it: \"Réserver une place\") (SR-6)",
+     "fix": "keep it inside the container lines (.wrap): full width is for background layers and grounds only",
+     "rule": "SR-6 T2-containment",
+     "crop": "768-rhythm-14-container-edges.jpg"
+    },
+    {
+     "check": "container-edges",
+     "sev": "FAIL",
+     "sel": "footer#contact > div.wrap > div.closing__cta.close--word",
+     "text": "Réserver une placePar téléphone, au 819 ",
+     "msg": "the page scrolls sideways (799px wide on a 768px screen): \"Réserver une placePar téléphone,\" ends at 799px (SR-6)",
+     "fix": "take the sideways scroll away: nothing wider than the screen (overflow-x: clip on the part that spills)",
+     "rule": "SR-6 T5-overflow",
+     "crop": "768-rhythm-15-container-edges.jpg"
+    },
+    {
+     "check": "container-edges",
+     "sev": "FAIL",
+     "sel": "footer#contact > div.wrap > div.closing__cta.close--word > div.section-head--split",
+     "text": "Réserver une placePar téléphone, au 819 ",
+     "msg": "the page scrolls sideways (799px wide on a 768px screen): \"Réserver une placePar téléphone,\" ends at 799px (SR-6)",
+     "fix": "take the sideways scroll away: nothing wider than the screen (overflow-x: clip on the part that spills)",
+     "rule": "SR-6 T5-overflow",
+     "crop": "768-rhythm-16-container-edges.jpg"
+    },
+    {
+     "check": "container-edges",
+     "sev": "FAIL",
+     "sel": "div.wrap > div.closing__cta.close--word > div.section-head--split > a.btn.btn--primary",
+     "text": "Réserver une place",
+     "msg": "the page scrolls sideways (799px wide on a 768px screen): \"Réserver une place\" ends at 799px (and 3 more like it: \"Coiffure Sensass\", \"Coiffure Sensass Salon d\", \"Coiffure Sensass Salon d\") (SR-6)",
+     "fix": "take the sideways scroll away: nothing wider than the screen (overflow-x: clip on the part that spills)",
+     "rule": "SR-6 T5-overflow",
+     "crop": "768-rhythm-17-container-edges.jpg"
+    },
+    {
+     "check": "container-edges",
+     "sev": "FAIL",
+     "sel": "footer#contact > div.wrap > div.closing__links > div.footer__legal",
+     "text": "© 2026 Coiffure Sensass Confidentialité ",
+     "msg": "a box over half the container wide runs 48-799px, not on the container's lines at 48-720px (SR-6)",
+     "fix": "run the picture or box from the container's left line to its right line, or put it in a row or a split",
+     "rule": "SR-6 T6-right-edges",
+     "crop": "768-rhythm-18-container-edges.jpg"
+    },
+    {
+     "check": "row-lines",
+     "sev": "FAIL",
+     "sel": "footer#contact > div.wrap > div.closing__links > div.grid",
+     "text": "Coiffure Sensass Salon de coiffure sur l",
+     "msg": "a row of 3 items: its last item ends at 605px, the container's right line at 720px (2px either way) (SR-7)",
+     "fix": "start the row's first item on the container's left line and end its last on the right line, every item one height",
+     "rule": "SR-7 T-rows",
+     "crop": "768-rhythm-19-row-lines.jpg"
+    },
+    {
+     "check": "row-lines",
+     "sev": "FAIL",
+     "sel": "footer#contact > div.wrap > div.closing__cta.close--word > p.close__word",
+     "text": "Coiffure Sensass",
+     "msg": "\"Coiffure Sensass\" ends at 799px, past the container's right line at 720px (SR-7)",
+     "fix": "end it at the container's right line",
+     "rule": "SR-7 T-right",
+     "crop": "768-rhythm-20-row-lines.jpg"
+    },
+    {
+     "check": "row-lines",
+     "sev": "FAIL",
+     "sel": "div.wrap > div.closing__cta.close--word > div.section-head--split > a.btn.btn--primary",
+     "text": "Réserver une place",
+     "msg": "\"Réserver une place\" ends at 756px, past the container's right line at 720px (SR-7)",
+     "fix": "end it at the container's right line",
+     "rule": "SR-7 T-right",
+     "crop": "768-rhythm-21-row-lines.jpg"
+    }
+   ],
+   "glAsked": 0
+  },
+  {
+   "width": 390,
+   "height": 844,
+   "screens": 4,
+   "held": 0,
+   "errors": [
+    "rhythm: window.innerHeight is 1134, one screen is exactly 844px at 390x844 (900 at 1440x900, 844 at 390x844)"
+   ],
+   "findings": [
+    {
+     "check": "off-viewport",
+     "sev": "FAIL",
+     "sel": "div.wrap > div.closing__cta.close--word > div.section-head--split > a.btn.btn--primary",
+     "text": "Réserver une place",
+     "msg": "runs 134px off the right side of the screen",
+     "stop": 2,
+     "crop": "390-10-off-viewport.jpg",
+     "fix": "keep it inside the screen at this width: let it shrink, wrap or stack"
+    },
+    {
+     "check": "off-viewport",
+     "sev": "FAIL",
+     "sel": "(the page)",
+     "text": "",
+     "stop": null,
+     "msg": "the page is 524px wide on a 390px screen and scrolls sideways",
+     "fix": "keep it inside the screen at this width: let it shrink, wrap or stack"
+    },
+    {
+     "check": "cut-text",
+     "sev": "FAIL",
+     "sel": "footer#contact > div.wrap > div.closing__cta.close--word > p.close__word",
+     "text": "Coiffure Sensass",
+     "msg": "cut 134px by the right edge of the screen",
+     "stop": 2,
+     "crop": "390-11-cut-text.jpg",
+     "fix": "give the text room: no overflow clipping a line, no line past its box"
+    },
+    {
+     "check": "cta",
+     "sev": "FAIL",
+     "sel": "section#offer",
+     "text": "Services",
+     "msg": "the last section before the footer ends with no button",
+     "stop": 1,
+     "crop": "390-04-cta.jpg",
+     "fix": "add the action: a button in the hero, one on every priced item, one in the closing section"
+    },
+    {
+     "check": "text-contrast",
+     "sev": "FAIL",
+     "sel": "div.wrap > div.grid.grid--top > div.span-6 > p.t-small.muted",
+     "text": "Aucune grille de prix publique trouvée : un appe",
+     "stop": 1,
+     "msg": "body text in #625f5b on #eeecea reads 5.39:1 (needs 7:1); 2 like it, like \"Horaire type d'un salo\"",
+     "crop": "390-05-text-contrast.jpg",
+     "fix": "body text in the ink at 7:1 or more; grey (4.5:1 or more) only for captions and labels"
+    },
+    {
+     "check": "photo-upscale",
+     "sev": "FAIL",
+     "sel": "div.wrap > div.grid.grid--top > figure.pl-photo.span-6 > img",
+     "text": "img: Ciseaux de coiffure professionnels sur fond ",
+     "msg": "photo-f118141964-500.webp: 390x219 shown at 342x456, blown up 2.08x",
+     "stop": 1,
+     "crop": "390-06-photo-upscale.jpg",
+     "fix": "use a source at least as wide as the picture is shown (twice that for sharp screens)"
+    },
+    {
+     "check": "fold-action",
+     "sev": "FAIL",
+     "sel": "div.hero-text > div.hero__text > div.btn-row > a.btn.btn--primary",
+     "text": "",
+     "msg": "the hero's main button \"Réserver une place\" starts 187px below the first screen (844px tall): it is not seen on load",
+     "stop": 0,
+     "crop": "390-01-fold-action.jpg",
+     "fix": "bring the hero's buttons onto the first screen: a shorter headline or line, the picture under the buttons"
+    },
+    {
+     "check": "cut-text",
+     "sev": "WARN",
+     "sel": "h1#hero-h",
+     "text": "Salon de coiffure, boulevard des Forges",
+     "msg": "sits across the edge of a panel behind it",
+     "stop": 0,
+     "crop": "390-02-cut-text.jpg",
+     "fix": "give the text room: no overflow clipping a line, no line past its box"
+    },
+    {
+     "check": "scroll-reveal",
+     "sev": "WARN",
+     "sel": "section#offer > div.wrap > div.grid.grid--top > figure.pl-photo.span-6",
+     "text": "",
+     "msg": "starts an animation (1.6 s) the moment it is scrolled into view (an IntersectionObserver) on img (inside a dealt moment's section, [data-moment]: an enter moment is expected on every kind; its still is judged under reduced motion)",
+     "stop": 1,
+     "crop": "390-07-scroll-reveal.jpg",
+     "fix": "show it at rest: no fade, rise or unmask when it is scrolled into view"
+    },
+    {
+     "check": "section-gaps",
+     "sev": "WARN",
+     "sel": "main#top > section.hero.hero--place / section#offer",
+     "text": "",
+     "stop": 1,
+     "msg": "119px between these sections, -30% against the median 169px",
+     "crop": "390-08-section-gaps.jpg",
+     "fix": "use one gap between sections (all within 25% of each other)"
+    },
+    {
+     "check": "section-gaps",
+     "sev": "WARN",
+     "sel": "section#offer / footer#contact",
+     "text": "",
+     "stop": 2,
+     "msg": "219px between these sections, +30% against the median 169px",
+     "crop": "390-12-section-gaps.jpg",
+     "fix": "use one gap between sections (all within 25% of each other)"
+    },
+    {
+     "check": "proximity",
+     "sev": "WARN",
+     "sel": "section#offer > div.wrap > div.grid.grid--top > figure.pl-photo.span-6",
+     "text": "Services Coupe Prix sur demande Coiffage Prix su",
+     "msg": "stacked at this width, the visual starts 13px under the text and buttons above it (\"Services Coupe Prix sur demand\"): it reads glued to them",
+     "fix": "give the stacked split the section's own gap between text and visual (40px or more on a phone)",
+     "stop": 1,
+     "crop": "390-09-proximity.jpg"
+    },
+    {
+     "check": "label-centre",
+     "sev": "WARN",
+     "sel": "div.hero-text > div.hero__text > div.btn-row > a.btn.btn--primary",
+     "text": "Réserver une place",
+     "msg": "its label sits 18px off-centre (93px of room at the left, 111px at the right)",
+     "stop": 0,
+     "crop": "390-03-label-centre.jpg",
+     "fix": "centre the label in its button, or fill the empty side with an icon"
+    },
+    {
+     "check": "hero-screen",
+     "sev": "WARN",
+     "sel": "body",
+     "text": "",
+     "msg": "not measured at 390px: window.innerHeight is 1134, one screen is exactly 844px at 390x844 (900 at 1440x900, 844 at 390x844)",
+     "fix": "make the page load and lay out at this width (the probe error says what stopped it), then run the check again"
+    },
+    {
+     "check": "section-height",
+     "sev": "WARN",
+     "sel": "body",
+     "text": "",
+     "msg": "not measured at 390px: window.innerHeight is 1134, one screen is exactly 844px at 390x844 (900 at 1440x900, 844 at 390x844)",
+     "fix": "make the page load and lay out at this width (the probe error says what stopped it), then run the check again"
+    },
+    {
+     "check": "section-air",
+     "sev": "WARN",
+     "sel": "body",
+     "text": "",
+     "msg": "not measured at 390px: window.innerHeight is 1134, one screen is exactly 844px at 390x844 (900 at 1440x900, 844 at 390x844)",
+     "fix": "make the page load and lay out at this width (the probe error says what stopped it), then run the check again"
+    },
+    {
+     "check": "one-section",
+     "sev": "WARN",
+     "sel": "body",
+     "text": "",
+     "msg": "not measured at 390px: window.innerHeight is 1134, one screen is exactly 844px at 390x844 (900 at 1440x900, 844 at 390x844)",
+     "fix": "make the page load and lay out at this width (the probe error says what stopped it), then run the check again"
+    },
+    {
+     "check": "one-heading",
+     "sev": "WARN",
+     "sel": "body",
+     "text": "",
+     "msg": "not measured at 390px: window.innerHeight is 1134, one screen is exactly 844px at 390x844 (900 at 1440x900, 844 at 390x844)",
+     "fix": "make the page load and lay out at this width (the probe error says what stopped it), then run the check again"
+    },
+    {
+     "check": "container-edges",
+     "sev": "WARN",
+     "sel": "body",
+     "text": "",
+     "msg": "not measured at 390px: window.innerHeight is 1134, one screen is exactly 844px at 390x844 (900 at 1440x900, 844 at 390x844)",
+     "fix": "make the page load and lay out at this width (the probe error says what stopped it), then run the check again"
+    },
+    {
+     "check": "row-lines",
+     "sev": "WARN",
+     "sel": "body",
+     "text": "",
+     "msg": "not measured at 390px: window.innerHeight is 1134, one screen is exactly 844px at 390x844 (900 at 1440x900, 844 at 390x844)",
+     "fix": "make the page load and lay out at this width (the probe error says what stopped it), then run the check again"
+    },
+    {
+     "check": "split-pair",
+     "sev": "WARN",
+     "sel": "body",
+     "text": "",
+     "msg": "not measured at 390px: window.innerHeight is 1134, one screen is exactly 844px at 390x844 (900 at 1440x900, 844 at 390x844)",
+     "fix": "make the page load and lay out at this width (the probe error says what stopped it), then run the check again"
+    }
+   ],
+   "glAsked": 0
+  }
+ ],
+ "shaders": 0,
+ "reduced": {
+  "screens": 3,
+  "notRead": 0
+ },
+ "hidden": {
+  "screens": 6
+ },
+ "notChecked": [
+  "hero-screen (not measured at 390px: window.innerHeight is 1134, one screen is exactly 844px at 390x844 (900 at 1440x900, 844 at 390x844))",
+  "section-height (not measured at 390px: window.innerHeight is 1134, one screen is exactly 844px at 390x844 (900 at 1440x900, 844 at 390x844))",
+  "section-air (not measured at 390px: window.innerHeight is 1134, one screen is exactly 844px at 390x844 (900 at 1440x900, 844 at 390x844))",
+  "one-section (not measured at 390px: window.innerHeight is 1134, one screen is exactly 844px at 390x844 (900 at 1440x900, 844 at 390x844))",
+  "one-heading (not measured at 390px: window.innerHeight is 1134, one screen is exactly 844px at 390x844 (900 at 1440x900, 844 at 390x844))",
+  "container-edges (not measured at 390px: window.innerHeight is 1134, one screen is exactly 844px at 390x844 (900 at 1440x900, 844 at 390x844))",
+  "row-lines (not measured at 390px: window.innerHeight is 1134, one screen is exactly 844px at 390x844 (900 at 1440x900, 844 at 390x844))",
+  "split-pair (not measured at 390px: window.innerHeight is 1134, one screen is exactly 844px at 390x844 (900 at 1440x900, 844 at 390x844))"
+ ],
+ "slow": {
+  "stops": 5,
+  "late": 0
+ },
+ "sweep": {
+  "widths": [
+   1280,
+   1152,
+   896
+  ],
+  "errors": [],
+  "findings": []
+ },
+ "narrow": {
+  "width": 320,
+  "height": 640,
+  "errors": [],
+  "findings": [
+   {
+    "check": "fold-cut",
+    "sev": "WARN",
+    "sel": "div.hero-text > div.hero__text > div.btn-row > a.btn.btn--primary",
+    "text": "Réserver une place",
+    "msg": "the hero's button \"Réserver une place\" is cut by the bottom of the first screen (22px of its 48px below the fold)",
+    "width": 320,
+    "fix": "size the hero so the heading ends above the fold, or starts below it"
+   },
+   {
+    "check": "off-viewport",
+    "sev": "FAIL",
+    "sel": "header.nav > div.wrap.nav__bar",
+    "text": "Aller au contenu Coiffure Sensass",
+    "msg": "at 320px wide it runs 90px past the screen's right edge (the page is 434px wide and scrolls sideways)",
+    "crop": "narrow-320-02-off-viewport.jpg",
+    "width": 320,
+    "fix": "keep it inside the screen at this width: let it shrink, wrap or stack"
+   },
+   {
+    "check": "off-viewport",
+    "sev": "FAIL",
+    "sel": "footer#contact > div.wrap > div.closing__cta.close--word",
+    "text": "Réserver une place Par téléphone, au 819 378-217",
+    "msg": "at 320px wide it runs 114px past the screen's right edge (the page is 434px wide and scrolls sideways)",
+    "crop": "narrow-320-03-off-viewport.jpg",
+    "width": 320,
+    "fix": "keep it inside the screen at this width: let it shrink, wrap or stack"
+   },
+   {
+    "check": "off-viewport",
+    "sev": "FAIL",
+    "sel": "footer#contact > div.wrap > div.closing__links",
+    "text": "Coiffure Sensass Salon de coiffure sur le boulev",
+    "msg": "at 320px wide it runs 114px past the screen's right edge (the page is 434px wide and scrolls sideways)",
+    "crop": "narrow-320-04-off-viewport.jpg",
+    "width": 320,
+    "fix": "keep it inside the screen at this width: let it shrink, wrap or stack"
+   }
+  ]
+ },
+ "counts": {
+  "FAIL": 124,
+  "WARN": 43
+ },
+ "checks": {
+  "assets": "FAIL",
+  "shader-lint": "PASS",
+  "gl-fallback": "PASS",
+  "empty-visual": "FAIL",
+  "hero-fill": "PASS",
+  "flush": "FAIL",
+  "placeholder": "PASS",
+  "sample-label": "PASS",
+  "caption": "PASS",
+  "credit-wall": "PASS",
+  "nav": "PASS",
+  "nav-covers": "PASS",
+  "spill": "FAIL",
+  "off-viewport": "FAIL",
+  "fold-card": "PASS",
+  "hover-spill": "PASS",
+  "overlap-text": "FAIL",
+  "collide": "PASS",
+  "tap-size": "PASS",
+  "row-gap": "PASS",
+  "cut-text": "FAIL",
+  "fold-cut": "WARN",
+  "marquee": "PASS",
+  "scroll-linked": "PASS",
+  "scroll-reveal": "WARN",
+  "pinned": "PASS",
+  "loop-pause": "PASS",
+  "reduced-motion": "PASS",
+  "hidden-content": "PASS",
+  "webgl": "PASS",
+  "no-visual": "PASS",
+  "text-only": "PASS",
+  "card-visual": "PASS",
+  "hidden-visual": "PASS",
+  "card-family": "PASS",
+  "card-layout": "PASS",
+  "nesting": "PASS",
+  "effect-repeat": "PASS",
+  "ui-fit": "PASS",
+  "ui-centre": "PASS",
+  "dark-ground": "PASS",
+  "button-styles": "PASS",
+  "button-shape": "PASS",
+  "same-action": "PASS",
+  "button-picture": "PASS",
+  "cta": "FAIL",
+  "pricing-tiers": "PASS",
+  "copy-headline": "PASS",
+  "copy-fact": "FAIL",
+  "copy-headings": "PASS",
+  "copy-buttons": "WARN",
+  "copy-actions": "PASS",
+  "heading-scale": "PASS",
+  "stagger": "PASS",
+  "top-stagger": "PASS",
+  "off-grid": "FAIL",
+  "col-edge": "PASS",
+  "right-edge": "PASS",
+  "centre-axis": "PASS",
+  "tilt": "PASS",
+  "contrast": "PASS",
+  "text-contrast": "FAIL",
+  "body-size": "PASS",
+  "busy-ground": "PASS",
+  "section-gaps": "WARN",
+  "proximity": "WARN",
+  "hole": "PASS",
+  "links": "WARN",
+  "forms": "PASS",
+  "photo-upscale": "FAIL",
+  "photo-set": "PASS",
+  "photo-credit": "WARN",
+  "nav-family": "PASS",
+  "nav-labels": "PASS",
+  "link-styles": "PASS",
+  "heading-align": "PASS",
+  "label-centre": "WARN",
+  "fake-button": "PASS",
+  "stranded-action": "PASS",
+  "orphan": "PASS",
+  "unit-break": "PASS",
+  "tab-wrap": "PASS",
+  "effects-fit": "PASS",
+  "fade-cut": "PASS",
+  "photo-weight": "PASS",
+  "copy-length": "PASS",
+  "nav-current": "PASS",
+  "progress-bar": "PASS",
+  "photo-repeat": "PASS",
+  "button-contrast": "WARN",
+  "photo-print": "PASS",
+  "grounds": "PASS",
+  "split-align": "PASS",
+  "fact-agree": "PASS",
+  "fold-action": "FAIL",
+  "action-count": "PASS",
+  "one-screen": "PASS",
+  "hover": "WARN",
+  "hover-move": "PASS",
+  "product-shown": "PASS",
+  "same-object": "PASS",
+  "font-load": "PASS",
+  "visual-caption": "PASS",
+  "visual-empty": "PASS",
+  "effect-kind": "PASS",
+  "hero-enter": "PASS",
+  "moment-none": "PASS",
+  "street-number": "PASS",
+  "postcode": "PASS",
+  "coordinates": "PASS",
+  "company-number": "PASS",
+  "phone-number": "FAIL",
+  "hero-screen": "FAIL",
+  "section-height": "FAIL",
+  "section-air": "WARN",
+  "one-section": "FAIL",
+  "one-heading": "WARN",
+  "container-edges": "FAIL",
+  "row-lines": "FAIL",
+  "split-pair": "WARN",
+  "motion-layer": "PASS",
+  "count-text": "PASS",
+  "loop-cycle": "PASS",
+  "section-tile": "PASS",
+  "empty-area": "FAIL",
+  "a11y-name": "PASS",
+  "img-alt": "PASS",
+  "field-label": "PASS",
+  "heading-order": "PASS",
+  "tabindex": "PASS",
+  "focus-ring": "PASS",
+  "focus-visible": "PASS",
+  "focus-hidden": "PASS",
+  "skip-link": "PASS",
+  "menu-toggle": "PASS",
+  "lang": "PASS",
+  "page-meta": "PASS",
+  "share-meta": "PASS",
+  "action-repeat": "PASS",
+  "map-link": "PASS",
+  "open-now": "PASS",
+  "assumed": "WARN",
+  "run-on": "PASS",
+  "form-fields": "PASS",
+  "form-send": "PASS"
+ }
+}

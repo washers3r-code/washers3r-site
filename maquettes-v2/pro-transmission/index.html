@@ -22,7 +22,6 @@
 <link rel="stylesheet" href="assets/system.css">
 <link rel="stylesheet" href="assets/ui/cards.css">
 <link rel="stylesheet" href="assets/motion/motion.css">
-<link rel="stylesheet" href="assets/backgrounds/backgrounds.css">
 <link rel="stylesheet" href="assets/layout/layout.css">
 <link rel="stylesheet" href="assets/icons/icon.css">
 <style>
@@ -39,15 +38,18 @@
 }
 </style>
 <script>document.documentElement.classList.add('m-enter');setTimeout(()=>document.documentElement.classList.add('m-enter-done'),700)</script>
-<script src="assets/backgrounds/backgrounds.js"></script>
 <script>document.documentElement.classList.add('mo-js');setTimeout(()=>document.documentElement.classList.add('mo-safe'),2500)</script>
 <link rel="modulepreload" href="assets/moments/moments.js">
 <link rel="modulepreload" href="assets/moments/lib.js">
 <link rel="modulepreload" href="assets/moments/picture-develops/moment.js">
 <style>
-  .develop { margin: 0; border-radius: var(--r-lg); overflow: hidden; height: min(432px, var(--ly-fit)); }
+  .develop { margin: 0; border-radius: var(--r-lg); overflow: hidden; height: min(471px, var(--ly-fit)); }
   .develop > img { display: block; width: 100%; height: 100%; object-fit: cover; }
   @media (max-width: 1023px) { .develop { height: auto; aspect-ratio: 4 / 3; } }
+  /* avis: une grille 2x2 de blocs ouverts (nom + avis intégral), fermés par un filet, sans carte */
+  .review { padding: var(--s-5) 0; border-top: 1px solid var(--line); }
+  .review h3 { font: 500 var(--t-lead)/1.4 var(--font-text); letter-spacing: 0; margin: 0 0 var(--s-3); }
+  .review p { color: var(--ink); margin: 0; max-width: 56ch; }
 </style>
 </head>
 <body>
@@ -59,14 +61,14 @@
      photographs: live-search stand-ins (Wikimedia Commons), none of the client's own; listed in the
      build report with the photo the client should shoot in their place -->
 
-<header class="nav">
+<header class="nav nav--centre">
   <div class="wrap nav__bar">
-    <a class="skip-link" href="#top">Skip to content</a>
+    <a class="skip-link" href="#top">Aller au contenu</a>
     <a class="nav__logo" href="#top"><span class="mark" data-mark="dots" aria-hidden="true"></span>Pro-Transmission</a>
-    <nav class="nav__links nav--centre" aria-label="Principale">
+    <nav class="nav__links" aria-label="Principale">
       <div class="nav__item"><a class="nav__link" href="#services">Services</a></div>
-      <div class="nav__item"><a class="nav__link" href="#atelier">Atelier</a></div>
       <div class="nav__item"><a class="nav__link" href="#avis">Avis</a></div>
+      <div class="nav__item"><a class="nav__link" href="#atelier">Atelier</a></div>
       <div class="nav__item"><a class="nav__link" href="#contact">Contact</a></div>
     </nav>
     <div class="nav__actions">
@@ -113,8 +115,38 @@
           <li><span class="rows__name">Silencieux et suspension<small>Réparation du système d'échappement et de la suspension.</small></span><span class="rows__value">Prix sur demande</span></li>
         </ul>
       </div>
-      <div class="frame frame--photo span-6 start-7" style="--ar: 4/5">
-        <img class="frame__img" src="assets/img/photo-f147332845.webp" srcset="assets/img/photo-f147332845-500.webp 500w, assets/img/photo-f147332845-960.webp 960w, assets/img/photo-f147332845.webp 1280w" sizes="(max-width: 1023px) 100vw, 50vw" width="1280" height="962" alt="Mécanicien au travail sous une suspension de véhicule" style="object-position: 50% 35%" loading="lazy" data-source="stand-in" data-subject="stand-in">
+      <div class="frame frame--photo span-6 start-7" style="--ratio: 75%">
+        <img class="frame__img" src="assets/img/photo-f198617437.webp" srcset="assets/img/photo-f198617437-500.webp 500w, assets/img/photo-f198617437-960.webp 960w, assets/img/photo-f198617437.webp 1280w" sizes="(max-width: 1023px) 100vw, 50vw" width="1280" height="1910" alt="Mécanicien au travail sur un étrier de frein" style="object-position: 50% 42%" loading="lazy" data-source="stand-in" data-subject="stand-in">
+      </div>
+    </div>
+  </section>
+
+  <!-- AVIS (preuve): les quatre avis Google réels, repris mot pour mot, aucun visage ni logo inventés
+       (adaptation minimale: une grille 2x2 de blocs de texte ouverts, sans accordéon, les avis les
+       plus longs et les plus courts appariés pour limiter l'écart de hauteur d'une même rangée). -->
+  <section class="section" id="avis" aria-labelledby="avis-h">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="avis-h">Avis Google sur Pro-Transmission</h2>
+        <p>Quatre avis de clients, copiés mot pour mot.</p>
+      </div>
+      <div class="grid">
+        <div class="span-6 review">
+          <h3>Anthony</h3>
+          <p>« J'ai adoré mon expérience là-bas! Un ami qui travaille là-bas en tant que mécanicien m'a référé et je suis agréablement surpris du service. Tout d'abord, le prix est très abordable. Pour un changement du système d'échappement, ça m'a coûté 1500 $ de moins que ce qu'on me faisait à un autre garage. Ensuite, le propriétaire est très sympathique et travaille bien. Les mécaniciens ont fait une belle job et j'ai été super bien traité. Je vais définitivement y retourner pour mes prochaines réparations. Je vous recommande ce garage à 100 % ! »</p>
+        </div>
+        <div class="span-6 review">
+          <h3>Donald Chamberland</h3>
+          <p>« Bonne réception, il trouve les solutions pour bien répondre au problème, bon prix, et on peut aussi avoir droit à une auto de courtoisie. À mes quelques réparations je peux que donner 5 étoiles, MERCI à l'équipe! »</p>
+        </div>
+        <div class="span-6 review">
+          <h3>nasa444444</h3>
+          <p>« Très bon service. J'ai fait changer mon différentiel et un support de transmission pour mon véhicule. Le prix était juste ça fait 6 mois que je roule avec et j'ai aucun problème. Je les recommandes pour de travaux de transmission et différentiels. »</p>
+        </div>
+        <div class="span-6 review">
+          <h3>Jean-Sébastien Paré</h3>
+          <p>« Excellent service! Je voulais faire une inspection pour l'achat de véhicule et malgré leur achalandage élevé, ils ont été en mesure de me donner un rendez-vous rapidement. »</p>
+        </div>
       </div>
     </div>
   </section>
@@ -123,47 +155,16 @@
   <section class="section ground-inverse" id="atelier" aria-labelledby="atelier-h">
     <div class="wrap">
       <div class="section-head">
-        <h2 id="atelier-h">L'atelier</h2>
+        <h2 id="atelier-h">L'atelier Pro-Transmission</h2>
         <p>Pneus, freins et transmission, réparés sur place.</p>
       </div>
       <div class="grid">
-        <div class="frame frame--photo span-6" style="--ar: 4/3">
+        <div class="frame frame--photo span-6" style="--ratio: 75%">
           <img class="frame__img" src="assets/img/photo-f170813252-960.webp" srcset="assets/img/photo-f170813252-500.webp 500w, assets/img/photo-f170813252-960.webp 960w" sizes="(max-width: 1023px) 100vw, 50vw" width="960" height="1433" alt="Pneus démontés, empilés dans l'atelier" style="object-position: 50% 30%" loading="lazy" data-source="stand-in" data-subject="stand-in">
         </div>
         <figure class="develop span-6" data-moment="picture-develops">
-          <img src="assets/img/photo-f147728883.webp" srcset="assets/img/photo-f147728883-500.webp 500w, assets/img/photo-f147728883-960.webp 960w, assets/img/photo-f147728883.webp 1280w" sizes="(max-width: 1023px) 100vw, 50vw" width="1280" height="853" alt="Deux mécaniciens au travail sur un moteur" loading="lazy" data-source="stand-in" data-subject="stand-in">
+          <img src="assets/img/photo-f147728933.webp" srcset="assets/img/photo-f147728933-500.webp 500w, assets/img/photo-f147728933-960.webp 960w, assets/img/photo-f147728933.webp 1280w" sizes="(max-width: 1023px) 100vw, 50vw" width="1280" height="853" alt="Mécanicien au travail sur un moteur" loading="lazy" data-source="stand-in" data-subject="stand-in">
         </figure>
-      </div>
-    </div>
-  </section>
-
-  <!-- AVIS (preuve): les quatre avis Google réels, repris mot pour mot, aucun visage ni logo inventés
-       (adaptation de la recette faq: liste ouverte, longueurs inégales, sans accordéon). -->
-  <section class="section" id="avis" style="--h: 2" aria-labelledby="avis-h">
-    <div class="wrap grid grid--top">
-      <div class="span-4">
-        <div class="section-head">
-          <h2 id="avis-h">Avis Google</h2>
-          <p>Quatre avis de clients, copiés mot pour mot.</p>
-        </div>
-      </div>
-      <div class="faq span-7 start-6">
-        <div class="faq__item">
-          <h3>Anthony</h3>
-          <p>« J'ai adoré mon expérience là-bas&nbsp;! Un ami qui travaille là-bas en tant que mécanicien m'a référé et je suis agréablement surpris du service. Tout d'abord, le prix est très abordable. Pour un changement du système d'échappement, ça m'a coûté 1500&nbsp;$ de moins que ce qu'on me faisait à un autre garage. Ensuite, le propriétaire est très sympathique et travaille bien. Les mécaniciens ont fait une belle job et j'ai été super bien traité. Je vais définitivement y retourner pour mes prochaines réparations. Je vous recommande ce garage à 100&nbsp;%&nbsp;! »</p>
-        </div>
-        <div class="faq__item">
-          <h3>nasa444444</h3>
-          <p>« Très bon service. J'ai fait changer mon différentiel et un support de transmission pour mon véhicule. Le prix était juste ça fait 6 mois que je roule avec et j'ai aucun problème. Je les recommandes pour de travaux de transmission et différentiels. »</p>
-        </div>
-        <div class="faq__item">
-          <h3>Jean-Sébastien Paré</h3>
-          <p>« Excellent service&nbsp;! Je voulais faire une inspection pour l'achat de véhicule et malgré leur achalandage élevé, ils ont été en mesure de me donner un rendez-vous rapidement. »</p>
-        </div>
-        <div class="faq__item">
-          <h3>Donald Chamberland</h3>
-          <p>« Bonne réception, il trouve les solutions pour bien répondre au problème, bon prix, et on peut aussi avoir droit à une auto de courtoisie. À mes quelques réparations je peux que donner 5 étoiles, MERCI à l'équipe&nbsp;! »</p>
-        </div>
       </div>
     </div>
   </section>
@@ -216,19 +217,18 @@
     </div>
     <div class="closing__links">
       <div class="grid">
-        <div class="span-4 stack-4">
+        <div class="span-3 stack-4">
           <a class="nav__logo" href="#top"><span class="mark" data-mark="dots" aria-hidden="true"></span>Pro-Transmission</a>
           <p class="footer__lede">Garage de pneus, freins et transmission à Sherbrooke.</p>
         </div>
-        <div class="span-2 footer__col"><h3>Services</h3><ul><li><a href="#services">Pneus</a></li><li><a href="#services">Freins</a></li><li><a href="#services">Transmission</a></li></ul></div>
-        <div class="span-2 footer__col"><h3>Atelier</h3><ul><li><a href="#atelier">Dans l'atelier</a></li><li><a href="#avis">Avis Google</a></li></ul></div>
-        <div class="span-2 footer__col"><h3>Visite</h3><ul><li>Rue Galt Est, Sherbrooke</li><li>Lundi au vendredi, 8 h à 17 h</li><li><a href="tel:+18195698363">819 569-8363</a></li></ul></div>
-        <div class="span-2 footer__col"><h3>Contact</h3><ul><li><a href="#contact">Demander un rendez-vous</a></li></ul></div>
+        <div class="span-3 footer__col"><h3>Services</h3><ul><li><a href="#services">Pneus</a></li><li><a href="#services">Freins</a></li><li><a href="#services">Transmission</a></li></ul></div>
+        <div class="span-3 footer__col"><h3>Atelier</h3><ul><li><a href="#atelier">Dans l'atelier</a></li><li><a href="#avis">Avis Google</a></li></ul></div>
+        <div class="span-3 footer__col"><h3>Visite</h3><ul><li>Rue Galt Est, Sherbrooke</li><li>Lundi au vendredi, 8 h à 17 h</li><li><a href="tel:+18195698363">819 569-8363</a></li></ul></div>
       </div>
       <div class="footer__legal">
         <span>&copy; 2026 Groupe Pro-Transmission</span>
         <div class="socials"></div>
-        <details class="credits"><summary>Photographies via Wikimedia Commons</summary><p>Photographies de Santeri Viinamäki, Azorbli, PheobeLongneck et Kwamitsey, via Wikimedia Commons (CC BY-SA 4.0, CC0 et CC BY 4.0). Aucune n'est une photographie du garage&nbsp;: des photographies réelles du commerce doivent les remplacer.</p></details>
+        <a class="credits" href="credits.html">Photographies via Wikimedia Commons</a>
       </div>
     </div>
   </div>

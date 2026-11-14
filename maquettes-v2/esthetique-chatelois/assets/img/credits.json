@@ -79,11 +79,43 @@
    "source": "Wikimedia Commons"
   },
   {
+   "file": "photo-d88.webp",
+   "files": [
+    "photo-d88-500.webp",
+    "photo-d88-960.webp",
+    "photo-d88.webp"
+   ],
+   "id": "d88",
+   "alt": "Cream ceramic table lamp on a glossy side table, low sun throwing long shadows across a white wall",
+   "by": "LoMit",
+   "licence": "CC BY-SA 4.0",
+   "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "page": "https://commons.wikimedia.org/wiki/File:Lamp_with_a_lampshade_illuminated_by_sunlight.jpg",
+   "source": "Wikimedia Commons"
+  },
+  {
+   "file": "photo-m61880133.webp",
+   "files": [
+    "photo-m61880133-500.webp",
+    "photo-m61880133-960.webp",
+    "photo-m61880133.webp"
+   ],
+   "id": "m61880133",
+   "alt": "Cushions on a window seat under a white blind, a small lamp on the sill",
+   "by": "Irene van der Poel",
+   "licence": "CC0",
+   "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "page": "https://commons.wikimedia.org/wiki/File:Cozy_bed_by_a_windowsill_(Unsplash).jpg",
+   "source": "Wikimedia Commons"
+  },
+  {
    "file": "photo-f194185160.webp",
    "files": [
     "photo-f194185160-500.webp",
     "photo-f194185160-960.webp",
-    "photo-f194185160.webp"
+    "photo-f194185160-1280.webp",
+    "photo-f194185160.webp",
+    "photo-f194185160-780x975.webp"
    ],
    "id": "f194185160",
    "alt": "Person pours liquid from a bottle onto a tissue in a bright indoor space",
@@ -91,6 +123,21 @@
    "licence": "CC BY 2.0",
    "licenceUrl": "https://creativecommons.org/licenses/by/2.0",
    "page": "https://commons.wikimedia.org/wiki/File:Person_pours_liquid_from_a_bottle_onto_a_tissue_in_a_bright_indoor_space.jpg",
+   "source": "Wikimedia Commons"
+  },
+  {
+   "file": "photo-m61777177.webp",
+   "files": [
+    "photo-m61777177-500.webp",
+    "photo-m61777177-960.webp",
+    "photo-m61777177.webp"
+   ],
+   "id": "m61777177",
+   "alt": "Stack of folded wool blankets, grey, lime and pale knit, on a dark wooden table in warm light",
+   "by": "Kelly Sikkema",
+   "licence": "CC0",
+   "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "page": "https://commons.wikimedia.org/wiki/File:Kelly_Sikkema_2016-03-09_(Unsplash).jpg",
    "source": "Wikimedia Commons"
   }
  ]

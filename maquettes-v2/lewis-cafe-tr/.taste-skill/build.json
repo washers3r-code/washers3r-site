@@ -1,0 +1,11 @@
+{
+ "page": "index.html",
+ "url": null,
+ "root": null,
+ "kind": "place",
+ "category": "café végétalien, déjeuner et dîner",
+ "primary": "Appeler le café",
+ "rounds": 3,
+ "start": "2026-11-14T07:09:58.000Z",
+ "by": "gate.mjs --start"
+}

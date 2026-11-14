@@ -1,39 +1,57 @@
 {
-  "photos": [
-    {
-      "trade": "wellness",
-      "draft": true,
-      "lead": null,
-      "ids": [],
-      "sections": [
-        "hero",
-        "hero",
-        "visit",
-        "soins",
-        "soins",
-        "soins",
-        "place"
-      ],
-      "seed": "yqzpo8",
-      "at": "2026-11-14T06:44:58.375Z"
-    }
-  ],
-  "palettes": [
-    "olive-on-bone"
-  ],
-  "types": [
-    "nunito"
-  ],
-  "moments": [
-    {
-      "id": "picture-develops",
-      "at": "2026-11-14T06:59:47.581Z",
-      "seed": "5cba83ca"
-    }
-  ],
-  "dealt": [
-    "nunito",
-    "literata",
-    "figtree"
-  ]
+ "photos": [
+  {
+   "trade": "wellness",
+   "draft": true,
+   "lead": null,
+   "ids": [],
+   "sections": [
+    "hero",
+    "hero",
+    "visit",
+    "soins",
+    "soins",
+    "soins",
+    "place"
+   ],
+   "seed": "yqzpo8",
+   "at": "2026-11-14T06:44:58.375Z"
+  },
+  {
+   "trade": "wellness",
+   "draft": true,
+   "lead": null,
+   "ids": [
+    "m61777177",
+    "d88",
+    "m61880133"
+   ],
+   "sections": [
+    "detail",
+    "linen",
+    "texture",
+    "surface"
+   ],
+   "seed": "emror9",
+   "at": "2026-11-14T07:04:33.510Z"
+  }
+ ],
+ "palettes": [
+  "olive-on-bone"
+ ],
+ "types": [
+  "nunito"
+ ],
+ "moments": [
+  {
+   "id": "picture-develops",
+   "at": "2026-11-14T06:59:47.581Z",
+   "seed": "5cba83ca"
+  }
+ ],
+ "dealt": [
+  "nunito",
+  "literata",
+  "figtree"
+ ]
 }

@@ -1,0 +1,35 @@
+{
+ "note": "Credits for the photographs in this folder: photos.mjs credits prints the footer block for the ones the pages use.",
+ "photos": [
+  {
+   "file": "photo-f156975955.webp",
+   "files": [
+    "photo-f156975955-500.webp",
+    "photo-f156975955-960.webp",
+    "photo-f156975955.webp"
+   ],
+   "id": "f156975955",
+   "alt": "Solstice morning home fries in pan",
+   "by": "Infrogmation of New Orleans",
+   "licence": "CC BY-SA 2.0",
+   "licenceUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Solstice_morning_home_fries_in_pan.jpg",
+   "source": "Wikimedia Commons"
+  },
+  {
+   "file": "photo-f87506156.webp",
+   "files": [
+    "photo-f87506156-500.webp",
+    "photo-f87506156-960.webp",
+    "photo-f87506156.webp"
+   ],
+   "id": "f87506156",
+   "alt": "Cinnamon Pancake (41403460402)",
+   "by": "Theo Crazzolara",
+   "licence": "CC BY 2.0",
+   "licenceUrl": "https://creativecommons.org/licenses/by/2.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Cinnamon_Pancake_(41403460402).jpg",
+   "source": "Wikimedia Commons"
+  }
+ ]
+}
