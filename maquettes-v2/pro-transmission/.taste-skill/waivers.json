@@ -1,0 +1,5 @@
+[
+  {"check": "phone-number", "target": "address.visit__address > a.link[href^='tel:']", "reason": "real phone number from pro-transmission.json; the brief gives it (copy.md allows a phone when the brief gives one)"},
+  {"check": "phone-number", "target": "footer__col a[href^='tel:']", "reason": "same real phone number, repeated in the footer's Visite column"},
+  {"check": "copy-headings", "target": "div.review > h3 (Anthony, Donald Chamberland, nasa444444, Jean-Sébastien Paré)", "reason": "real Google reviewers' names, required verbatim by the brief; not section nouns by nature"}
+]

@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="fr" data-type="place" data-radius="soft" data-buttons="arrow" data-motion="" data-page-mode="short" class="m-enter mo-js m-enter-done mo-safe" data-tone="light" data-broken="2" data-moments-ready="1" data-ready="1"><head>
+<html lang="fr" data-type="place" data-radius="soft" data-buttons="arrow" data-motion="" data-page-mode="short" class="m-enter mo-js m-enter-done mo-safe" data-tone="light" data-moments-ready="1" data-ready="1"><head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex, nofollow">
@@ -22,7 +22,6 @@
 <link rel="stylesheet" href="assets/system.css">
 <link rel="stylesheet" href="assets/ui/cards.css">
 <link rel="stylesheet" href="assets/motion/motion.css">
-<link rel="stylesheet" href="assets/backgrounds/backgrounds.css">
 <link rel="stylesheet" href="assets/layout/layout.css">
 <link rel="stylesheet" href="assets/icons/icon.css">
 <style>
@@ -38,23 +37,25 @@
 }
 </style>
 <script>document.documentElement.classList.add('m-enter');setTimeout(()=>document.documentElement.classList.add('m-enter-done'),700)</script>
-<script src="assets/backgrounds/backgrounds.js"></script>
 <script>document.documentElement.classList.add('mo-js');setTimeout(()=>document.documentElement.classList.add('mo-safe'),2500)</script>
 <link rel="modulepreload" href="assets/moments/moments.js">
 <link rel="modulepreload" href="assets/moments/lib.js">
 <link rel="modulepreload" href="assets/moments/picture-develops/moment.js">
 <style>
-  /* the short page's one offer section stays one screen: the two groups and the photograph across at
-     1024 and up, stacked (groups, then the photo) under it */
+  /* the short page's one offer section (two groups + one photograph): at the tablet the photograph
+     moves above the two groups, full width, sized to leave the groups and the visit block their own
+     screen below (sections.md, The short page, "with its photograph", two-group variant) */
   @media (min-width: 640px) and (max-width: 1023px) {
     #soins { --h: 2; }
-    #soins .grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    #soins .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     #soins .grid > :not(.pl-photo) { grid-column: auto; }
     #soins .grid > .pl-photo { grid-column: 1 / -1; order: -1; }
-    #soins .visit__cols, #soins .visit__cols { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    #soins .pl-photo > img { aspect-ratio: auto; height: calc(var(--pl-room) - 1.25 * var(--t-h2) - var(--head-gap)); margin-bottom: calc(var(--padt) + var(--padb) + var(--bar) - var(--card-gap)); }
   }
+  /* the mobile stack (groups, photo, visit) runs to two phone screens */
+  #soins { --hm: 2; }
 </style>
-<link rel="stylesheet" href="http://127.0.0.1:5202/assets/moments/picture-develops/moment.css"></head>
+<link rel="stylesheet" href="http://127.0.0.1:5203/assets/moments/picture-develops/moment.css"></head>
 <body>
 <!-- NAV: re-dealt nav-split, no picture panel (too few stand-in photographs for a panel of cards).
      Short-page nav: one word per group, each to its group's id; the main action is the one real
@@ -82,8 +83,8 @@
        an esthetics treatment (hands, a cleansing liquid, a cotton pad; no face, no brand). -->
   <section class="hero hero--place is-still is-entered" data-enter="" aria-labelledby="hero-h">
     <picture class="hero__bg" data-phone-fill="">
-      <source media="(max-width: 639px)" srcset="assets/img/photo-f194185160-780x975.webp" sizes="100vw">
-      <img src="assets/img/photo-f194185160.webp" srcset="assets/img/photo-f194185160-500.webp 500w, assets/img/photo-f194185160-960.webp 960w, assets/img/photo-f194185160-1280.webp 1280w, assets/img/photo-f194185160.webp 1920w" sizes="100vw" width="1920" height="2866" alt="Mains appliquant un soin liquide sur un coton, dans une pièce lumineuse" fetchpriority="high" decoding="async" data-source="stand-in" data-subject="soin" data-broken="" data-placeholder="">
+      <source media="(max-width: 639px)" srcset="assets/img/photo-f194185160-780x975.jpg" sizes="100vw">
+      <img src="assets/img/photo-f194185160.jpg" srcset="assets/img/photo-f194185160-500.jpg 500w, assets/img/photo-f194185160-960.jpg 960w, assets/img/photo-f194185160-1280.jpg 1280w, assets/img/photo-f194185160.jpg 1920w" sizes="100vw" width="1920" height="2866" alt="Mains appliquant un soin liquide sur un coton, dans une pièce lumineuse" fetchpriority="high" decoding="async" data-source="stand-in" data-subject="soin">
     </picture>
     <div class="wrap"><div class="hero-text">
       <div class="hero__text">
@@ -107,7 +108,7 @@
         <div class="span-3" id="regard">
           <p class="t-label">Soins du regard</p>
           <ul class="rows">
-            <li><span class="rows__name">Maquillage permanent</span><p>Microblading et maquillage permanent des sourcils, des yeux et des lèvres.</p></li>
+            <li><span class="rows__name">Maquillage permanent</span><p>Microblading, sourcils, yeux et lèvres.</p></li>
             <li><span class="rows__name">Rehaussement de cils</span><p>Lash lift pour un regard naturel.</p></li>
           </ul>
         </div>
@@ -118,8 +119,8 @@
             <li><span class="rows__name">Électrolyse</span><p>Épilation électrique permanente.</p></li>
           </ul>
         </div>
-        <figure class="pl-photo span-6 mo-pd mo-pd--film is-done" style="--pl-r: 1.5" data-moment="picture-develops" data-moment-mounted="1">
-          <img src="assets/img/photo-m61777177.webp" srcset="assets/img/photo-m61777177-500.webp 500w, assets/img/photo-m61777177-960.webp 960w, assets/img/photo-m61777177.webp 1280w" sizes="(max-width: 639px) 193vw, (max-width: 1023px) 100vw, 50vw" width="1280" height="831" alt="Pile de plaids tricotés, pliés sur une table en bois, en lumière chaude" loading="eager" decoding="async" data-source="library-057" data-subject="detail" style="object-position: 45% 50%" data-broken="" data-placeholder="">
+        <figure class="pl-photo span-6 start-7 mo-pd mo-pd--film is-done" style="--pl-r: 1.5" data-moment="picture-develops" data-moment-mounted="1">
+          <img src="assets/img/photo-m61777177.jpg" srcset="assets/img/photo-m61777177-500.jpg 500w, assets/img/photo-m61777177-960.jpg 960w, assets/img/photo-m61777177.jpg 1280w" sizes="(max-width: 639px) 193vw, (max-width: 1023px) 100vw, 50vw" width="1280" height="831" alt="Pile de plaids tricotés, pliés sur une table en bois, en lumière chaude" loading="eager" decoding="async" data-source="library-057" data-subject="detail" style="object-position: 45% 50%">
         </figure>
       </div>
       <div class="visit visit--cols" data-place="visit" id="visit" style="margin-top: var(--s-7)">
@@ -151,13 +152,13 @@
   <div class="wrap">
     <div class="closing__cta close--word">
       <div class="section-head--split">
-        <div><h2 id="close-h">Réserver un rendez-vous</h2><p class="t-lead">Du lundi au jeudi, par téléphone.</p></div>
+        <div><h2 id="close-h">Réserver un rendez-vous</h2><p class="t-lead">Par téléphone, du lundi au mercredi de 9 h à 17 h et le jeudi de 9 h à 12 h.</p></div>
         <a class="btn btn--primary" href="tel:+18195640176">Réserver un rendez-vous<svg class="m-arrow" viewBox="0 0 12 12" aria-hidden="true"><path class="m-arrow__stem" d="M1 6h8"></path><path class="m-arrow__head" d="M4.5 2.5 8 6l-3.5 3.5"></path></svg></a>
       </div>
     </div>
     <div class="closing__links">
       <div class="grid">
-        <div class="span-4 stack-4">
+        <div class="span-6 stack-4">
           <a class="nav__logo" href="#top"><span class="mark" data-mark="arc" aria-hidden="true"></span>Esthétique Hélène Chatelois</a>
           <p class="footer__lede">Institut d'esthétique à Sherbrooke, sur rendez-vous depuis 1996.</p>
         </div>

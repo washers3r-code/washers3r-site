@@ -1,4 +1,5 @@
 [
   { "check": "street-number", "target": "address.visit__address", "reason": "1050 boulevard Jacques-Cartier Nord is the real, verified public address of this client (prospects/esthetique-chatelois.json)" },
-  { "check": "phone-number", "target": "a[href^=\"tel:\"]", "reason": "819-564-0176 is the client's real, verified public phone number, the only booking channel this appointment-only institute gives" }
+  { "check": "phone-number", "target": "a[href^=\"tel:\"]", "reason": "819-564-0176 is the client's real, verified public phone number, the only booking channel this appointment-only institute gives" },
+  { "check": "assets", "target": "ui/ui.js", "reason": "this essential/trimmed skill edition does not ship assets/ui/ui.js (SKILL.md's own notice); system.js imports it unconditionally on every page; kit files are never edited" }
 ]

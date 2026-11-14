@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="fr" data-type="service" data-radius="soft" data-buttons="solid" data-motion="" class="m-enter mo-js m-enter-done mo-safe" data-tone="light" data-broken="4" data-moments-ready="1" data-ready="1"><head>
+<html lang="fr" data-type="service" data-radius="soft" data-buttons="solid" data-motion="" class="m-enter mo-js m-enter-done mo-safe" data-tone="light" data-moments-ready="1" data-ready="1"><head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex, nofollow">
@@ -42,15 +42,16 @@
 <link rel="modulepreload" href="assets/moments/lib.js">
 <link rel="modulepreload" href="assets/moments/picture-develops/moment.js">
 <style>
-  .develop { margin: 0; border-radius: var(--r-lg); overflow: hidden; height: min(471px, var(--ly-fit)); }
-  .develop > img { display: block; width: 100%; height: 100%; object-fit: cover; }
-  @media (max-width: 1023px) { .develop { height: auto; aspect-ratio: 4 / 3; } }
+  /* le nom du commerce est long une fois combiné au bouton de l'action principale (24 caractères,
+     une phrase complète exigée par copy.md): sous 640px le pictogramme seul tient dans la barre,
+     le nom complet reste dans le h1, le pied de page et la feuille du menu */
+  @media (max-width: 639px) { header.nav .nav__logo-text { display: none; } }
   /* avis: une grille 2x2 de blocs ouverts (nom + avis intégral), fermés par un filet, sans carte */
   .review { padding: var(--s-5) 0; border-top: 1px solid var(--line); }
   .review h3 { font: 500 var(--t-lead)/1.4 var(--font-text); letter-spacing: 0; margin: 0 0 var(--s-3); }
   .review p { color: var(--ink); margin: 0; max-width: 56ch; }
 </style>
-<link rel="stylesheet" href="http://127.0.0.1:5200/assets/moments/picture-develops/moment.css"></head>
+<link rel="stylesheet" href="http://127.0.0.1:5204/assets/moments/picture-develops/moment.css"></head>
 <body>
 <!-- type: service
      deal: hero split, nav nav-centre, close close-type, footer footer-dark, rhythm dark-band,
@@ -63,7 +64,7 @@
 <header class="nav nav--centre" data-m-nav="1">
   <div class="wrap nav__bar">
     <a class="skip-link" href="#top">Aller au contenu</a>
-    <a class="nav__logo" href="#top"><span class="mark" data-mark="dots" aria-hidden="true"></span>Pro-Transmission</a>
+    <a class="nav__logo" href="#top"><span class="mark" data-mark="dots" aria-hidden="true"></span><span class="nav__logo-text">Pro-Transmission</span></a>
     <nav class="nav__links" aria-label="Principale">
       <div class="nav__item"><a class="nav__link" href="#services">Services</a></div>
       <div class="nav__item"><a class="nav__link" href="#avis">Avis</a></div>
@@ -92,7 +93,7 @@
           </div>
         </div>
         <div class="hero__media span-6 start-7">
-          <img src="assets/img/photo-f58963082.webp" srcset="assets/img/photo-f58963082-500.webp 500w, assets/img/photo-f58963082-960.webp 960w, assets/img/photo-f58963082-1280.webp 1280w, assets/img/photo-f58963082.webp 1920w" sizes="(max-width: 1023px) 100vw, 50vw" width="1920" height="2560" alt="Pneus d'hiver empilés dans un garage, sur un pont élévateur" style="--ly-pos: 50% 45%" fetchpriority="high" decoding="async" data-source="stand-in" data-subject="stand-in" data-broken="" data-placeholder="">
+          <img src="assets/img/photo-f58963082.jpg" srcset="assets/img/photo-f58963082-500.jpg 500w, assets/img/photo-f58963082-960.jpg 960w, assets/img/photo-f58963082-1280.jpg 1280w, assets/img/photo-f58963082.jpg 1920w" sizes="(max-width: 1023px) 100vw, 50vw" width="1920" height="2560" alt="Pneus d'hiver empilés dans un garage, sur un pont élévateur" style="--ly-pos: 50% 45%" fetchpriority="high" decoding="async" data-source="stand-in" data-subject="stand-in">
         </div>
       </div>
     </div>
@@ -115,7 +116,7 @@
         </ul>
       </div>
       <div class="frame frame--photo span-6 start-7" style="--ratio: 75%">
-        <img class="frame__img" src="assets/img/photo-f198617437.webp" srcset="assets/img/photo-f198617437-500.webp 500w, assets/img/photo-f198617437-960.webp 960w, assets/img/photo-f198617437.webp 1280w" sizes="(max-width: 1023px) 100vw, 50vw" width="1280" height="1910" alt="Mécanicien au travail sur un étrier de frein" style="object-position: 50% 42%" loading="eager" data-source="stand-in" data-subject="stand-in" data-broken="" data-placeholder="">
+        <img class="frame__img" src="assets/img/photo-f198617437.jpg" srcset="assets/img/photo-f198617437-500.jpg 500w, assets/img/photo-f198617437-960.jpg 960w, assets/img/photo-f198617437.jpg 1280w" sizes="(max-width: 1023px) 100vw, 50vw" width="1280" height="1910" alt="Mécanicien au travail sur un étrier de frein" style="object-position: 50% 42%" loading="eager" data-source="stand-in" data-subject="stand-in">
       </div>
     </div>
   </section>
@@ -159,10 +160,10 @@
       </div>
       <div class="grid">
         <div class="frame frame--photo span-6" style="--ratio: 75%">
-          <img class="frame__img" src="assets/img/photo-f170813252-960.webp" srcset="assets/img/photo-f170813252-500.webp 500w, assets/img/photo-f170813252-960.webp 960w" sizes="(max-width: 1023px) 100vw, 50vw" width="960" height="1433" alt="Pneus démontés, empilés dans l'atelier" style="object-position: 50% 30%" loading="eager" data-source="stand-in" data-subject="stand-in" data-broken="" data-placeholder="">
+          <img class="frame__img" src="assets/img/photo-f170813252-960.jpg" srcset="assets/img/photo-f170813252-500.jpg 500w, assets/img/photo-f170813252-960.jpg 960w" sizes="(max-width: 1023px) 100vw, 50vw" width="960" height="1433" alt="Pneus démontés, empilés dans l'atelier" style="object-position: 50% 30%" loading="eager" data-source="stand-in" data-subject="stand-in">
         </div>
-        <figure class="develop span-6 mo-pd mo-pd--film is-live" data-moment="picture-develops" data-moment-mounted="1">
-          <img src="assets/img/photo-f147728933.webp" srcset="assets/img/photo-f147728933-500.webp 500w, assets/img/photo-f147728933-960.webp 960w, assets/img/photo-f147728933.webp 1280w" sizes="(max-width: 1023px) 100vw, 50vw" width="1280" height="853" alt="Mécanicien au travail sur un moteur" loading="eager" data-source="stand-in" data-subject="stand-in" data-broken="" data-placeholder="">
+        <figure class="frame frame--photo span-6 mo-pd mo-pd--film is-live" style="--ratio: 75%" data-moment="picture-develops" data-moment-opts="{&quot;cell&quot;: 9}" data-moment-mounted="1">
+          <img class="frame__img" src="assets/img/photo-f147728933.jpg" srcset="assets/img/photo-f147728933-500.jpg 500w, assets/img/photo-f147728933-960.jpg 960w, assets/img/photo-f147728933.jpg 1280w" sizes="(max-width: 1023px) 100vw, 50vw" width="1280" height="853" alt="Mécanicien au travail sur un moteur" loading="eager" data-source="stand-in" data-subject="stand-in">
         </figure>
       </div>
     </div>
@@ -185,6 +186,9 @@
           <dt data-days="mon-fri">Lundi au vendredi</dt><dd>8 h à 17 h</dd>
           <dt data-days="sat,sun" class="is-today">Samedi et dimanche</dt><dd class="is-today">Fermé</dd>
         </dl>
+        <div class="frame frame--photo" style="--ratio: 75%; margin-top: var(--s-6)">
+          <img class="frame__img" src="assets/img/photo-f58963082-960.jpg" srcset="assets/img/photo-f58963082-500.jpg 500w, assets/img/photo-f58963082-960.jpg 960w" sizes="(max-width: 1023px) 100vw, 40vw" width="960" height="1279" alt="Pneus d'hiver empilés dans le garage" style="object-position: 50% 65%" loading="eager" data-source="stand-in" data-subject="stand-in">
+        </div>
       </div>
       <div class="span-6 start-7">
         <form class="form" action="mailto:info@protransmission.example" method="post" enctype="text/plain" data-endpoint="" novalidate="">
