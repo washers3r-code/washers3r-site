@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="fr" data-type="place" data-radius="sharp" data-buttons="arrow" data-motion="" class="m-enter mo-js m-enter-done mo-safe" data-tone="light" data-broken="1" data-moments-ready="1" data-ready="1"><head>
+<html lang="fr" data-type="place" data-radius="sharp" data-buttons="arrow" data-motion="" class="m-enter mo-js m-enter-done mo-safe" data-tone="light" data-moments-ready="1" data-ready="1"><head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex, nofollow">
@@ -42,7 +42,7 @@ html[data-type="place"] { --r-lg: 0; --r-md: 0; --r-sm: 2px; --r-btn: 2px; }
 <link rel="modulepreload" href="assets/moments/moments.js">
 <link rel="modulepreload" href="assets/moments/lib.js">
 <link rel="modulepreload" href="assets/moments/picture-develops/moment.js">
-<link rel="stylesheet" href="http://127.0.0.1:5202/assets/moments/picture-develops/moment.css"></head>
+<link rel="stylesheet" href="http://127.0.0.1:5200/assets/moments/picture-develops/moment.css"></head>
 <body>
 <!-- type: place (salon de coiffure)
      deal: palette three-stones (fond pierre, encre quasi noire, accent vert olive — calme, neutre,
@@ -75,9 +75,9 @@ html[data-type="place"] { --r-lg: 0; --r-md: 0; --r-sm: 2px; --r-btn: 2px; }
 
 <main id="top">
   <section class="hero hero--place is-still is-entered" data-enter="" aria-labelledby="hero-h">
-    <picture data-phone-fill="">
+    <picture class="hero__bg" data-phone-fill="">
       <source media="(max-width: 639px)" srcset="assets/img/photo-f152759009-780x975.webp 780w" sizes="100vw">
-      <img class="hero__bg" src="assets/img/photo-f152759009.webp" srcset="assets/img/photo-f152759009-500.webp 500w, assets/img/photo-f152759009-960.webp 960w, assets/img/photo-f152759009-1280.webp 1280w, assets/img/photo-f152759009.webp 1920w" sizes="100vw" width="1920" height="1079" alt="Salon de coiffure moderne aux fauteuils de cuir cognac et au sol de bois" style="--ly-pos: 50% 55%" fetchpriority="high" decoding="async" data-source="stand-in" data-subject="stand-in" data-broken="" data-placeholder="">
+      <img src="assets/img/photo-f152759009.webp" srcset="assets/img/photo-f152759009-500.webp 500w, assets/img/photo-f152759009-960.webp 960w, assets/img/photo-f152759009-1280.webp 1280w, assets/img/photo-f152759009.webp 1920w" sizes="100vw" width="1920" height="1079" alt="Salon de coiffure moderne aux fauteuils de cuir cognac et au sol de bois" style="--ly-pos: 50% 55%" fetchpriority="high" decoding="async" data-source="stand-in" data-subject="stand-in">
     </picture>
     <div class="wrap"><div class="hero-text">
       <div class="hero__text">
@@ -88,32 +88,34 @@ html[data-type="place"] { --r-lg: 0; --r-md: 0; --r-sm: 2px; --r-btn: 2px; }
     </div></div>
   </section>
 
-  <section class="section" id="offer" style="--h: 1" aria-labelledby="offer-h">
+  <section class="section g2" id="offer" aria-labelledby="offer-h">
     <div class="wrap">
-      <div class="grid grid--top">
-        <div class="span-6">
-          <div class="section-head"><h2 id="offer-h">Services</h2></div>
-          <ul class="rows">
-            <li><span class="rows__name">Coupe</span><span class="rows__value" data-assumed="">Prix sur demande</span></li>
-            <li><span class="rows__name">Coiffage</span><span class="rows__value" data-assumed="">Prix sur demande</span></li>
-            <li><span class="rows__name">Coloration</span><span class="rows__value" data-assumed="">Prix sur demande</span></li>
-          </ul>
-          <p class="t-small">Aucune grille de prix publique trouvée : un appel confirme le tarif exact.</p>
-          <div class="btn-row"><a class="btn btn--secondary" href="tel:+18193782171">Appeler le salon</a></div>
-        </div>
-        <div class="frame frame--photo span-6 start-7 mo-pd mo-pd--film is-done" style="--ratio: 75%" data-moment="picture-develops" data-moment-mounted="1">
-          <img class="frame__img" src="assets/img/photo-f118141964.webp" srcset="assets/img/photo-f118141964-500.webp 500w, assets/img/photo-f118141964-960.webp 960w, assets/img/photo-f118141964.webp 1280w" sizes="(max-width: 639px) 100vw, 50vw" width="1280" height="719" alt="Ciseaux de coiffure professionnels sur fond gris" loading="eager" decoding="async" data-source="stand-in" data-subject="stand-in">
+      <div class="group">
+        <div class="grid grid--top">
+          <div class="span-6">
+            <div class="section-head"><h2 id="offer-h">Services</h2></div>
+            <ul class="rows">
+              <li><span class="rows__name">Coupe</span><span class="rows__value" data-assumed="">Prix sur demande</span></li>
+              <li><span class="rows__name">Coiffage</span><span class="rows__value" data-assumed="">Prix sur demande</span></li>
+              <li><span class="rows__name">Coloration</span><span class="rows__value" data-assumed="">Prix sur demande</span></li>
+            </ul>
+            <p class="t-small">Aucune grille de prix publique trouvée : un appel confirme le tarif exact.</p>
+            <p><a class="link" href="tel:+18193782171">Appeler le salon</a></p>
+          </div>
+          <div class="frame frame--photo span-6 start-7 mo-pd mo-pd--film is-done" style="--ratio: 75%" data-moment="picture-develops" data-moment-mounted="1">
+            <img class="frame__img" src="assets/img/photo-f118141964.webp" srcset="assets/img/photo-f118141964-500.webp 500w, assets/img/photo-f118141964-960.webp 960w, assets/img/photo-f118141964.webp 1280w" sizes="(max-width: 1023px) 100vw, 50vw" width="1280" height="719" alt="Ciseaux de coiffure professionnels sur fond gris" loading="eager" decoding="async" data-source="stand-in" data-subject="stand-in">
+          </div>
         </div>
       </div>
-      <div class="visit" id="visit" data-place="visit" style="margin-top: var(--s-7)">
+      <div class="group visit" id="visit" data-place="visit">
         <div class="visit__head"><p class="t-label muted">Nous trouver</p></div>
         <div class="grid">
-          <div class="span-4 stack-4">
+          <div class="span-6 stack-4">
             <p class="t-label muted">Adresse</p>
             <address class="visit__address">Boulevard des Forges<br>Trois-Rivières</address>
             <p><a class="link" href="https://www.openstreetmap.org/search?query=boulevard%20des%20Forges%20Trois-Rivi%C3%A8res">Obtenir l'itinéraire</a></p>
           </div>
-          <div class="span-4 stack-4">
+          <div class="span-6 stack-4">
             <p class="t-label muted">Horaire</p>
             <dl class="hours" data-assumed="">
               <dt data-days="tue-fri">Mardi à vendredi</dt><dd>9 h à 17 h</dd>

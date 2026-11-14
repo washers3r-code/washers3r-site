@@ -1,9 +1,9 @@
 {
  "start": "2026-11-14T06:46:40.966Z",
- "round": 2,
+ "round": 3,
  "idle": 0,
  "errors": 0,
- "status": "fail",
+ "status": "open",
  "history": [
   {
    "at": "2026-11-14T07:14:24.071Z",
@@ -22,6 +22,15 @@
    "round": 2,
    "reused": false,
    "stopHookActive": false
+  },
+  {
+   "at": "2026-11-14T07:33:01.529Z",
+   "mode": "manual",
+   "status": "open",
+   "fails": 7,
+   "round": 3,
+   "reused": false,
+   "stopHookActive": false
   }
  ],
  "max": 3,
@@ -36,67 +45,34 @@
   "primary": "Demander un rendez-vous"
  },
  "manual": true,
- "roundKey": "b6e527e30e33b362:25c6df82",
+ "roundKey": "88a81470215facb0:25c6df82",
  "roundFree": false,
  "idleFree": false,
  "blockKey": null,
- "fp": "b6e527e30e33b362",
+ "fp": "88a81470215facb0",
  "page": "index.html",
  "found": {
   "fails": [
    {
-    "check": "no-visual",
-    "where": "section#avis \"Avis Google sur Pro-Transmission\"",
-    "msg": "no picture, effect or mock in this section; a feature section needs a visual",
-    "fix": "give the section a visual: a UI fragment on a ground, real icons, or a photograph that fits",
-    "widths": [
-     1440,
-     390
-    ],
-    "from": "consistency",
-    "ids": [
-     "no-visual"
-    ],
-    "wheres": [
-     "section#avis \"Avis Google sur Pro-Transmission\""
-    ]
-   },
-   {
-    "check": "card-layout",
-    "where": "section#services",
-    "msg": "one layout (.frame--photo) in 3 sections: section#services, section#atelier, section#contact; a card layout at most twice",
-    "fix": "a card layout at most twice on a page: build the other sections another way",
+    "check": "section-gaps",
+    "where": "section#contact / footer#bas",
+    "msg": "562px between these sections, +104% against the median 276px of gaps at a change of ground",
+    "fix": "use one gap between sections (all within 25% of each other)",
     "widths": [
      1440
     ],
     "from": "consistency",
     "ids": [
-     "card-layout"
+     "section-gaps"
     ],
     "wheres": [
-     "section#services"
-    ]
-   },
-   {
-    "check": "copy-headings",
-    "where": "div.wrap > div.grid > div.span-6.review:nth-of-type(1) > h3 \"Anthony\"",
-    "msg": "\"Anthony\" names no product, part, place or section (4 headings like it; at most one brand line per page) (and 3 more like it: \"Donald Chamberland\", \"Jean-Sébastien Paré\", \"Demander un rendez-vous\")",
-    "fix": "name the thing in every heading: the product, a part, the place or a section noun",
-    "widths": [
-     1440
-    ],
-    "from": "consistency",
-    "ids": [
-     "copy-headings"
-    ],
-    "wheres": [
-     "div.wrap > div.grid > div.span-6.review:nth-of-type(1) > h3 \"Anthony\""
+     "section#contact / footer#bas"
     ]
    },
    {
     "check": "phone-number",
     "where": "div.wrap.grid > div.span-5 > address.visit__address > a.link \"tel:+18195698363\"",
-    "msg": "a tel: link calls a number in a real dialable format: \"tel:+18195698363\"; a visitor can dial it and reach a stranger (and 1 more like it: div.span-3.footer__col:nth-of-type(4) > ul > li:nth-of-type(3) > a)",
+    "msg": "a tel: link calls a number in a real dialable format: \"tel:+18195698363\"; a visitor can dial it and reach a stranger (and 1 more like it: div.span-2.footer__col:nth-of-type(5) > ul > li > a)",
     "fix": "drop the number and its tel: link (a \"Request a call\" form may stand in), unless the brief gives the number",
     "widths": [
      1440
@@ -110,113 +86,87 @@
     ]
    },
    {
-    "check": "section-height",
-    "where": "section#contact \"Demander un rendez-vous Par téléphone ou\"",
-    "msg": "the section's content does not fit it: its lowest content ends 876px below its top, past 828px (the section less 72px of bottom padding) (SR-2)",
-    "fix": "fit the content above the section's bottom padding (--padb), or make it two screens (.g2) in two groups",
+    "check": "empty-area",
+    "where": "section#contact \"Demander un rendez-vous\"",
+    "msg": "55% of the section is empty: 352px under its last (dt:nth-of-type(2)), 6% beside content that covers under half the container, in its 720px of rows (WARN over 35%, FAIL over 50%)",
+    "fix": "fill the section: a picture or a second column beside the words, or more of its own content; the section stays one or two screens tall (T-height)",
     "widths": [
      1440
     ],
     "from": "consistency",
     "ids": [
-     "section-height"
+     "empty-area"
+    ],
+    "wheres": [
+     "section#contact \"Demander un rendez-vous\""
+    ]
+   },
+   {
+    "check": "section-air",
+    "where": "section#contact \"Demander un rendez-vous Par téléphone ou\"",
+    "msg": "the content fills 37.5% of the section's height (338 of 900px): 55% or more (40% WARN) (SR-3)",
+    "fix": "fill the section to 55%: more content, a picture or a background layer, or merge it into the section above as its last block",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "section-air"
     ],
     "wheres": [
      "section#contact \"Demander un rendez-vous Par téléphone ou\""
     ]
    },
    {
-    "check": "off-viewport",
-    "where": "header.nav.nav--centre > div.wrap.nav__bar \"Aller au contenu Demander un rendez-vous\"",
-    "msg": "at 320px wide it runs 8px past the screen's right edge (the page is 352px wide and scrolls sideways)",
-    "fix": "keep it inside the screen at this width: let it shrink, wrap or stack",
+    "check": "text-only",
+    "where": "section#avis \"Avis Google sur Pro-Transmission\"",
+    "msg": "the section is only text: no picture, icon, mock or effect in it (2 sections like it at this width)",
+    "fix": "give the section a visual: a photograph that fits, the real icons, or a UI fragment on a ground",
     "widths": [
-     320
+     390
     ],
     "from": "consistency",
     "ids": [
-     "off-viewport"
+     "text-only"
     ],
     "wheres": [
-     "header.nav.nav--centre > div.wrap.nav__bar \"Aller au contenu Demander un rendez-vous\""
+     "section#avis \"Avis Google sur Pro-Transmission\""
     ]
    },
    {
-    "check": "off-viewport",
-    "where": "footer#bas > div.wrap > div.closing__cta.close--type \"Pneus, freins et transmission, rue Galt \"",
-    "msg": "at 320px wide it runs 32px past the screen's right edge (the page is 352px wide and scrolls sideways)",
-    "fix": "keep it inside the screen at this width: let it shrink, wrap or stack",
+    "check": "text-only",
+    "where": "section#contact \"Demander un rendez-vous\"",
+    "msg": "the closing section is only text: no picture, icon, mock or effect in it (2 sections like it at this width)",
+    "fix": "give the section a visual: a photograph that fits, the real icons, or a UI fragment on a ground",
     "widths": [
-     320
+     390
     ],
     "from": "consistency",
     "ids": [
-     "off-viewport"
+     "text-only"
     ],
     "wheres": [
-     "footer#bas > div.wrap > div.closing__cta.close--type \"Pneus, freins et transmission, rue Galt \""
+     "section#contact \"Demander un rendez-vous\""
     ]
    },
    {
-    "check": "off-viewport",
-    "where": "footer#bas > div.wrap > div.closing__links \"Pro-Transmission Garage de pneus, freins\"",
-    "msg": "at 320px wide it runs 32px past the screen's right edge (the page is 352px wide and scrolls sideways)",
-    "fix": "keep it inside the screen at this width: let it shrink, wrap or stack",
-    "widths": [
-     320
-    ],
-    "from": "consistency",
-    "ids": [
-     "off-viewport"
-    ],
-    "wheres": [
-     "footer#bas > div.wrap > div.closing__links \"Pro-Transmission Garage de pneus, freins\""
-    ]
-   },
-   {
-    "check": "one-sided",
+    "check": "sparse",
     "where": "#contact section.section \"Demander un rendez-vous Par télé\"",
-    "msg": "its visuals end at x 599.3, short of the right line 1360",
-    "fix": "let the row reach both .wrap edges",
+    "msg": "its content fills 37% of its screen; merge it or give it its visual (0.55 is the aim)",
+    "fix": "fill the section or make it a screen shorter",
     "widths": [
      1440
     ],
     "from": "layout",
     "ids": [
-     "one-sided"
+     "sparse"
     ],
     "wheres": [
      "#contact section.section \"Demander un rendez-vous Par télé\""
     ]
-   },
-   {
-    "check": "neighbour",
-    "where": "#avis section.section \"Avis Google sur Pro-Transmission\"",
-    "msg": "framed, 70px of #atelier section.section.ground-inverse \"L'atelier Pro-Transmission Pneus\" shows",
-    "fix": "keep the next section's heading and picture out of this screen",
-    "widths": [
-     390
-    ],
-    "from": "layout",
-    "ids": [
-     "neighbour"
-    ],
-    "wheres": [
-     "#avis section.section \"Avis Google sur Pro-Transmission\""
-    ]
    }
   ],
   "warns": [
-   {
-    "check": "flush",
-    "where": "div.wrap.grid > div.span-5 > div.frame.frame--photo > img.frame__img \"img: Pneus d'hiver empilés dans le garag\"",
-    "msg": "its last line sits 23px above the lower edge of section#contact, where the ground changes to the footer",
-    "fix": "give the section its padding at the edge where the ground changes (the closing call keeps a clear gap above the footer)",
-    "widths": [
-     1440
-    ],
-    "from": "consistency"
-   },
    {
     "check": "scroll-reveal",
     "where": "section#atelier > div.wrap > div.grid > figure.frame.frame--photo",
@@ -225,6 +175,37 @@
     "widths": [
      1440,
      390
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "text-only",
+    "where": "section#avis \"Avis Google sur Pro-Transmission\"",
+    "msg": "the section is only text: no picture, icon, mock or effect in it",
+    "fix": "give the section a visual: a photograph that fits, the real icons, or a UI fragment on a ground",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "card-visual",
+    "where": "section#avis > div.wrap > div.grid \"Anthony « J'ai adoré mon expérience là-b\"",
+    "msg": "4 cards hold only text: no picture, icon, UI fragment or effect in any of them",
+    "fix": "give the cards a visual: an inset panel with a UI fragment, a photograph or real icons",
+    "widths": [
+     1440,
+     390
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "copy-headings",
+    "where": "h2#contact-h \"Demander un rendez-vous\"",
+    "msg": "\"Demander un rendez-vous\" names no product, part, place or section (the one brand line a page may have)",
+    "fix": "name the thing in every heading: the product, a part, the place or a section noun",
+    "widths": [
+     1440
     ],
     "from": "consistency"
    },
@@ -241,7 +222,7 @@
    {
     "check": "section-gaps",
     "where": "main#top > section.hero.hero--split / section#services",
-    "msg": "178px between these sections, -35% against the median 274px",
+    "msg": "178px between these sections, -36% against the median 276px",
     "fix": "use one gap between sections (all within 25% of each other)",
     "widths": [
      1440,
@@ -252,7 +233,7 @@
    {
     "check": "section-gaps",
     "where": "section#services / section#avis",
-    "msg": "423px between these sections, +54% against the median 274px",
+    "msg": "423px between these sections, +53% against the median 276px",
     "fix": "use one gap between sections (all within 25% of each other)",
     "widths": [
      1440
@@ -262,7 +243,7 @@
    {
     "check": "section-gaps",
     "where": "section#contact / footer#bas",
-    "msg": "137px between these sections, -50% against the median 274px of gaps at a change of ground",
+    "msg": "uneven space at the edge of a band: 448px outside its edge, 114px inside it (the space on either side of a change of ground reads as one gap only when the two match)",
     "fix": "use one gap between sections (all within 25% of each other)",
     "widths": [
      1440
@@ -294,27 +275,6 @@
     "where": "header.nav.nav--centre",
     "msg": "the nav stays on screen with 4 links to the page's sections, but never marks the one you are in (no link changes as the page scrolls)",
     "fix": "mark the link of the section on screen (a colour, a weight or a line under it) as the visitor scrolls",
-    "widths": [
-     1440
-    ],
-    "from": "consistency"
-   },
-   {
-    "check": "photo-repeat",
-    "where": "div.wrap.grid > div.span-5 > div.frame.frame--photo > img.frame__img \"photo-f58963082.jpg\"",
-    "msg": "the photograph photo-f58963082.jpg is shown 2 times on the page: a picture the visitor has already seen",
-    "fix": "show each photograph once: a different picture of what this section names, or none",
-    "widths": [
-     1440,
-     390
-    ],
-    "from": "consistency"
-   },
-   {
-    "check": "empty-area",
-    "where": "section#contact \"Demander un rendez-vous\"",
-    "msg": "37% of the section is empty: 37% beside content that covers under half the container, in its 720px of rows (WARN over 35%, FAIL over 50%)",
-    "fix": "fill the section: a picture or a second column beside the words, or more of its own content; the section stays one or two screens tall (T-height)",
     "widths": [
      1440
     ],
@@ -372,10 +332,10 @@
     "from": "consistency"
    },
    {
-    "check": "cta",
-    "where": "section#avis \"Avis Google sur Pro-Transmission\"",
-    "msg": "a section over 1.5 screens long with no link or button in it",
-    "fix": "add the action: a button in the hero, one on every priced item, one in the closing section",
+    "check": "section-gaps",
+    "where": "section#avis / section#atelier",
+    "msg": "uneven space at the edge of a band: 165px outside its edge, 93px inside it (the space on either side of a change of ground reads as one gap only when the two match)",
+    "fix": "use one gap between sections (all within 25% of each other)",
     "widths": [
      390
     ],
@@ -393,64 +353,31 @@
   ],
   "crashed": [],
   "seconds": {
-   "consistency": 91,
+   "consistency": 88,
    "layout": 4
   }
  },
  "open": [
   {
-   "check": "no-visual",
-   "where": "section#avis \"Avis Google sur Pro-Transmission\"",
-   "msg": "no picture, effect or mock in this section; a feature section needs a visual",
-   "fix": "give the section a visual: a UI fragment on a ground, real icons, or a photograph that fits",
-   "widths": [
-    1440,
-    390
-   ],
-   "from": "consistency",
-   "ids": [
-    "no-visual"
-   ],
-   "wheres": [
-    "section#avis \"Avis Google sur Pro-Transmission\""
-   ]
-  },
-  {
-   "check": "card-layout",
-   "where": "section#services",
-   "msg": "one layout (.frame--photo) in 3 sections: section#services, section#atelier, section#contact; a card layout at most twice",
-   "fix": "a card layout at most twice on a page: build the other sections another way",
+   "check": "section-gaps",
+   "where": "section#contact / footer#bas",
+   "msg": "562px between these sections, +104% against the median 276px of gaps at a change of ground",
+   "fix": "use one gap between sections (all within 25% of each other)",
    "widths": [
     1440
    ],
    "from": "consistency",
    "ids": [
-    "card-layout"
+    "section-gaps"
    ],
    "wheres": [
-    "section#services"
-   ]
-  },
-  {
-   "check": "copy-headings",
-   "where": "div.wrap > div.grid > div.span-6.review:nth-of-type(1) > h3 \"Anthony\"",
-   "msg": "\"Anthony\" names no product, part, place or section (4 headings like it; at most one brand line per page) (and 3 more like it: \"Donald Chamberland\", \"Jean-Sébastien Paré\", \"Demander un rendez-vous\")",
-   "fix": "name the thing in every heading: the product, a part, the place or a section noun",
-   "widths": [
-    1440
-   ],
-   "from": "consistency",
-   "ids": [
-    "copy-headings"
-   ],
-   "wheres": [
-    "div.wrap > div.grid > div.span-6.review:nth-of-type(1) > h3 \"Anthony\""
+    "section#contact / footer#bas"
    ]
   },
   {
    "check": "phone-number",
    "where": "div.wrap.grid > div.span-5 > address.visit__address > a.link \"tel:+18195698363\"",
-   "msg": "a tel: link calls a number in a real dialable format: \"tel:+18195698363\"; a visitor can dial it and reach a stranger (and 1 more like it: div.span-3.footer__col:nth-of-type(4) > ul > li:nth-of-type(3) > a)",
+   "msg": "a tel: link calls a number in a real dialable format: \"tel:+18195698363\"; a visitor can dial it and reach a stranger (and 1 more like it: div.span-2.footer__col:nth-of-type(5) > ul > li > a)",
    "fix": "drop the number and its tel: link (a \"Request a call\" form may stand in), unless the brief gives the number",
    "widths": [
     1440
@@ -464,103 +391,88 @@
    ]
   },
   {
-   "check": "section-height",
-   "where": "section#contact \"Demander un rendez-vous Par téléphone ou\"",
-   "msg": "the section's content does not fit it: its lowest content ends 876px below its top, past 828px (the section less 72px of bottom padding) (SR-2)",
-   "fix": "fit the content above the section's bottom padding (--padb), or make it two screens (.g2) in two groups",
+   "check": "empty-area",
+   "where": "section#contact \"Demander un rendez-vous\"",
+   "msg": "55% of the section is empty: 352px under its last (dt:nth-of-type(2)), 6% beside content that covers under half the container, in its 720px of rows (WARN over 35%, FAIL over 50%)",
+   "fix": "fill the section: a picture or a second column beside the words, or more of its own content; the section stays one or two screens tall (T-height)",
    "widths": [
     1440
    ],
    "from": "consistency",
    "ids": [
-    "section-height"
+    "empty-area"
+   ],
+   "wheres": [
+    "section#contact \"Demander un rendez-vous\""
+   ]
+  },
+  {
+   "check": "section-air",
+   "where": "section#contact \"Demander un rendez-vous Par téléphone ou\"",
+   "msg": "the content fills 37.5% of the section's height (338 of 900px): 55% or more (40% WARN) (SR-3)",
+   "fix": "fill the section to 55%: more content, a picture or a background layer, or merge it into the section above as its last block",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "section-air"
    ],
    "wheres": [
     "section#contact \"Demander un rendez-vous Par téléphone ou\""
    ]
   },
   {
-   "check": "off-viewport",
-   "where": "header.nav.nav--centre > div.wrap.nav__bar \"Aller au contenu Demander un rendez-vous\"",
-   "msg": "at 320px wide it runs 8px past the screen's right edge (the page is 352px wide and scrolls sideways)",
-   "fix": "keep it inside the screen at this width: let it shrink, wrap or stack",
+   "check": "text-only",
+   "where": "section#avis \"Avis Google sur Pro-Transmission\"",
+   "msg": "the section is only text: no picture, icon, mock or effect in it (2 sections like it at this width)",
+   "fix": "give the section a visual: a photograph that fits, the real icons, or a UI fragment on a ground",
    "widths": [
-    320
+    390
    ],
    "from": "consistency",
    "ids": [
-    "off-viewport"
+    "text-only"
    ],
    "wheres": [
-    "header.nav.nav--centre > div.wrap.nav__bar \"Aller au contenu Demander un rendez-vous\""
+    "section#avis \"Avis Google sur Pro-Transmission\""
    ]
   },
   {
-   "check": "off-viewport",
-   "where": "footer#bas > div.wrap > div.closing__cta.close--type \"Pneus, freins et transmission, rue Galt \"",
-   "msg": "at 320px wide it runs 32px past the screen's right edge (the page is 352px wide and scrolls sideways)",
-   "fix": "keep it inside the screen at this width: let it shrink, wrap or stack",
+   "check": "text-only",
+   "where": "section#contact \"Demander un rendez-vous\"",
+   "msg": "the closing section is only text: no picture, icon, mock or effect in it (2 sections like it at this width)",
+   "fix": "give the section a visual: a photograph that fits, the real icons, or a UI fragment on a ground",
    "widths": [
-    320
+    390
    ],
    "from": "consistency",
    "ids": [
-    "off-viewport"
+    "text-only"
    ],
    "wheres": [
-    "footer#bas > div.wrap > div.closing__cta.close--type \"Pneus, freins et transmission, rue Galt \""
+    "section#contact \"Demander un rendez-vous\""
    ]
   },
   {
-   "check": "off-viewport",
-   "where": "footer#bas > div.wrap > div.closing__links \"Pro-Transmission Garage de pneus, freins\"",
-   "msg": "at 320px wide it runs 32px past the screen's right edge (the page is 352px wide and scrolls sideways)",
-   "fix": "keep it inside the screen at this width: let it shrink, wrap or stack",
-   "widths": [
-    320
-   ],
-   "from": "consistency",
-   "ids": [
-    "off-viewport"
-   ],
-   "wheres": [
-    "footer#bas > div.wrap > div.closing__links \"Pro-Transmission Garage de pneus, freins\""
-   ]
-  },
-  {
-   "check": "one-sided",
+   "check": "sparse",
    "where": "#contact section.section \"Demander un rendez-vous Par télé\"",
-   "msg": "its visuals end at x 599.3, short of the right line 1360",
-   "fix": "let the row reach both .wrap edges",
+   "msg": "its content fills 37% of its screen; merge it or give it its visual (0.55 is the aim)",
+   "fix": "fill the section or make it a screen shorter",
    "widths": [
     1440
    ],
    "from": "layout",
    "ids": [
-    "one-sided"
+    "sparse"
    ],
    "wheres": [
     "#contact section.section \"Demander un rendez-vous Par télé\""
-   ]
-  },
-  {
-   "check": "neighbour",
-   "where": "#avis section.section \"Avis Google sur Pro-Transmission\"",
-   "msg": "framed, 70px of #atelier section.section.ground-inverse \"L'atelier Pro-Transmission Pneus\" shows",
-   "fix": "keep the next section's heading and picture out of this screen",
-   "widths": [
-    390
-   ],
-   "from": "layout",
-   "ids": [
-    "neighbour"
-   ],
-   "wheres": [
-    "#avis section.section \"Avis Google sur Pro-Transmission\""
    ]
   }
  ],
  "waived": [],
  "warnCount": 18,
- "at": "2026-11-14T07:23:33.925Z"
+ "at": "2026-11-14T07:33:01.529Z",
+ "openTold": true
 }

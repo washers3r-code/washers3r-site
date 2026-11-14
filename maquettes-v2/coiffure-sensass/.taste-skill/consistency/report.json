@@ -1,7 +1,7 @@
 {
  "page": "/home/user/washers3r-site/maquettes-v2/coiffure-sensass/index.html",
- "url": "http://127.0.0.1:5202/index.html",
- "at": "2026-11-14T07:19:44.006Z",
+ "url": "http://127.0.0.1:5201/index.html",
+ "at": "2026-11-14T07:29:07.669Z",
  "out": "/home/user/washers3r-site/maquettes-v2/coiffure-sensass/.taste-skill/consistency",
  "widths": [
   {
@@ -12,74 +12,14 @@
    "errors": [],
    "findings": [
     {
-     "check": "empty-visual",
-     "sev": "FAIL",
-     "sel": "main#top > section.hero.hero--place > picture > img.hero__bg",
-     "text": "photo-f152759009.webp",
-     "stop": 1,
-     "msg": "the picture shows nothing here: 72% of it is one colour (#edecea); its image photo-f152759009.webp did not load",
-     "crop": "1440-05-empty-visual.jpg",
-     "fix": "make the visual draw at every width: a picture that loads, an effect that renders, or its still fallback; never an empty frame"
-    },
-    {
-     "check": "flush",
-     "sev": "FAIL",
-     "sel": "div.hero-text > div.hero__text > div.btn-row > a.btn.btn--primary",
-     "text": "Réserver une place",
-     "msg": "section.hero.hero--place and section#offer run together: -512px between their content, on one ground",
-     "stop": 1,
-     "crop": "1440-06-flush.jpg",
-     "fix": "give the section its padding at the edge where the ground changes (the closing call keeps a clear gap above the footer)"
-    },
-    {
-     "check": "spill",
-     "sev": "FAIL",
-     "sel": "section#offer > div.wrap > div.grid.grid--top > div.frame.frame--photo",
-     "text": "",
-     "msg": "runs 63px past the bottom edge of the panel it sits on (main#top > section.hero.hero--place > picture > img.hero__bg)",
-     "stop": 1,
-     "crop": "1440-07-spill.jpg",
-     "fix": "keep the box inside the panel it starts on: shrink it, or grow the panel to hold it"
-    },
-    {
-     "check": "overlap-text",
-     "sev": "FAIL",
-     "sel": "section#offer > div.wrap > div.grid.grid--top > div.frame.frame--photo",
-     "text": "",
-     "msg": "lies over the text \"Coupe, coiffage et coloration sur rendez\" (div.hero__text > p.hero__lead)",
-     "stop": 1,
-     "crop": "1440-08-overlap-text.jpg",
-     "fix": "move the box off the text (or the text off the box)"
-    },
-    {
-     "check": "copy-fact",
-     "sev": "FAIL",
-     "sel": "h1#hero-h",
-     "text": "Salon de coiffure, boulevard des Forges",
-     "msg": "the first screen holds no number, price, date, place, platform or genre",
-     "stop": 1,
-     "crop": "1440-09-copy-fact.jpg",
-     "fix": "put one hard fact from the brief on the first screen: a number, a price, a date, the place, the platforms it runs on or a game's genre; take it from the brief or remove the claim"
-    },
-    {
      "check": "off-grid",
      "sev": "FAIL",
      "sel": "div.grid.grid--top > div.span-6:nth-of-type(1) > div.btn-row > a.btn.btn--secondary",
      "text": "Appeler le salon",
      "stop": 1,
      "msg": "left edge at 129px, 9px off the page margin at 120px (17 elements, like p.t-small)",
-     "crop": "1440-10-off-grid.jpg",
+     "crop": "1440-05-off-grid.jpg",
      "fix": "move it onto the page margin, or the column edge its section uses"
-    },
-    {
-     "check": "fold-action",
-     "sev": "FAIL",
-     "sel": "div.hero-text > div.hero__text > div.btn-row > a.btn.btn--primary",
-     "text": "",
-     "msg": "the hero's main button \"Réserver une place\" starts 582px below the first screen (900px tall): it is not seen on load",
-     "stop": 1,
-     "crop": "1440-11-fold-action.jpg",
-     "fix": "bring the hero's buttons onto the first screen: a shorter headline or line, the picture under the buttons"
     },
     {
      "check": "phone-number",
@@ -92,33 +32,13 @@
      "fix": "drop the number and its tel: link (a \"Request a call\" form may stand in), unless the brief gives the number"
     },
     {
-     "check": "empty-area",
-     "sev": "FAIL",
-     "sel": "main#top > section.hero.hero--place",
-     "text": "Salon de coiffure, boulevard des Forges",
-     "msg": "61% of the section is empty: 448px above its first content, in its 728px of rows (WARN over 35%, FAIL over 50%)",
-     "stop": 0,
-     "crop": "1440-02-empty-area.jpg",
-     "fix": "fill the section: a picture or a second column beside the words, or more of its own content; the section stays one or two screens tall (T-height)"
-    },
-    {
-     "check": "cut-text",
-     "sev": "WARN",
-     "sel": "h1#hero-h",
-     "text": "Salon de coiffure, boulevard des Forges",
-     "msg": "sits across the edge of a panel behind it",
-     "stop": 1,
-     "crop": "1440-12-cut-text.jpg",
-     "fix": "give the text room: no overflow clipping a line, no line past its box"
-    },
-    {
      "check": "scroll-reveal",
      "sev": "WARN",
      "sel": "section#offer > div.wrap > div.grid.grid--top > div.frame.frame--photo",
      "text": "",
      "msg": "animates in when scrolled into view (shrinks from 1.06, unblurs) (inside a dealt moment's section, [data-moment]: an enter moment is expected on every kind; its still is judged under reduced motion)",
      "stop": 1,
-     "crop": "1440-13-scroll-reveal.jpg",
+     "crop": "1440-06-scroll-reveal.jpg",
      "fix": "show it at rest: no fade, rise or unmask when it is scrolled into view"
     },
     {
@@ -128,7 +48,7 @@
      "text": "Réserver une place",
      "msg": "\"Réserver une place\" does not start with a verb (book, buy, try, start, get, see...)",
      "stop": 0,
-     "crop": "1440-03-copy-buttons.jpg",
+     "crop": "1440-02-copy-buttons.jpg",
      "fix": "label buttons with a verb and what the visitor gets (\"Book a room\", \"Start free trial\")"
     },
     {
@@ -136,10 +56,30 @@
      "sev": "WARN",
      "sel": "main#top > section.hero.hero--place / section#offer",
      "text": "",
-     "stop": 1,
-     "msg": "the sections overlap by 512px",
-     "crop": "1440-14-section-gaps.jpg",
+     "stop": 4,
+     "msg": "297px between these sections, +29% against the median 231px",
+     "crop": "1440-10-section-gaps.jpg",
      "fix": "use one gap between sections (all within 25% of each other)"
+    },
+    {
+     "check": "section-gaps",
+     "sev": "WARN",
+     "sel": "section#offer / footer#contact",
+     "text": "",
+     "stop": 2,
+     "msg": "164px between these sections, -29% against the median 231px",
+     "crop": "1440-09-section-gaps.jpg",
+     "fix": "use one gap between sections (all within 25% of each other)"
+    },
+    {
+     "check": "photo-set",
+     "sev": "WARN",
+     "sel": "div.wrap > div.grid.grid--top > div.frame.frame--photo > img.frame__img",
+     "text": "photo-f118141964-960.webp",
+     "stop": 1,
+     "msg": "2 photographs in more than one look: warm and cool photographs mixed (b* -5 to +8); the odd one out is photo-f118141964-960.webp",
+     "crop": "1440-07-photo-set.jpg",
+     "fix": "grade the photographs to one look (light, colour, warmth), or replace the odd one out"
     },
     {
      "check": "photo-credit",
@@ -157,7 +97,7 @@
      "text": "Réserver une place",
      "msg": "its label sits 18px off-centre (25px of room at the left, 43px at the right) (and 1 more like it: \"Réserver une place\")",
      "stop": 0,
-     "crop": "1440-04-label-centre.jpg",
+     "crop": "1440-03-label-centre.jpg",
      "fix": "centre the label in its button, or fill the empty side with an icon"
     },
     {
@@ -166,9 +106,19 @@
      "sel": "div.wrap > div.hero-text > div.hero__text > p.hero__lead",
      "text": "Coupe, coiffage et coloration sur rendez-vous : ",
      "msg": "its last line holds only \"378-2171.\"",
-     "stop": 1,
-     "crop": "1440-15-orphan.jpg",
+     "stop": 0,
+     "crop": "1440-04-orphan.jpg",
      "fix": "rebalance the text (text-wrap: pretty, or a shorter line) so the last line holds more than one short word"
+    },
+    {
+     "check": "action-repeat",
+     "sev": "WARN",
+     "sel": "header.nav > div.wrap.nav__bar > div.nav__actions > a.btn.btn--primary",
+     "text": "réserver une place",
+     "stop": 5,
+     "msg": "\"réserver une place\" shows 2 times on the first screen at 1440px (nav, hero): the nav's button and the hero's; nothing else on the screen may repeat it",
+     "crop": "1440-11-action-repeat.jpg",
+     "fix": "show the action once a screen besides the nav's button: the hero's, the close's or the phone bar's, never all at once"
     },
     {
      "check": "assumed",
@@ -177,68 +127,8 @@
      "text": "Prix sur demande",
      "msg": "4 facts marked as assumed, for the report: \"Prix sur demande\", \"Prix sur demande\", \"Prix sur demande\", \"Mardi à vendredi 9 h à 17 h Samedi 9 h à 15 h Dimanche et lu\"",
      "stop": 1,
-     "crop": "1440-16-assumed.jpg",
+     "crop": "1440-08-assumed.jpg",
      "fix": "list each assumed fact in the report for the client to confirm, or take it from the brief"
-    },
-    {
-     "check": "hero-screen",
-     "sev": "FAIL",
-     "sel": "main#top > section.hero.hero--place",
-     "text": "Salon de coiffure, boulevard des Forges ",
-     "msg": "the hero's content is 745px taller than the hero (scrollHeight 1645, clientHeight 900): it spills out or scrolls inside it (SR-1)",
-     "fix": "fit the hero's content inside the hero's box: shorten the text or the picture, never let it spill",
-     "rule": "SR-1 T3",
-     "crop": "1440-rhythm-01-hero-screen.jpg"
-    },
-    {
-     "check": "hero-screen",
-     "sev": "FAIL",
-     "sel": "main#top > section.hero.hero--place > picture",
-     "text": "",
-     "msg": "the <picture> lies outside the hero's box (589-1398px, the hero 0-900px) (SR-1)",
-     "fix": "fit the hero's content inside the hero's box: shorten the text or the picture, never let it spill",
-     "rule": "SR-1 T3",
-     "crop": "1440-rhythm-02-hero-screen.jpg"
-    },
-    {
-     "check": "hero-screen",
-     "sev": "FAIL",
-     "sel": "main#top > section.hero.hero--place > picture > img.hero__bg",
-     "text": "Salon de coiffure moderne aux fauteuils ",
-     "msg": "\"Salon de coiffure moderne aux fa\" lies outside the hero's box (589-1398px, the hero 0-900px) (and 7 more like it: \"Salon de coiffure, boule\", \"Salon de coiffure, boule\", \"Salon de coiffure, boule\") (SR-1)",
-     "fix": "fit the hero's content inside the hero's box: shorten the text or the picture, never let it spill",
-     "rule": "SR-1 T3",
-     "crop": "1440-rhythm-03-hero-screen.jpg"
-    },
-    {
-     "check": "hero-screen",
-     "sev": "FAIL",
-     "sel": "div.hero-text > div.hero__text > div.btn-row > a.btn.btn--primary",
-     "text": "Réserver une place",
-     "msg": "\"Réserver une place\" ends at 1517px, below the hero's content line at 876px (the 900px screen less 24px) (SR-1)",
-     "fix": "keep the hero's content between the nav and 24px above the fold (and the action bar): shorten the picture or the text; a docked strip 96px at most",
-     "rule": "SR-1 T4",
-     "crop": "1440-rhythm-04-hero-screen.jpg"
-    },
-    {
-     "check": "hero-screen",
-     "sev": "FAIL",
-     "sel": "h1#hero-h",
-     "text": "Salon de coiffure, boulevard des Forges",
-     "msg": "\"Salon de coiffure, boulevard des\" ends at 1449px, below the hero's content line at 876px (the 900px screen less 24px) (SR-1)",
-     "fix": "keep the hero's content between the nav and 24px above the fold (and the action bar): shorten the picture or the text; a docked strip 96px at most",
-     "rule": "SR-1 T4",
-     "crop": "1440-rhythm-05-hero-screen.jpg"
-    },
-    {
-     "check": "hero-screen",
-     "sev": "FAIL",
-     "sel": "div.wrap > div.hero-text > div.hero__text > p.hero__lead",
-     "text": "Coupe, coiffage et coloration sur rendez",
-     "msg": "\"Coupe, coiffage et coloration su\" ends at 1426px, below the hero's content line at 876px (the 900px screen less 24px) (SR-1)",
-     "fix": "keep the hero's content between the nav and 24px above the fold (and the action bar): shorten the picture or the text; a docked strip 96px at most",
-     "rule": "SR-1 T4",
-     "crop": "1440-rhythm-06-hero-screen.jpg"
     },
     {
      "check": "section-height",
@@ -248,27 +138,7 @@
      "msg": "the section's content does not fit it: its lowest content ends 854px below its top, past 828px (the section less 72px of bottom padding) (SR-2)",
      "fix": "fit the content above the section's bottom padding (--padb), or make it two screens (.g2) in two groups",
      "rule": "SR-2 T-fit",
-     "crop": "1440-rhythm-07-section-height.jpg"
-    },
-    {
-     "check": "one-section",
-     "sev": "FAIL",
-     "sel": "h1#hero-h",
-     "text": "Salon de coiffure, boulevard des Forges",
-     "msg": "the screen at scroll 900px (stride 1) shows 558px of section 1 and the heading of section 1 whole and the content of 2 sections, over 24px each beside section 2: a screen shows one section (another may peek 8px, 24px WARN) (SR-4)",
-     "fix": "make each section exactly one screen or two, so a screen shows one section and no neighbour peeks",
-     "rule": "SR-4 T-views",
-     "crop": "1440-rhythm-08-one-section.jpg"
-    },
-    {
-     "check": "container-edges",
-     "sev": "FAIL",
-     "sel": "main#top > section.hero.hero--place",
-     "text": "Salon de coiffure, boulevard des Forges ",
-     "msg": "the section needs exactly one in-flow child .wrap (it has 2 in-flow children, 1 .wrap) (SR-6)",
-     "fix": "build the page as header.nav, a main of sections (each one in-flow .wrap plus background layers) and footer.closing",
-     "rule": "SR-6 T1-structure",
-     "crop": "1440-rhythm-09-container-edges.jpg"
+     "crop": "1440-rhythm-01-section-height.jpg"
     },
     {
      "check": "row-lines",
@@ -278,7 +148,7 @@
      "msg": "a row of 2 items: its last item ends at 912px, the container's right line at 1320px (2px either way) (SR-7)",
      "fix": "start the row's first item on the container's left line and end its last on the right line, every item one height",
      "rule": "SR-7 T-rows",
-     "crop": "1440-rhythm-10-row-lines.jpg"
+     "crop": "1440-rhythm-02-row-lines.jpg"
     }
    ],
    "glAsked": 0
@@ -291,94 +161,14 @@
    "errors": [],
    "findings": [
     {
-     "check": "empty-visual",
-     "sev": "FAIL",
-     "sel": "main#top > section.hero.hero--place > picture > img.hero__bg",
-     "text": "photo-f152759009-1280.webp",
-     "stop": 1,
-     "msg": "the picture shows nothing here: 78% of it is one colour (#edecea); its image photo-f152759009-1280.webp did not load",
-     "crop": "1024-03-empty-visual.jpg",
-     "fix": "make the visual draw at every width: a picture that loads, an effect that renders, or its still fallback; never an empty frame"
-    },
-    {
-     "check": "flush",
-     "sev": "FAIL",
-     "sel": "h1#hero-h",
-     "text": "Salon de coiffure, boulevard des Forges",
-     "msg": "section.hero.hero--place and section#offer run together: -345px between their content, on one ground",
-     "stop": 1,
-     "crop": "1024-04-flush.jpg",
-     "fix": "give the section its padding at the edge where the ground changes (the closing call keeps a clear gap above the footer)"
-    },
-    {
-     "check": "spill",
-     "sev": "FAIL",
-     "sel": "section#offer > div.wrap > div.grid.grid--top > div.frame.frame--photo",
-     "text": "",
-     "msg": "runs 79px past the bottom edge of the panel it sits on (main#top > section.hero.hero--place > picture > img.hero__bg)",
-     "stop": 1,
-     "crop": "1024-05-spill.jpg",
-     "fix": "keep the box inside the panel it starts on: shrink it, or grow the panel to hold it"
-    },
-    {
-     "check": "overlap-text",
-     "sev": "FAIL",
-     "sel": "div.span-6:nth-of-type(1) > ul.rows > li:nth-of-type(3) > span.rows__name",
-     "text": "Coloration",
-     "msg": "lies over the text \"Salon de coiffure, boulevard des Forges\" (h1#hero-h)",
-     "stop": 1,
-     "crop": "1024-06-overlap-text.jpg",
-     "fix": "move the box off the text (or the text off the box)"
-    },
-    {
-     "check": "overlap-text",
-     "sev": "FAIL",
-     "sel": "section#offer > div.wrap > div.grid.grid--top > div.frame.frame--photo",
-     "text": "",
-     "msg": "lies over the text \"Coupe, coiffage et coloration sur rendez\" (div.hero__text > p.hero__lead)",
-     "stop": 1,
-     "crop": "1024-07-overlap-text.jpg",
-     "fix": "move the box off the text (or the text off the box)"
-    },
-    {
      "check": "off-grid",
      "sev": "FAIL",
      "sel": "section#offer > div.wrap > div.grid.grid--top > div.frame.frame--photo",
      "text": "",
      "stop": 1,
      "msg": "left edge at 524px, 20px off a common edge of its section at 544px (3 elements, like dd:nth-of-type(1)); 1 more in this section off the grid too (a.btn.btn--secondary at 129px)",
-     "crop": "1024-08-off-grid.jpg",
+     "crop": "1024-02-off-grid.jpg",
      "fix": "move it onto the page margin, or the column edge its section uses"
-    },
-    {
-     "check": "fold-action",
-     "sev": "FAIL",
-     "sel": "div.hero-text > div.hero__text > div.btn-row > a.btn.btn--primary",
-     "text": "",
-     "msg": "the hero's main button \"Réserver une place\" starts 410px below the first screen (768px tall): it is not seen on load",
-     "stop": 1,
-     "crop": "1024-09-fold-action.jpg",
-     "fix": "bring the hero's buttons onto the first screen: a shorter headline or line, the picture under the buttons"
-    },
-    {
-     "check": "empty-area",
-     "sev": "FAIL",
-     "sel": "main#top > section.hero.hero--place",
-     "text": "Salon de coiffure, boulevard des Forges",
-     "msg": "64% of the section is empty: 400px above its first content, in its 612px of rows (WARN over 35%, FAIL over 50%)",
-     "stop": 0,
-     "crop": "1024-01-empty-area.jpg",
-     "fix": "fill the section: a picture or a second column beside the words, or more of its own content; the section stays one or two screens tall (T-height)"
-    },
-    {
-     "check": "cut-text",
-     "sev": "WARN",
-     "sel": "h1#hero-h",
-     "text": "Salon de coiffure, boulevard des Forges",
-     "msg": "sits across the edge of a panel behind it (and 2 more like it: \"Coloration\", \"Prix sur demande\")",
-     "stop": 1,
-     "crop": "1024-10-cut-text.jpg",
-     "fix": "give the text room: no overflow clipping a line, no line past its box"
     },
     {
      "check": "scroll-reveal",
@@ -387,18 +177,18 @@
      "text": "",
      "msg": "animates in when scrolled into view (shrinks from 1.06, unblurs) (inside a dealt moment's section, [data-moment]: an enter moment is expected on every kind; its still is judged under reduced motion)",
      "stop": 1,
-     "crop": "1024-11-scroll-reveal.jpg",
+     "crop": "1024-03-scroll-reveal.jpg",
      "fix": "show it at rest: no fade, rise or unmask when it is scrolled into view"
     },
     {
-     "check": "section-gaps",
+     "check": "photo-set",
      "sev": "WARN",
-     "sel": "main#top > section.hero.hero--place / section#offer",
-     "text": "",
+     "sel": "div.wrap > div.grid.grid--top > div.frame.frame--photo > img.frame__img",
+     "text": "photo-f118141964-960.webp",
      "stop": 1,
-     "msg": "the sections overlap by 345px",
-     "crop": "1024-12-section-gaps.jpg",
-     "fix": "use one gap between sections (all within 25% of each other)"
+     "msg": "2 photographs in more than one look: warm and cool photographs mixed (b* -5 to +8); the odd one out is photo-f118141964-960.webp",
+     "crop": "1024-04-photo-set.jpg",
+     "fix": "grade the photographs to one look (light, colour, warmth), or replace the odd one out"
     },
     {
      "check": "label-centre",
@@ -407,8 +197,18 @@
      "text": "Réserver une place",
      "msg": "its label sits 18px off-centre (25px of room at the left, 43px at the right) (and 1 more like it: \"Réserver une place\")",
      "stop": 0,
-     "crop": "1024-02-label-centre.jpg",
+     "crop": "1024-01-label-centre.jpg",
      "fix": "centre the label in its button, or fill the empty side with an icon"
+    },
+    {
+     "check": "action-repeat",
+     "sev": "WARN",
+     "sel": "header.nav > div.wrap.nav__bar > div.nav__actions > a.btn.btn--primary",
+     "text": "réserver une place",
+     "stop": 4,
+     "msg": "\"réserver une place\" shows 2 times on the first screen at 1024px (nav, hero): the nav's button and the hero's; nothing else on the screen may repeat it",
+     "crop": "1024-05-action-repeat.jpg",
+     "fix": "show the action once a screen besides the nav's button: the hero's, the close's or the phone bar's, never all at once"
     }
    ],
    "glAsked": 0
@@ -421,64 +221,24 @@
    "errors": [],
    "findings": [
     {
-     "check": "empty-visual",
-     "sev": "FAIL",
-     "sel": "main#top > section.hero.hero--place > picture > img.hero__bg",
-     "text": "photo-f152759009-960.webp",
-     "stop": 0,
-     "msg": "the picture shows nothing here: 99% of it is one colour (#edecea); its image photo-f152759009-960.webp did not load",
-     "crop": "820-01-empty-visual.jpg",
-     "fix": "make the visual draw at every width: a picture that loads, an effect that renders, or its still fallback; never an empty frame"
-    },
-    {
-     "check": "flush",
-     "sev": "FAIL",
-     "sel": "div.hero-text > div.hero__text > div.btn-row > a.btn.btn--primary",
-     "text": "Réserver une place",
-     "msg": "section.hero.hero--place and section#offer run together: -118px between their content, on one ground",
-     "stop": 1,
-     "crop": "820-04-flush.jpg",
-     "fix": "give the section its padding at the edge where the ground changes (the closing call keeps a clear gap above the footer)"
-    },
-    {
-     "check": "overlap-text",
-     "sev": "FAIL",
-     "sel": "h2#offer-h",
-     "text": "Services",
-     "msg": "lies over the text \"Coupe, coiffage et coloration sur rendez\" (div.hero__text > p.hero__lead)",
-     "stop": 1,
-     "crop": "820-05-overlap-text.jpg",
-     "fix": "move the box off the text (or the text off the box)"
-    },
-    {
-     "check": "overlap-text",
-     "sev": "FAIL",
-     "sel": "div.span-6:nth-of-type(1) > ul.rows > li:nth-of-type(1) > span.rows__name",
-     "text": "Coupe",
-     "msg": "lies over the text \"Réserver une place\" (div.btn-row > a.btn.btn--primary)",
-     "stop": 1,
-     "crop": "820-06-overlap-text.jpg",
-     "fix": "move the box off the text (or the text off the box)"
-    },
-    {
      "check": "off-grid",
      "sev": "FAIL",
      "sel": "div.grid.grid--top > div.span-6:nth-of-type(1) > div.btn-row > a.btn.btn--secondary",
      "text": "Appeler le salon",
      "stop": 1,
      "msg": "left edge at 57px, 9px off the page margin at 48px (28 elements, like p.t-small)",
-     "crop": "820-07-off-grid.jpg",
+     "crop": "820-05-off-grid.jpg",
      "fix": "move it onto the page margin, or the column edge its section uses"
     },
     {
-     "check": "text-contrast",
+     "check": "photo-upscale",
      "sev": "FAIL",
-     "sel": "div.span-6:nth-of-type(1) > ul.rows > li:nth-of-type(1) > span.rows__name",
-     "text": "Coupe",
-     "stop": 1,
-     "msg": "a caption, label or muted line in #333231 on #5c6b54 reads 2.25:1 (needs 4.5:1)",
-     "crop": "820-08-text-contrast.jpg",
-     "fix": "body text in the ink at 7:1 or more; grey (4.5:1 or more) only for captions and labels"
+     "sel": "main#top > section.hero.hero--place > picture.hero__bg > img",
+     "text": "img: Salon de coiffure moderne aux fauteuils de c",
+     "msg": "photo-f152759009-960.webp: 820x461 shown at 820x656, blown up 1.42x",
+     "stop": 0,
+     "crop": "820-01-photo-upscale.jpg",
+     "fix": "use a source at least as wide as the picture is shown (twice that for sharp screens)"
     },
     {
      "check": "photo-upscale",
@@ -487,47 +247,17 @@
      "text": "img: Ciseaux de coiffure professionnels sur fond ",
      "msg": "photo-f118141964-500.webp: 410x230 shown at 724x543, blown up 2.36x",
      "stop": 1,
-     "crop": "820-09-photo-upscale.jpg",
+     "crop": "820-06-photo-upscale.jpg",
      "fix": "use a source at least as wide as the picture is shown (twice that for sharp screens)"
-    },
-    {
-     "check": "fold-action",
-     "sev": "FAIL",
-     "sel": "div.hero-text > div.hero__text > div.btn-row > a.btn.btn--primary",
-     "text": "",
-     "msg": "the hero's main button \"Réserver une place\" starts 188px below the first screen (1180px tall): it is not seen on load",
-     "stop": 1,
-     "crop": "820-10-fold-action.jpg",
-     "fix": "bring the hero's buttons onto the first screen: a shorter headline or line, the picture under the buttons"
-    },
-    {
-     "check": "empty-area",
-     "sev": "FAIL",
-     "sel": "main#top > section.hero.hero--place",
-     "text": "Salon de coiffure, boulevard des Forges",
-     "msg": "61% of the section is empty: 592px above its first content, in its 974px of rows (WARN over 35%, FAIL over 50%)",
-     "stop": 0,
-     "crop": "820-02-empty-area.jpg",
-     "fix": "fill the section: a picture or a second column beside the words, or more of its own content; the section stays one or two screens tall (T-height)"
-    },
-    {
-     "check": "cut-text",
-     "sev": "WARN",
-     "sel": "h1#hero-h",
-     "text": "Salon de coiffure, boulevard des Forges",
-     "msg": "sits across the edge of a panel behind it",
-     "stop": 1,
-     "crop": "820-11-cut-text.jpg",
-     "fix": "give the text room: no overflow clipping a line, no line past its box"
     },
     {
      "check": "scroll-reveal",
      "sev": "WARN",
      "sel": "section#offer > div.wrap > div.grid.grid--top > div.frame.frame--photo",
      "text": "",
-     "msg": "starts \"transform\" (0.4 s) the moment it is scrolled into view (an IntersectionObserver) on img.frame__img (inside a dealt moment's section, [data-moment]: an enter moment is expected on every kind; its still is judged under reduced motion)",
+     "msg": "starts an animation (1.6 s) the moment it is scrolled into view (an IntersectionObserver) on img.frame__img (inside a dealt moment's section, [data-moment]: an enter moment is expected on every kind; its still is judged under reduced motion)",
      "stop": 1,
-     "crop": "820-12-scroll-reveal.jpg",
+     "crop": "820-07-scroll-reveal.jpg",
      "fix": "show it at rest: no fade, rise or unmask when it is scrolled into view"
     },
     {
@@ -535,10 +265,30 @@
      "sev": "WARN",
      "sel": "main#top > section.hero.hero--place / section#offer",
      "text": "",
-     "stop": 1,
-     "msg": "the sections overlap by 118px",
-     "crop": "820-13-section-gaps.jpg",
+     "stop": 4,
+     "msg": "343px between these sections, +28% against the median 267px",
+     "crop": "820-10-section-gaps.jpg",
      "fix": "use one gap between sections (all within 25% of each other)"
+    },
+    {
+     "check": "section-gaps",
+     "sev": "WARN",
+     "sel": "section#offer / footer#contact",
+     "text": "",
+     "stop": 2,
+     "msg": "191px between these sections, -28% against the median 267px",
+     "crop": "820-08-section-gaps.jpg",
+     "fix": "use one gap between sections (all within 25% of each other)"
+    },
+    {
+     "check": "photo-set",
+     "sev": "WARN",
+     "sel": "main#top > section.hero.hero--place > picture.hero__bg > img",
+     "text": "photo-f152759009-960.webp",
+     "stop": 0,
+     "msg": "2 photographs in more than one look: warm and cool photographs mixed (b* -6 to +10); the odd one out is photo-f152759009-960.webp",
+     "crop": "820-02-photo-set.jpg",
+     "fix": "grade the photographs to one look (light, colour, warmth), or replace the odd one out"
     },
     {
      "check": "label-centre",
@@ -556,8 +306,8 @@
      "sel": "div.wrap > div.hero-text > div.hero__text > p.hero__lead",
      "text": "Coupe, coiffage et coloration sur rendez-vous : ",
      "msg": "its last line holds only \"378-2171.\"",
-     "stop": 1,
-     "crop": "820-14-orphan.jpg",
+     "stop": 0,
+     "crop": "820-04-orphan.jpg",
      "fix": "rebalance the text (text-wrap: pretty, or a shorter line) so the last line holds more than one short word"
     },
     {
@@ -567,68 +317,8 @@
      "text": "Réserver une place",
      "msg": "44% of the section is empty: 352px of empty rows between its content, 9% beside content that covers under half the container, in its 988px of rows (WARN over 35%, FAIL over 50%)",
      "stop": 3,
-     "crop": "820-15-empty-area.jpg",
+     "crop": "820-09-empty-area.jpg",
      "fix": "fill the section: a picture or a second column beside the words, or more of its own content; the section stays one or two screens tall (T-height)"
-    },
-    {
-     "check": "hero-screen",
-     "sev": "FAIL",
-     "sel": "main#top > section.hero.hero--place",
-     "text": "Salon de coiffure, boulevard des Forges ",
-     "msg": "the hero's content is 397px taller than the hero (scrollHeight 1577, clientHeight 1180): it spills out or scrolls inside it (SR-1)",
-     "fix": "fit the hero's content inside the hero's box: shorten the text or the picture, never let it spill",
-     "rule": "SR-1 T3",
-     "crop": "820-rhythm-01-hero-screen.jpg"
-    },
-    {
-     "check": "hero-screen",
-     "sev": "FAIL",
-     "sel": "main#top > section.hero.hero--place > picture",
-     "text": "",
-     "msg": "the <picture> lies outside the hero's box (768-1229px, the hero 0-1180px) (SR-1)",
-     "fix": "fit the hero's content inside the hero's box: shorten the text or the picture, never let it spill",
-     "rule": "SR-1 T3",
-     "crop": "820-rhythm-02-hero-screen.jpg"
-    },
-    {
-     "check": "hero-screen",
-     "sev": "FAIL",
-     "sel": "main#top > section.hero.hero--place > picture > img.hero__bg",
-     "text": "Salon de coiffure moderne aux fauteuils ",
-     "msg": "\"Salon de coiffure moderne aux fa\" lies outside the hero's box (768-1229px, the hero 0-1180px) (and 7 more like it: \"Salon de coiffure, boule\", \"Salon de coiffure, boule\", \"Salon de coiffure, boule\") (SR-1)",
-     "fix": "fit the hero's content inside the hero's box: shorten the text or the picture, never let it spill",
-     "rule": "SR-1 T3",
-     "crop": "820-rhythm-03-hero-screen.jpg"
-    },
-    {
-     "check": "hero-screen",
-     "sev": "FAIL",
-     "sel": "div.hero-text > div.hero__text > div.btn-row > a.btn.btn--primary",
-     "text": "Réserver une place",
-     "msg": "\"Réserver une place\" ends at 1403px, below the hero's content line at 1156px (the 1180px screen less 24px) (SR-1)",
-     "fix": "keep the hero's content between the nav and 24px above the fold (and the action bar): shorten the picture or the text; a docked strip 96px at most",
-     "rule": "SR-1 T4",
-     "crop": "820-rhythm-04-hero-screen.jpg"
-    },
-    {
-     "check": "hero-screen",
-     "sev": "FAIL",
-     "sel": "div.wrap > div.hero-text > div.hero__text > p.hero__lead",
-     "text": "Coupe, coiffage et coloration sur rendez",
-     "msg": "\"Coupe, coiffage et coloration su\" ends at 1315px, below the hero's content line at 1156px (the 1180px screen less 24px) (SR-1)",
-     "fix": "keep the hero's content between the nav and 24px above the fold (and the action bar): shorten the picture or the text; a docked strip 96px at most",
-     "rule": "SR-1 T4",
-     "crop": "820-rhythm-05-hero-screen.jpg"
-    },
-    {
-     "check": "hero-screen",
-     "sev": "FAIL",
-     "sel": "h1#hero-h",
-     "text": "Salon de coiffure, boulevard des Forges",
-     "msg": "\"Salon de coiffure, boulevard des\" ends at 1270px, below the hero's content line at 1156px (the 1180px screen less 24px) (SR-1)",
-     "fix": "keep the hero's content between the nav and 24px above the fold (and the action bar): shorten the picture or the text; a docked strip 96px at most",
-     "rule": "SR-1 T4",
-     "crop": "820-rhythm-06-hero-screen.jpg"
     },
     {
      "check": "section-height",
@@ -638,7 +328,7 @@
      "msg": "the scene's section is 1481px tall (1.3 screens), 301px over one screen (1180px): every section after the hero is one screen or two, 2px either way; a pinned scene is (hold + 1) screens tall, so write data-big-scene-opts='{\"hold\": 1}' (two screens) and keep --h on the section (SR-2)",
      "fix": "set the section to one screen or two (height: calc(var(--h,1) * 100vh), --h 1 or 2) and cut or split its content to fit",
      "rule": "SR-2 T-height",
-     "crop": "820-rhythm-07-section-height.jpg"
+     "crop": "820-rhythm-01-section-height.jpg"
     },
     {
      "check": "section-height",
@@ -648,17 +338,7 @@
      "msg": "the section starts at 2661px, 301px below the screen grid (2 x 1180px): sections start on whole screens (SR-2)",
      "fix": "make every section above it exactly one or two screens tall, so this one starts on a whole screen",
      "rule": "SR-2 T-grid",
-     "crop": "820-rhythm-08-section-height.jpg"
-    },
-    {
-     "check": "one-section",
-     "sev": "FAIL",
-     "sel": "main#top > section.hero.hero--place",
-     "text": "Salon de coiffure, boulevard des Forges ",
-     "msg": "the screen at scroll 1180px (stride 1) shows 114px of section 1 and the content of 2 sections, over 24px each beside section 2: a screen shows one section (another may peek 8px, 24px WARN) (SR-4)",
-     "fix": "make each section exactly one screen or two, so a screen shows one section and no neighbour peeks",
-     "rule": "SR-4 T-views",
-     "crop": "820-rhythm-09-one-section.jpg"
+     "crop": "820-rhythm-02-section-height.jpg"
     },
     {
      "check": "one-section",
@@ -668,17 +348,7 @@
      "msg": "the screen at scroll 2360px (stride 2) shows 229px of section 2 and the content of 2 sections, over 24px each beside section 3: a screen shows one section (another may peek 8px, 24px WARN) (it is in a scroll scene: told as a WARN) (SR-4)",
      "fix": "make each section exactly one screen or two, so a screen shows one section and no neighbour peeks",
      "rule": "SR-4 T-views",
-     "crop": "820-rhythm-12-one-section.jpg"
-    },
-    {
-     "check": "container-edges",
-     "sev": "FAIL",
-     "sel": "main#top > section.hero.hero--place",
-     "text": "Salon de coiffure, boulevard des Forges ",
-     "msg": "the section needs exactly one in-flow child .wrap (it has 2 in-flow children, 1 .wrap) (SR-6)",
-     "fix": "build the page as header.nav, a main of sections (each one in-flow .wrap plus background layers) and footer.closing",
-     "rule": "SR-6 T1-structure",
-     "crop": "820-rhythm-10-container-edges.jpg"
+     "crop": "820-rhythm-04-one-section.jpg"
     },
     {
      "check": "row-lines",
@@ -688,7 +358,7 @@
      "msg": "a row of 3 items: its last item ends at 585px, the container's right line at 772px (2px either way) (SR-7)",
      "fix": "start the row's first item on the container's left line and end its last on the right line, every item one height",
      "rule": "SR-7 T-rows",
-     "crop": "820-rhythm-11-row-lines.jpg"
+     "crop": "820-rhythm-03-row-lines.jpg"
     }
    ],
    "glAsked": 0
@@ -701,33 +371,13 @@
    "errors": [],
    "findings": [
     {
-     "check": "empty-visual",
-     "sev": "FAIL",
-     "sel": "main#top > section.hero.hero--place > picture > img.hero__bg",
-     "text": "photo-f152759009-960.webp",
-     "stop": 0,
-     "msg": "the picture shows nothing here: 98% of it is one colour (#edecea); its image photo-f152759009-960.webp did not load",
-     "crop": "768-01-empty-visual.jpg",
-     "fix": "make the visual draw at every width: a picture that loads, an effect that renders, or its still fallback; never an empty frame"
-    },
-    {
-     "check": "flush",
-     "sev": "FAIL",
-     "sel": "div.hero-text > div.hero__text > div.btn-row > a.btn.btn--primary",
-     "text": "Réserver une place",
-     "msg": "section.hero.hero--place and section#offer run together: -160px between their content, on one ground",
-     "stop": 1,
-     "crop": "768-04-flush.jpg",
-     "fix": "give the section its padding at the edge where the ground changes (the closing call keeps a clear gap above the footer)"
-    },
-    {
      "check": "off-grid",
      "sev": "FAIL",
      "sel": "div.grid.grid--top > div.span-6:nth-of-type(1) > div.btn-row > a.btn.btn--secondary",
      "text": "Appeler le salon",
      "stop": 1,
      "msg": "left edge at 57px, 9px off the page margin at 48px (28 elements, like p.t-small)",
-     "crop": "768-05-off-grid.jpg",
+     "crop": "768-03-off-grid.jpg",
      "fix": "move it onto the page margin, or the column edge its section uses"
     },
     {
@@ -737,58 +387,18 @@
      "text": "img: Ciseaux de coiffure professionnels sur fond ",
      "msg": "photo-f118141964-500.webp: 383x215 shown at 672x504, blown up 2.34x",
      "stop": 2,
-     "crop": "768-11-photo-upscale.jpg",
+     "crop": "768-05-photo-upscale.jpg",
      "fix": "use a source at least as wide as the picture is shown (twice that for sharp screens)"
-    },
-    {
-     "check": "fold-action",
-     "sev": "FAIL",
-     "sel": "div.hero-text > div.hero__text > div.btn-row > a.btn.btn--primary",
-     "text": "",
-     "msg": "the hero's main button \"Réserver une place\" starts 230px below the first screen (1024px tall): it is not seen on load",
-     "stop": 1,
-     "crop": "768-06-fold-action.jpg",
-     "fix": "bring the hero's buttons onto the first screen: a shorter headline or line, the picture under the buttons"
-    },
-    {
-     "check": "empty-area",
-     "sev": "FAIL",
-     "sel": "main#top > section.hero.hero--place",
-     "text": "Salon de coiffure, boulevard des Forges",
-     "msg": "62% of the section is empty: 528px above its first content, in its 837px of rows (WARN over 35%, FAIL over 50%)",
-     "stop": 0,
-     "crop": "768-02-empty-area.jpg",
-     "fix": "fill the section: a picture or a second column beside the words, or more of its own content; the section stays one or two screens tall (T-height)"
-    },
-    {
-     "check": "cut-text",
-     "sev": "WARN",
-     "sel": "h1#hero-h",
-     "text": "Salon de coiffure, boulevard des Forges",
-     "msg": "sits across the edge of a panel behind it (and 1 more like it: \"Coiffage\")",
-     "stop": 1,
-     "crop": "768-07-cut-text.jpg",
-     "fix": "give the text room: no overflow clipping a line, no line past its box"
     },
     {
      "check": "scroll-reveal",
      "sev": "WARN",
      "sel": "section#offer > div.wrap > div.grid.grid--top > div.frame.frame--photo",
      "text": "",
-     "msg": "starts \"transform\" (0.4 s) the moment it is scrolled into view (an IntersectionObserver) on img.frame__img (inside a dealt moment's section, [data-moment]: an enter moment is expected on every kind; its still is judged under reduced motion)",
+     "msg": "starts an animation (1.6 s) the moment it is scrolled into view (an IntersectionObserver) on img.frame__img (inside a dealt moment's section, [data-moment]: an enter moment is expected on every kind; its still is judged under reduced motion)",
      "stop": 1,
-     "crop": "768-08-scroll-reveal.jpg",
+     "crop": "768-04-scroll-reveal.jpg",
      "fix": "show it at rest: no fade, rise or unmask when it is scrolled into view"
-    },
-    {
-     "check": "section-gaps",
-     "sev": "WARN",
-     "sel": "main#top > section.hero.hero--place / section#offer",
-     "text": "",
-     "stop": 1,
-     "msg": "the sections overlap by 160px",
-     "crop": "768-09-section-gaps.jpg",
-     "fix": "use one gap between sections (all within 25% of each other)"
     },
     {
      "check": "label-centre",
@@ -797,7 +407,7 @@
      "text": "Réserver une place",
      "msg": "its label sits 18px off-centre (25px of room at the left, 43px at the right) (and 1 more like it: \"Réserver une place\")",
      "stop": 0,
-     "crop": "768-03-label-centre.jpg",
+     "crop": "768-01-label-centre.jpg",
      "fix": "centre the label in its button, or fill the empty side with an icon"
     },
     {
@@ -806,69 +416,9 @@
      "sel": "div.wrap > div.hero-text > div.hero__text > p.hero__lead",
      "text": "Coupe, coiffage et coloration sur rendez-vous : ",
      "msg": "its last line holds only \"378-2171.\"",
-     "stop": 1,
-     "crop": "768-10-orphan.jpg",
+     "stop": 0,
+     "crop": "768-02-orphan.jpg",
      "fix": "rebalance the text (text-wrap: pretty, or a shorter line) so the last line holds more than one short word"
-    },
-    {
-     "check": "hero-screen",
-     "sev": "FAIL",
-     "sel": "main#top > section.hero.hero--place",
-     "text": "Salon de coiffure, boulevard des Forges ",
-     "msg": "the hero's content is 368px taller than the hero (scrollHeight 1392, clientHeight 1024): it spills out or scrolls inside it (SR-1)",
-     "fix": "fit the hero's content inside the hero's box: shorten the text or the picture, never let it spill",
-     "rule": "SR-1 T3",
-     "crop": "768-rhythm-01-hero-screen.jpg"
-    },
-    {
-     "check": "hero-screen",
-     "sev": "FAIL",
-     "sel": "main#top > section.hero.hero--place > picture",
-     "text": "",
-     "msg": "the <picture> lies outside the hero's box (685-1117px, the hero 0-1024px) (SR-1)",
-     "fix": "fit the hero's content inside the hero's box: shorten the text or the picture, never let it spill",
-     "rule": "SR-1 T3",
-     "crop": "768-rhythm-02-hero-screen.jpg"
-    },
-    {
-     "check": "hero-screen",
-     "sev": "FAIL",
-     "sel": "main#top > section.hero.hero--place > picture > img.hero__bg",
-     "text": "Salon de coiffure moderne aux fauteuils ",
-     "msg": "\"Salon de coiffure moderne aux fa\" lies outside the hero's box (685-1117px, the hero 0-1024px) (and 7 more like it: \"Salon de coiffure, boule\", \"Salon de coiffure, boule\", \"Salon de coiffure, boule\") (SR-1)",
-     "fix": "fit the hero's content inside the hero's box: shorten the text or the picture, never let it spill",
-     "rule": "SR-1 T3",
-     "crop": "768-rhythm-03-hero-screen.jpg"
-    },
-    {
-     "check": "hero-screen",
-     "sev": "FAIL",
-     "sel": "div.hero-text > div.hero__text > div.btn-row > a.btn.btn--primary",
-     "text": "Réserver une place",
-     "msg": "\"Réserver une place\" ends at 1289px, below the hero's content line at 1000px (the 1024px screen less 24px) (SR-1)",
-     "fix": "keep the hero's content between the nav and 24px above the fold (and the action bar): shorten the picture or the text; a docked strip 96px at most",
-     "rule": "SR-1 T4",
-     "crop": "768-rhythm-04-hero-screen.jpg"
-    },
-    {
-     "check": "hero-screen",
-     "sev": "FAIL",
-     "sel": "div.wrap > div.hero-text > div.hero__text > p.hero__lead",
-     "text": "Coupe, coiffage et coloration sur rendez",
-     "msg": "\"Coupe, coiffage et coloration su\" ends at 1201px, below the hero's content line at 1000px (the 1024px screen less 24px) (SR-1)",
-     "fix": "keep the hero's content between the nav and 24px above the fold (and the action bar): shorten the picture or the text; a docked strip 96px at most",
-     "rule": "SR-1 T4",
-     "crop": "768-rhythm-05-hero-screen.jpg"
-    },
-    {
-     "check": "hero-screen",
-     "sev": "FAIL",
-     "sel": "h1#hero-h",
-     "text": "Salon de coiffure, boulevard des Forges",
-     "msg": "\"Salon de coiffure, boulevard des\" ends at 1157px, below the hero's content line at 1000px (the 1024px screen less 24px) (SR-1)",
-     "fix": "keep the hero's content between the nav and 24px above the fold (and the action bar): shorten the picture or the text; a docked strip 96px at most",
-     "rule": "SR-1 T4",
-     "crop": "768-rhythm-06-hero-screen.jpg"
     },
     {
      "check": "section-height",
@@ -878,7 +428,7 @@
      "msg": "the scene's section is 1442px tall (1.4 screens), 418px over one screen (1024px): every section after the hero is one screen or two, 2px either way; a pinned scene is (hold + 1) screens tall, so write data-big-scene-opts='{\"hold\": 1}' (two screens) and keep --h on the section (SR-2)",
      "fix": "set the section to one screen or two (height: calc(var(--h,1) * 100vh), --h 1 or 2) and cut or split its content to fit",
      "rule": "SR-2 T-height",
-     "crop": "768-rhythm-07-section-height.jpg"
+     "crop": "768-rhythm-01-section-height.jpg"
     },
     {
      "check": "section-height",
@@ -888,17 +438,7 @@
      "msg": "the section starts at 2466px, 418px below the screen grid (2 x 1024px): sections start on whole screens (SR-2)",
      "fix": "make every section above it exactly one or two screens tall, so this one starts on a whole screen",
      "rule": "SR-2 T-grid",
-     "crop": "768-rhythm-08-section-height.jpg"
-    },
-    {
-     "check": "one-section",
-     "sev": "FAIL",
-     "sel": "h1#hero-h",
-     "text": "Salon de coiffure, boulevard des Forges",
-     "msg": "the screen at scroll 1024px (stride 1) shows 157px of section 1 and the heading of section 1 whole and the content of 2 sections, over 24px each beside section 2: a screen shows one section (another may peek 8px, 24px WARN) (SR-4)",
-     "fix": "make each section exactly one screen or two, so a screen shows one section and no neighbour peeks",
-     "rule": "SR-4 T-views",
-     "crop": "768-rhythm-09-one-section.jpg"
+     "crop": "768-rhythm-02-section-height.jpg"
     },
     {
      "check": "one-section",
@@ -908,17 +448,7 @@
      "msg": "the screen at scroll 2048px (stride 2) shows 346px of section 2 and the content of 2 sections, over 24px each beside section 3: a screen shows one section (another may peek 8px, 24px WARN) (it is in a scroll scene: told as a WARN) (SR-4)",
      "fix": "make each section exactly one screen or two, so a screen shows one section and no neighbour peeks",
      "rule": "SR-4 T-views",
-     "crop": "768-rhythm-12-one-section.jpg"
-    },
-    {
-     "check": "container-edges",
-     "sev": "FAIL",
-     "sel": "main#top > section.hero.hero--place",
-     "text": "Salon de coiffure, boulevard des Forges ",
-     "msg": "the section needs exactly one in-flow child .wrap (it has 2 in-flow children, 1 .wrap) (SR-6)",
-     "fix": "build the page as header.nav, a main of sections (each one in-flow .wrap plus background layers) and footer.closing",
-     "rule": "SR-6 T1-structure",
-     "crop": "768-rhythm-10-container-edges.jpg"
+     "crop": "768-rhythm-04-one-section.jpg"
     },
     {
      "check": "row-lines",
@@ -928,7 +458,7 @@
      "msg": "a row of 3 items: its last item ends at 546px, the container's right line at 720px (2px either way) (SR-7)",
      "fix": "start the row's first item on the container's left line and end its last on the right line, every item one height",
      "rule": "SR-7 T-rows",
-     "crop": "768-rhythm-11-row-lines.jpg"
+     "crop": "768-rhythm-03-row-lines.jpg"
     }
    ],
    "glAsked": 0
@@ -941,33 +471,23 @@
    "errors": [],
    "findings": [
     {
-     "check": "fold-action",
+     "check": "scroll-reveal",
      "sev": "FAIL",
-     "sel": "div.hero-text > div.hero__text > div.btn-row > a.btn.btn--primary",
-     "text": "",
-     "msg": "the hero's main button \"Réserver une place\" starts 187px below the first screen (844px tall): it is not seen on load",
-     "stop": 1,
-     "crop": "390-01-fold-action.jpg",
-     "fix": "bring the hero's buttons onto the first screen: a shorter headline or line, the picture under the buttons"
-    },
-    {
-     "check": "cut-text",
-     "sev": "WARN",
-     "sel": "h1#hero-h",
-     "text": "Salon de coiffure, boulevard des Forges",
-     "msg": "sits across the edge of a panel behind it",
-     "stop": 1,
-     "crop": "390-02-cut-text.jpg",
-     "fix": "give the text room: no overflow clipping a line, no line past its box"
+     "sel": "footer#contact > div.wrap > div.closing__cta.close--type > a.btn.btn--primary",
+     "text": "Réserver une place",
+     "msg": "starts \"color\" (0.1 s) the moment it is scrolled into view (an IntersectionObserver)",
+     "stop": 3,
+     "crop": "390-05-scroll-reveal.jpg",
+     "fix": "show it at rest: no fade, rise or unmask when it is scrolled into view"
     },
     {
      "check": "scroll-reveal",
      "sev": "WARN",
      "sel": "section#offer > div.wrap > div.grid.grid--top > div.frame.frame--photo",
      "text": "",
-     "msg": "starts an animation (1.6 s) the moment it is scrolled into view (an IntersectionObserver) on img.frame__img (inside a dealt moment's section, [data-moment]: an enter moment is expected on every kind; its still is judged under reduced motion)",
-     "stop": 2,
-     "crop": "390-04-scroll-reveal.jpg",
+     "msg": "starts \"transform\" (0.4 s) the moment it is scrolled into view (an IntersectionObserver) on img.frame__img (inside a dealt moment's section, [data-moment]: an enter moment is expected on every kind; its still is judged under reduced motion)",
+     "stop": 1,
+     "crop": "390-01-scroll-reveal.jpg",
      "fix": "show it at rest: no fade, rise or unmask when it is scrolled into view"
     },
     {
@@ -977,7 +497,7 @@
      "text": "",
      "stop": 1,
      "msg": "119px between these sections, -27% against the median 164px",
-     "crop": "390-03-section-gaps.jpg",
+     "crop": "390-02-section-gaps.jpg",
      "fix": "use one gap between sections (all within 25% of each other)"
     },
     {
@@ -985,9 +505,9 @@
      "sev": "WARN",
      "sel": "section#offer / footer#contact",
      "text": "",
-     "stop": 3,
+     "stop": 2,
      "msg": "208px between these sections, +27% against the median 164px",
-     "crop": "390-06-section-gaps.jpg",
+     "crop": "390-04-section-gaps.jpg",
      "fix": "use one gap between sections (all within 25% of each other)"
     },
     {
@@ -997,18 +517,8 @@
      "text": "Services Coupe Prix sur demande Coiffage Prix su",
      "msg": "stacked at this width, the visual starts 23px under the text and buttons above it (\"Services Coupe Prix sur demand\"): it reads glued to them",
      "fix": "give the stacked split the section's own gap between text and visual (40px or more on a phone)",
-     "stop": 2,
-     "crop": "390-05-proximity.jpg"
-    },
-    {
-     "check": "hero-screen",
-     "sev": "FAIL",
-     "sel": "main#top > section.hero.hero--place",
-     "text": "Salon de coiffure, boulevard des Forges ",
-     "msg": "the hero ends at 1103px on a 844px screen, 259px below the fold: it ends at the fold, 1px either way (SR-1)",
-     "fix": "make the hero exactly one screen (height: 100svh, its content fitted inside), never taller or shorter",
-     "rule": "SR-1 T1",
-     "crop": "390-rhythm-01-hero-screen.jpg"
+     "stop": 1,
+     "crop": "390-03-proximity.jpg"
     },
     {
      "check": "section-height",
@@ -1018,7 +528,7 @@
      "msg": "the scene's section is 1312px tall (1.6 screens), 376px short of two screens (1688px): every section after the hero is one screen or two, 2px either way; a pinned scene is (hold + 1) screens tall, so write data-big-scene-opts='{\"hold\": 1}' (two screens) and keep --h on the section (SR-2)",
      "fix": "set the section to one screen or two (height: calc(var(--h,1) * 100vh), --h 1 or 2) and cut or split its content to fit",
      "rule": "SR-2 T-height",
-     "crop": "390-rhythm-05-section-height.jpg"
+     "crop": "390-rhythm-01-section-height.jpg"
     },
     {
      "check": "section-height",
@@ -1028,57 +538,27 @@
      "msg": "the section is 974px tall (1.2 screens), 130px over one screen (844px): every section after the hero is one screen or two, 2px either way (SR-2)",
      "fix": "set the section to one screen or two (height: calc(var(--h,1) * 100vh), --h 1 or 2) and cut or split its content to fit",
      "rule": "SR-2 T-height",
-     "crop": "390-rhythm-06-section-height.jpg"
-    },
-    {
-     "check": "section-height",
-     "sev": "FAIL",
-     "sel": "section#offer",
-     "text": "Services CoupePrix sur demande CoiffageP",
-     "msg": "the section starts at 1103px, 259px below the screen grid (1 x 844px): sections start on whole screens (SR-2)",
-     "fix": "make every section above it exactly one or two screens tall, so this one starts on a whole screen",
-     "rule": "SR-2 T-grid",
-     "crop": "390-rhythm-07-section-height.jpg"
+     "crop": "390-rhythm-02-section-height.jpg"
     },
     {
      "check": "section-height",
      "sev": "FAIL",
      "sel": "footer#contact",
      "text": "Réserver une place Par téléphone, au 819",
-     "msg": "the section starts at 2415px, 117px above the screen grid (3 x 844px): sections start on whole screens (SR-2)",
+     "msg": "the section starts at 2156px, 376px above the screen grid (3 x 844px): sections start on whole screens (SR-2)",
      "fix": "make every section above it exactly one or two screens tall, so this one starts on a whole screen",
      "rule": "SR-2 T-grid",
-     "crop": "390-rhythm-08-section-height.jpg"
+     "crop": "390-rhythm-03-section-height.jpg"
     },
     {
      "check": "one-section",
      "sev": "FAIL",
-     "sel": "main#top > section.hero.hero--place",
-     "text": "Salon de coiffure, boulevard des Forges ",
-     "msg": "the screen at scroll 844px (stride 1) shows 203px of section 1 and the content of 2 sections, over 24px each beside section 2: a screen shows one section (another may peek 8px, 24px WARN) (SR-4)",
+     "sel": "h2#close-h",
+     "text": "Réserver une place",
+     "msg": "the screen at scroll 1688px (stride 2) shows 376px of section 3 and the heading of section 3 whole and the content of 2 sections, over 24px each beside section 2: a screen shows one section (another may peek 8px, 24px WARN) (SR-4)",
      "fix": "make each section exactly one screen or two, so a screen shows one section and no neighbour peeks",
      "rule": "SR-4 T-views",
-     "crop": "390-rhythm-09-one-section.jpg"
-    },
-    {
-     "check": "one-section",
-     "sev": "FAIL",
-     "sel": "footer#contact",
-     "text": "Réserver une place Par téléphone, au 819",
-     "msg": "the screen at scroll 1688px (stride 2) shows 53px of section 3 beside section 2: a screen shows one section (another may peek 8px, 24px WARN) (SR-4)",
-     "fix": "make each section exactly one screen or two, so a screen shows one section and no neighbour peeks",
-     "rule": "SR-4 T-views",
-     "crop": "390-rhythm-10-one-section.jpg"
-    },
-    {
-     "check": "container-edges",
-     "sev": "FAIL",
-     "sel": "main#top > section.hero.hero--place",
-     "text": "Salon de coiffure, boulevard des Forges ",
-     "msg": "the section needs exactly one in-flow child .wrap (it has 2 in-flow children, 1 .wrap) (SR-6)",
-     "fix": "build the page as header.nav, a main of sections (each one in-flow .wrap plus background layers) and footer.closing",
-     "rule": "SR-6 T1-structure",
-     "crop": "390-rhythm-11-container-edges.jpg"
+     "crop": "390-rhythm-04-one-section.jpg"
     }
    ],
    "glAsked": 0
@@ -1109,49 +589,38 @@
   "width": 320,
   "height": 640,
   "errors": [],
-  "findings": [
-   {
-    "check": "fold-cut",
-    "sev": "WARN",
-    "sel": "h1#hero-h",
-    "text": "Salon de coiffure, boulevard des Forges",
-    "msg": "a 32px line is sliced by the bottom of the first screen (27px of it below the fold)",
-    "crop": "narrow-320-01-fold-cut.jpg",
-    "width": 320,
-    "fix": "size the hero so the heading ends above the fold, or starts below it"
-   }
-  ]
+  "findings": []
  },
  "counts": {
-  "FAIL": 73,
-  "WARN": 31
+  "FAIL": 21,
+  "WARN": 30
  },
  "checks": {
   "assets": "PASS",
   "shader-lint": "PASS",
   "gl-fallback": "PASS",
-  "empty-visual": "FAIL",
+  "empty-visual": "PASS",
   "hero-fill": "PASS",
-  "flush": "FAIL",
+  "flush": "PASS",
   "placeholder": "PASS",
   "sample-label": "PASS",
   "caption": "PASS",
   "credit-wall": "PASS",
   "nav": "PASS",
   "nav-covers": "PASS",
-  "spill": "FAIL",
+  "spill": "PASS",
   "off-viewport": "PASS",
   "fold-card": "PASS",
   "hover-spill": "PASS",
-  "overlap-text": "FAIL",
+  "overlap-text": "PASS",
   "collide": "PASS",
   "tap-size": "PASS",
   "row-gap": "PASS",
-  "cut-text": "WARN",
-  "fold-cut": "WARN",
+  "cut-text": "PASS",
+  "fold-cut": "PASS",
   "marquee": "PASS",
   "scroll-linked": "PASS",
-  "scroll-reveal": "WARN",
+  "scroll-reveal": "FAIL",
   "pinned": "PASS",
   "loop-pause": "PASS",
   "reduced-motion": "PASS",
@@ -1175,7 +644,7 @@
   "cta": "PASS",
   "pricing-tiers": "PASS",
   "copy-headline": "PASS",
-  "copy-fact": "FAIL",
+  "copy-fact": "PASS",
   "copy-headings": "PASS",
   "copy-buttons": "WARN",
   "copy-actions": "PASS",
@@ -1188,7 +657,7 @@
   "centre-axis": "PASS",
   "tilt": "PASS",
   "contrast": "PASS",
-  "text-contrast": "FAIL",
+  "text-contrast": "PASS",
   "body-size": "PASS",
   "busy-ground": "PASS",
   "section-gaps": "WARN",
@@ -1197,7 +666,7 @@
   "links": "PASS",
   "forms": "PASS",
   "photo-upscale": "FAIL",
-  "photo-set": "PASS",
+  "photo-set": "WARN",
   "photo-credit": "WARN",
   "nav-family": "PASS",
   "nav-labels": "PASS",
@@ -1221,7 +690,7 @@
   "grounds": "PASS",
   "split-align": "PASS",
   "fact-agree": "PASS",
-  "fold-action": "FAIL",
+  "fold-action": "PASS",
   "action-count": "PASS",
   "one-screen": "PASS",
   "hover": "PASS",
@@ -1239,19 +708,19 @@
   "coordinates": "PASS",
   "company-number": "PASS",
   "phone-number": "FAIL",
-  "hero-screen": "FAIL",
+  "hero-screen": "PASS",
   "section-height": "FAIL",
   "section-air": "PASS",
   "one-section": "FAIL",
   "one-heading": "PASS",
-  "container-edges": "FAIL",
+  "container-edges": "PASS",
   "row-lines": "FAIL",
   "split-pair": "PASS",
   "motion-layer": "PASS",
   "count-text": "PASS",
   "loop-cycle": "PASS",
   "section-tile": "PASS",
-  "empty-area": "FAIL",
+  "empty-area": "WARN",
   "a11y-name": "PASS",
   "img-alt": "PASS",
   "field-label": "PASS",
@@ -1265,7 +734,7 @@
   "lang": "PASS",
   "page-meta": "PASS",
   "share-meta": "PASS",
-  "action-repeat": "PASS",
+  "action-repeat": "WARN",
   "map-link": "PASS",
   "open-now": "PASS",
   "assumed": "WARN",

@@ -38,7 +38,6 @@
 }
 </style>
 <script>document.documentElement.classList.add('m-enter');setTimeout(()=>document.documentElement.classList.add('m-enter-done'),700)</script>
-<script src="assets/backgrounds/backgrounds.js"></script>
 <script>document.documentElement.classList.add('mo-js');setTimeout(()=>document.documentElement.classList.add('mo-safe'),2500)</script>
 <link rel="modulepreload" href="assets/moments/moments.js">
 <link rel="modulepreload" href="assets/moments/lib.js">
@@ -54,11 +53,16 @@
     #place .wall > .pl-photo { grid-column: span 1; }
   }
   /* the review, merged as the section's last element, no face: a quote with no ground of its own */
-  #place .place__quote { margin-top: var(--s-8); max-width: 62ch; }
-  #place .place__quote blockquote { font: 400 20px/1.5 var(--font-display); margin: 0 0 var(--s-4); color: var(--ink); }
+  #place .place__quote { margin-top: var(--s-8); max-width: 54ch; }
+  #place .place__quote blockquote { font: 400 24px/1.6 var(--font-display); margin: 0 0 var(--s-4); color: var(--ink); }
   #offer .offer__group { margin-top: var(--s-6); }
+  /* split-pair: the visit's two columns top-align exactly (the address block's link sits below the
+     address with no extra lead, so both columns start at the same line) */
+  #visit .visit__col > :first-child { margin-top: 0; }
+  /* the close name set across the wrap: a touch smaller so it never clips its own line */
+  .close--word .close__word { font-size: clamp(48px, 11vw, 160px); }
 </style>
-<link rel="stylesheet" href="http://127.0.0.1:5200/assets/moments/picture-develops/moment.css"></head>
+<link rel="stylesheet" href="http://127.0.0.1:5202/assets/moments/picture-develops/moment.css"></head>
 <body>
 <!-- NAV (nav-cards): the bar as in nav-mega; the panel holds three photograph cards of the offer -->
 <header class="nav" data-m-nav="1">
@@ -106,6 +110,7 @@
     </picture>
     <div class="wrap"><div class="hero-text">
       <div class="hero__text">
+        <p class="hero-notice">Mardi à samedi, dès 11h30</p>
         <h1 id="hero-h">Bistro sur King Ouest, Sherbrooke</h1>
         <p class="hero__lead">Menu saisonnier, vins d'importation privée et cocktails signature.</p>
         <div class="btn-row"><a class="btn btn--primary" href="mailto:reservations@westley.example">Réserver une table</a></div>
@@ -160,19 +165,15 @@
           </div>
           <div id="offer-vins" class="offer__group">
             <p class="t-label">Vins d'importation privée</p>
-            <ul class="rows">
-              <li><p>Une sélection de vins importés directement, à découvrir sur place.</p></li>
-            </ul>
+            <p>Une sélection de vins importés directement, à découvrir sur place.</p>
           </div>
           <div id="offer-cocktails" class="offer__group">
             <p class="t-label">Cocktails signature</p>
-            <ul class="rows">
-              <li><p>Cocktails maison et large sélection de spiritueux.</p></li>
-            </ul>
+            <p>Cocktails maison et large sélection de spiritueux.</p>
           </div>
         </div>
         <div class="offer__photo span-6 start-7">
-          <figure class="pl-photo develop mo-pd mo-pd--film is-done" data-moment="picture-develops" data-moment-mounted="1"><img src="assets/img/photo-f164303765-960.webp" alt="Planche de charcuteries et fromages, pain grillé et cornichons" loading="eager" data-source="stand-in" data-subject="planche de charcuteries et fromages" style="aspect-ratio: 4 / 5; object-fit: cover; width: 100%" data-broken="" data-placeholder=""></figure>
+          <figure class="pl-photo develop mo-pd mo-pd--film is-done" data-moment="picture-develops" data-moment-mounted="1"><img src="assets/img/photo-f164303765-960.webp" alt="Planche de charcuteries et fromages, pain grillé et cornichons" loading="eager" data-source="stand-in" data-subject="planche de charcuteries et fromages" style="aspect-ratio: 4 / 3; object-fit: cover; width: 100%" data-broken="" data-placeholder=""></figure>
         </div>
       </div>
     </div>
@@ -181,7 +182,7 @@
   <!-- THE PLACE (dealt wall): a wall of photographs line to line, then the review, merged as the section's
        last element (no face in the brief: it has no section of its own). The review is quoted exactly as
        given, in English, attributed exactly as the brief gives it. -->
-  <section class="section" id="place" aria-labelledby="place-h">
+  <section class="section" id="place" aria-labelledby="place-h" style="--h: 2">
     <div class="wrap">
       <div class="section-head section-head--row">
         <div><h2 id="place-h">Le bistro</h2></div>
@@ -218,16 +219,14 @@
           <a class="nav__logo" href="#top"><span class="mark" data-mark="leaf" aria-hidden="true"></span>Westley</a>
           <p class="footer__lede">Bistro au menu saisonnier, vins d'importation privée et cocktails signature.</p>
         </div>
-        <div class="span-2 footer__col"><h3>Visite</h3><ul>
+        <div class="span-4 footer__col"><h3>Visite</h3><ul>
           <li><a href="#visit">rue King Ouest, Sherbrooke</a></li>
-          <li><a href="https://www.openstreetmap.org/search?query=rue%20King%20Ouest%20Sherbrooke">Voir le quartier</a></li>
+          <li><a href="https://www.openstreetmap.org/search?query=rue%20King%20Ouest%20Sherbrooke">Itinéraire</a></li>
         </ul></div>
-        <div class="span-2 footer__col"><h3>Menu</h3><ul>
+        <div class="span-4 footer__col"><h3>Menu</h3><ul>
           <li><a href="#offer-menu">Menu saisonnier</a></li>
           <li><a href="#offer-vins">Vins d'importation privée</a></li>
           <li><a href="#offer-cocktails">Cocktails signature</a></li>
-        </ul></div>
-        <div class="span-2 footer__col"><h3>Le bistro</h3><ul>
           <li><a href="#place">Le bistro</a></li>
         </ul></div>
       </div>

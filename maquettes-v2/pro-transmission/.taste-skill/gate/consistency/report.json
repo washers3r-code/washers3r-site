@@ -1,7 +1,7 @@
 {
  "page": "/home/user/washers3r-site/maquettes-v2/pro-transmission/index.html",
- "url": "http://127.0.0.1:5204/index.html",
- "at": "2026-11-14T07:21:59.363Z",
+ "url": "http://127.0.0.1:5203/index.html",
+ "at": "2026-11-14T07:31:29.673Z",
  "out": "/home/user/washers3r-site/maquettes-v2/pro-transmission/.taste-skill/gate/consistency",
  "widths": [
   {
@@ -12,34 +12,14 @@
    "errors": [],
    "findings": [
     {
-     "check": "no-visual",
+     "check": "section-gaps",
      "sev": "FAIL",
-     "sel": "section#avis",
-     "text": "Avis Google sur Pro-Transmission",
-     "msg": "no picture, effect or mock in this section; a feature section needs a visual",
-     "stop": 2,
-     "crop": "1440-06-no-visual.jpg",
-     "fix": "give the section a visual: a UI fragment on a ground, real icons, or a photograph that fits"
-    },
-    {
-     "check": "card-layout",
-     "sev": "FAIL",
-     "sel": "section#services",
+     "sel": "section#contact / footer#bas",
      "text": "",
-     "msg": "one layout (.frame--photo) in 3 sections: section#services, section#atelier, section#contact; a card layout at most twice",
-     "stop": 1,
-     "crop": "1440-03-card-layout.jpg",
-     "fix": "a card layout at most twice on a page: build the other sections another way"
-    },
-    {
-     "check": "copy-headings",
-     "sev": "FAIL",
-     "sel": "div.wrap > div.grid > div.span-6.review:nth-of-type(1) > h3",
-     "text": "Anthony",
-     "msg": "\"Anthony\" names no product, part, place or section (4 headings like it; at most one brand line per page) (and 3 more like it: \"Donald Chamberland\", \"Jean-Sébastien Paré\", \"Demander un rendez-vous\")",
-     "stop": 2,
-     "crop": "1440-07-copy-headings.jpg",
-     "fix": "name the thing in every heading: the product, a part, the place or a section noun"
+     "stop": 5,
+     "msg": "562px between these sections, +104% against the median 276px of gaps at a change of ground",
+     "crop": "1440-11-section-gaps.jpg",
+     "fix": "use one gap between sections (all within 25% of each other)"
     },
     {
      "check": "phone-number",
@@ -47,19 +27,19 @@
      "sel": "div.wrap.grid > div.span-5 > address.visit__address > a.link",
      "text": "tel:+18195698363",
      "stop": 4,
-     "msg": "a tel: link calls a number in a real dialable format: \"tel:+18195698363\"; a visitor can dial it and reach a stranger (and 1 more like it: div.span-3.footer__col:nth-of-type(4) > ul > li:nth-of-type(3) > a)",
-     "crop": "1440-08-phone-number.jpg",
+     "msg": "a tel: link calls a number in a real dialable format: \"tel:+18195698363\"; a visitor can dial it and reach a stranger (and 1 more like it: div.span-2.footer__col:nth-of-type(5) > ul > li > a)",
+     "crop": "1440-07-phone-number.jpg",
      "fix": "drop the number and its tel: link (a \"Request a call\" form may stand in), unless the brief gives the number"
     },
     {
-     "check": "flush",
-     "sev": "WARN",
-     "sel": "div.wrap.grid > div.span-5 > div.frame.frame--photo > img.frame__img",
-     "text": "img: Pneus d'hiver empilés dans le garage",
-     "msg": "its last line sits 23px above the lower edge of section#contact, where the ground changes to the footer",
+     "check": "empty-area",
+     "sev": "FAIL",
+     "sel": "section#contact",
+     "text": "Demander un rendez-vous",
+     "msg": "55% of the section is empty: 352px under its last (dt:nth-of-type(2)), 6% beside content that covers under half the container, in its 720px of rows (WARN over 35%, FAIL over 50%)",
      "stop": 5,
-     "crop": "1440-11-flush.jpg",
-     "fix": "give the section its padding at the edge where the ground changes (the closing call keeps a clear gap above the footer)"
+     "crop": "1440-12-empty-area.jpg",
+     "fix": "fill the section: a picture or a second column beside the words, or more of its own content; the section stays one or two screens tall (T-height)"
     },
     {
      "check": "scroll-reveal",
@@ -68,8 +48,38 @@
      "text": "",
      "msg": "starts \"transform\" (0.4 s) the moment it is scrolled into view (an IntersectionObserver) on img.frame__img (inside a dealt moment's section, [data-moment]: an enter moment is expected on every kind; its still is judged under reduced motion)",
      "stop": 4,
-     "crop": "1440-09-scroll-reveal.jpg",
+     "crop": "1440-08-scroll-reveal.jpg",
      "fix": "show it at rest: no fade, rise or unmask when it is scrolled into view"
+    },
+    {
+     "check": "text-only",
+     "sev": "WARN",
+     "sel": "section#avis",
+     "text": "Avis Google sur Pro-Transmission",
+     "msg": "the section is only text: no picture, icon, mock or effect in it",
+     "stop": 2,
+     "crop": "1440-05-text-only.jpg",
+     "fix": "give the section a visual: a photograph that fits, the real icons, or a UI fragment on a ground"
+    },
+    {
+     "check": "card-visual",
+     "sev": "WARN",
+     "sel": "section#avis > div.wrap > div.grid",
+     "text": "Anthony « J'ai adoré mon expérience là-bas! Un a",
+     "msg": "4 cards hold only text: no picture, icon, UI fragment or effect in any of them",
+     "stop": 3,
+     "crop": "1440-06-card-visual.jpg",
+     "fix": "give the cards a visual: an inset panel with a UI fragment, a photograph or real icons"
+    },
+    {
+     "check": "copy-headings",
+     "sev": "WARN",
+     "sel": "h2#contact-h",
+     "text": "Demander un rendez-vous",
+     "msg": "\"Demander un rendez-vous\" names no product, part, place or section (the one brand line a page may have)",
+     "stop": 4,
+     "crop": "1440-09-copy-headings.jpg",
+     "fix": "name the thing in every heading: the product, a part, the place or a section noun"
     },
     {
      "check": "copy-buttons",
@@ -87,8 +97,8 @@
      "sel": "main#top > section.hero.hero--split / section#services",
      "text": "",
      "stop": 1,
-     "msg": "178px between these sections, -35% against the median 274px",
-     "crop": "1440-04-section-gaps.jpg",
+     "msg": "178px between these sections, -36% against the median 276px",
+     "crop": "1440-03-section-gaps.jpg",
      "fix": "use one gap between sections (all within 25% of each other)"
     },
     {
@@ -97,8 +107,8 @@
      "sel": "section#services / section#avis",
      "text": "",
      "stop": 7,
-     "msg": "423px between these sections, +54% against the median 274px",
-     "crop": "1440-16-section-gaps.jpg",
+     "msg": "423px between these sections, +53% against the median 276px",
+     "crop": "1440-14-section-gaps.jpg",
      "fix": "use one gap between sections (all within 25% of each other)"
     },
     {
@@ -107,17 +117,7 @@
      "sel": "section#contact / footer#bas",
      "text": "",
      "stop": 5,
-     "msg": "137px between these sections, -50% against the median 274px of gaps at a change of ground",
-     "crop": "1440-12-section-gaps.jpg",
-     "fix": "use one gap between sections (all within 25% of each other)"
-    },
-    {
-     "check": "section-gaps",
-     "sev": "WARN",
-     "sel": "section#contact / footer#bas",
-     "text": "",
-     "stop": 5,
-     "msg": "uneven space at the edge of a band: 23px outside its edge, 114px inside it (the space on either side of a change of ground reads as one gap only when the two match)",
+     "msg": "uneven space at the edge of a band: 448px outside its edge, 114px inside it (the space on either side of a change of ground reads as one gap only when the two match)",
      "crop": "1440-13-section-gaps.jpg",
      "fix": "use one gap between sections (all within 25% of each other)"
     },
@@ -147,28 +147,8 @@
      "text": "",
      "stop": 1,
      "msg": "the nav stays on screen with 4 links to the page's sections, but never marks the one you are in (no link changes as the page scrolls)",
-     "crop": "1440-05-nav-current.jpg",
+     "crop": "1440-04-nav-current.jpg",
      "fix": "mark the link of the section on screen (a colour, a weight or a line under it) as the visitor scrolls"
-    },
-    {
-     "check": "photo-repeat",
-     "sev": "WARN",
-     "sel": "div.wrap.grid > div.span-5 > div.frame.frame--photo > img.frame__img",
-     "text": "photo-f58963082.jpg",
-     "msg": "the photograph photo-f58963082.jpg is shown 2 times on the page: a picture the visitor has already seen",
-     "fix": "show each photograph once: a different picture of what this section names, or none",
-     "stop": 5,
-     "crop": "1440-14-photo-repeat.jpg"
-    },
-    {
-     "check": "empty-area",
-     "sev": "WARN",
-     "sel": "section#contact",
-     "text": "Demander un rendez-vous",
-     "msg": "37% of the section is empty: 37% beside content that covers under half the container, in its 720px of rows (WARN over 35%, FAIL over 50%)",
-     "stop": 5,
-     "crop": "1440-15-empty-area.jpg",
-     "fix": "fill the section: a picture or a second column beside the words, or more of its own content; the section stays one or two screens tall (T-height)"
     },
     {
      "check": "action-repeat",
@@ -177,7 +157,7 @@
      "text": "demander un rendez-vous",
      "stop": 8,
      "msg": "\"demander un rendez-vous\" shows 2 times on the first screen at 1440px (nav, hero): the nav's button and the hero's; nothing else on the screen may repeat it",
-     "crop": "1440-17-action-repeat.jpg",
+     "crop": "1440-15-action-repeat.jpg",
      "fix": "show the action once a screen besides the nav's button: the hero's, the close's or the phone bar's, never all at once"
     },
     {
@@ -191,14 +171,14 @@
      "fix": "send the form to the client's address (data-endpoint) and show the confirmation only after it answers; list a mailto stand-in in the report"
     },
     {
-     "check": "section-height",
+     "check": "section-air",
      "sev": "FAIL",
      "sel": "section#contact",
      "text": "Demander un rendez-vous Par téléphone ou",
-     "msg": "the section's content does not fit it: its lowest content ends 876px below its top, past 828px (the section less 72px of bottom padding) (SR-2)",
-     "fix": "fit the content above the section's bottom padding (--padb), or make it two screens (.g2) in two groups",
-     "rule": "SR-2 T-fit",
-     "crop": "1440-rhythm-01-section-height.jpg"
+     "msg": "the content fills 37.5% of the section's height (338 of 900px): 55% or more (40% WARN) (SR-3)",
+     "fix": "fill the section to 55%: more content, a picture or a background layer, or merge it into the section above as its last block",
+     "rule": "SR-3 T-fill",
+     "crop": "1440-rhythm-01-section-air.jpg"
     },
     {
      "check": "section-air",
@@ -207,8 +187,7 @@
      "text": "Les services Quatre services, prix sur d",
      "msg": "the content fills 53% of the section's height (477 of 900px): 55% or more (40% WARN) (SR-3)",
      "fix": "fill the section to 55%: more content, a picture or a background layer, or merge it into the section above as its last block",
-     "rule": "SR-3 T-fill",
-     "crop": "1440-rhythm-02-section-air.jpg"
+     "rule": "SR-3 T-fill"
     }
    ],
    "glAsked": 0
@@ -221,14 +200,24 @@
    "errors": [],
    "findings": [
     {
-     "check": "no-visual",
+     "check": "text-only",
      "sev": "FAIL",
      "sel": "section#avis",
      "text": "Avis Google sur Pro-Transmission",
-     "msg": "no picture, effect or mock in this section; a feature section needs a visual",
+     "msg": "the section is only text: no picture, icon, mock or effect in it (2 sections like it at this width)",
      "stop": 3,
-     "crop": "390-04-no-visual.jpg",
-     "fix": "give the section a visual: a UI fragment on a ground, real icons, or a photograph that fits"
+     "crop": "390-04-text-only.jpg",
+     "fix": "give the section a visual: a photograph that fits, the real icons, or a UI fragment on a ground"
+    },
+    {
+     "check": "text-only",
+     "sev": "FAIL",
+     "sel": "section#contact",
+     "text": "Demander un rendez-vous",
+     "msg": "the closing section is only text: no picture, icon, mock or effect in it (2 sections like it at this width)",
+     "stop": 6,
+     "crop": "390-08-text-only.jpg",
+     "fix": "give the section a visual: a photograph that fits, the real icons, or a UI fragment on a ground"
     },
     {
      "check": "nav",
@@ -255,20 +244,20 @@
      "sev": "WARN",
      "sel": "section#atelier > div.wrap > div.grid > figure.frame.frame--photo",
      "text": "",
-     "msg": "starts an animation (1.6 s) the moment it is scrolled into view (an IntersectionObserver) on img.frame__img (inside a dealt moment's section, [data-moment]: an enter moment is expected on every kind; its still is judged under reduced motion)",
+     "msg": "starts \"transform\" (0.4 s) the moment it is scrolled into view (an IntersectionObserver) on img.frame__img (inside a dealt moment's section, [data-moment]: an enter moment is expected on every kind; its still is judged under reduced motion)",
      "stop": 5,
-     "crop": "390-06-scroll-reveal.jpg",
+     "crop": "390-07-scroll-reveal.jpg",
      "fix": "show it at rest: no fade, rise or unmask when it is scrolled into view"
     },
     {
-     "check": "cta",
+     "check": "card-visual",
      "sev": "WARN",
-     "sel": "section#avis",
-     "text": "Avis Google sur Pro-Transmission",
-     "msg": "a section over 1.5 screens long with no link or button in it",
+     "sel": "section#avis > div.wrap > div.grid",
+     "text": "Anthony « J'ai adoré mon expérience là-bas! Un a",
+     "msg": "4 cards hold only text: no picture, icon, UI fragment or effect in any of them",
      "stop": 3,
-     "crop": "390-05-cta.jpg",
-     "fix": "add the action: a button in the hero, one on every priced item, one in the closing section"
+     "crop": "390-05-card-visual.jpg",
+     "fix": "give the cards a visual: an inset panel with a UI fragment, a photograph or real icons"
     },
     {
      "check": "section-gaps",
@@ -276,19 +265,19 @@
      "sel": "main#top > section.hero.hero--split / section#services",
      "text": "",
      "stop": 1,
-     "msg": "117px between these sections, -25% against the median 157px",
+     "msg": "117px between these sections, -35% against the median 181px",
      "crop": "390-03-section-gaps.jpg",
      "fix": "use one gap between sections (all within 25% of each other)"
     },
     {
-     "check": "photo-repeat",
+     "check": "section-gaps",
      "sev": "WARN",
-     "sel": "div.wrap.grid > div.span-5 > div.frame.frame--photo > img.frame__img",
-     "text": "photo-f58963082.jpg",
-     "msg": "the photograph photo-f58963082.jpg is shown 2 times on the page: a picture the visitor has already seen",
-     "fix": "show each photograph once: a different picture of what this section names, or none",
-     "stop": 6,
-     "crop": "390-07-photo-repeat.jpg"
+     "sel": "section#avis / section#atelier",
+     "text": "",
+     "stop": 4,
+     "msg": "uneven space at the edge of a band: 165px outside its edge, 93px inside it (the space on either side of a change of ground reads as one gap only when the two match)",
+     "crop": "390-06-section-gaps.jpg",
+     "fix": "use one gap between sections (all within 25% of each other)"
     }
    ],
    "glAsked": 0
@@ -335,42 +324,12 @@
     "crop": "narrow-320-01-tap-size.jpg",
     "width": 320,
     "fix": "make every link and control outside running text 44px tall on a phone: display: inline-flex; align-items: center; min-height: 44px (a footer list then needs no gap), a 44px small button, or a transparent ::before laid past the box"
-   },
-   {
-    "check": "off-viewport",
-    "sev": "FAIL",
-    "sel": "header.nav.nav--centre > div.wrap.nav__bar",
-    "text": "Aller au contenu Demander un rendez-vous",
-    "msg": "at 320px wide it runs 8px past the screen's right edge (the page is 352px wide and scrolls sideways)",
-    "crop": "narrow-320-02-off-viewport.jpg",
-    "width": 320,
-    "fix": "keep it inside the screen at this width: let it shrink, wrap or stack"
-   },
-   {
-    "check": "off-viewport",
-    "sev": "FAIL",
-    "sel": "footer#bas > div.wrap > div.closing__cta.close--type",
-    "text": "Pneus, freins et transmission, rue Galt Est Ouve",
-    "msg": "at 320px wide it runs 32px past the screen's right edge (the page is 352px wide and scrolls sideways)",
-    "crop": "narrow-320-03-off-viewport.jpg",
-    "width": 320,
-    "fix": "keep it inside the screen at this width: let it shrink, wrap or stack"
-   },
-   {
-    "check": "off-viewport",
-    "sev": "FAIL",
-    "sel": "footer#bas > div.wrap > div.closing__links",
-    "text": "Pro-Transmission Garage de pneus, freins et tran",
-    "msg": "at 320px wide it runs 32px past the screen's right edge (the page is 352px wide and scrolls sideways)",
-    "crop": "narrow-320-04-off-viewport.jpg",
-    "width": 320,
-    "fix": "keep it inside the screen at this width: let it shrink, wrap or stack"
    }
   ]
  },
  "counts": {
-  "FAIL": 9,
-  "WARN": 22
+  "FAIL": 6,
+  "WARN": 21
  },
  "checks": {
   "assets": "PASS",
@@ -378,7 +337,7 @@
   "gl-fallback": "PASS",
   "empty-visual": "PASS",
   "hero-fill": "PASS",
-  "flush": "WARN",
+  "flush": "PASS",
   "placeholder": "PASS",
   "sample-label": "PASS",
   "caption": "PASS",
@@ -386,7 +345,7 @@
   "nav": "WARN",
   "nav-covers": "PASS",
   "spill": "PASS",
-  "off-viewport": "FAIL",
+  "off-viewport": "PASS",
   "fold-card": "PASS",
   "hover-spill": "not checked",
   "overlap-text": "PASS",
@@ -403,12 +362,12 @@
   "reduced-motion": "not checked",
   "hidden-content": "PASS",
   "webgl": "PASS",
-  "no-visual": "FAIL",
-  "text-only": "PASS",
-  "card-visual": "PASS",
+  "no-visual": "PASS",
+  "text-only": "FAIL",
+  "card-visual": "WARN",
   "hidden-visual": "not checked",
   "card-family": "PASS",
-  "card-layout": "FAIL",
+  "card-layout": "PASS",
   "nesting": "PASS",
   "effect-repeat": "PASS",
   "ui-fit": "PASS",
@@ -418,11 +377,11 @@
   "button-shape": "PASS",
   "same-action": "PASS",
   "button-picture": "PASS",
-  "cta": "WARN",
+  "cta": "PASS",
   "pricing-tiers": "PASS",
   "copy-headline": "PASS",
   "copy-fact": "PASS",
-  "copy-headings": "FAIL",
+  "copy-headings": "WARN",
   "copy-buttons": "WARN",
   "copy-actions": "PASS",
   "heading-scale": "PASS",
@@ -437,7 +396,7 @@
   "text-contrast": "PASS",
   "body-size": "PASS",
   "busy-ground": "PASS",
-  "section-gaps": "WARN",
+  "section-gaps": "FAIL",
   "proximity": "PASS",
   "hole": "PASS",
   "links": "PASS",
@@ -461,7 +420,7 @@
   "copy-length": "PASS",
   "nav-current": "WARN",
   "progress-bar": "PASS",
-  "photo-repeat": "WARN",
+  "photo-repeat": "PASS",
   "button-contrast": "PASS",
   "photo-print": "PASS",
   "grounds": "PASS",
@@ -486,8 +445,8 @@
   "company-number": "PASS",
   "phone-number": "FAIL",
   "hero-screen": "PASS",
-  "section-height": "FAIL",
-  "section-air": "WARN",
+  "section-height": "PASS",
+  "section-air": "FAIL",
   "one-section": "PASS",
   "one-heading": "PASS",
   "container-edges": "PASS",
@@ -497,7 +456,7 @@
   "count-text": "PASS",
   "loop-cycle": "PASS",
   "section-tile": "PASS",
-  "empty-area": "WARN",
+  "empty-area": "FAIL",
   "a11y-name": "PASS",
   "img-alt": "PASS",
   "field-label": "PASS",
