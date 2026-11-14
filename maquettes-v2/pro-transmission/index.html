@@ -90,6 +90,16 @@
   .frame--photo { position: relative; }
   .ly-float--sm { bottom: var(--s-4); left: var(--s-4); max-width: calc(100% - var(--s-4) * 2); padding: var(--s-3) var(--s-4); }
   .ly-float--sm .ly-float__title { font-size: 13px; }
+  /* casse la symétrie 50/50 : le badge déborde volontairement sur la colonne de texte du hero */
+  .ly-float--bleed { left: calc(var(--s-6) * -1); max-width: 300px; }
+  @media (max-width: 1023px) { .ly-float--bleed { left: var(--s-4); } }
+  /* avis : une grande citation (Anthony) + deux plus discrètes empilées à droite, une 4e pleine
+     largeur en dessous — rompt la grille 2x2 trop sage */
+  .review--lead { padding: var(--s-7); }
+  .review--lead h3 { font-size: var(--t-lead); }
+  .review-stack { display: flex; flex-direction: column; gap: var(--s-4); }
+  .review--sm { padding: var(--s-4) var(--s-5); }
+  .review--sm p { font-size: var(--t-small); }
 </style>
 </head>
 <body>
@@ -124,7 +134,7 @@
   <section class="hero hero--split" data-enter aria-labelledby="hero-h">
     <div class="wrap">
       <div class="hero-text grid hero__grid">
-        <div class="hero__text span-5">
+        <div class="hero__text span-4">
           <p class="hero__kicker"><span class="dot" aria-hidden="true"></span>Ouvert lundi au vendredi, 8 h à 17 h</p>
           <h1 id="hero-h">Pneus, freins et transmission à Sherbrooke</h1>
           <p class="hero__lead">Vente de pneus, freins, transmission, différentiels, échappement et suspension, rue Galt Est. Du lundi au vendredi, de 8 h à 17 h.</p>
@@ -133,9 +143,9 @@
             <a class="btn btn--secondary" href="#services">Voir les services</a>
           </div>
         </div>
-        <div class="hero__media span-6 start-7">
-          <img src="assets/img/photo-f58963082.jpg" srcset="assets/img/photo-f58963082-500.jpg 500w, assets/img/photo-f58963082-960.jpg 960w, assets/img/photo-f58963082-1280.jpg 1280w, assets/img/photo-f58963082.jpg 1920w" sizes="(max-width: 1023px) 100vw, 50vw" width="1920" height="2560" alt="Pneus d'hiver empilés dans un garage, sur un pont élévateur" style="--ly-pos: 50% 45%" fetchpriority="high" decoding="async" data-source="stand-in" data-subject="stand-in">
-          <div class="ly-float">
+        <div class="hero__media span-8 start-5">
+          <img src="assets/img/photo-f58963082.jpg" srcset="assets/img/photo-f58963082-500.jpg 500w, assets/img/photo-f58963082-960.jpg 960w, assets/img/photo-f58963082-1280.jpg 1280w, assets/img/photo-f58963082.jpg 1920w" sizes="(max-width: 1023px) 100vw, 67vw" width="1920" height="2560" alt="Pneus d'hiver empilés dans un garage, sur un pont élévateur" style="--ly-pos: 50% 45%" fetchpriority="high" decoding="async" data-source="stand-in" data-subject="stand-in">
+          <div class="ly-float ly-float--bleed">
             <div class="ly-float__row"><span class="ly-live">★★★★★</span><span>4,9/5</span></div>
             <div class="ly-float__title">« Je recommande ce garage à 100 % » — Anthony, avis Google</div>
           </div>
@@ -176,19 +186,21 @@
         <p>Quatre avis de clients, copiés mot pour mot.</p>
       </div>
       <div class="grid">
-        <div class="span-6 review">
+        <div class="span-7 review review--lead">
           <h3>Anthony</h3>
           <p>« J'ai adoré mon expérience là-bas! Un ami qui travaille là-bas en tant que mécanicien m'a référé et je suis agréablement surpris du service. Tout d'abord, le prix est très abordable. Pour un changement du système d'échappement, ça m'a coûté 1500 $ de moins que ce qu'on me faisait à un autre garage. Ensuite, le propriétaire est très sympathique et travaille bien. Les mécaniciens ont fait une belle job et j'ai été super bien traité. Je vais définitivement y retourner pour mes prochaines réparations. Je vous recommande ce garage à 100 % ! »</p>
         </div>
-        <div class="span-6 review">
-          <h3>Donald Chamberland</h3>
-          <p>« Bonne réception, il trouve les solutions pour bien répondre au problème, bon prix, et on peut aussi avoir droit à une auto de courtoisie. À mes quelques réparations je peux que donner 5 étoiles, MERCI à l'équipe! »</p>
+        <div class="span-5 start-8 review-stack">
+          <div class="review review--sm">
+            <h3>Donald Chamberland</h3>
+            <p>« Bonne réception, il trouve les solutions pour bien répondre au problème, bon prix, et on peut aussi avoir droit à une auto de courtoisie. À mes quelques réparations je peux que donner 5 étoiles, MERCI à l'équipe! »</p>
+          </div>
+          <div class="review review--sm">
+            <h3>nasa444444</h3>
+            <p>« Très bon service. J'ai fait changer mon différentiel et un support de transmission pour mon véhicule. Le prix était juste ça fait 6 mois que je roule avec et j'ai aucun problème. Je les recommandes pour de travaux de transmission et différentiels. »</p>
+          </div>
         </div>
-        <div class="span-6 review">
-          <h3>nasa444444</h3>
-          <p>« Très bon service. J'ai fait changer mon différentiel et un support de transmission pour mon véhicule. Le prix était juste ça fait 6 mois que je roule avec et j'ai aucun problème. Je les recommandes pour de travaux de transmission et différentiels. »</p>
-        </div>
-        <div class="span-6 review">
+        <div class="span-7 review review--sm">
           <h3>Jean-Sébastien Paré</h3>
           <p>« Excellent service! Je voulais faire une inspection pour l'achat de véhicule et malgré leur achalandage élevé, ils ont été en mesure de me donner un rendez-vous rapidement. »</p>
         </div>
@@ -204,13 +216,13 @@
         <p>Pneus, freins et transmission, réparés sur place.</p>
       </div>
       <div class="grid">
-        <div class="frame frame--photo span-6" style="--ratio: 75%">
+        <div class="frame frame--photo span-7" style="--ratio: 68%">
           <img class="frame__img" src="assets/img/photo-f170813252-960.jpg" srcset="assets/img/photo-f170813252-500.jpg 500w, assets/img/photo-f170813252-960.jpg 960w" sizes="(max-width: 1023px) 100vw, 50vw" width="960" height="1433" alt="Pneus démontés, empilés dans l'atelier" style="object-position: 50% 30%" loading="lazy" data-source="stand-in" data-subject="stand-in">
           <div class="ly-float ly-float--sm">
             <div class="ly-float__title">« On peut aussi avoir droit à une auto de courtoisie » — Donald Chamberland, avis Google</div>
           </div>
         </div>
-        <figure class="frame frame--photo span-6" style="--ratio: 75%" data-moment="picture-develops" data-moment-opts='{"cell": 9}'>
+        <figure class="frame frame--photo span-5" style="--ratio: 92%" data-moment="picture-develops" data-moment-opts='{"cell": 9}'>
           <img class="frame__img" src="assets/img/photo-f147728933.jpg" srcset="assets/img/photo-f147728933-500.jpg 500w, assets/img/photo-f147728933-960.jpg 960w, assets/img/photo-f147728933.jpg 1280w" sizes="(max-width: 1023px) 100vw, 50vw" width="1280" height="853" alt="Mécanicien au travail sur un moteur" loading="lazy" data-source="stand-in" data-subject="stand-in">
         </figure>
       </div>
