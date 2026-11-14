@@ -12,7 +12,7 @@
 <meta property="og:image" content="share.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-<meta name="theme-color" content="#dfdedb">
+<meta name="theme-color" content="#16140f">
 <!-- <link rel="canonical" href="https://[domaine du client]/"> -->
 <meta name="site-kind" content="other">
 <meta name="page-type" content="service">
@@ -26,10 +26,14 @@
 <link rel="stylesheet" href="assets/icons/icon.css">
 <style>
 :root {
-  --p-bg: #dfdedb; --p-surface: #d3d2ce; --p-ink: #26251e; --p-muted: #5a5850;
-  --p-accent: #2456d6; --p-accent-ink: #ffffff; --p-action: #2456d6; --p-action-ink: #ffffff;
-  --p-inv-bg: #26251e; --p-inv-surface: #313029; --p-inv-ink: #dfdedb; --p-inv-muted: #9e9d99;
-  --p-inv-accent: #dfdedb; --p-inv-accent-ink: #26251e; --p-inv-action: #dfdedb; --p-inv-action-ink: #26251e;
+  /* bascule vers une ambiance sombre/premium (demande de Gabriel) : le fond principal devient
+     presque noir chaud, l'accent devient un or discret plutôt que le bleu précédent ; les
+     bandes "inverse" (atelier, fermeture) deviennent claires pour créer un vrai contraste de
+     rythme plutôt que du sombre-sur-sombre partout. */
+  --p-bg: #16140f; --p-surface: #221f17; --p-ink: #f1ede4; --p-muted: #a8a195;
+  --p-accent: #d9a13c; --p-accent-ink: #16140f; --p-action: #d9a13c; --p-action-ink: #16140f;
+  --p-inv-bg: #f1ede4; --p-inv-surface: #e7e1d3; --p-inv-ink: #16140f; --p-inv-muted: #5a554a;
+  --p-inv-accent: #16140f; --p-inv-accent-ink: #f1ede4; --p-inv-action: #16140f; --p-inv-action-ink: #f1ede4;
   --font-display: "Hanken Grotesk", system-ui, sans-serif;
   --font-text: "Hanken Grotesk", system-ui, sans-serif;
   --display-weight: 400;
@@ -83,6 +87,9 @@
   /* #services et #contact ont un contenu plus court que leur écran plein (--h:1) ; on centre
      verticalement pour répartir l'air au lieu de le laisser s'accumuler tout en bas */
   #services > .wrap, #contact > .wrap { align-items: center; display: flex; flex-direction: column; justify-content: center; min-height: inherit; }
+  .frame--photo { position: relative; }
+  .ly-float--sm { bottom: var(--s-4); left: var(--s-4); max-width: calc(100% - var(--s-4) * 2); padding: var(--s-3) var(--s-4); }
+  .ly-float--sm .ly-float__title { font-size: 13px; }
 </style>
 </head>
 <body>
@@ -199,6 +206,9 @@
       <div class="grid">
         <div class="frame frame--photo span-6" style="--ratio: 75%">
           <img class="frame__img" src="assets/img/photo-f170813252-960.jpg" srcset="assets/img/photo-f170813252-500.jpg 500w, assets/img/photo-f170813252-960.jpg 960w" sizes="(max-width: 1023px) 100vw, 50vw" width="960" height="1433" alt="Pneus démontés, empilés dans l'atelier" style="object-position: 50% 30%" loading="lazy" data-source="stand-in" data-subject="stand-in">
+          <div class="ly-float ly-float--sm">
+            <div class="ly-float__title">« On peut aussi avoir droit à une auto de courtoisie » — Donald Chamberland, avis Google</div>
+          </div>
         </div>
         <figure class="frame frame--photo span-6" style="--ratio: 75%" data-moment="picture-develops" data-moment-opts='{"cell": 9}'>
           <img class="frame__img" src="assets/img/photo-f147728933.jpg" srcset="assets/img/photo-f147728933-500.jpg 500w, assets/img/photo-f147728933-960.jpg 960w, assets/img/photo-f147728933.jpg 1280w" sizes="(max-width: 1023px) 100vw, 50vw" width="1280" height="853" alt="Mécanicien au travail sur un moteur" loading="lazy" data-source="stand-in" data-subject="stand-in">
