@@ -56,9 +56,9 @@
   /* the review, merged as the section's last element, no face: a quote with no ground of its own */
   #place .place__quote { margin-top: var(--s-8); max-width: 62ch; }
   #place .place__quote blockquote { font: 400 20px/1.5 var(--font-display); margin: 0 0 var(--s-4); color: var(--ink); }
-  #place .place__quote footer { font-size: var(--t-small); color: var(--muted); }
+  #offer .offer__group { margin-top: var(--s-6); }
 </style>
-<link rel="stylesheet" href="http://127.0.0.1:5201/assets/moments/picture-develops/moment.css"></head>
+<link rel="stylesheet" href="http://127.0.0.1:5200/assets/moments/picture-develops/moment.css"></head>
 <body>
 <!-- NAV (nav-cards): the bar as in nav-mega; the panel holds three photograph cards of the offer -->
 <header class="nav" data-m-nav="1">
@@ -70,16 +70,16 @@
         <a class="nav__link" href="#offer">Menu <svg class="chev" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></a><button class="nav__expand" type="button" aria-label="Show Menu links" aria-expanded="false"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 6l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
         <div class="nav__menu">
           <div class="wrap grid">
-            <a class="menu-card span-4" href="#offer">
-              <div class="panel"><img class="frame__img" src="assets/img/photo-f164303765-960.webp" alt="Planche de charcuteries et fromages, service du soir" loading="eager" data-broken="" data-placeholder=""></div>
+            <a class="menu-card span-4" href="#offer-menu">
+              <div class="panel"><img class="frame__img" src="assets/img/photo-f164303765-960.webp" alt="Planche de charcuteries et fromages, service du soir" data-source="stand-in" data-subject="planche de charcuteries et fromages" data-broken="" data-placeholder=""></div>
               <span class="t-card">Menu saisonnier</span>
             </a>
-            <a class="menu-card span-4" href="#offer">
-              <div class="panel"><img class="frame__img" src="assets/img/photo-f61843796-960.webp" alt="Verres à vin dressés sur une table" loading="eager" data-broken="" data-placeholder=""></div>
+            <a class="menu-card span-4" href="#offer-vins">
+              <div class="panel"><img class="frame__img" src="assets/img/photo-f61843796-960.webp" alt="Verres à vin dressés sur une table" data-source="stand-in" data-subject="verres à vin dressés" data-broken="" data-placeholder=""></div>
               <span class="t-card">Vins d'importation privée</span>
             </a>
-            <a class="menu-card span-4" href="#offer">
-              <div class="panel"><img class="frame__img" src="assets/img/photo-f129889082-960.webp" alt="Cocktail signature servi dans un verre à cocktail" loading="eager" data-broken="" data-placeholder=""></div>
+            <a class="menu-card span-4" href="#offer-cocktails">
+              <div class="panel"><img class="frame__img" src="assets/img/photo-f129889082-960.webp" alt="Cocktail signature servi dans un verre à cocktail" data-source="stand-in" data-subject="cocktail signature" data-broken="" data-placeholder=""></div>
               <span class="t-card">Cocktails signature</span>
             </a>
           </div>
@@ -100,7 +100,10 @@
        underneath on the ground. Stand-in photograph (live search): a Colombian bistro dining room, kept for
        its warm brick, leather and set tables, no readable name; the report lists it as a stand-in. -->
   <section class="hero hero--place is-still is-entered" data-enter="" aria-labelledby="hero-h">
-    <img class="hero__bg" data-phone-fill="" src="assets/img/photo-f199837380-960.webp" alt="Salle à manger chaleureuse, tables en bois dressées, mur de brique et suspensions en cuivre" fetchpriority="high" data-broken="" data-placeholder="">
+    <picture class="hero__bg" data-phone-fill="" style="--ly-pos: 50% 75%">
+      <source media="(max-width: 639px)" srcset="assets/img/photo-f199837380-780x975.webp 780w" sizes="100vw">
+      <img src="assets/img/photo-f199837380-1280.webp" srcset="assets/img/photo-f199837380-500.webp 500w, assets/img/photo-f199837380-960.webp 960w, assets/img/photo-f199837380-1280.webp 1280w" sizes="100vw" width="1280" height="2286" alt="Salle à manger chaleureuse, tables en bois dressées, mur de brique et suspensions en cuivre" fetchpriority="high" decoding="async" data-source="stand-in" data-subject="salle à manger d'un bistro" data-broken="" data-placeholder="">
+    </picture>
     <div class="wrap"><div class="hero-text">
       <div class="hero__text">
         <h1 id="hero-h">Bistro sur King Ouest, Sherbrooke</h1>
@@ -115,12 +118,12 @@
        Phone withheld (house rule 9 — no phone in a real format); a request by email stands in for a call. -->
   <section class="section" id="visit" data-place="visit" aria-label="Visite">
     <div class="wrap grid grid--top">
-      <div class="visit span-6">
-        <div class="visit__head"><p class="t-label muted">Visite</p></div>
+      <div class="visit visit--card span-6">
+        <div class="visit__head"><h2>Visite</h2></div>
         <div class="visit__cols">
           <div class="visit__col stack-4">
             <address class="visit__address">rue King Ouest<br>Sherbrooke</address>
-            <a class="link" href="https://www.openstreetmap.org/search?query=rue%20King%20Ouest%20Sherbrooke">Voir le quartier</a>
+            <a class="link" href="https://www.openstreetmap.org/search?query=rue%20King%20Ouest%20Sherbrooke">Itinéraire</a>
           </div>
           <div class="visit__col">
             <dl class="hours" data-tz="America/Toronto">
@@ -131,10 +134,6 @@
             </dl>
           </div>
         </div>
-        <ul class="visit__rows">
-          <li><span>Groupes</span><span>Traiteur, cocktail de réception et menu de groupe, sur réservation</span></li>
-          <li><span>Demande par courriel</span><span>Nous répondons sous un jour ouvrable</span></li>
-        </ul>
       </div>
       <figure class="pl-photo pl-photo--end span-6 start-7" style="--pl-r: .9"><img src="assets/img/photo-f26799429-960.webp" alt="Coin chaleureux du bistro, éclairage tamisé et bibliothèque" loading="eager" data-source="stand-in" data-subject="coin chaleureux d'un bistro" data-broken="" data-placeholder=""></figure>
     </div>
@@ -144,23 +143,33 @@
        price in the brief shows none). Catering and the dish's description come word for word from
        prospects/westley.json. A photograph develops once on entering the section (moments.mjs: picture-develops,
        the film look, on the charcuterie photograph). -->
-  <section class="section" id="offer" aria-labelledby="offer-h">
+  <section class="section ground-surface" id="offer" aria-labelledby="offer-h">
     <div class="wrap">
-      <div class="section-head"><h2 id="offer-h">Au menu</h2></div>
+      <div class="section-head section-head--row">
+        <div><h2 id="offer-h">Au menu</h2></div>
+        <a class="link" href="#offer-cocktails">Cocktails signature</a>
+      </div>
       <div class="grid grid--top">
-        <div class="span-3">
-          <p class="t-label">Sur place</p>
-          <ul class="rows">
-            <li><span class="rows__name">Menu saisonnier</span><p>Cuisine du terroir québécois, au fil des saisons et des produits locaux.</p></li>
-            <li><span class="rows__name">Traiteur et événements privés</span><p>Service de traiteur, cocktail de réception et menu de groupe sur réservation.</p></li>
-          </ul>
-        </div>
-        <div class="span-3">
-          <p class="t-label">Vins et cocktails</p>
-          <ul class="rows">
-            <li><span class="rows__name">Vins d'importation privée</span><p>Une sélection de vins importés directement, à découvrir sur place.</p></li>
-            <li><span class="rows__name">Cocktails signature</span><p>Cocktails maison et large sélection de spiritueux.</p></li>
-          </ul>
+        <div class="span-6">
+          <div id="offer-menu">
+            <p class="t-label">Sur place</p>
+            <ul class="rows">
+              <li><span class="rows__name">Menu saisonnier</span><p>Cuisine du terroir québécois, au fil des saisons et des produits locaux.</p></li>
+              <li><span class="rows__name">Traiteur et événements privés</span><p>Service de traiteur, cocktail de réception et menu de groupe sur réservation.</p></li>
+            </ul>
+          </div>
+          <div id="offer-vins" class="offer__group">
+            <p class="t-label">Vins d'importation privée</p>
+            <ul class="rows">
+              <li><p>Une sélection de vins importés directement, à découvrir sur place.</p></li>
+            </ul>
+          </div>
+          <div id="offer-cocktails" class="offer__group">
+            <p class="t-label">Cocktails signature</p>
+            <ul class="rows">
+              <li><p>Cocktails maison et large sélection de spiritueux.</p></li>
+            </ul>
+          </div>
         </div>
         <div class="offer__photo span-6 start-7">
           <figure class="pl-photo develop mo-pd mo-pd--film is-done" data-moment="picture-develops" data-moment-mounted="1"><img src="assets/img/photo-f164303765-960.webp" alt="Planche de charcuteries et fromages, pain grillé et cornichons" loading="eager" data-source="stand-in" data-subject="planche de charcuteries et fromages" style="aspect-ratio: 4 / 5; object-fit: cover; width: 100%" data-broken="" data-placeholder=""></figure>
@@ -172,9 +181,12 @@
   <!-- THE PLACE (dealt wall): a wall of photographs line to line, then the review, merged as the section's
        last element (no face in the brief: it has no section of its own). The review is quoted exactly as
        given, in English, attributed exactly as the brief gives it. -->
-  <section class="section" id="place" aria-labelledby="place-h" style="--h: 2">
+  <section class="section" id="place" aria-labelledby="place-h">
     <div class="wrap">
-      <div class="section-head"><h2 id="place-h">Le bistro</h2><p>Une salle chaleureuse, un service attentif, au cœur de Sherbrooke.</p></div>
+      <div class="section-head section-head--row">
+        <div><h2 id="place-h">Le bistro</h2></div>
+        <a class="link" href="https://www.tripadvisor.com/Restaurant_Review-g155035-d14013707-Reviews-Westley_Artisans_Restaurateurs-Sherbrooke_Quebec.html">Avis TripAdvisor</a>
+      </div>
       <div class="wall grid">
         <figure class="pl-photo span-4"><img src="assets/img/photo-f61843796-960.webp" alt="Verres à vin dressés sur une table nappée" loading="eager" data-source="stand-in" data-subject="verres à vin dressés" data-broken="" data-placeholder=""></figure>
         <figure class="pl-photo span-4"><img src="assets/img/photo-f59861190-960.webp" alt="Assiette de poulet grillé et pommes de terre" loading="eager" data-source="stand-in" data-subject="assiette de poulet grillé" data-broken="" data-placeholder=""></figure>
@@ -184,7 +196,7 @@
       </div>
       <div class="place__quote">
         <blockquote lang="en" cite="https://www.tripadvisor.com/Restaurant_Review-g155035-d14013707-Reviews-Westley_Artisans_Restaurateurs-Sherbrooke_Quebec.html">“Westley, and the incredible people there, continues to exceed our high expectations. This restaurant offers a blend of fine dining in a comfortable environment that makes you feel at home. Each member of the staff, and even the owners, checked in on us throughout the meal.”</blockquote>
-        <footer>RecognizeExcellentPp, avis TripAdvisor</footer>
+        <p class="t-small muted">RecognizeExcellentPp, avis TripAdvisor</p>
       </div>
     </div>
   </section>
@@ -195,7 +207,7 @@
   <div class="wrap">
     <div class="closing__cta close--word">
       <div class="section-head--split">
-        <div><h2 id="close-h">Réserver une table chez Westley</h2><p class="t-lead">Nous répondons sous un jour ouvrable.</p></div>
+        <div><h2 id="close-h">Réserver une table chez Westley</h2><p class="t-lead">Menu saisonnier, vins d'importation privée et cocktails signature.</p></div>
         <a class="btn btn--primary" href="mailto:reservations@westley.example">Réserver une table<svg class="m-arrow" viewBox="0 0 12 12" aria-hidden="true"><path class="m-arrow__stem" d="M1 6h8"></path><path class="m-arrow__head" d="M4.5 2.5 8 6l-3.5 3.5"></path></svg></a>
       </div>
       <p class="close__word" aria-hidden="true">Westley</p>
@@ -211,18 +223,18 @@
           <li><a href="https://www.openstreetmap.org/search?query=rue%20King%20Ouest%20Sherbrooke">Voir le quartier</a></li>
         </ul></div>
         <div class="span-2 footer__col"><h3>Menu</h3><ul>
-          <li><a href="#offer">Au menu</a></li>
-          <li><a href="#place">Le bistro</a></li>
+          <li><a href="#offer-menu">Menu saisonnier</a></li>
+          <li><a href="#offer-vins">Vins d'importation privée</a></li>
+          <li><a href="#offer-cocktails">Cocktails signature</a></li>
         </ul></div>
-        <div class="span-2 footer__col"><h3>Réservation</h3><ul>
-          <li><a href="mailto:reservations@westley.example">Réserver une table</a></li>
-          <li><a href="#contact">Nous écrire</a></li>
+        <div class="span-2 footer__col"><h3>Le bistro</h3><ul>
+          <li><a href="#place">Le bistro</a></li>
         </ul></div>
       </div>
       <div class="footer__legal">
-        <span>© 2026 Westley &nbsp; <a href="privacy.html">Confidentialité</a> &nbsp; <a href="terms.html">Conditions</a></span>
+        <span>© 2026 Westley</span>
         <div class="socials"></div>
-        <a class="credits" href="credits.html">Photographies via Wikimedia Commons</a>
+        <a class="credits" href="credits.html">Photographs via Wikimedia Commons</a>
       </div>
     </div>
   </div>

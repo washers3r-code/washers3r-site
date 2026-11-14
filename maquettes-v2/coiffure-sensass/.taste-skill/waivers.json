@@ -1,0 +1,8 @@
+{
+  "waivers": [
+    {
+      "id": "phone-number",
+      "reason": "Numéro réel et vérifié de Coiffure Sensass (819-378-2171, prospects/coiffure-sensass.json). Tâche explicite de Gabriel : utiliser les coordonnées réelles du prospect pour la maquette de prospection ; la règle générique du skill vise à éviter d'afficher un faux numéro plausible sur une démo, pas un vrai numéro public d'entreprise."
+    }
+  ]
+}

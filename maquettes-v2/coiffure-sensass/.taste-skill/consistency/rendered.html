@@ -38,12 +38,11 @@
 html[data-type="place"] { --r-lg: 0; --r-md: 0; --r-sm: 2px; --r-btn: 2px; }
 </style>
 <script>document.documentElement.classList.add('m-enter');setTimeout(()=>document.documentElement.classList.add('m-enter-done'),700)</script>
-<script src="assets/backgrounds/backgrounds.js"></script>
 <script>document.documentElement.classList.add('mo-js');setTimeout(()=>document.documentElement.classList.add('mo-safe'),2500)</script>
 <link rel="modulepreload" href="assets/moments/moments.js">
 <link rel="modulepreload" href="assets/moments/lib.js">
 <link rel="modulepreload" href="assets/moments/picture-develops/moment.js">
-<link rel="stylesheet" href="http://127.0.0.1:5203/assets/moments/picture-develops/moment.css"></head>
+<link rel="stylesheet" href="http://127.0.0.1:5202/assets/moments/picture-develops/moment.css"></head>
 <body>
 <!-- type: place (salon de coiffure)
      deal: palette three-stones (fond pierre, encre quasi noire, accent vert olive — calme, neutre,
@@ -83,7 +82,7 @@ html[data-type="place"] { --r-lg: 0; --r-md: 0; --r-sm: 2px; --r-btn: 2px; }
     <div class="wrap"><div class="hero-text">
       <div class="hero__text">
         <h1 id="hero-h">Salon de coiffure, boulevard des Forges</h1>
-        <p class="hero__lead">Coupe, coiffage et coloration sur rendez-vous, à Trois-Rivières.</p>
+        <p class="hero__lead">Coupe, coiffage et coloration sur rendez-vous : 819 378-2171.</p>
         <div class="btn-row"><a class="btn btn--primary" href="tel:+18193782171">Réserver une place</a></div>
       </div>
     </div></div>
@@ -99,11 +98,12 @@ html[data-type="place"] { --r-lg: 0; --r-md: 0; --r-sm: 2px; --r-btn: 2px; }
             <li><span class="rows__name">Coiffage</span><span class="rows__value" data-assumed="">Prix sur demande</span></li>
             <li><span class="rows__name">Coloration</span><span class="rows__value" data-assumed="">Prix sur demande</span></li>
           </ul>
-          <p class="t-small muted">Aucune grille de prix publique trouvée : un appel confirme le tarif exact.</p>
+          <p class="t-small">Aucune grille de prix publique trouvée : un appel confirme le tarif exact.</p>
+          <div class="btn-row"><a class="btn btn--secondary" href="tel:+18193782171">Appeler le salon</a></div>
         </div>
-        <figure class="pl-photo span-6 start-7 mo-pd mo-pd--film is-done" style="--pl-r: .75" data-moment="picture-develops" data-moment-mounted="1">
-          <img src="assets/img/photo-f118141964.webp" srcset="assets/img/photo-f118141964-500.webp 500w, assets/img/photo-f118141964-960.webp 960w, assets/img/photo-f118141964.webp 1280w" sizes="(max-width: 639px) 100vw, 50vw" width="1280" height="719" alt="Ciseaux de coiffure professionnels sur fond gris" loading="eager" decoding="async" data-source="stand-in" data-subject="stand-in">
-        </figure>
+        <div class="frame frame--photo span-6 start-7 mo-pd mo-pd--film is-done" style="--ratio: 75%" data-moment="picture-develops" data-moment-mounted="1">
+          <img class="frame__img" src="assets/img/photo-f118141964.webp" srcset="assets/img/photo-f118141964-500.webp 500w, assets/img/photo-f118141964-960.webp 960w, assets/img/photo-f118141964.webp 1280w" sizes="(max-width: 639px) 100vw, 50vw" width="1280" height="719" alt="Ciseaux de coiffure professionnels sur fond gris" loading="eager" decoding="async" data-source="stand-in" data-subject="stand-in">
+        </div>
       </div>
       <div class="visit" id="visit" data-place="visit" style="margin-top: var(--s-7)">
         <div class="visit__head"><p class="t-label muted">Nous trouver</p></div>
@@ -120,11 +120,7 @@ html[data-type="place"] { --r-lg: 0; --r-md: 0; --r-sm: 2px; --r-btn: 2px; }
               <dt data-days="sat">Samedi</dt><dd>9 h à 15 h</dd>
               <dt data-days="sun,mon">Dimanche et lundi</dt><dd>Fermé</dd>
             </dl>
-            <p class="t-small muted">Horaire type d'un salon de quartier, non confirmé : les sources publiques se contredisent. Appelez pour l'horaire du jour.</p>
-          </div>
-          <div class="span-4 stack-4">
-            <p class="t-label muted">Téléphone</p>
-            <p><a class="link" href="tel:+18193782171">819 378-2171</a></p>
+            <p class="t-small">Horaire type d'un salon de quartier, non confirmé : les sources publiques se contredisent. Appelez pour l'horaire du jour.</p>
           </div>
         </div>
       </div>
@@ -134,16 +130,16 @@ html[data-type="place"] { --r-lg: 0; --r-md: 0; --r-sm: 2px; --r-btn: 2px; }
 
 <footer class="footer closing" id="contact" aria-labelledby="close-h">
   <div class="wrap">
-    <div class="closing__cta close--word">
-      <div class="section-head--split">
-        <div><h2 id="close-h">Réserver une place</h2><p class="t-lead">Par téléphone, au 819 378-2171.</p></div>
-        <a class="btn btn--primary" href="tel:+18193782171">Réserver une place<svg class="m-arrow" viewBox="0 0 12 12" aria-hidden="true"><path class="m-arrow__stem" d="M1 6h8"></path><path class="m-arrow__head" d="M4.5 2.5 8 6l-3.5 3.5"></path></svg></a>
+    <div class="closing__cta close--type">
+      <div class="section-head">
+        <h2 id="close-h">Réserver une place</h2>
+        <p>Par téléphone, au 819 378-2171.</p>
       </div>
-      <p class="close__word" aria-hidden="true">Coiffure Sensass</p>
+      <a class="btn btn--primary btn--xl btn--wide" href="tel:+18193782171">Réserver une place<svg class="m-arrow" viewBox="0 0 12 12" aria-hidden="true"><path class="m-arrow__stem" d="M1 6h8"></path><path class="m-arrow__head" d="M4.5 2.5 8 6l-3.5 3.5"></path></svg></a>
     </div>
     <div class="closing__links">
       <div class="grid">
-        <div class="span-4 stack-4">
+        <div class="span-6 stack-4">
           <a class="nav__logo" href="#top"><span class="mark" data-mark="petal" aria-hidden="true"></span>Coiffure Sensass</a>
           <p class="footer__lede">Salon de coiffure sur le boulevard des Forges, à Trois-Rivières.</p>
         </div>
