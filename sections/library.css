@@ -97,7 +97,7 @@
 
 .sec-reservation.r-telephone{ background:var(--b-ink); color:#fff; text-align:center; }
 .sec-reservation.r-telephone h2{ color:#fff; }
-.sec-reservation.r-telephone .num{ font:800 34px var(--b-font-h); }
+.sec-reservation.r-telephone .num{ color:#fff; display:inline-block; font:800 34px var(--b-font-h); text-decoration:none; }
 .sec-reservation.r-telephone .heures{ color:#cdd3cf; font-size:12px; margin-top:6px; }
 
 /* === AVIS / CONTACT === */
