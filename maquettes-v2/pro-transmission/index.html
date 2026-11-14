@@ -66,6 +66,23 @@
   .review { background: var(--surface); border-radius: var(--r-lg); padding: var(--s-6); }
   .review h3 { font: 500 var(--t-lead)/1.4 var(--font-text); letter-spacing: 0; margin: 0 0 var(--s-3); }
   .review p { color: var(--ink); margin: 0; max-width: 56ch; }
+  /* kicker au-dessus du H1 + badge flottant sur la photo du hero (absents du build initial,
+     ajoutés pour casser le vide et donner un repère "vivant" — ly-float/ly-live ne sont pas
+     fournis par le kit, ils sont écrits ici comme dans les exemples hero-split.html du skill) */
+  .hero__kicker { align-items: center; display: flex; gap: var(--s-2); font: 500 var(--t-small)/1 var(--font-text); color: var(--muted); margin: 0 0 var(--s-4); }
+  .hero__kicker .dot { background: var(--action); border-radius: 50%; display: inline-block; height: 8px; width: 8px; }
+  .hero__media { position: relative; }
+  .ly-float { background: var(--surface); border-radius: var(--r-lg); bottom: var(--s-5); box-shadow: 0 12px 32px rgba(0,0,0,.18); left: var(--s-5); max-width: 280px; padding: var(--s-4) var(--s-5); position: absolute; }
+  .ly-float__row { align-items: center; display: flex; gap: var(--s-2); font: 700 var(--t-small)/1 var(--font-text); margin-bottom: var(--s-2); }
+  .ly-live { color: var(--action); letter-spacing: .02em; }
+  .ly-float__title { color: var(--ink); font-size: var(--t-small); line-height: 1.4; }
+  @media (max-width: 639px) { .ly-float { max-width: calc(100% - var(--s-5) * 2); } }
+  /* bouton secondaire du hero : background:var(--bg) le rendait invisible sur un fond --bg identique */
+  .hero .btn--secondary { background: transparent; border-color: var(--ink); }
+  .hero .btn--secondary:hover { background: color-mix(in oklab, var(--ink) 8%, transparent); }
+  /* #services et #contact ont un contenu plus court que leur écran plein (--h:1) ; on centre
+     verticalement pour répartir l'air au lieu de le laisser s'accumuler tout en bas */
+  #services > .wrap, #contact > .wrap { align-items: center; display: flex; flex-direction: column; justify-content: center; min-height: inherit; }
 </style>
 </head>
 <body>
@@ -101,6 +118,7 @@
     <div class="wrap">
       <div class="hero-text grid hero__grid">
         <div class="hero__text span-5">
+          <p class="hero__kicker"><span class="dot" aria-hidden="true"></span>Ouvert lundi au vendredi, 8 h à 17 h</p>
           <h1 id="hero-h">Pneus, freins et transmission à Sherbrooke</h1>
           <p class="hero__lead">Vente de pneus, freins, transmission, différentiels, échappement et suspension, rue Galt Est. Du lundi au vendredi, de 8 h à 17 h.</p>
           <div class="btn-row">
@@ -110,6 +128,10 @@
         </div>
         <div class="hero__media span-6 start-7">
           <img src="assets/img/photo-f58963082.jpg" srcset="assets/img/photo-f58963082-500.jpg 500w, assets/img/photo-f58963082-960.jpg 960w, assets/img/photo-f58963082-1280.jpg 1280w, assets/img/photo-f58963082.jpg 1920w" sizes="(max-width: 1023px) 100vw, 50vw" width="1920" height="2560" alt="Pneus d'hiver empilés dans un garage, sur un pont élévateur" style="--ly-pos: 50% 45%" fetchpriority="high" decoding="async" data-source="stand-in" data-subject="stand-in">
+          <div class="ly-float">
+            <div class="ly-float__row"><span class="ly-live">★★★★★</span><span>4,9/5</span></div>
+            <div class="ly-float__title">« Je recommande ce garage à 100 % » — Anthony, avis Google</div>
+          </div>
         </div>
       </div>
     </div>
@@ -125,10 +147,10 @@
           <p>Quatre services, prix sur demande.</p>
         </div>
         <ul class="rows">
-          <li><span class="rows__name">Pneus<small>Vente, installation et équilibrage de pneus toutes saisons.</small></span><span class="rows__value">Prix sur demande</span></li>
-          <li><span class="rows__name">Freins<small>Inspection et réparation du système de freinage.</small></span><span class="rows__value">Prix sur demande</span></li>
-          <li><span class="rows__name">Transmission<small>Diagnostic et réparation de transmission, différentiels.</small></span><span class="rows__value">Prix sur demande</span></li>
-          <li><span class="rows__name">Silencieux et suspension<small>Réparation du système d'échappement et de la suspension.</small></span><span class="rows__value">Prix sur demande</span></li>
+          <li><span class="rows__name">Pneus</span><span class="rows__value">Prix sur demande</span><p>Vente, installation et équilibrage de pneus toutes saisons.</p></li>
+          <li><span class="rows__name">Freins</span><span class="rows__value">Prix sur demande</span><p>Inspection et réparation du système de freinage.</p></li>
+          <li><span class="rows__name">Transmission</span><span class="rows__value">Prix sur demande</span><p>Diagnostic et réparation de transmission, différentiels.</p></li>
+          <li><span class="rows__name">Silencieux et suspension</span><span class="rows__value">Prix sur demande</span><p>Réparation du système d'échappement et de la suspension.</p></li>
         </ul>
       </div>
       <div class="frame frame--photo span-6 start-7" style="--ratio: 75%">
