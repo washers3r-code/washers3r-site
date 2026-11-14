@@ -1,0 +1,11 @@
+{
+ "page": "index.html",
+ "url": null,
+ "root": null,
+ "kind": "place",
+ "category": "bistro, vins et cocktails",
+ "primary": "Réserver une table",
+ "rounds": 3,
+ "start": "2026-11-14T06:46:01.245Z",
+ "by": "gate.mjs --start"
+}

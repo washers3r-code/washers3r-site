@@ -1,0 +1,205 @@
+{
+  "version": 2,
+  "generated": "2026-11-07T06:04:58.498Z",
+  "count": 18,
+  "dealt": 13,
+  "kinds": {
+    "transition": 4,
+    "text": 4,
+    "hover": 1,
+    "scroll": 7,
+    "liquid": 2
+  },
+  "pages": [
+    "tech",
+    "gaming",
+    "software",
+    "place",
+    "product",
+    "service"
+  ],
+  "budget": 4,
+  "moments": [
+    {
+      "id": "photo-chapters",
+      "name": "Photo chapters",
+      "kind": "scroll",
+      "fits": [
+        "section"
+      ],
+      "trigger": "scroll",
+      "cost": "low",
+      "webgl": 0,
+      "pages": [
+        "place",
+        "product",
+        "service"
+      ],
+      "look": "A short story in three to five photographs, one large frame at a time: the section holds on screen while, under its h2, one photograph the width of the page is uncovered by the next from its foot upward, settling from a slight zoom, and a panel in the page's ground on the photograph's lower left changes to that chapter (its number, a title and two lines). Each chapter has about two thirds of a screen of scroll: the wipe takes under half of it and the photograph holds for the rest. Live at every width on a screen 600px or taller, phones included.",
+      "reduced": "Nothing is pinned: the chapters stand side by side, each photograph over its title and lines, and the section is as tall as they are.",
+      "phone": "It runs on a phone held upright (one photograph at a time, the panel across its foot); a phone turned sideways, under 600px tall, gets the chapters stacked, each photograph over its words.",
+      "maxPerPage": 1,
+      "weight": 1,
+      "needs": {
+        "photo": true,
+        "words": "3 to 5 chapters, a title and two lines each, under one h2 and a short lead",
+        "pictures": "one photograph per chapter, all of one place, product or job, none used elsewhere on the page"
+      },
+      "avoidWith": [
+        "pinned-chapters"
+      ],
+      "states": {
+        "start": {
+          "p": 0.06,
+          "wait": 500
+        },
+        "middle": {
+          "p": 0.5,
+          "wait": 500
+        },
+        "end": {
+          "p": 0.96,
+          "wait": 500
+        }
+      },
+      "phoneRuns": true,
+      "height": "(hold + 1) screens live: hold 2 for three chapters, 3 for four or five; at rest as tall as its chapters. No --h on the section."
+    },
+    {
+      "id": "picture-develops",
+      "name": "Picture develops",
+      "kind": "transition",
+      "fits": [
+        "section",
+        "hero"
+      ],
+      "trigger": "enter",
+      "cost": "low",
+      "webgl": 0,
+      "pages": [
+        "place",
+        "product",
+        "service"
+      ],
+      "look": "One large photograph develops once as it comes on screen. On a place, product or service page (look \"film\") it comes up out of the paper like a print in the developer tray: a faint grey print at first, its darks arriving before its light tones, then its colour, while it settles from a slight zoom, about 1.6 s. The halftone look (\"print\", a two-tone dot print in the page's ground and ink giving way to the photograph) is not dealt: tech leaves this moment out, so it is kept only as opts look \"print\".",
+      "reduced": "The photograph stands.",
+      "phone": "The film look runs on a phone too (one picture, a filter and a transform, once); the print look shows the photograph.",
+      "maxPerPage": 1,
+      "weight": 1,
+      "needs": {
+        "photo": true,
+        "picture": "one photograph with a clear subject, half the container wide or more: the section's subject, not a thumbnail"
+      },
+      "avoidWith": [
+        "liquid-hover",
+        "window-parallax"
+      ],
+      "states": {
+        "start": {
+          "see": true,
+          "wait": 260
+        },
+        "middle": {
+          "see": true,
+          "wait": 900
+        },
+        "end": {
+          "see": true,
+          "wait": 2600
+        }
+      },
+      "phoneRuns": true
+    },
+    {
+      "id": "pinned-chapters",
+      "name": "Pinned chapters",
+      "kind": "scroll",
+      "fits": [
+        "section"
+      ],
+      "trigger": "scroll",
+      "cost": "low",
+      "webgl": 0,
+      "pages": [
+        "tech",
+        "gaming",
+        "software",
+        "product",
+        "service"
+      ],
+      "look": "A feature section holds on screen for two screens of scroll while its three steps open one at a time at the left and one frame at the right changes to each step's picture with a short crossfade.",
+      "reduced": "Nothing is pinned: from 640px each step is a static row, its text at the left and its visual at the right (at most 30svh tall); on a phone each step stands with its 16:9 visual under it. Two to four steps fit two screens at 1440x900, 1024x768, 820x1180 and 390x844.",
+      "phone": "Nothing is pinned: each step stands with its title, two lines and its visual under it.",
+      "maxPerPage": 1,
+      "weight": 1,
+      "needs": {
+        "words": "2 to 4 steps, a title and two lines each",
+        "pictures": "one picture or screen per step"
+      },
+      "avoidWith": [
+        "closing-lift",
+        "line-carries-colour",
+        "photo-chapters"
+      ],
+      "states": {
+        "start": {
+          "p": 0.08,
+          "wait": 900
+        },
+        "middle": {
+          "p": 0.5,
+          "wait": 900
+        },
+        "end": {
+          "p": 0.92,
+          "wait": 900
+        }
+      }
+    },
+    {
+      "id": "word-highlight",
+      "name": "Statement lights up",
+      "kind": "scroll",
+      "fits": [
+        "statement"
+      ],
+      "trigger": "scroll",
+      "cost": "low",
+      "webgl": 0,
+      "pages": [
+        "tech",
+        "gaming",
+        "software",
+        "place",
+        "product",
+        "service"
+      ],
+      "look": "One large statement rests at half ink (readable, about 4 to 1) and turns to ink word by word as it crosses the middle of the screen, a strong word to the accent; it runs back on the way up.",
+      "reduced": "The statement in ink.",
+      "phone": "It runs on a phone as on a desktop (one paragraph's colours); under reduced motion the whole statement is in ink, the accent word in the accent.",
+      "maxPerPage": 1,
+      "weight": 1,
+      "needs": {
+        "words": "one statement of 12 to 40 words"
+      },
+      "avoidWith": [
+        "giant-type-pass"
+      ],
+      "states": {
+        "start": {
+          "view": 0.22,
+          "wait": 350
+        },
+        "middle": {
+          "view": 0.5,
+          "wait": 350
+        },
+        "end": {
+          "view": 0.72,
+          "wait": 350
+        }
+      },
+      "phoneRuns": true
+    }
+  ]
+}

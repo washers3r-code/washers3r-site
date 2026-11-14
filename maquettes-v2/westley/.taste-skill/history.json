@@ -1,0 +1,20 @@
+{
+ "palettes": [
+  "moss-sand"
+ ],
+ "types": [
+  "fraunces"
+ ],
+ "dealt": [
+  "fraunces",
+  "figtree",
+  "nunito"
+ ],
+ "moments": [
+  {
+   "id": "picture-develops",
+   "at": "2026-11-14T07:00:30.645Z",
+   "seed": "d0dc09c8"
+  }
+ ]
+}

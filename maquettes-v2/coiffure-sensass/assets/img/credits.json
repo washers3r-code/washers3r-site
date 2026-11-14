@@ -1,0 +1,67 @@
+{
+ "note": "Credits for the photographs in this folder: photos.mjs credits prints the footer block for the ones the pages use.",
+ "photos": [
+  {
+   "file": "photo-f152759009.webp",
+   "files": [
+    "photo-f152759009-500.webp",
+    "photo-f152759009-960.webp",
+    "photo-f152759009-1280.webp",
+    "photo-f152759009.webp",
+    "photo-f152759009-780x975.webp"
+   ],
+   "id": "f152759009",
+   "alt": "Hair salon - Arlington, MA",
+   "by": "Daderot",
+   "licence": "CC0",
+   "licenceUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+   "page": "https://commons.wikimedia.org/wiki/File:Hair_salon_-_Arlington,_MA.jpg",
+   "source": "Wikimedia Commons"
+  },
+  {
+   "file": "photo-f118141964.webp",
+   "files": [
+    "photo-f118141964-500.webp",
+    "photo-f118141964-960.webp",
+    "photo-f118141964.webp"
+   ],
+   "id": "f118141964",
+   "alt": "Standard-type haircutting shears for hairdressers",
+   "by": "Pittigrilli",
+   "licence": "CC BY-SA 4.0",
+   "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Standard-type_haircutting_shears_for_hairdressers.jpg",
+   "source": "Wikimedia Commons"
+  },
+  {
+   "file": "photo-f118141646.webp",
+   "files": [
+    "photo-f118141646-500.webp",
+    "photo-f118141646-960.webp",
+    "photo-f118141646.webp"
+   ],
+   "id": "f118141646",
+   "alt": "Front and back of blades of hair-cutting shears made from Damascus steel",
+   "by": "Pittigrilli",
+   "licence": "CC BY-SA 4.0",
+   "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Front_and_back_of_blades_of_hair-cutting_shears_made_from_Damascus_steel.jpg",
+   "source": "Wikimedia Commons"
+  },
+  {
+   "file": "photo-f102145795.webp",
+   "files": [
+    "photo-f102145795-500.webp",
+    "photo-f102145795-960.webp",
+    "photo-f102145795.webp"
+   ],
+   "id": "f102145795",
+   "alt": "Tinting Brush for Dying Hair",
+   "by": "geehairimages",
+   "licence": "CC BY 2.0",
+   "licenceUrl": "https://creativecommons.org/licenses/by/2.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Tinting_Brush_for_Dying_Hair.jpg",
+   "source": "Wikimedia Commons"
+  }
+ ]
+}

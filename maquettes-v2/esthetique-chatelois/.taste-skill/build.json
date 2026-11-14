@@ -1,0 +1,11 @@
+{
+ "page": "index.html",
+ "url": null,
+ "root": null,
+ "kind": "place",
+ "category": "institut d'esthétique",
+ "primary": "Réserver un rendez-vous",
+ "rounds": 3,
+ "start": "2026-11-14T06:44:45.497Z",
+ "by": "gate.mjs --start"
+}

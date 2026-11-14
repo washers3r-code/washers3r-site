@@ -1,0 +1,81 @@
+{
+ "note": "Credits for the photographs in this folder: photos.mjs credits prints the footer block for the ones the pages use.",
+ "photos": [
+  {
+   "file": "photo-f147332845.webp",
+   "files": [
+    "photo-f147332845-500.webp",
+    "photo-f147332845-960.webp",
+    "photo-f147332845.webp"
+   ],
+   "id": "f147332845",
+   "alt": "Auto mechanic 03",
+   "by": "Azorbli",
+   "licence": "CC BY-SA 4.0",
+   "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Auto_mechanic_03.jpg",
+   "source": "Wikimedia Commons"
+  },
+  {
+   "file": "photo-f147728933.webp",
+   "files": [
+    "photo-f147728933-500.webp",
+    "photo-f147728933-960.webp",
+    "photo-f147728933.webp"
+   ],
+   "id": "f147728933",
+   "alt": "Mechanic working on a car battery",
+   "by": "Kwamitsey",
+   "licence": "CC BY 4.0",
+   "licenceUrl": "https://creativecommons.org/licenses/by/4.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Mechanic_working_on_a_car_battery.jpg",
+   "source": "Wikimedia Commons"
+  },
+  {
+   "file": "photo-f147728883.webp",
+   "files": [
+    "photo-f147728883-500.webp",
+    "photo-f147728883-960.webp",
+    "photo-f147728883.webp"
+   ],
+   "id": "f147728883",
+   "alt": "Two mechanic working on a car engine",
+   "by": "Kwamitsey",
+   "licence": "CC BY 4.0",
+   "licenceUrl": "https://creativecommons.org/licenses/by/4.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Two_mechanic_working_on_a_car_engine.jpg",
+   "source": "Wikimedia Commons"
+  },
+  {
+   "file": "photo-f58963082.webp",
+   "files": [
+    "photo-f58963082-500.webp",
+    "photo-f58963082-960.webp",
+    "photo-f58963082-1280.webp",
+    "photo-f58963082.webp",
+    "photo-f58963082-780x975.webp"
+   ],
+   "id": "f58963082",
+   "alt": "Car tire stack 20170516",
+   "by": "Santeri Viinamäki",
+   "licence": "CC BY-SA 4.0",
+   "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Car_tire_stack_20170516.jpg",
+   "source": "Wikimedia Commons"
+  },
+  {
+   "file": "photo-f170813252-960.webp",
+   "files": [
+    "photo-f170813252-500.webp",
+    "photo-f170813252-960.webp"
+   ],
+   "id": "f170813252",
+   "alt": "Dirty car tires stacked in front of mechanic",
+   "by": "PheobeLongneck",
+   "licence": "CC0",
+   "licenceUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+   "page": "https://commons.wikimedia.org/wiki/File:Dirty_car_tires_stacked_in_front_of_mechanic.jpg",
+   "source": "Wikimedia Commons"
+  }
+ ]
+}

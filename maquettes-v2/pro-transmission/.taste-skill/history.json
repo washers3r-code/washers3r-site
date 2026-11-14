@@ -1,0 +1,20 @@
+{
+ "palettes": [
+  "stone-blueprint"
+ ],
+ "types": [
+  "hanken"
+ ],
+ "dealt": [
+  "hanken",
+  "instrument-serif",
+  "archivo"
+ ],
+ "moments": [
+  {
+   "id": "picture-develops",
+   "at": "2026-11-14T06:46:54.496Z",
+   "seed": "981a929d"
+  }
+ ]
+}
