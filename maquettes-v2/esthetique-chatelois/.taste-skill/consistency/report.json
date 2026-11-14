@@ -1,7 +1,7 @@
 {
  "page": "/home/user/washers3r-site/maquettes-v2/esthetique-chatelois/index.html",
- "url": "http://127.0.0.1:5202/index.html",
- "at": "2026-11-14T07:10:34.653Z",
+ "url": "http://127.0.0.1:5203/index.html",
+ "at": "2026-11-14T07:21:39.217Z",
  "out": "/home/user/washers3r-site/maquettes-v2/esthetique-chatelois/.taste-skill/consistency",
  "widths": [
   {
@@ -9,19 +9,8 @@
    "height": 900,
    "screens": 4,
    "held": 0,
-   "errors": [
-    "effect-kind: could not read http://127.0.0.1:5202/assets/backgrounds/backgrounds.js (HTTP 404)"
-   ],
+   "errors": [],
    "findings": [
-    {
-     "check": "assets",
-     "sev": "FAIL",
-     "sel": "(the page)",
-     "text": "",
-     "stop": null,
-     "msg": "the script assets/backgrounds/backgrounds.js did not load (404)",
-     "fix": "fix the path, or remove the reference"
-    },
     {
      "check": "assets",
      "sev": "FAIL",
@@ -32,33 +21,13 @@
      "fix": "fix the path, or remove the reference"
     },
     {
-     "check": "empty-visual",
-     "sev": "FAIL",
-     "sel": "main#top > section.hero.hero--place > picture.hero__bg > img",
-     "text": "photo-f194185160.webp",
-     "stop": 0,
-     "msg": "the picture shows nothing here: 99% of it is one colour (#ecebe7); its image photo-f194185160.webp did not load",
-     "crop": "1440-01-empty-visual.jpg",
-     "fix": "make the visual draw at every width: a picture that loads, an effect that renders, or its still fallback; never an empty frame"
-    },
-    {
-     "check": "empty-visual",
-     "sev": "FAIL",
-     "sel": "div.wrap > div.grid.grid--top > figure.pl-photo.span-6 > img",
-     "text": "photo-m61777177-960.webp",
-     "stop": 1,
-     "msg": "the picture shows nothing here: 97% of it is one colour (#ecebe7); its image photo-m61777177-960.webp did not load",
-     "crop": "1440-05-empty-visual.jpg",
-     "fix": "make the visual draw at every width: a picture that loads, an effect that renders, or its still fallback; never an empty frame"
-    },
-    {
      "check": "off-grid",
      "sev": "FAIL",
      "sel": "div.wrap > div.grid.grid--top > figure.pl-photo.span-6 > img",
      "text": "img: Pile de plaids tricotés, pliés sur une table",
      "stop": 1,
      "msg": "left edge at 732px, 14px off a common edge of its section at 718px (3 elements)",
-     "crop": "1440-06-off-grid.jpg",
+     "crop": "1440-05-off-grid.jpg",
      "fix": "move it onto the page margin, or the column edge its section uses"
     },
     {
@@ -68,7 +37,7 @@
      "text": "1050 boulevard Jacques-Cartier",
      "stop": 1,
      "msg": "a street with its house number: \"1050 boulevard Jacques-Cartier\"; a real door, which the brief does not give (and 1 more like it: div#visit > div.visit__cols > div.visit__col.stack-4:nth-of-type(1) > a.link)",
-     "crop": "1440-07-street-number.jpg",
+     "crop": "1440-06-street-number.jpg",
      "fix": "print the street and the district only (\"Weserstraße, Berlin-Neukölln\"): no house number, unless the brief gives the address"
     },
     {
@@ -78,7 +47,7 @@
      "text": "tel:+18195640176",
      "stop": 0,
      "msg": "a tel: link calls a number in a real dialable format: \"tel:+18195640176\"; a visitor can dial it and reach a stranger (and 5 more like it: div.hero-text > div.hero__text > div.btn-row > a.btn.btn--primary, div#visit > div.visit__cols > div.visit__col.stack-4:nth-of-type(3) > a.link, div.wrap > div.closing__cta.close--word > div.section-head--split > a.btn.btn--primary, ...)",
-     "crop": "1440-02-phone-number.jpg",
+     "crop": "1440-01-phone-number.jpg",
      "fix": "drop the number and its tel: link (a \"Request a call\" form may stand in), unless the brief gives the number"
     },
     {
@@ -88,7 +57,7 @@
      "text": "",
      "msg": "starts an animation (1.6 s) the moment it is scrolled into view (an IntersectionObserver) on img (inside a dealt moment's section, [data-moment]: an enter moment is expected on every kind; its still is judged under reduced motion)",
      "stop": 1,
-     "crop": "1440-08-scroll-reveal.jpg",
+     "crop": "1440-07-scroll-reveal.jpg",
      "fix": "show it at rest: no fade, rise or unmask when it is scrolled into view"
     },
     {
@@ -98,7 +67,7 @@
      "text": "Nos soins",
      "msg": "\"Nos soins\" names no product, part, place or section (the one brand line a page may have)",
      "stop": 1,
-     "crop": "1440-09-copy-headings.jpg",
+     "crop": "1440-08-copy-headings.jpg",
      "fix": "name the thing in every heading: the product, a part, the place or a section noun"
     },
     {
@@ -108,7 +77,7 @@
      "text": "Réserver un rendez-vous",
      "msg": "\"Réserver un rendez-vous\" does not start with a verb (book, buy, try, start, get, see...)",
      "stop": 0,
-     "crop": "1440-03-copy-buttons.jpg",
+     "crop": "1440-02-copy-buttons.jpg",
      "fix": "label buttons with a verb and what the visitor gets (\"Book a room\", \"Start free trial\")"
     },
     {
@@ -118,7 +87,7 @@
      "text": "",
      "stop": 4,
      "msg": "297px between these sections, +25% against the median 237px",
-     "crop": "1440-12-section-gaps.jpg",
+     "crop": "1440-11-section-gaps.jpg",
      "fix": "use one gap between sections (all within 25% of each other)"
     },
     {
@@ -128,8 +97,18 @@
      "text": "",
      "stop": 2,
      "msg": "177px between these sections, -25% against the median 237px",
-     "crop": "1440-10-section-gaps.jpg",
+     "crop": "1440-09-section-gaps.jpg",
      "fix": "use one gap between sections (all within 25% of each other)"
+    },
+    {
+     "check": "photo-set",
+     "sev": "WARN",
+     "sel": "main#top > section.hero.hero--place > picture.hero__bg > img",
+     "text": "photo-f194185160.jpg",
+     "stop": 0,
+     "msg": "2 photographs in more than one look: saturation from 0.11 to 0.53; the odd one out is photo-f194185160.jpg",
+     "crop": "1440-03-photo-set.jpg",
+     "fix": "grade the photographs to one look (light, colour, warmth), or replace the odd one out"
     },
     {
      "check": "photo-credit",
@@ -157,7 +136,7 @@
      "text": "Réserver un rendez-vous",
      "msg": "47% of the section is empty: 336px of empty rows between its content, in its 720px of rows (WARN over 35%, FAIL over 50%)",
      "stop": 2,
-     "crop": "1440-11-empty-area.jpg",
+     "crop": "1440-10-empty-area.jpg",
      "fix": "fill the section: a picture or a second column beside the words, or more of its own content; the section stays one or two screens tall (T-height)"
     },
     {
@@ -167,7 +146,7 @@
      "text": "réserver un rendez-vous",
      "stop": 5,
      "msg": "\"réserver un rendez-vous\" shows 2 times on the first screen at 1440px (nav, hero): the nav's button and the hero's; nothing else on the screen may repeat it",
-     "crop": "1440-13-action-repeat.jpg",
+     "crop": "1440-12-action-repeat.jpg",
      "fix": "show the action once a screen besides the nav's button: the hero's, the close's or the phone bar's, never all at once"
     },
     {
@@ -183,22 +162,12 @@
     {
      "check": "row-lines",
      "sev": "FAIL",
-     "sel": "footer#contact > div.wrap > div.closing__links > div.grid",
-     "text": "Esthétique Hélène Chatelois Institut d'e",
-     "msg": "a row of 4 items: its last item ends at 1116px, the container's right line at 1320px (2px either way) (SR-7)",
+     "sel": "section#soins > div.wrap > div.grid.grid--top",
+     "text": "Soins du regard Maquillage permanentMicr",
+     "msg": "a row of 3 items: its text groups beside each other are 200/175px tall, not one height (2px either way) (SR-7)",
      "fix": "start the row's first item on the container's left line and end its last on the right line, every item one height",
      "rule": "SR-7 T-rows",
      "crop": "1440-rhythm-02-row-lines.jpg"
-    },
-    {
-     "check": "row-lines",
-     "sev": "FAIL",
-     "sel": "section#soins > div.wrap > div.grid.grid--top",
-     "text": "Soins du regard Maquillage permanentMicr",
-     "msg": "a row of 3 items: its text groups beside each other are 225/175px tall, not one height (2px either way) (SR-7)",
-     "fix": "start the row's first item on the container's left line and end its last on the right line, every item one height",
-     "rule": "SR-7 T-rows",
-     "crop": "1440-rhythm-03-row-lines.jpg"
     }
    ],
    "glAsked": 0
@@ -211,34 +180,24 @@
    "errors": [],
    "findings": [
     {
-     "check": "empty-visual",
-     "sev": "FAIL",
-     "sel": "main#top > section.hero.hero--place > picture.hero__bg > img",
-     "text": "photo-f194185160-1280.webp",
-     "stop": 0,
-     "msg": "the picture shows nothing here: 99% of it is one colour (#ecebe7); its image photo-f194185160-1280.webp did not load",
-     "crop": "1024-01-empty-visual.jpg",
-     "fix": "make the visual draw at every width: a picture that loads, an effect that renders, or its still fallback; never an empty frame"
-    },
-    {
-     "check": "empty-visual",
-     "sev": "FAIL",
-     "sel": "div.wrap > div.grid.grid--top > figure.pl-photo.span-6 > img",
-     "text": "photo-m61777177-960.webp",
-     "stop": 1,
-     "msg": "the picture shows nothing here: 94% of it is one colour (#ecebe7); its image photo-m61777177-960.webp did not load",
-     "crop": "1024-03-empty-visual.jpg",
-     "fix": "make the visual draw at every width: a picture that loads, an effect that renders, or its still fallback; never an empty frame"
-    },
-    {
      "check": "scroll-reveal",
      "sev": "WARN",
      "sel": "section#soins > div.wrap > div.grid.grid--top > figure.pl-photo.span-6",
      "text": "",
      "msg": "starts an animation (1.6 s) the moment it is scrolled into view (an IntersectionObserver) on img (inside a dealt moment's section, [data-moment]: an enter moment is expected on every kind; its still is judged under reduced motion)",
      "stop": 1,
-     "crop": "1024-04-scroll-reveal.jpg",
+     "crop": "1024-02-scroll-reveal.jpg",
      "fix": "show it at rest: no fade, rise or unmask when it is scrolled into view"
+    },
+    {
+     "check": "photo-set",
+     "sev": "WARN",
+     "sel": "div.wrap > div.grid.grid--top > figure.pl-photo.span-6 > img",
+     "text": "photo-m61777177-960.jpg",
+     "stop": 1,
+     "msg": "2 photographs in more than one look: saturation from 0.11 to 0.53; the odd one out is photo-m61777177-960.jpg",
+     "crop": "1024-03-photo-set.jpg",
+     "fix": "grade the photographs to one look (light, colour, warmth), or replace the odd one out"
     },
     {
      "check": "label-centre",
@@ -247,7 +206,7 @@
      "text": "Réserver un rendez-vous",
      "msg": "its label sits 18px off-centre (25px of room at the left, 43px at the right) (and 1 more like it: \"Réserver un rendez-vous\")",
      "stop": 0,
-     "crop": "1024-02-label-centre.jpg",
+     "crop": "1024-01-label-centre.jpg",
      "fix": "centre the label in its button, or fill the empty side with an icon"
     },
     {
@@ -257,7 +216,7 @@
      "text": "réserver un rendez-vous",
      "stop": 4,
      "msg": "\"réserver un rendez-vous\" shows 2 times on the first screen at 1024px (nav, hero): the nav's button and the hero's; nothing else on the screen may repeat it",
-     "crop": "1024-05-action-repeat.jpg",
+     "crop": "1024-04-action-repeat.jpg",
      "fix": "show the action once a screen besides the nav's button: the hero's, the close's or the phone bar's, never all at once"
     }
    ],
@@ -266,28 +225,28 @@
   {
    "width": 820,
    "height": 1180,
-   "screens": 4,
+   "screens": 5,
    "held": 0,
    "errors": [],
    "findings": [
     {
-     "check": "empty-visual",
+     "check": "photo-upscale",
      "sev": "FAIL",
      "sel": "div.wrap > div.grid.grid--top > figure.pl-photo.span-6 > img",
-     "text": "photo-m61777177-960.webp",
+     "text": "img: Pile de plaids tricotés, pliés sur une table",
+     "msg": "photo-m61777177-960.jpg: 820x533 shown at 724x906, blown up 1.70x",
      "stop": 1,
-     "msg": "the picture shows nothing here: 99% of it is one colour (#ecebe7); its image photo-m61777177-960.webp did not load",
-     "crop": "820-02-empty-visual.jpg",
-     "fix": "make the visual draw at every width: a picture that loads, an effect that renders, or its still fallback; never an empty frame"
+     "crop": "820-02-photo-upscale.jpg",
+     "fix": "use a source at least as wide as the picture is shown (twice that for sharp screens)"
     },
     {
      "check": "empty-area",
      "sev": "FAIL",
      "sel": "footer#contact",
      "text": "Réserver un rendez-vous",
-     "msg": "58% of the section is empty: 480px of empty rows between its content, 9% beside content that covers under half the container, in its 988px of rows (WARN over 35%, FAIL over 50%)",
+     "msg": "55% of the section is empty: 416px of empty rows between its content, 14% beside content that covers under half the container, in its 988px of rows (WARN over 35%, FAIL over 50%)",
      "stop": 3,
-     "crop": "820-05-empty-area.jpg",
+     "crop": "820-04-empty-area.jpg",
      "fix": "fill the section: a picture or a second column beside the words, or more of its own content; the section stays one or two screens tall (T-height)"
     },
     {
@@ -301,6 +260,26 @@
      "fix": "show it at rest: no fade, rise or unmask when it is scrolled into view"
     },
     {
+     "check": "section-gaps",
+     "sev": "WARN",
+     "sel": "main#top > section.hero.hero--place / section#soins",
+     "text": "",
+     "stop": 5,
+     "msg": "343px between these sections, +28% against the median 269px",
+     "crop": "820-06-section-gaps.jpg",
+     "fix": "use one gap between sections (all within 25% of each other)"
+    },
+    {
+     "check": "section-gaps",
+     "sev": "WARN",
+     "sel": "section#soins / footer#contact",
+     "text": "",
+     "stop": 3,
+     "msg": "194px between these sections, -28% against the median 269px",
+     "crop": "820-05-section-gaps.jpg",
+     "fix": "use one gap between sections (all within 25% of each other)"
+    },
+    {
      "check": "label-centre",
      "sev": "WARN",
      "sel": "header.nav.nav--split > div.wrap.nav__bar > div.nav__actions > a.btn.btn--primary",
@@ -311,21 +290,11 @@
      "fix": "centre the label in its button, or fill the empty side with an icon"
     },
     {
-     "check": "visual-caption",
-     "sev": "WARN",
-     "sel": "div#regard > p.t-label",
-     "text": "Soins du regard",
-     "msg": "a muted 13px line of 1 row sits 16px under the picture photo-m61777177-960.webp: it reads as a caption: \"Soins du regard\"; no caption or description under any image, render or visual (house rule)",
-     "stop": 1,
-     "crop": "820-04-visual-caption.jpg",
-     "fix": "take the line away: no caption or description under, over or on any image, render or visual; a licence credit goes in one footer line"
-    },
-    {
      "check": "section-height",
      "sev": "FAIL",
      "sel": "section#soins",
      "text": "Nos soins Maquillage permanent, épilatio",
-     "msg": "the scene's section is 1402px tall (1.2 screens), 222px over one screen (1180px): every section after the hero is one screen or two, 2px either way; a pinned scene is (hold + 1) screens tall, so write data-big-scene-opts='{\"hold\": 1}' (two screens) and keep --h on the section (SR-2)",
+     "msg": "the scene's section is 1916px tall (1.6 screens), 444px short of two screens (2360px): every section after the hero is one screen or two, 2px either way; a pinned scene is (hold + 1) screens tall, so write data-big-scene-opts='{\"hold\": 1}' (two screens) and keep --h on the section (SR-2)",
      "fix": "set the section to one screen or two (height: calc(var(--h,1) * 100vh), --h 1 or 2) and cut or split its content to fit",
      "rule": "SR-2 T-height",
      "crop": "820-rhythm-01-section-height.jpg"
@@ -334,31 +303,21 @@
      "check": "section-height",
      "sev": "FAIL",
      "sel": "footer#contact",
-     "text": "Réserver un rendez-vousDu lundi au jeudi",
-     "msg": "the section starts at 2582px, 222px below the screen grid (2 x 1180px): sections start on whole screens (SR-2)",
+     "text": "Réserver un rendez-vousPar téléphone, du",
+     "msg": "the section starts at 3096px, 444px above the screen grid (3 x 1180px): sections start on whole screens (SR-2)",
      "fix": "make every section above it exactly one or two screens tall, so this one starts on a whole screen",
      "rule": "SR-2 T-grid",
      "crop": "820-rhythm-02-section-height.jpg"
     },
     {
      "check": "one-section",
-     "sev": "WARN",
-     "sel": "section#soins",
-     "text": "Nos soins Maquillage permanent, épilatio",
-     "msg": "the screen at scroll 2360px (stride 2) shows 150px of section 2 and the content of 2 sections, over 24px each beside section 3: a screen shows one section (another may peek 8px, 24px WARN) (it is in a scroll scene: told as a WARN) (SR-4)",
+     "sev": "FAIL",
+     "sel": "h2#close-h",
+     "text": "Réserver un rendez-vous",
+     "msg": "the screen at scroll 2360px (stride 2) shows 444px of section 3 and the heading of section 3 whole and the content of 2 sections, over 24px each beside section 2: a screen shows one section (another may peek 8px, 24px WARN) (SR-4)",
      "fix": "make each section exactly one screen or two, so a screen shows one section and no neighbour peeks",
      "rule": "SR-4 T-views",
-     "crop": "820-rhythm-05-one-section.jpg"
-    },
-    {
-     "check": "row-lines",
-     "sev": "FAIL",
-     "sel": "section#soins > div.wrap > div.grid.grid--top",
-     "text": "Soins du regard Maquillage permanentMicr",
-     "msg": "a row of 2 items: its last item ends at 523px, the container's right line at 772px (2px either way) (SR-7)",
-     "fix": "start the row's first item on the container's left line and end its last on the right line, every item one height",
-     "rule": "SR-7 T-rows",
-     "crop": "820-rhythm-03-row-lines.jpg"
+     "crop": "820-rhythm-03-one-section.jpg"
     },
     {
      "check": "row-lines",
@@ -376,29 +335,19 @@
   {
    "width": 768,
    "height": 1024,
-   "screens": 4,
+   "screens": 5,
    "held": 0,
    "errors": [],
    "findings": [
     {
-     "check": "empty-visual",
+     "check": "photo-upscale",
      "sev": "FAIL",
      "sel": "div.wrap > div.grid.grid--top > figure.pl-photo.span-6 > img",
-     "text": "photo-m61777177-960.webp",
+     "text": "img: Pile de plaids tricotés, pliés sur une table",
+     "msg": "photo-m61777177-960.jpg: 768x499 shown at 672x750, blown up 1.50x",
      "stop": 1,
-     "msg": "the picture shows nothing here: 98% of it is one colour (#ecebe7); its image photo-m61777177-960.webp did not load",
-     "crop": "768-02-empty-visual.jpg",
-     "fix": "make the visual draw at every width: a picture that loads, an effect that renders, or its still fallback; never an empty frame"
-    },
-    {
-     "check": "hole",
-     "sev": "FAIL",
-     "sel": "section#soins",
-     "text": "Nos soins",
-     "msg": "an empty hole 351x364px inside the section (36% of the screen's height), with content above and below it",
-     "stop": 2,
-     "crop": "768-05-hole.jpg",
-     "fix": "close the empty space: move the content together, or give the space the visual it lacks"
+     "crop": "768-02-photo-upscale.jpg",
+     "fix": "use a source at least as wide as the picture is shown (twice that for sharp screens)"
     },
     {
      "check": "scroll-reveal",
@@ -421,23 +370,13 @@
      "fix": "centre the label in its button, or fill the empty side with an icon"
     },
     {
-     "check": "visual-caption",
-     "sev": "WARN",
-     "sel": "div#regard > p.t-label",
-     "text": "Soins du regard",
-     "msg": "a muted 13px line of 1 row sits 16px under the picture photo-m61777177-960.webp: it reads as a caption: \"Soins du regard\"; no caption or description under any image, render or visual (house rule)",
-     "stop": 1,
-     "crop": "768-04-visual-caption.jpg",
-     "fix": "take the line away: no caption or description under, over or on any image, render or visual; a licence credit goes in one footer line"
-    },
-    {
      "check": "empty-area",
      "sev": "WARN",
      "sel": "footer#contact",
      "text": "Réserver un rendez-vous",
-     "msg": "50% of the section is empty: 336px of empty rows between its content, 9% beside content that covers under half the container, in its 832px of rows (WARN over 35%, FAIL over 50%)",
+     "msg": "47% of the section is empty: 272px of empty rows between its content, 14% beside content that covers under half the container, in its 832px of rows (WARN over 35%, FAIL over 50%)",
      "stop": 3,
-     "crop": "768-06-empty-area.jpg",
+     "crop": "768-04-empty-area.jpg",
      "fix": "fill the section: a picture or a second column beside the words, or more of its own content; the section stays one or two screens tall (T-height)"
     },
     {
@@ -445,7 +384,7 @@
      "sev": "FAIL",
      "sel": "section#soins",
      "text": "Nos soins Maquillage permanent, épilatio",
-     "msg": "the scene's section is 1392px tall (1.4 screens), 368px over one screen (1024px): every section after the hero is one screen or two, 2px either way; a pinned scene is (hold + 1) screens tall, so write data-big-scene-opts='{\"hold\": 1}' (two screens) and keep --h on the section (SR-2)",
+     "msg": "the scene's section is 1760px tall (1.7 screens), 288px short of two screens (2048px): every section after the hero is one screen or two, 2px either way; a pinned scene is (hold + 1) screens tall, so write data-big-scene-opts='{\"hold\": 1}' (two screens) and keep --h on the section (SR-2)",
      "fix": "set the section to one screen or two (height: calc(var(--h,1) * 100vh), --h 1 or 2) and cut or split its content to fit",
      "rule": "SR-2 T-height",
      "crop": "768-rhythm-01-section-height.jpg"
@@ -454,31 +393,21 @@
      "check": "section-height",
      "sev": "FAIL",
      "sel": "footer#contact",
-     "text": "Réserver un rendez-vousDu lundi au jeudi",
-     "msg": "the section starts at 2416px, 368px below the screen grid (2 x 1024px): sections start on whole screens (SR-2)",
+     "text": "Réserver un rendez-vousPar téléphone, du",
+     "msg": "the section starts at 2784px, 288px above the screen grid (3 x 1024px): sections start on whole screens (SR-2)",
      "fix": "make every section above it exactly one or two screens tall, so this one starts on a whole screen",
      "rule": "SR-2 T-grid",
      "crop": "768-rhythm-02-section-height.jpg"
     },
     {
      "check": "one-section",
-     "sev": "WARN",
-     "sel": "section#soins",
-     "text": "Nos soins Maquillage permanent, épilatio",
-     "msg": "the screen at scroll 2048px (stride 2) shows 296px of section 2 and the content of 2 sections, over 24px each beside section 3: a screen shows one section (another may peek 8px, 24px WARN) (it is in a scroll scene: told as a WARN) (SR-4)",
+     "sev": "FAIL",
+     "sel": "h2#close-h",
+     "text": "Réserver un rendez-vous",
+     "msg": "the screen at scroll 2048px (stride 2) shows 288px of section 3 and the heading of section 3 whole and the content of 2 sections, over 24px each beside section 2: a screen shows one section (another may peek 8px, 24px WARN) (SR-4)",
      "fix": "make each section exactly one screen or two, so a screen shows one section and no neighbour peeks",
      "rule": "SR-4 T-views",
-     "crop": "768-rhythm-05-one-section.jpg"
-    },
-    {
-     "check": "row-lines",
-     "sev": "FAIL",
-     "sel": "section#soins > div.wrap > div.grid.grid--top",
-     "text": "Soins du regard Maquillage permanentMicr",
-     "msg": "a row of 2 items: its last item ends at 488px, the container's right line at 720px (2px either way) (SR-7)",
-     "fix": "start the row's first item on the container's left line and end its last on the right line, every item one height",
-     "rule": "SR-7 T-rows",
-     "crop": "768-rhythm-03-row-lines.jpg"
+     "crop": "768-rhythm-03-one-section.jpg"
     },
     {
      "check": "row-lines",
@@ -501,14 +430,24 @@
    "errors": [],
    "findings": [
     {
-     "check": "empty-visual",
+     "check": "section-gaps",
      "sev": "FAIL",
-     "sel": "div.wrap > div.grid.grid--top > figure.pl-photo.span-6 > img",
-     "text": "photo-m61777177-960.webp",
-     "stop": 2,
-     "msg": "the picture shows nothing here: 96% of it is one colour (#ecebe7); its image photo-m61777177-960.webp did not load",
-     "crop": "390-02-empty-visual.jpg",
-     "fix": "make the visual draw at every width: a picture that loads, an effect that renders, or its still fallback; never an empty frame"
+     "sel": "main#top > section.hero.hero--place / section#soins",
+     "text": "",
+     "stop": 1,
+     "msg": "119px between these sections, -60% against the median 301px",
+     "crop": "390-01-section-gaps.jpg",
+     "fix": "use one gap between sections (all within 25% of each other)"
+    },
+    {
+     "check": "section-gaps",
+     "sev": "FAIL",
+     "sel": "section#soins / footer#contact",
+     "text": "",
+     "stop": 5,
+     "msg": "482px between these sections, +60% against the median 301px",
+     "crop": "390-04-section-gaps.jpg",
+     "fix": "use one gap between sections (all within 25% of each other)"
     },
     {
      "check": "scroll-reveal",
@@ -517,77 +456,28 @@
      "text": "",
      "msg": "starts an animation (1.6 s) the moment it is scrolled into view (an IntersectionObserver) on img (inside a dealt moment's section, [data-moment]: an enter moment is expected on every kind; its still is judged under reduced motion)",
      "stop": 2,
-     "crop": "390-03-scroll-reveal.jpg",
+     "crop": "390-02-scroll-reveal.jpg",
      "fix": "show it at rest: no fade, rise or unmask when it is scrolled into view"
     },
     {
-     "check": "section-gaps",
+     "check": "photo-set",
      "sev": "WARN",
-     "sel": "main#top > section.hero.hero--place / section#soins",
-     "text": "",
-     "stop": 1,
-     "msg": "119px between these sections, -30% against the median 169px",
-     "crop": "390-01-section-gaps.jpg",
-     "fix": "use one gap between sections (all within 25% of each other)"
-    },
-    {
-     "check": "section-gaps",
-     "sev": "WARN",
-     "sel": "section#soins / footer#contact",
-     "text": "",
-     "stop": 3,
-     "msg": "219px between these sections, +30% against the median 169px",
-     "crop": "390-04-section-gaps.jpg",
-     "fix": "use one gap between sections (all within 25% of each other)"
+     "sel": "div.wrap > div.grid.grid--top > figure.pl-photo.span-6 > img",
+     "text": "photo-m61777177-960.jpg",
+     "stop": 2,
+     "msg": "2 photographs in more than one look: saturation from 0.13 to 0.44; the odd one out is photo-m61777177-960.jpg",
+     "crop": "390-03-photo-set.jpg",
+     "fix": "grade the photographs to one look (light, colour, warmth), or replace the odd one out"
     },
     {
      "check": "section-height",
      "sev": "FAIL",
-     "sel": "section#soins",
-     "text": "Nos soins Maquillage permanent, épilatio",
-     "msg": "the scene's section is 1450px tall (1.7 screens), 238px short of two screens (1688px): every section after the hero is one screen or two, 2px either way; a pinned scene is (hold + 1) screens tall, so write data-big-scene-opts='{\"hold\": 1}' (two screens) and keep --h on the section (SR-2)",
+     "sel": "footer#contact",
+     "text": "Réserver un rendez-vousPar téléphone, du",
+     "msg": "the section is 909px tall (1.1 screens), 65px over one screen (844px): every section after the hero is one screen or two, 2px either way (SR-2)",
      "fix": "set the section to one screen or two (height: calc(var(--h,1) * 100vh), --h 1 or 2) and cut or split its content to fit",
      "rule": "SR-2 T-height",
      "crop": "390-rhythm-01-section-height.jpg"
-    },
-    {
-     "check": "section-height",
-     "sev": "FAIL",
-     "sel": "footer#contact",
-     "text": "Réserver un rendez-vousDu lundi au jeudi",
-     "msg": "the section is 882px tall (1 screens), 38px over one screen (844px): every section after the hero is one screen or two, 2px either way (SR-2)",
-     "fix": "set the section to one screen or two (height: calc(var(--h,1) * 100vh), --h 1 or 2) and cut or split its content to fit",
-     "rule": "SR-2 T-height",
-     "crop": "390-rhythm-02-section-height.jpg"
-    },
-    {
-     "check": "section-height",
-     "sev": "FAIL",
-     "sel": "footer#contact",
-     "text": "Réserver un rendez-vousDu lundi au jeudi",
-     "msg": "the section starts at 2294px, 238px above the screen grid (3 x 844px): sections start on whole screens (SR-2)",
-     "fix": "make every section above it exactly one or two screens tall, so this one starts on a whole screen",
-     "rule": "SR-2 T-grid",
-     "crop": "390-rhythm-03-section-height.jpg"
-    },
-    {
-     "check": "one-section",
-     "sev": "FAIL",
-     "sel": "h2#close-h",
-     "text": "Réserver un rendez-vous",
-     "msg": "the screen at scroll 1688px (stride 2) shows 238px of section 3 and the heading of section 3 whole and the content of 2 sections, over 24px each beside section 2: a screen shows one section (another may peek 8px, 24px WARN) (SR-4)",
-     "fix": "make each section exactly one screen or two, so a screen shows one section and no neighbour peeks",
-     "rule": "SR-4 T-views",
-     "crop": "390-rhythm-04-one-section.jpg"
-    },
-    {
-     "check": "empty-visual",
-     "sev": "FAIL",
-     "sel": "img (photo-m61777177-960.webp)",
-     "text": "photo-m61777177-960.webp",
-     "msg": "on a phone over a slow mobile line (1.6 Mbit/s) the frame of photo-m61777177-960.webp is still empty 1 s after it comes on screen (scrolled to at a reading pace): the file is 134 KB, and 3.5 s later it has not arrived",
-     "fix": "serve the photograph at the size it is drawn (srcset and sizes: an 800px file for the phone), load it before it is reached (no loading=lazy on the next screen), or give the frame a blurred still of it",
-     "crop": "390-slow-01-empty-visual.jpg"
     }
    ],
    "glAsked": 0
@@ -603,7 +493,7 @@
  },
  "slow": {
   "stops": 5,
-  "late": 1
+  "late": 0
  },
  "sweep": {
   "widths": [
@@ -621,14 +511,14 @@
   "findings": []
  },
  "counts": {
-  "FAIL": 30,
-  "WARN": 24
+  "FAIL": 20,
+  "WARN": 23
  },
  "checks": {
   "assets": "FAIL",
   "shader-lint": "PASS",
   "gl-fallback": "PASS",
-  "empty-visual": "FAIL",
+  "empty-visual": "PASS",
   "hero-fill": "PASS",
   "flush": "PASS",
   "placeholder": "PASS",
@@ -689,13 +579,13 @@
   "text-contrast": "PASS",
   "body-size": "PASS",
   "busy-ground": "PASS",
-  "section-gaps": "WARN",
+  "section-gaps": "FAIL",
   "proximity": "PASS",
-  "hole": "FAIL",
+  "hole": "PASS",
   "links": "PASS",
   "forms": "PASS",
-  "photo-upscale": "PASS",
-  "photo-set": "PASS",
+  "photo-upscale": "FAIL",
+  "photo-set": "WARN",
   "photo-credit": "WARN",
   "nav-family": "PASS",
   "nav-labels": "PASS",
@@ -727,7 +617,7 @@
   "product-shown": "PASS",
   "same-object": "PASS",
   "font-load": "PASS",
-  "visual-caption": "WARN",
+  "visual-caption": "PASS",
   "visual-empty": "PASS",
   "effect-kind": "PASS",
   "hero-enter": "PASS",

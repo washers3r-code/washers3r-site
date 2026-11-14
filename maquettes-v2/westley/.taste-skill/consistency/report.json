@@ -1,16 +1,16 @@
 {
  "page": "/home/user/washers3r-site/maquettes-v2/westley/index.html",
- "url": "http://127.0.0.1:5201/index.html",
- "at": "2026-11-14T07:09:31.101Z",
+ "url": "http://127.0.0.1:5200/index.html",
+ "at": "2026-11-14T07:19:26.209Z",
  "out": "/home/user/washers3r-site/maquettes-v2/westley/.taste-skill/consistency",
  "widths": [
   {
    "width": 1440,
    "height": 900,
-   "screens": 7,
+   "screens": 6,
    "held": 0,
    "errors": [
-    "effect-kind: could not read http://127.0.0.1:5201/assets/backgrounds/backgrounds.js (HTTP 404)"
+    "effect-kind: could not read http://127.0.0.1:5200/assets/backgrounds/backgrounds.js (HTTP 404)"
    ],
    "findings": [
     {
@@ -34,12 +34,62 @@
     {
      "check": "empty-visual",
      "sev": "FAIL",
-     "sel": "main#top > section.hero.hero--place > img.hero__bg",
-     "text": "photo-f199837380-960.webp",
+     "sel": "main#top > section.hero.hero--place > picture.hero__bg > img",
+     "text": "photo-f199837380-1280.webp",
      "stop": 0,
-     "msg": "the picture shows nothing here: 99% of it is one colour (#ddd6c6); its image photo-f199837380-960.webp did not load (and 7 more like it: \"photo-f26799429-960.webp\", \"photo-f164303765-960.web\", \"photo-f61843796-960.webp\", \"photo-f59861190-960.webp\", ...)",
+     "msg": "the picture shows nothing here: 99% of it is one colour (#ddd6c6); its image photo-f199837380-1280.webp did not load (and 6 more like it: \"photo-f26799429-960.webp\", \"photo-f61843796-960.webp\", \"photo-f59861190-960.webp\", \"photo-f104101424-960.web\", ...)",
      "crop": "1440-01-empty-visual.jpg",
      "fix": "make the visual draw at every width: a picture that loads, an effect that renders, or its still fallback; never an empty frame"
+    },
+    {
+     "check": "empty-visual",
+     "sev": "FAIL",
+     "sel": "div.grid.grid--top > div.offer__photo.span-6 > figure.pl-photo.develop > img",
+     "text": "photo-f164303765-960.webp",
+     "stop": 3,
+     "msg": "the picture shows nothing here: 73% of it is one colour (#d1cab8); its image photo-f164303765-960.webp did not load",
+     "crop": "1440-06-empty-visual.jpg",
+     "fix": "make the visual draw at every width: a picture that loads, an effect that renders, or its still fallback; never an empty frame"
+    },
+    {
+     "check": "flush",
+     "sev": "FAIL",
+     "sel": "div.grid.grid--top > div.offer__photo.span-6 > figure.pl-photo.develop > img",
+     "text": "img: Planche de charcuteries et fromages, pain gr",
+     "msg": "its last line sits -43px above the lower edge of section#offer, where the ground changes to section#place",
+     "stop": 3,
+     "crop": "1440-07-flush.jpg",
+     "fix": "give the section its padding at the edge where the ground changes (the closing call keeps a clear gap above the footer)"
+    },
+    {
+     "check": "flush",
+     "sev": "FAIL",
+     "sel": "section#place > div.wrap > div.place__quote > p.t-small.muted",
+     "text": "RecognizeExcellentPp, avis TripAdvisor",
+     "msg": "section#place and footer#contact run together: -190px between their content, on one ground",
+     "stop": 4,
+     "crop": "1440-11-flush.jpg",
+     "fix": "give the section its padding at the edge where the ground changes (the closing call keeps a clear gap above the footer)"
+    },
+    {
+     "check": "spill",
+     "sev": "FAIL",
+     "sel": "div.grid.grid--top > div.offer__photo.span-6 > figure.pl-photo.develop > img",
+     "text": "img: Planche de charcuteries et fromages, pain gr",
+     "msg": "runs 43px past the bottom edge of the panel it sits on (section#offer)",
+     "stop": 3,
+     "crop": "1440-08-spill.jpg",
+     "fix": "keep the box inside the panel it starts on: shrink it, or grow the panel to hold it"
+    },
+    {
+     "check": "overlap-text",
+     "sev": "FAIL",
+     "sel": "h2#close-h",
+     "text": "Réserver une table chez Westley",
+     "msg": "lies over the text \"“Westley, and the incredible people ther\" (div.place__quote > blockquote)",
+     "stop": 4,
+     "crop": "1440-12-overlap-text.jpg",
+     "fix": "move the box off the text (or the text off the box)"
     },
     {
      "check": "cut-text",
@@ -47,8 +97,8 @@
      "sel": "footer#contact > div.wrap > div.closing__cta.close--word > p.close__word",
      "text": "Westley",
      "msg": "cut 39px at the top by the overflow of footer#contact > div.wrap > div.closing__cta.close--word > p.close__word",
-     "stop": 6,
-     "crop": "1440-10-cut-text.jpg",
+     "stop": 5,
+     "crop": "1440-14-cut-text.jpg",
      "fix": "give the text room: no overflow clipping a line, no line past its box"
     },
     {
@@ -67,17 +117,7 @@
      "sel": "section#offer / section#place",
      "text": "",
      "stop": 3,
-     "msg": "77px between these sections, -72% against the median 273px",
-     "crop": "1440-06-section-gaps.jpg",
-     "fix": "use one gap between sections (all within 25% of each other)"
-    },
-    {
-     "check": "section-gaps",
-     "sev": "FAIL",
-     "sel": "section#place / footer#contact",
-     "text": "",
-     "stop": 5,
-     "msg": "664px between these sections, +143% against the median 273px",
+     "msg": "77px between these sections, -69% against the median 247px",
      "crop": "1440-09-section-gaps.jpg",
      "fix": "use one gap between sections (all within 25% of each other)"
     },
@@ -88,18 +128,8 @@
      "text": "",
      "msg": "starts an animation (1.6 s) the moment it is scrolled into view (an IntersectionObserver) on img (inside a dealt moment's section, [data-moment]: an enter moment is expected on every kind; its still is judged under reduced motion)",
      "stop": 3,
-     "crop": "1440-07-scroll-reveal.jpg",
+     "crop": "1440-10-scroll-reveal.jpg",
      "fix": "show it at rest: no fade, rise or unmask when it is scrolled into view"
-    },
-    {
-     "check": "cta",
-     "sev": "WARN",
-     "sel": "section#place",
-     "text": "Le bistro",
-     "msg": "a section over 1.5 screens long with no link or button in it",
-     "stop": 4,
-     "crop": "1440-08-cta.jpg",
-     "fix": "add the action: a button in the hero, one on every priced item, one in the closing section"
     },
     {
      "check": "copy-buttons",
@@ -112,44 +142,14 @@
      "fix": "label buttons with a verb and what the visitor gets (\"Book a room\", \"Start free trial\")"
     },
     {
-     "check": "links",
+     "check": "section-gaps",
      "sev": "WARN",
-     "sel": "div.span-2.footer__col:nth-of-type(4) > ul > li:nth-of-type(2) > a",
-     "text": "Nous écrire",
-     "msg": "\"Nous écrire\" goes to #contact, the block it already sits in",
-     "stop": 6,
-     "crop": "1440-11-links.jpg",
-     "fix": "point every link at a real section, page or file"
-    },
-    {
-     "check": "links",
-     "sev": "WARN",
-     "sel": "div.closing__links > div.footer__legal > span > a:nth-of-type(1)",
-     "text": "Confidentialité",
-     "msg": "\"Confidentialité\" goes to privacy.html, which does not exist here",
-     "stop": 6,
-     "crop": "1440-12-links.jpg",
-     "fix": "point every link at a real section, page or file"
-    },
-    {
-     "check": "links",
-     "sev": "WARN",
-     "sel": "div.closing__links > div.footer__legal > span > a:nth-of-type(2)",
-     "text": "Conditions",
-     "msg": "\"Conditions\" goes to terms.html, which does not exist here",
-     "stop": 6,
-     "crop": "1440-13-links.jpg",
-     "fix": "point every link at a real section, page or file"
-    },
-    {
-     "check": "links",
-     "sev": "WARN",
-     "sel": "div.wrap > div.closing__links > div.footer__legal > a.credits",
-     "text": "Photographies via Wikimedia Commons",
-     "msg": "\"Photographies via Wikimedia Commons\" goes to credits.html, which does not exist here",
-     "stop": 6,
-     "crop": "1440-14-links.jpg",
-     "fix": "point every link at a real section, page or file"
+     "sel": "section#place / footer#contact",
+     "text": "",
+     "stop": 4,
+     "msg": "the sections overlap by 190px",
+     "crop": "1440-13-section-gaps.jpg",
+     "fix": "use one gap between sections (all within 25% of each other)"
     },
     {
      "check": "photo-credit",
@@ -171,33 +171,6 @@
      "fix": "name each nav link after the heading of the section it opens"
     },
     {
-     "check": "nav-labels",
-     "sev": "WARN",
-     "sel": "div.nav__item:nth-of-type(1) > div.nav__menu > div.wrap.grid > a.menu-card.span-4:nth-of-type(2)",
-     "text": "Vins d'importation privée",
-     "msg": "\"Vins d'importation privée\" opens a section headed \"Au menu\"",
-     "stop": null,
-     "fix": "name each nav link after the heading of the section it opens"
-    },
-    {
-     "check": "nav-labels",
-     "sev": "WARN",
-     "sel": "div.nav__item:nth-of-type(1) > div.nav__menu > div.wrap.grid > a.menu-card.span-4:nth-of-type(3)",
-     "text": "Cocktails signature",
-     "msg": "\"Cocktails signature\" opens a section headed \"Au menu\"",
-     "stop": null,
-     "fix": "name each nav link after the heading of the section it opens"
-    },
-    {
-     "check": "nav-labels",
-     "sev": "WARN",
-     "sel": "div.nav__item:nth-of-type(1) > div.nav__menu > div.wrap.grid > a.menu-card.span-4:nth-of-type(1)",
-     "text": "Menu saisonnier",
-     "msg": "3 entries of one menu go to the same place (#offer): \"Menu saisonnier\", \"Vins d'importation privée\", \"Cocktails signature\"",
-     "fix": "give each menu entry its own target (its section, its tab, its page), or show fewer entries",
-     "stop": null
-    },
-    {
      "check": "nav-current",
      "sev": "WARN",
      "sel": "header.nav",
@@ -212,7 +185,7 @@
      "sev": "WARN",
      "sel": "header.nav > div.wrap.nav__bar > div.nav__actions > a.btn.btn--primary",
      "text": "réserver une table",
-     "stop": 8,
+     "stop": 7,
      "msg": "\"réserver une table\" shows 2 times on the first screen at 1440px (nav, hero): the nav's button and the hero's; nothing else on the screen may repeat it",
      "crop": "1440-15-action-repeat.jpg",
      "fix": "show the action once a screen besides the nav's button: the hero's, the close's or the phone bar's, never all at once"
@@ -220,9 +193,9 @@
     {
      "check": "section-height",
      "sev": "FAIL",
-     "sel": "section#offer",
-     "text": "Au menu Sur place Menu saisonnierCuisine",
-     "msg": "the section's content does not fit it: its content is 43px taller than the section (scrollHeight 943, clientHeight 900); its lowest content ends 943px below its top, past 828px (the section less 72px of bottom padding); 2 parts lie outside the section's box (SR-2)",
+     "sel": "section#place",
+     "text": "Le bistro Avis TripAdvisor “Westley, and",
+     "msg": "the section's content does not fit it: its content is 312px taller than the section (scrollHeight 1212, clientHeight 900); its lowest content ends 1210px below its top, past 828px (the section less 72px of bottom padding); 8 parts lie outside the section's box (SR-2)",
      "fix": "fit the content above the section's bottom padding (--padb), or make it two screens (.g2) in two groups",
      "rule": "SR-2 T-fit",
      "crop": "1440-rhythm-01-section-height.jpg"
@@ -230,9 +203,9 @@
     {
      "check": "section-height",
      "sev": "FAIL",
-     "sel": "section#offer > div.wrap > div.grid.grid--top",
-     "text": "Sur place Menu saisonnierCuisine du terr",
-     "msg": "\"Sur place Menu saisonnierCuisine\" lies outside section 3 (208 to 943px from its top; the section is 900px tall) (SR-2)",
+     "sel": "section#offer",
+     "text": "Au menu Cocktails signature Sur place Me",
+     "msg": "the section's content does not fit it: its content is 43px taller than the section (scrollHeight 943, clientHeight 900); its lowest content ends 943px below its top, past 828px (the section less 72px of bottom padding); 2 parts lie outside the section's box (SR-2)",
      "fix": "fit the content above the section's bottom padding (--padb), or make it two screens (.g2) in two groups",
      "rule": "SR-2 T-fit",
      "crop": "1440-rhythm-02-section-height.jpg"
@@ -240,22 +213,32 @@
     {
      "check": "section-height",
      "sev": "FAIL",
-     "sel": "section#offer > div.wrap > div.grid.grid--top > div.offer__photo.span-6",
-     "text": "",
-     "msg": "the <div> lies outside section 3 (208 to 943px from its top; the section is 900px tall) (SR-2)",
+     "sel": "section#offer > div.wrap > div.grid.grid--top",
+     "text": "Sur place Menu saisonnierCuisine du terr",
+     "msg": "\"Sur place Menu saisonnierCuisine\" lies outside section 3 (208 to 943px from its top; the section is 900px tall) (and 4 more like it: section#offer > div.wrap > div.grid.grid--top > div.offer__photo.span-6, section#place > div.wrap > div.wall.grid, section#place > div.wrap > div.wall.grid > figure.pl-photo.span-6:nth-of-type(4)) (SR-2)",
      "fix": "fit the content above the section's bottom padding (--padb), or make it two screens (.g2) in two groups",
      "rule": "SR-2 T-fit",
      "crop": "1440-rhythm-03-section-height.jpg"
     },
     {
+     "check": "one-section",
+     "sev": "FAIL",
+     "sel": "section#place",
+     "text": "Le bistro Avis TripAdvisor “Westley, and",
+     "msg": "the screen at scroll 3600px (stride 4) shows 142px of section 4 and the content of 2 sections, over 24px each beside section 5: a screen shows one section (another may peek 8px, 24px WARN) (SR-4)",
+     "fix": "make each section exactly one screen or two, so a screen shows one section and no neighbour peeks",
+     "rule": "SR-4 T-views",
+     "crop": "1440-rhythm-04-one-section.jpg"
+    },
+    {
      "check": "container-edges",
      "sev": "FAIL",
-     "sel": "div.visit__cols > div.visit__col:nth-of-type(2) > dl.hours > dt:nth-of-type(3)",
-     "text": "Samedi",
-     "msg": "2 text blocks start on a left line at x 426, 306px from the container's left: text starts on the container's left, or on one split line (x 630, 732, 834) (also \"Dimanche–Lundi\") (SR-6)",
+     "sel": "div.wrap.grid > div.visit.visit--card > div.visit__head > h2",
+     "text": "Visite",
+     "msg": "the h2 starts 48px right of the container's left: every h1 and h2 starts on it, 2px either way (SR-6)",
      "fix": "start the text on the container's left, or on the one split line every split shares",
      "rule": "SR-6 T3-left-lines",
-     "crop": "1440-rhythm-04-container-edges.jpg"
+     "crop": "1440-rhythm-05-container-edges.jpg"
     },
     {
      "check": "row-lines",
@@ -263,16 +246,6 @@
      "sel": "footer#contact > div.wrap > div.closing__links > div.grid",
      "text": "Westley Bistro au menu saisonnier, vins ",
      "msg": "a row of 4 items: its last item ends at 1116px, the container's right line at 1320px (2px either way) (SR-7)",
-     "fix": "start the row's first item on the container's left line and end its last on the right line, every item one height",
-     "rule": "SR-7 T-rows",
-     "crop": "1440-rhythm-05-row-lines.jpg"
-    },
-    {
-     "check": "row-lines",
-     "sev": "FAIL",
-     "sel": "section#offer > div.wrap > div.grid.grid--top",
-     "text": "Sur place Menu saisonnierCuisine du terr",
-     "msg": "a row of 3 items: its text groups beside each other are 250/225px tall, not one height (2px either way) (SR-7)",
      "fix": "start the row's first item on the container's left line and end its last on the right line, every item one height",
      "rule": "SR-7 T-rows",
      "crop": "1440-rhythm-06-row-lines.jpg"
@@ -290,11 +263,21 @@
     {
      "check": "empty-visual",
      "sev": "FAIL",
-     "sel": "main#top > section.hero.hero--place > img.hero__bg",
-     "text": "photo-f199837380-960.webp",
+     "sel": "main#top > section.hero.hero--place > picture.hero__bg > img",
+     "text": "photo-f199837380-1280.webp",
      "stop": 0,
-     "msg": "the picture shows nothing here: 99% of it is one colour (#ddd6c6); its image photo-f199837380-960.webp did not load (and 7 more like it: \"photo-f26799429-960.webp\", \"photo-f164303765-960.web\", \"photo-f61843796-960.webp\", \"photo-f59861190-960.webp\", ...)",
+     "msg": "the picture shows nothing here: 99% of it is one colour (#ddd6c6); its image photo-f199837380-1280.webp did not load (and 6 more like it: \"photo-f26799429-960.webp\", \"photo-f61843796-960.webp\", \"photo-f59861190-960.webp\", \"photo-f104101424-960.web\", ...)",
      "crop": "1024-01-empty-visual.jpg",
+     "fix": "make the visual draw at every width: a picture that loads, an effect that renders, or its still fallback; never an empty frame"
+    },
+    {
+     "check": "empty-visual",
+     "sev": "FAIL",
+     "sel": "div.grid.grid--top > div.offer__photo.span-6 > figure.pl-photo.develop > img",
+     "text": "photo-f164303765-960.webp",
+     "stop": 2,
+     "msg": "the picture shows nothing here: 96% of it is one colour (#d1cab8); its image photo-f164303765-960.webp did not load",
+     "crop": "1024-04-empty-visual.jpg",
      "fix": "make the visual draw at every width: a picture that loads, an effect that renders, or its still fallback; never an empty frame"
     },
     {
@@ -303,19 +286,9 @@
      "sel": "footer#contact > div.wrap > div.closing__cta.close--word > p.close__word",
      "text": "Westley",
      "msg": "cut 28px at the top by the overflow of footer#contact > div.wrap > div.closing__cta.close--word > p.close__word",
-     "stop": 6,
+     "stop": 5,
      "crop": "1024-07-cut-text.jpg",
      "fix": "give the text room: no overflow clipping a line, no line past its box"
-    },
-    {
-     "check": "section-gaps",
-     "sev": "FAIL",
-     "sel": "section#place / footer#contact",
-     "text": "",
-     "stop": 5,
-     "msg": "664px between these sections, +151% against the median 265px",
-     "crop": "1024-05-section-gaps.jpg",
-     "fix": "use one gap between sections (all within 25% of each other)"
     },
     {
      "check": "scroll-reveal",
@@ -324,18 +297,18 @@
      "text": "",
      "msg": "starts an animation (1.6 s) the moment it is scrolled into view (an IntersectionObserver) on img (inside a dealt moment's section, [data-moment]: an enter moment is expected on every kind; its still is judged under reduced motion)",
      "stop": 2,
-     "crop": "1024-03-scroll-reveal.jpg",
+     "crop": "1024-05-scroll-reveal.jpg",
      "fix": "show it at rest: no fade, rise or unmask when it is scrolled into view"
     },
     {
-     "check": "cta",
+     "check": "section-gaps",
      "sev": "WARN",
-     "sel": "section#place",
-     "text": "Le bistro",
-     "msg": "a section over 1.5 screens long with no link or button in it",
-     "stop": 4,
-     "crop": "1024-04-cta.jpg",
-     "fix": "add the action: a button in the hero, one on every priced item, one in the closing section"
+     "sel": "section#visit / section#offer",
+     "text": "",
+     "stop": 2,
+     "msg": "300px between these sections, +35% against the median 223px of gaps at a change of ground",
+     "crop": "1024-06-section-gaps.jpg",
+     "fix": "use one gap between sections (all within 25% of each other)"
     },
     {
      "check": "nav-current",
@@ -348,21 +321,21 @@
      "fix": "mark the link of the section on screen (a colour, a weight or a line under it) as the visitor scrolls"
     },
     {
-     "check": "empty-area",
+     "check": "split-align",
      "sev": "WARN",
-     "sel": "section#place",
-     "text": "Le bistro",
-     "msg": "35% of the section is empty: 16px of empty rows between its content, 448px under its last (footer), 2% beside content that covers under half the container, in its 1372px of rows (WARN over 35%, FAIL over 50%)",
-     "stop": 5,
-     "crop": "1024-06-empty-area.jpg",
-     "fix": "fill the section: a picture or a second column beside the words, or more of its own content; the section stays one or two screens tall (T-height)"
+     "sel": "section#visit > div.wrap.grid",
+     "text": "Visite",
+     "msg": "the splits sit two ways: 1 to the middle of the taller side (\"Visite\"); 1 to the top of the taller side (\"Sur place Menu saisonn\")",
+     "fix": "set every split one way: the text to the top of its visual, or every one centred on it",
+     "stop": 1,
+     "crop": "1024-03-split-align.jpg"
     },
     {
      "check": "action-repeat",
      "sev": "WARN",
      "sel": "header.nav > div.wrap.nav__bar > div.nav__actions > a.btn.btn--primary",
      "text": "réserver une table",
-     "stop": 8,
+     "stop": 9,
      "msg": "\"réserver une table\" shows 2 times on the first screen at 1024px (nav, hero): the nav's button and the hero's; nothing else on the screen may repeat it",
      "crop": "1024-08-action-repeat.jpg",
      "fix": "show the action once a screen besides the nav's button: the hero's, the close's or the phone bar's, never all at once"
@@ -373,18 +346,28 @@
   {
    "width": 820,
    "height": 1180,
-   "screens": 8,
+   "screens": 7,
    "held": 0,
    "errors": [],
    "findings": [
     {
      "check": "empty-visual",
      "sev": "FAIL",
-     "sel": "main#top > section.hero.hero--place > img.hero__bg",
+     "sel": "main#top > section.hero.hero--place > picture.hero__bg > img",
      "text": "photo-f199837380-960.webp",
      "stop": 0,
-     "msg": "the picture shows nothing here: 99% of it is one colour (#ddd6c6); its image photo-f199837380-960.webp did not load (and 7 more like it: \"photo-f26799429-960.webp\", \"photo-f164303765-960.web\", \"photo-f61843796-960.webp\", \"photo-f59861190-960.webp\", ...)",
+     "msg": "the picture shows nothing here: 99% of it is one colour (#ddd6c6); its image photo-f199837380-960.webp did not load (and 6 more like it: \"photo-f26799429-960.webp\", \"photo-f61843796-960.webp\", \"photo-f59861190-960.webp\", \"photo-f104101424-960.web\", ...)",
      "crop": "820-01-empty-visual.jpg",
+     "fix": "make the visual draw at every width: a picture that loads, an effect that renders, or its still fallback; never an empty frame"
+    },
+    {
+     "check": "empty-visual",
+     "sev": "FAIL",
+     "sel": "div.grid.grid--top > div.offer__photo.span-6 > figure.pl-photo.develop > img",
+     "text": "photo-f164303765-960.webp",
+     "stop": 3,
+     "msg": "the picture shows nothing here: 93% of it is one colour (#d1cab8); its image photo-f164303765-960.webp did not load",
+     "crop": "820-04-empty-visual.jpg",
      "fix": "make the visual draw at every width: a picture that loads, an effect that renders, or its still fallback; never an empty frame"
     },
     {
@@ -393,18 +376,18 @@
      "sel": "footer#contact > div.wrap > div.closing__cta.close--word > p.close__word",
      "text": "Westley",
      "msg": "cut 22px at the top by the overflow of footer#contact > div.wrap > div.closing__cta.close--word > p.close__word",
-     "stop": 6,
-     "crop": "820-08-cut-text.jpg",
+     "stop": 5,
+     "crop": "820-07-cut-text.jpg",
      "fix": "give the text room: no overflow clipping a line, no line past its box"
     },
     {
      "check": "section-gaps",
      "sev": "FAIL",
-     "sel": "section#place / footer#contact",
+     "sel": "main#top > section.hero.hero--place / section#visit",
      "text": "",
-     "stop": 9,
-     "msg": "1166px between these sections, +332% against the median 270px",
-     "crop": "820-11-section-gaps.jpg",
+     "stop": 7,
+     "msg": "347px between these sections, +80% against the median 193px",
+     "crop": "820-08-section-gaps.jpg",
      "fix": "use one gap between sections (all within 25% of each other)"
     },
     {
@@ -424,28 +407,8 @@
      "text": "",
      "msg": "starts an animation (1.6 s) the moment it is scrolled into view (an IntersectionObserver) on img (inside a dealt moment's section, [data-moment]: an enter moment is expected on every kind; its still is judged under reduced motion)",
      "stop": 3,
-     "crop": "820-04-scroll-reveal.jpg",
+     "crop": "820-05-scroll-reveal.jpg",
      "fix": "show it at rest: no fade, rise or unmask when it is scrolled into view"
-    },
-    {
-     "check": "cta",
-     "sev": "WARN",
-     "sel": "section#place",
-     "text": "Le bistro",
-     "msg": "a section over 1.5 screens long with no link or button in it",
-     "stop": 5,
-     "crop": "820-06-cta.jpg",
-     "fix": "add the action: a button in the hero, one on every priced item, one in the closing section"
-    },
-    {
-     "check": "section-gaps",
-     "sev": "WARN",
-     "sel": "main#top > section.hero.hero--place / section#visit",
-     "text": "",
-     "stop": 8,
-     "msg": "348px between these sections, +29% against the median 270px",
-     "crop": "820-10-section-gaps.jpg",
-     "fix": "use one gap between sections (all within 25% of each other)"
     },
     {
      "check": "section-gaps",
@@ -453,7 +416,7 @@
      "sel": "section#visit / section#offer",
      "text": "",
      "stop": 2,
-     "msg": "192px between these sections, -29% against the median 270px",
+     "msg": "uneven space at the edge of a band: 72px outside its edge, 120px inside it (the space on either side of a change of ground reads as one gap only when the two match)",
      "crop": "820-03-section-gaps.jpg",
      "fix": "use one gap between sections (all within 25% of each other)"
     },
@@ -462,37 +425,17 @@
      "sev": "WARN",
      "sel": "section#offer / section#place",
      "text": "",
-     "stop": 4,
-     "msg": "192px between these sections, -29% against the median 270px",
-     "crop": "820-05-section-gaps.jpg",
+     "stop": 3,
+     "msg": "uneven space at the edge of a band: 120px outside its edge, 72px inside it (the space on either side of a change of ground reads as one gap only when the two match)",
+     "crop": "820-06-section-gaps.jpg",
      "fix": "use one gap between sections (all within 25% of each other)"
-    },
-    {
-     "check": "empty-area",
-     "sev": "WARN",
-     "sel": "section#place",
-     "text": "Le bistro",
-     "msg": "45% of the section is empty: 960px under its last (footer), 1% beside content that covers under half the container, in its 2168px of rows (WARN over 35%, FAIL over 50%)",
-     "stop": 5,
-     "crop": "820-07-empty-area.jpg",
-     "fix": "fill the section: a picture or a second column beside the words, or more of its own content; the section stays one or two screens tall (T-height)"
-    },
-    {
-     "check": "empty-area",
-     "sev": "WARN",
-     "sel": "footer#contact",
-     "text": "Réserver une table chez Westley",
-     "msg": "39% of the section is empty: 256px of empty rows between its content, 13% beside content that covers under half the container, in its 988px of rows (WARN over 35%, FAIL over 50%)",
-     "stop": 6,
-     "crop": "820-09-empty-area.jpg",
-     "fix": "fill the section: a picture or a second column beside the words, or more of its own content; the section stays one or two screens tall (T-height)"
     },
     {
      "check": "section-height",
      "sev": "FAIL",
      "sel": "section#offer",
-     "text": "Au menu Sur place Menu saisonnierCuisine",
-     "msg": "the scene's section is 1562px tall (1.3 screens), 382px over one screen (1180px): every section after the hero is one screen or two, 2px either way; a pinned scene is (hold + 1) screens tall, so write data-big-scene-opts='{\"hold\": 1}' (two screens) and keep --h on the section (SR-2)",
+     "text": "Au menu Cocktails signature Sur place Me",
+     "msg": "the scene's section is 1554px tall (1.3 screens), 374px over one screen (1180px): every section after the hero is one screen or two, 2px either way; a pinned scene is (hold + 1) screens tall, so write data-big-scene-opts='{\"hold\": 1}' (two screens) and keep --h on the section (SR-2)",
      "fix": "set the section to one screen or two (height: calc(var(--h,1) * 100vh), --h 1 or 2) and cut or split its content to fit",
      "rule": "SR-2 T-height",
      "crop": "820-rhythm-01-section-height.jpg"
@@ -500,9 +443,9 @@
     {
      "check": "section-height",
      "sev": "FAIL",
-     "sel": "section#visit",
-     "text": "Visite rue King OuestSherbrooke Voir le ",
-     "msg": "the section is 1355px tall (1.1 screens), 175px over one screen (1180px): every section after the hero is one screen or two, 2px either way (SR-2)",
+     "sel": "section#place",
+     "text": "Le bistro Avis TripAdvisor “Westley, and",
+     "msg": "the section is 1345px tall (1.1 screens), 165px over one screen (1180px): every section after the hero is one screen or two, 2px either way (SR-2)",
      "fix": "set the section to one screen or two (height: calc(var(--h,1) * 100vh), --h 1 or 2) and cut or split its content to fit",
      "rule": "SR-2 T-height",
      "crop": "820-rhythm-02-section-height.jpg"
@@ -510,19 +453,19 @@
     {
      "check": "section-height",
      "sev": "FAIL",
-     "sel": "section#place",
-     "text": "Le bistroUne salle chaleureuse, un servi",
-     "msg": "the section starts at 4096px, 556px below the screen grid (3 x 1180px): sections start on whole screens (SR-2)",
-     "fix": "make every section above it exactly one or two screens tall, so this one starts on a whole screen",
-     "rule": "SR-2 T-grid",
+     "sel": "section#visit",
+     "text": "Visite rue King OuestSherbrooke Itinérai",
+     "msg": "the section is 1258px tall (1.1 screens), 78px over one screen (1180px): every section after the hero is one screen or two, 2px either way (SR-2)",
+     "fix": "set the section to one screen or two (height: calc(var(--h,1) * 100vh), --h 1 or 2) and cut or split its content to fit",
+     "rule": "SR-2 T-height",
      "crop": "820-rhythm-03-section-height.jpg"
     },
     {
      "check": "section-height",
      "sev": "FAIL",
      "sel": "footer#contact",
-     "text": "Réserver une table chez WestleyNous répo",
-     "msg": "the section starts at 6456px, 556px below the screen grid (5 x 1180px): sections start on whole screens (SR-2)",
+     "text": "Réserver une table chez WestleyMenu sais",
+     "msg": "the section starts at 5337px, 563px above the screen grid (5 x 1180px): sections start on whole screens (SR-2)",
      "fix": "make every section above it exactly one or two screens tall, so this one starts on a whole screen",
      "rule": "SR-2 T-grid",
      "crop": "820-rhythm-04-section-height.jpg"
@@ -530,61 +473,62 @@
     {
      "check": "section-height",
      "sev": "FAIL",
-     "sel": "section#offer",
-     "text": "Au menu Sur place Menu saisonnierCuisine",
-     "msg": "the section starts at 2535px, 175px below the screen grid (2 x 1180px): sections start on whole screens (SR-2)",
+     "sel": "section#place",
+     "text": "Le bistro Avis TripAdvisor “Westley, and",
+     "msg": "the section starts at 3993px, 453px below the screen grid (3 x 1180px): sections start on whole screens (SR-2)",
      "fix": "make every section above it exactly one or two screens tall, so this one starts on a whole screen",
      "rule": "SR-2 T-grid",
      "crop": "820-rhythm-05-section-height.jpg"
     },
     {
      "check": "section-height",
-     "sev": "WARN",
-     "sel": "main#top",
-     "text": "",
-     "msg": "the page is 6.5 screens long (7636px on a 1180px screen): a place page runs 3 to 6 screens (over 7 FAIL) (SR-2)",
-     "fix": "keep a place page at 3 to 6 screens: merge a short block into the section above, or cut a section",
-     "rule": "SR-2 T-total"
+     "sev": "FAIL",
+     "sel": "section#offer",
+     "text": "Au menu Cocktails signature Sur place Me",
+     "msg": "the section starts at 2438px, 78px below the screen grid (2 x 1180px): sections start on whole screens (SR-2)",
+     "fix": "make every section above it exactly one or two screens tall, so this one starts on a whole screen",
+     "rule": "SR-2 T-grid",
+     "crop": "820-rhythm-06-section-height.jpg"
     },
     {
      "check": "section-air",
-     "sev": "WARN",
-     "sel": "section#place",
-     "text": "Le bistroUne salle chaleureuse, un servi",
-     "msg": "the content fills 50.5% of the section's height (1194 of 2360px): 55% or more (40% WARN) (SR-3)",
-     "fix": "fill the section to 55%: more content, a picture or a background layer, or merge it into the section above as its last block",
-     "rule": "SR-3 T-fill",
-     "crop": "820-rhythm-10-section-air.jpg"
+     "sev": "FAIL",
+     "sel": "div#offer-vins > ul.rows > li",
+     "text": "Une sélection de vins importés directeme",
+     "msg": "a bottom border across 100% of the container, between the section's content: sections and their parts are told apart by air and ground, not lines (SR-3)",
+     "fix": "take the rule out: sections and their parts are parted by their ground and the air between them",
+     "rule": "SR-3 T-dividers",
+     "crop": "820-rhythm-07-section-air.jpg"
+    },
+    {
+     "check": "section-air",
+     "sev": "FAIL",
+     "sel": "div#offer-cocktails > ul.rows > li",
+     "text": "Cocktails maison et large sélection de s",
+     "msg": "a bottom border across 100% of the container, between the section's content: sections and their parts are told apart by air and ground, not lines (SR-3)",
+     "fix": "take the rule out: sections and their parts are parted by their ground and the air between them",
+     "rule": "SR-3 T-dividers",
+     "crop": "820-rhythm-08-section-air.jpg"
     },
     {
      "check": "one-section",
      "sev": "FAIL",
      "sel": "section#place",
-     "text": "Le bistroUne salle chaleureuse, un servi",
-     "msg": "the screen at scroll 5900px (stride 5) shows 484px of section 4 beside section 5: a screen shows one section (another may peek 8px, 24px WARN) (SR-4)",
+     "text": "Le bistro Avis TripAdvisor “Westley, and",
+     "msg": "the screen at scroll 4720px (stride 4) shows 545px of section 4 and the content of 2 sections, over 24px each beside section 5: a screen shows one section (another may peek 8px, 24px WARN) (SR-4)",
      "fix": "make each section exactly one screen or two, so a screen shows one section and no neighbour peeks",
      "rule": "SR-4 T-views",
-     "crop": "820-rhythm-06-one-section.jpg"
-    },
-    {
-     "check": "one-section",
-     "sev": "FAIL",
-     "sel": "section#visit",
-     "text": "Visite rue King OuestSherbrooke Voir le ",
-     "msg": "the screen at scroll 2360px (stride 2) shows 103px of section 2 and the content of 2 sections, over 24px each beside section 3: a screen shows one section (another may peek 8px, 24px WARN) (SR-4)",
-     "fix": "make each section exactly one screen or two, so a screen shows one section and no neighbour peeks",
-     "rule": "SR-4 T-views",
-     "crop": "820-rhythm-07-one-section.jpg"
+     "crop": "820-rhythm-09-one-section.jpg"
     },
     {
      "check": "one-section",
      "sev": "WARN",
      "sel": "section#offer",
-     "text": "Au menu Sur place Menu saisonnierCuisine",
-     "msg": "the screen at scroll 3540px (stride 3) shows 484px of section 3 and the content of 2 sections, over 24px each beside section 4: a screen shows one section (another may peek 8px, 24px WARN) (it is in a scroll scene: told as a WARN) (SR-4)",
+     "text": "Au menu Cocktails signature Sur place Me",
+     "msg": "the screen at scroll 3540px (stride 3) shows 381px of section 3 and the content of 2 sections, over 24px each beside section 4: a screen shows one section (another may peek 8px, 24px WARN) (it is in a scroll scene: told as a WARN) (SR-4)",
      "fix": "make each section exactly one screen or two, so a screen shows one section and no neighbour peeks",
      "rule": "SR-4 T-views",
-     "crop": "820-rhythm-11-one-section.jpg"
+     "crop": "820-rhythm-12-one-section.jpg"
     },
     {
      "check": "row-lines",
@@ -594,17 +538,17 @@
      "msg": "a row of 3 items: its last item ends at 585px, the container's right line at 772px (2px either way) (SR-7)",
      "fix": "start the row's first item on the container's left line and end its last on the right line, every item one height",
      "rule": "SR-7 T-rows",
-     "crop": "820-rhythm-08-row-lines.jpg"
+     "crop": "820-rhythm-10-row-lines.jpg"
     },
     {
      "check": "split-pair",
      "sev": "FAIL",
-     "sel": "section#visit > div.wrap.grid > div.visit.span-6 > div.visit__cols",
-     "text": "rue King OuestSherbrooke Voir le quartie",
+     "sel": "section#visit > div.wrap.grid > div.visit.visit--card > div.visit__cols",
+     "text": "rue King OuestSherbrooke Itinéraire Mard",
      "msg": "the two columns of the split start 15px apart at the top: a split's columns are top-aligned, 8px either way (SR-8)",
      "fix": "top-align both columns of the split (align-items: start)",
      "rule": "SR-8 T-mode",
-     "crop": "820-rhythm-09-split-pair.jpg"
+     "crop": "820-rhythm-11-split-pair.jpg"
     }
    ],
    "glAsked": 0
@@ -612,18 +556,28 @@
   {
    "width": 768,
    "height": 1024,
-   "screens": 8,
+   "screens": 7,
    "held": 0,
    "errors": [],
    "findings": [
     {
      "check": "empty-visual",
      "sev": "FAIL",
-     "sel": "main#top > section.hero.hero--place > img.hero__bg",
+     "sel": "main#top > section.hero.hero--place > picture.hero__bg > img",
      "text": "photo-f199837380-960.webp",
      "stop": 0,
-     "msg": "the picture shows nothing here: 99% of it is one colour (#ddd6c6); its image photo-f199837380-960.webp did not load (and 7 more like it: \"photo-f26799429-960.webp\", \"photo-f164303765-960.web\", \"photo-f61843796-960.webp\", \"photo-f59861190-960.webp\", ...)",
+     "msg": "the picture shows nothing here: 99% of it is one colour (#ddd6c6); its image photo-f199837380-960.webp did not load (and 6 more like it: \"photo-f26799429-960.webp\", \"photo-f61843796-960.webp\", \"photo-f59861190-960.webp\", \"photo-f104101424-960.web\", ...)",
      "crop": "768-01-empty-visual.jpg",
+     "fix": "make the visual draw at every width: a picture that loads, an effect that renders, or its still fallback; never an empty frame"
+    },
+    {
+     "check": "empty-visual",
+     "sev": "FAIL",
+     "sel": "div.grid.grid--top > div.offer__photo.span-6 > figure.pl-photo.develop > img",
+     "text": "photo-f164303765-960.webp",
+     "stop": 3,
+     "msg": "the picture shows nothing here: 99% of it is one colour (#d1cab8); its image photo-f164303765-960.webp did not load",
+     "crop": "768-03-empty-visual.jpg",
      "fix": "make the visual draw at every width: a picture that loads, an effect that renders, or its still fallback; never an empty frame"
     },
     {
@@ -632,19 +586,9 @@
      "sel": "footer#contact > div.wrap > div.closing__cta.close--word > p.close__word",
      "text": "Westley",
      "msg": "cut 21px at the top by the overflow of footer#contact > div.wrap > div.closing__cta.close--word > p.close__word",
-     "stop": 7,
-     "crop": "768-05-cut-text.jpg",
+     "stop": 6,
+     "crop": "768-06-cut-text.jpg",
      "fix": "give the text room: no overflow clipping a line, no line past its box"
-    },
-    {
-     "check": "section-gaps",
-     "sev": "FAIL",
-     "sel": "section#place / footer#contact",
-     "text": "",
-     "stop": 9,
-     "msg": "913px between these sections, +291% against the median 234px",
-     "crop": "768-06-section-gaps.jpg",
-     "fix": "use one gap between sections (all within 25% of each other)"
     },
     {
      "check": "scroll-reveal",
@@ -653,35 +597,45 @@
      "text": "",
      "msg": "starts an animation (1.6 s) the moment it is scrolled into view (an IntersectionObserver) on img (inside a dealt moment's section, [data-moment]: an enter moment is expected on every kind; its still is judged under reduced motion)",
      "stop": 3,
-     "crop": "768-02-scroll-reveal.jpg",
+     "crop": "768-04-scroll-reveal.jpg",
      "fix": "show it at rest: no fade, rise or unmask when it is scrolled into view"
     },
     {
-     "check": "cta",
+     "check": "section-gaps",
      "sev": "WARN",
-     "sel": "section#place",
-     "text": "Le bistro",
-     "msg": "a section over 1.5 screens long with no link or button in it",
-     "stop": 5,
-     "crop": "768-03-cta.jpg",
-     "fix": "add the action: a button in the hero, one on every priced item, one in the closing section"
+     "sel": "main#top > section.hero.hero--place / section#visit",
+     "text": "",
+     "stop": 7,
+     "msg": "274px between these sections, +42% against the median 193px",
+     "crop": "768-07-section-gaps.jpg",
+     "fix": "use one gap between sections (all within 25% of each other)"
     },
     {
-     "check": "empty-area",
+     "check": "section-gaps",
      "sev": "WARN",
-     "sel": "section#place",
-     "text": "Le bistro",
-     "msg": "40% of the section is empty: 16px of empty rows between its content, 688px under its last (footer), 2% beside content that covers under half the container, in its 1856px of rows (WARN over 35%, FAIL over 50%)",
-     "stop": 6,
-     "crop": "768-04-empty-area.jpg",
-     "fix": "fill the section: a picture or a second column beside the words, or more of its own content; the section stays one or two screens tall (T-height)"
+     "sel": "section#visit / section#offer",
+     "text": "",
+     "stop": 2,
+     "msg": "uneven space at the edge of a band: 72px outside its edge, 120px inside it (the space on either side of a change of ground reads as one gap only when the two match)",
+     "crop": "768-02-section-gaps.jpg",
+     "fix": "use one gap between sections (all within 25% of each other)"
+    },
+    {
+     "check": "section-gaps",
+     "sev": "WARN",
+     "sel": "section#offer / section#place",
+     "text": "",
+     "stop": 4,
+     "msg": "uneven space at the edge of a band: 120px outside its edge, 72px inside it (the space on either side of a change of ground reads as one gap only when the two match)",
+     "crop": "768-05-section-gaps.jpg",
+     "fix": "use one gap between sections (all within 25% of each other)"
     },
     {
      "check": "section-height",
      "sev": "FAIL",
      "sel": "section#offer",
-     "text": "Au menu Sur place Menu saisonnierCuisine",
-     "msg": "the scene's section is 1496px tall (1.5 screens), 472px over one screen (1024px): every section after the hero is one screen or two, 2px either way; a pinned scene is (hold + 1) screens tall, so write data-big-scene-opts='{\"hold\": 1}' (two screens) and keep --h on the section (SR-2)",
+     "text": "Au menu Cocktails signature Sur place Me",
+     "msg": "the scene's section is 1489px tall (1.5 screens), 465px over one screen (1024px): every section after the hero is one screen or two, 2px either way; a pinned scene is (hold + 1) screens tall, so write data-big-scene-opts='{\"hold\": 1}' (two screens) and keep --h on the section (SR-2)",
      "fix": "set the section to one screen or two (height: calc(var(--h,1) * 100vh), --h 1 or 2) and cut or split its content to fit",
      "rule": "SR-2 T-height",
      "crop": "768-rhythm-01-section-height.jpg"
@@ -689,9 +643,9 @@
     {
      "check": "section-height",
      "sev": "FAIL",
-     "sel": "section#visit",
-     "text": "Visite rue King OuestSherbrooke Voir le ",
-     "msg": "the section is 1297px tall (1.3 screens), 273px over one screen (1024px): every section after the hero is one screen or two, 2px either way (SR-2)",
+     "sel": "section#place",
+     "text": "Le bistro Avis TripAdvisor “Westley, and",
+     "msg": "the section is 1286px tall (1.3 screens), 262px over one screen (1024px): every section after the hero is one screen or two, 2px either way (SR-2)",
      "fix": "set the section to one screen or two (height: calc(var(--h,1) * 100vh), --h 1 or 2) and cut or split its content to fit",
      "rule": "SR-2 T-height",
      "crop": "768-rhythm-02-section-height.jpg"
@@ -699,19 +653,19 @@
     {
      "check": "section-height",
      "sev": "FAIL",
-     "sel": "section#place",
-     "text": "Le bistroUne salle chaleureuse, un servi",
-     "msg": "the section starts at 3817px, 279px above the screen grid (4 x 1024px): sections start on whole screens (SR-2)",
-     "fix": "make every section above it exactly one or two screens tall, so this one starts on a whole screen",
-     "rule": "SR-2 T-grid",
+     "sel": "section#visit",
+     "text": "Visite rue King OuestSherbrooke Itinérai",
+     "msg": "the section is 1200px tall (1.2 screens), 176px over one screen (1024px): every section after the hero is one screen or two, 2px either way (SR-2)",
+     "fix": "set the section to one screen or two (height: calc(var(--h,1) * 100vh), --h 1 or 2) and cut or split its content to fit",
+     "rule": "SR-2 T-height",
      "crop": "768-rhythm-03-section-height.jpg"
     },
     {
      "check": "section-height",
      "sev": "FAIL",
-     "sel": "footer#contact",
-     "text": "Réserver une table chez WestleyNous répo",
-     "msg": "the section starts at 5865px, 279px above the screen grid (6 x 1024px): sections start on whole screens (SR-2)",
+     "sel": "section#place",
+     "text": "Le bistro Avis TripAdvisor “Westley, and",
+     "msg": "the section starts at 3713px, 383px above the screen grid (4 x 1024px): sections start on whole screens (SR-2)",
      "fix": "make every section above it exactly one or two screens tall, so this one starts on a whole screen",
      "rule": "SR-2 T-grid",
      "crop": "768-rhythm-04-section-height.jpg"
@@ -720,50 +674,71 @@
      "check": "section-height",
      "sev": "FAIL",
      "sel": "section#offer",
-     "text": "Au menu Sur place Menu saisonnierCuisine",
-     "msg": "the section starts at 2321px, 273px below the screen grid (2 x 1024px): sections start on whole screens (SR-2)",
+     "text": "Au menu Cocktails signature Sur place Me",
+     "msg": "the section starts at 2224px, 176px below the screen grid (2 x 1024px): sections start on whole screens (SR-2)",
      "fix": "make every section above it exactly one or two screens tall, so this one starts on a whole screen",
      "rule": "SR-2 T-grid",
      "crop": "768-rhythm-05-section-height.jpg"
     },
     {
      "check": "section-height",
-     "sev": "WARN",
-     "sel": "main#top",
-     "text": "",
-     "msg": "the page is 6.7 screens long (6889px on a 1024px screen): a place page runs 3 to 6 screens (over 7 FAIL) (SR-2)",
-     "fix": "keep a place page at 3 to 6 screens: merge a short block into the section above, or cut a section",
-     "rule": "SR-2 T-total"
+     "sev": "FAIL",
+     "sel": "footer#contact",
+     "text": "Réserver une table chez WestleyMenu sais",
+     "msg": "the section starts at 4999px, 121px above the screen grid (5 x 1024px): sections start on whole screens (SR-2)",
+     "fix": "make every section above it exactly one or two screens tall, so this one starts on a whole screen",
+     "rule": "SR-2 T-grid",
+     "crop": "768-rhythm-06-section-height.jpg"
+    },
+    {
+     "check": "section-air",
+     "sev": "FAIL",
+     "sel": "div#offer-vins > ul.rows > li",
+     "text": "Une sélection de vins importés directeme",
+     "msg": "a bottom border across 100% of the container, between the section's content: sections and their parts are told apart by air and ground, not lines (SR-3)",
+     "fix": "take the rule out: sections and their parts are parted by their ground and the air between them",
+     "rule": "SR-3 T-dividers",
+     "crop": "768-rhythm-07-section-air.jpg"
+    },
+    {
+     "check": "section-air",
+     "sev": "FAIL",
+     "sel": "div#offer-cocktails > ul.rows > li",
+     "text": "Cocktails maison et large sélection de s",
+     "msg": "a bottom border across 100% of the container, between the section's content: sections and their parts are told apart by air and ground, not lines (SR-3)",
+     "fix": "take the rule out: sections and their parts are parted by their ground and the air between them",
+     "rule": "SR-3 T-dividers",
+     "crop": "768-rhythm-08-section-air.jpg"
     },
     {
      "check": "one-section",
      "sev": "FAIL",
      "sel": "h2#place-h",
      "text": "Le bistro",
-     "msg": "the screen at scroll 3072px (stride 3) shows 279px of section 4 and the heading of section 4 whole and the content of 2 sections, over 24px each beside section 3: a screen shows one section (another may peek 8px, 24px WARN) (SR-4)",
+     "msg": "the screen at scroll 3072px (stride 3) shows 383px of section 4 and the heading of section 4 whole and the content of 2 sections, over 24px each beside section 3: a screen shows one section (another may peek 8px, 24px WARN) (SR-4)",
      "fix": "make each section exactly one screen or two, so a screen shows one section and no neighbour peeks",
      "rule": "SR-4 T-views",
-     "crop": "768-rhythm-06-one-section.jpg"
+     "crop": "768-rhythm-09-one-section.jpg"
     },
     {
      "check": "one-section",
      "sev": "FAIL",
-     "sel": "h2#close-h",
-     "text": "Réserver une table chez Westley",
-     "msg": "the screen at scroll 5120px (stride 5) shows 279px of section 5 and the heading of section 5 whole beside section 4: a screen shows one section (another may peek 8px, 24px WARN) (SR-4)",
+     "sel": "footer#contact",
+     "text": "Réserver une table chez WestleyMenu sais",
+     "msg": "the screen at scroll 4096px (stride 4) shows 121px of section 5 beside section 4: a screen shows one section (another may peek 8px, 24px WARN) (SR-4)",
      "fix": "make each section exactly one screen or two, so a screen shows one section and no neighbour peeks",
      "rule": "SR-4 T-views",
-     "crop": "768-rhythm-07-one-section.jpg"
+     "crop": "768-rhythm-10-one-section.jpg"
     },
     {
      "check": "one-section",
      "sev": "FAIL",
      "sel": "section#visit",
-     "text": "Visite rue King OuestSherbrooke Voir le ",
-     "msg": "the screen at scroll 2048px (stride 2) shows 201px of section 2 and the content of 2 sections, over 24px each beside section 3: a screen shows one section (another may peek 8px, 24px WARN) (SR-4)",
+     "text": "Visite rue King OuestSherbrooke Itinérai",
+     "msg": "the screen at scroll 2048px (stride 2) shows 104px of section 2 and the content of 2 sections, over 24px each beside section 3: a screen shows one section (another may peek 8px, 24px WARN) (SR-4)",
      "fix": "make each section exactly one screen or two, so a screen shows one section and no neighbour peeks",
      "rule": "SR-4 T-views",
-     "crop": "768-rhythm-08-one-section.jpg"
+     "crop": "768-rhythm-11-one-section.jpg"
     },
     {
      "check": "row-lines",
@@ -773,17 +748,17 @@
      "msg": "a row of 3 items: its last item ends at 546px, the container's right line at 720px (2px either way) (SR-7)",
      "fix": "start the row's first item on the container's left line and end its last on the right line, every item one height",
      "rule": "SR-7 T-rows",
-     "crop": "768-rhythm-09-row-lines.jpg"
+     "crop": "768-rhythm-12-row-lines.jpg"
     },
     {
      "check": "split-pair",
      "sev": "FAIL",
-     "sel": "section#visit > div.wrap.grid > div.visit.span-6 > div.visit__cols",
-     "text": "rue King OuestSherbrooke Voir le quartie",
+     "sel": "section#visit > div.wrap.grid > div.visit.visit--card > div.visit__cols",
+     "text": "rue King OuestSherbrooke Itinéraire Mard",
      "msg": "the two columns of the split start 15px apart at the top: a split's columns are top-aligned, 8px either way (SR-8)",
      "fix": "top-align both columns of the split (align-items: start)",
      "rule": "SR-8 T-mode",
-     "crop": "768-rhythm-10-split-pair.jpg"
+     "crop": "768-rhythm-13-split-pair.jpg"
     }
    ],
    "glAsked": 0
@@ -791,18 +766,28 @@
   {
    "width": 390,
    "height": 844,
-   "screens": 9,
+   "screens": 8,
    "held": 0,
    "errors": [],
    "findings": [
     {
      "check": "empty-visual",
      "sev": "FAIL",
-     "sel": "main#top > section.hero.hero--place > img.hero__bg",
-     "text": "photo-f199837380-960.webp",
-     "stop": 0,
-     "msg": "the picture shows nothing here: 96% of it is one colour (#ddd6c6); its image photo-f199837380-960.webp did not load (and 7 more like it: \"photo-f26799429-960.webp\", \"photo-f164303765-960.web\", \"photo-f61843796-960.webp\", \"photo-f59861190-960.webp\", ...)",
-     "crop": "390-01-empty-visual.jpg",
+     "sel": "section#visit > div.wrap.grid > figure.pl-photo.pl-photo--end > img",
+     "text": "photo-f26799429-960.webp",
+     "stop": 2,
+     "msg": "the picture shows nothing here: 97% of it is one colour (#ddd6c6); its image photo-f26799429-960.webp did not load (and 5 more like it: \"photo-f61843796-960.webp\", \"photo-f59861190-960.webp\", \"photo-f104101424-960.web\", \"photo-f129889082-960.web\", ...)",
+     "crop": "390-02-empty-visual.jpg",
+     "fix": "make the visual draw at every width: a picture that loads, an effect that renders, or its still fallback; never an empty frame"
+    },
+    {
+     "check": "empty-visual",
+     "sev": "FAIL",
+     "sel": "div.grid.grid--top > div.offer__photo.span-6 > figure.pl-photo.develop > img",
+     "text": "photo-f164303765-960.webp",
+     "stop": 3,
+     "msg": "the picture shows nothing here: 97% of it is one colour (#d1cab8); its image photo-f164303765-960.webp did not load",
+     "crop": "390-03-empty-visual.jpg",
      "fix": "make the visual draw at every width: a picture that loads, an effect that renders, or its still fallback; never an empty frame"
     },
     {
@@ -811,19 +796,9 @@
      "sel": "footer#contact > div.wrap > div.closing__cta.close--word > p.close__word",
      "text": "Westley",
      "msg": "cut 14px at the top by the overflow of footer#contact > div.wrap > div.closing__cta.close--word > p.close__word",
-     "stop": 7,
-     "crop": "390-06-cut-text.jpg",
+     "stop": 6,
+     "crop": "390-05-cut-text.jpg",
      "fix": "give the text room: no overflow clipping a line, no line past its box"
-    },
-    {
-     "check": "section-gaps",
-     "sev": "FAIL",
-     "sel": "section#place / footer#contact",
-     "text": "",
-     "stop": 9,
-     "msg": "792px between these sections, +281% against the median 208px",
-     "crop": "390-07-section-gaps.jpg",
-     "fix": "use one gap between sections (all within 25% of each other)"
     },
     {
      "check": "scroll-reveal",
@@ -832,18 +807,8 @@
      "text": "",
      "msg": "starts an animation (1.6 s) the moment it is scrolled into view (an IntersectionObserver) on img (inside a dealt moment's section, [data-moment]: an enter moment is expected on every kind; its still is judged under reduced motion)",
      "stop": 3,
-     "crop": "390-03-scroll-reveal.jpg",
+     "crop": "390-04-scroll-reveal.jpg",
      "fix": "show it at rest: no fade, rise or unmask when it is scrolled into view"
-    },
-    {
-     "check": "cta",
-     "sev": "WARN",
-     "sel": "section#place",
-     "text": "Le bistro",
-     "msg": "a section over 1.5 screens long with no link or button in it",
-     "stop": 5,
-     "crop": "390-04-cta.jpg",
-     "fix": "add the action: a button in the hero, one on every priced item, one in the closing section"
     },
     {
      "check": "section-gaps",
@@ -851,26 +816,16 @@
      "sel": "main#top > section.hero.hero--place / section#visit",
      "text": "",
      "stop": 1,
-     "msg": "121px between these sections, -42% against the median 208px",
-     "crop": "390-02-section-gaps.jpg",
+     "msg": "120px between these sections, -44% against the median 215px",
+     "crop": "390-01-section-gaps.jpg",
      "fix": "use one gap between sections (all within 25% of each other)"
-    },
-    {
-     "check": "empty-area",
-     "sev": "WARN",
-     "sel": "section#place",
-     "text": "Le bistro",
-     "msg": "38% of the section is empty: 576px under its last (footer), in its 1491px of rows (WARN over 35%, FAIL over 50%)",
-     "stop": 6,
-     "crop": "390-05-empty-area.jpg",
-     "fix": "fill the section: a picture or a second column beside the words, or more of its own content; the section stays one or two screens tall (T-height)"
     },
     {
      "check": "section-height",
      "sev": "FAIL",
      "sel": "section#offer",
-     "text": "Au menu Sur place Menu saisonnierCuisine",
-     "msg": "the scene's section is 1171px tall (1.4 screens), 327px over one screen (844px): every section after the hero is one screen or two, 2px either way; a pinned scene is (hold + 1) screens tall, so write data-big-scene-opts='{\"hold\": 1}' (two screens) and keep --h on the section (SR-2)",
+     "text": "Au menu Cocktails signature Sur place Me",
+     "msg": "the scene's section is 1182px tall (1.4 screens), 338px over one screen (844px): every section after the hero is one screen or two, 2px either way; a pinned scene is (hold + 1) screens tall, so write data-big-scene-opts='{\"hold\": 1}' (two screens) and keep --h on the section (SR-2)",
      "fix": "set the section to one screen or two (height: calc(var(--h,1) * 100vh), --h 1 or 2) and cut or split its content to fit",
      "rule": "SR-2 T-height",
      "crop": "390-rhythm-01-section-height.jpg"
@@ -878,9 +833,9 @@
     {
      "check": "section-height",
      "sev": "FAIL",
-     "sel": "section#visit",
-     "text": "Visite rue King OuestSherbrooke Voir le ",
-     "msg": "the section is 1152px tall (1.4 screens), 308px over one screen (844px): every section after the hero is one screen or two, 2px either way (SR-2)",
+     "sel": "footer#contact",
+     "text": "Réserver une table chez WestleyMenu sais",
+     "msg": "the section is 1106px tall (1.3 screens), 262px over one screen (844px): every section after the hero is one screen or two, 2px either way (SR-2)",
      "fix": "set the section to one screen or two (height: calc(var(--h,1) * 100vh), --h 1 or 2) and cut or split its content to fit",
      "rule": "SR-2 T-height",
      "crop": "390-rhythm-02-section-height.jpg"
@@ -888,9 +843,9 @@
     {
      "check": "section-height",
      "sev": "FAIL",
-     "sel": "footer#contact",
-     "text": "Réserver une table chez WestleyNous répo",
-     "msg": "the section is 1080px tall (1.3 screens), 236px over one screen (844px): every section after the hero is one screen or two, 2px either way (SR-2)",
+     "sel": "section#place",
+     "text": "Le bistro Avis TripAdvisor “Westley, and",
+     "msg": "the section is 1050px tall (1.2 screens), 206px over one screen (844px): every section after the hero is one screen or two, 2px either way (and 1 more like it: \"Visite rue King OuestShe\") (SR-2)",
      "fix": "set the section to one screen or two (height: calc(var(--h,1) * 100vh), --h 1 or 2) and cut or split its content to fit",
      "rule": "SR-2 T-height",
      "crop": "390-rhythm-03-section-height.jpg"
@@ -898,9 +853,9 @@
     {
      "check": "section-height",
      "sev": "FAIL",
-     "sel": "section#offer",
-     "text": "Au menu Sur place Menu saisonnierCuisine",
-     "msg": "the section starts at 1996px, 308px below the screen grid (2 x 844px): sections start on whole screens (SR-2)",
+     "sel": "section#place",
+     "text": "Le bistro Avis TripAdvisor “Westley, and",
+     "msg": "the section starts at 3008px, 368px above the screen grid (4 x 844px): sections start on whole screens (SR-2)",
      "fix": "make every section above it exactly one or two screens tall, so this one starts on a whole screen",
      "rule": "SR-2 T-grid",
      "crop": "390-rhythm-04-section-height.jpg"
@@ -908,9 +863,9 @@
     {
      "check": "section-height",
      "sev": "FAIL",
-     "sel": "section#place",
-     "text": "Le bistroUne salle chaleureuse, un servi",
-     "msg": "the section starts at 3168px, 208px above the screen grid (4 x 844px): sections start on whole screens (SR-2)",
+     "sel": "footer#contact",
+     "text": "Réserver une table chez WestleyMenu sais",
+     "msg": "the section starts at 4058px, 162px above the screen grid (5 x 844px): sections start on whole screens (SR-2)",
      "fix": "make every section above it exactly one or two screens tall, so this one starts on a whole screen",
      "rule": "SR-2 T-grid",
      "crop": "390-rhythm-05-section-height.jpg"
@@ -918,70 +873,71 @@
     {
      "check": "section-height",
      "sev": "FAIL",
-     "sel": "footer#contact",
-     "text": "Réserver une table chez WestleyNous répo",
-     "msg": "the section starts at 4856px, 208px above the screen grid (6 x 844px): sections start on whole screens (SR-2)",
+     "sel": "section#offer",
+     "text": "Au menu Cocktails signature Sur place Me",
+     "msg": "the section starts at 1826px, 138px below the screen grid (2 x 844px): sections start on whole screens (SR-2)",
      "fix": "make every section above it exactly one or two screens tall, so this one starts on a whole screen",
      "rule": "SR-2 T-grid",
      "crop": "390-rhythm-06-section-height.jpg"
     },
     {
      "check": "section-height",
-     "sev": "FAIL",
+     "sev": "WARN",
      "sel": "main#top",
      "text": "",
-     "msg": "the page is 7 screens long (5936px on a 844px screen): a place page runs 3 to 6 screens (over 7 FAIL) (SR-2)",
+     "msg": "the page is 6.1 screens long (5164px on a 844px screen): a place page runs 3 to 6 screens (over 7 FAIL) (SR-2)",
      "fix": "keep a place page at 3 to 6 screens: merge a short block into the section above, or cut a section",
      "rule": "SR-2 T-total"
     },
     {
      "check": "section-air",
-     "sev": "WARN",
-     "sel": "section#place",
-     "text": "Le bistroUne salle chaleureuse, un servi",
-     "msg": "the content fills 53% of the section's height (896 of 1688px): 55% or more (40% WARN) (SR-3)",
-     "fix": "fill the section to 55%: more content, a picture or a background layer, or merge it into the section above as its last block",
-     "rule": "SR-3 T-fill",
-     "crop": "390-rhythm-10-section-air.jpg"
+     "sev": "FAIL",
+     "sel": "div#offer-vins > ul.rows > li",
+     "text": "Une sélection de vins importés directeme",
+     "msg": "a bottom border across 100% of the container, between the section's content: sections and their parts are told apart by air and ground, not lines (SR-3)",
+     "fix": "take the rule out: sections and their parts are parted by their ground and the air between them",
+     "rule": "SR-3 T-dividers",
+     "crop": "390-rhythm-07-section-air.jpg"
     },
     {
-     "check": "one-section",
+     "check": "section-air",
      "sev": "FAIL",
-     "sel": "section#visit",
-     "text": "Visite rue King OuestSherbrooke Voir le ",
-     "msg": "the screen at scroll 1688px (stride 2) shows 252px of section 2 and the content of 2 sections, over 24px each beside section 3: a screen shows one section (another may peek 8px, 24px WARN) (SR-4)",
-     "fix": "make each section exactly one screen or two, so a screen shows one section and no neighbour peeks",
-     "rule": "SR-4 T-views",
-     "crop": "390-rhythm-07-one-section.jpg"
+     "sel": "div#offer-cocktails > ul.rows > li",
+     "text": "Cocktails maison et large sélection de s",
+     "msg": "a bottom border across 100% of the container, between the section's content: sections and their parts are told apart by air and ground, not lines (SR-3)",
+     "fix": "take the rule out: sections and their parts are parted by their ground and the air between them",
+     "rule": "SR-3 T-dividers",
+     "crop": "390-rhythm-08-section-air.jpg"
     },
     {
      "check": "one-section",
      "sev": "FAIL",
      "sel": "h2#place-h",
      "text": "Le bistro",
-     "msg": "the screen at scroll 2532px (stride 3) shows 208px of section 4 and the heading of section 4 whole and the content of 2 sections, over 24px each beside section 3: a screen shows one section (another may peek 8px, 24px WARN) (SR-4)",
+     "msg": "the screen at scroll 2532px (stride 3) shows 368px of section 4 and the heading of section 4 whole and the content of 2 sections, over 24px each beside section 3: a screen shows one section (another may peek 8px, 24px WARN) (SR-4)",
      "fix": "make each section exactly one screen or two, so a screen shows one section and no neighbour peeks",
      "rule": "SR-4 T-views",
-     "crop": "390-rhythm-08-one-section.jpg"
+     "crop": "390-rhythm-09-one-section.jpg"
     },
     {
      "check": "one-section",
      "sev": "FAIL",
      "sel": "h2#close-h",
      "text": "Réserver une table chez Westley",
-     "msg": "the screen at scroll 4220px (stride 5) shows 208px of section 5 and the heading of section 5 whole beside section 4: a screen shows one section (another may peek 8px, 24px WARN) (SR-4)",
+     "msg": "the screen at scroll 3376px (stride 4) shows 162px of section 5 and the heading of section 5 whole and the content of 2 sections, over 24px each beside section 4: a screen shows one section (another may peek 8px, 24px WARN) (SR-4)",
      "fix": "make each section exactly one screen or two, so a screen shows one section and no neighbour peeks",
      "rule": "SR-4 T-views",
-     "crop": "390-rhythm-09-one-section.jpg"
+     "crop": "390-rhythm-10-one-section.jpg"
     },
     {
-     "check": "empty-visual",
+     "check": "one-section",
      "sev": "FAIL",
-     "sel": "img (photo-f199837380-960.webp)",
-     "text": "photo-f199837380-960.webp",
-     "msg": "on a phone over a slow mobile line (1.6 Mbit/s) the frame of photo-f199837380-960.webp is still empty 1 s after it comes on screen (scrolled to at a reading pace): the file is 222 KB, and 3.5 s later it has not arrived",
-     "fix": "serve the photograph at the size it is drawn (srcset and sizes: an 800px file for the phone), load it before it is reached (no loading=lazy on the next screen), or give the frame a blurred still of it",
-     "crop": "390-slow-01-empty-visual.jpg"
+     "sel": "section#visit",
+     "text": "Visite rue King OuestSherbrooke Itinérai",
+     "msg": "the screen at scroll 1688px (stride 2) shows 82px of section 2 beside section 3: a screen shows one section (another may peek 8px, 24px WARN) (SR-4)",
+     "fix": "make each section exactly one screen or two, so a screen shows one section and no neighbour peeks",
+     "rule": "SR-4 T-views",
+     "crop": "390-rhythm-11-one-section.jpg"
     },
     {
      "check": "empty-visual",
@@ -990,7 +946,7 @@
      "text": "photo-f26799429-960.webp",
      "msg": "on a phone over a slow mobile line (1.6 Mbit/s) the frame of photo-f26799429-960.webp is still empty 1 s after it comes on screen (scrolled to at a reading pace): the file is 48 KB, and 3.5 s later it has not arrived",
      "fix": "serve the photograph at the size it is drawn (srcset and sizes: an 800px file for the phone), load it before it is reached (no loading=lazy on the next screen), or give the frame a blurred still of it",
-     "crop": "390-slow-02-empty-visual.jpg"
+     "crop": "390-slow-01-empty-visual.jpg"
     },
     {
      "check": "empty-visual",
@@ -999,7 +955,7 @@
      "text": "photo-f164303765-960.webp",
      "msg": "on a phone over a slow mobile line (1.6 Mbit/s) the frame of photo-f164303765-960.webp is still empty 1 s after it comes on screen (scrolled to at a reading pace): the file is 183 KB, and 3.5 s later it has not arrived",
      "fix": "serve the photograph at the size it is drawn (srcset and sizes: an 800px file for the phone), load it before it is reached (no loading=lazy on the next screen), or give the frame a blurred still of it",
-     "crop": "390-slow-03-empty-visual.jpg"
+     "crop": "390-slow-02-empty-visual.jpg"
     },
     {
      "check": "empty-visual",
@@ -1008,7 +964,7 @@
      "text": "photo-f61843796-960.webp",
      "msg": "on a phone over a slow mobile line (1.6 Mbit/s) the frame of photo-f61843796-960.webp is still empty 1 s after it comes on screen (scrolled to at a reading pace): the file is 42 KB, and 3.5 s later it has not arrived",
      "fix": "serve the photograph at the size it is drawn (srcset and sizes: an 800px file for the phone), load it before it is reached (no loading=lazy on the next screen), or give the frame a blurred still of it",
-     "crop": "390-slow-04-empty-visual.jpg"
+     "crop": "390-slow-03-empty-visual.jpg"
     },
     {
      "check": "empty-visual",
@@ -1017,7 +973,7 @@
      "text": "photo-f59861190-960.webp",
      "msg": "on a phone over a slow mobile line (1.6 Mbit/s) the frame of photo-f59861190-960.webp is still empty 1 s after it comes on screen (scrolled to at a reading pace): the file is 51 KB, and 3.5 s later it has not arrived",
      "fix": "serve the photograph at the size it is drawn (srcset and sizes: an 800px file for the phone), load it before it is reached (no loading=lazy on the next screen), or give the frame a blurred still of it",
-     "crop": "390-slow-05-empty-visual.jpg"
+     "crop": "390-slow-04-empty-visual.jpg"
     },
     {
      "check": "empty-visual",
@@ -1026,7 +982,7 @@
      "text": "photo-f104101424-960.webp",
      "msg": "on a phone over a slow mobile line (1.6 Mbit/s) the frame of photo-f104101424-960.webp is still empty 1 s after it comes on screen (scrolled to at a reading pace): the file is 73 KB, and 3.5 s later it has not arrived",
      "fix": "serve the photograph at the size it is drawn (srcset and sizes: an 800px file for the phone), load it before it is reached (no loading=lazy on the next screen), or give the frame a blurred still of it",
-     "crop": "390-slow-06-empty-visual.jpg"
+     "crop": "390-slow-05-empty-visual.jpg"
     },
     {
      "check": "empty-visual",
@@ -1035,7 +991,7 @@
      "text": "photo-f129889082-960.webp",
      "msg": "on a phone over a slow mobile line (1.6 Mbit/s) the frame of photo-f129889082-960.webp is still empty 1 s after it comes on screen (scrolled to at a reading pace): the file is 32 KB, and 3.5 s later it has not arrived",
      "fix": "serve the photograph at the size it is drawn (srcset and sizes: an 800px file for the phone), load it before it is reached (no loading=lazy on the next screen), or give the frame a blurred still of it",
-     "crop": "390-slow-07-empty-visual.jpg"
+     "crop": "390-slow-06-empty-visual.jpg"
     },
     {
      "check": "empty-visual",
@@ -1044,7 +1000,7 @@
      "text": "photo-f82869794-960.webp",
      "msg": "on a phone over a slow mobile line (1.6 Mbit/s) the frame of photo-f82869794-960.webp is still empty 1 s after it comes on screen (scrolled to at a reading pace): the file is 34 KB, and 3.5 s later it has not arrived",
      "fix": "serve the photograph at the size it is drawn (srcset and sizes: an 800px file for the phone), load it before it is reached (no loading=lazy on the next screen), or give the frame a blurred still of it",
-     "crop": "390-slow-08-empty-visual.jpg"
+     "crop": "390-slow-07-empty-visual.jpg"
     }
    ],
    "glAsked": 0
@@ -1052,15 +1008,15 @@
  ],
  "shaders": 0,
  "reduced": {
-  "screens": 6,
+  "screens": 5,
   "notRead": 0
  },
  "hidden": {
-  "screens": 12
+  "screens": 10
  },
  "slow": {
-  "stops": 9,
-  "late": 8
+  "stops": 8,
+  "late": 7
  },
  "sweep": {
   "widths": [
@@ -1078,8 +1034,8 @@
   "findings": []
  },
  "counts": {
-  "FAIL": 63,
-  "WARN": 38
+  "FAIL": 73,
+  "WARN": 23
  },
  "checks": {
   "assets": "FAIL",
@@ -1087,18 +1043,18 @@
   "gl-fallback": "PASS",
   "empty-visual": "FAIL",
   "hero-fill": "PASS",
-  "flush": "PASS",
+  "flush": "FAIL",
   "placeholder": "PASS",
   "sample-label": "PASS",
   "caption": "PASS",
   "credit-wall": "PASS",
   "nav": "PASS",
   "nav-covers": "PASS",
-  "spill": "PASS",
+  "spill": "FAIL",
   "off-viewport": "PASS",
   "fold-card": "PASS",
   "hover-spill": "PASS",
-  "overlap-text": "PASS",
+  "overlap-text": "FAIL",
   "collide": "PASS",
   "tap-size": "PASS",
   "row-gap": "PASS",
@@ -1127,7 +1083,7 @@
   "button-shape": "PASS",
   "same-action": "PASS",
   "button-picture": "PASS",
-  "cta": "WARN",
+  "cta": "PASS",
   "pricing-tiers": "PASS",
   "copy-headline": "PASS",
   "copy-fact": "FAIL",
@@ -1149,7 +1105,7 @@
   "section-gaps": "FAIL",
   "proximity": "PASS",
   "hole": "PASS",
-  "links": "WARN",
+  "links": "PASS",
   "forms": "PASS",
   "photo-upscale": "PASS",
   "photo-set": "PASS",
@@ -1174,7 +1130,7 @@
   "button-contrast": "PASS",
   "photo-print": "PASS",
   "grounds": "PASS",
-  "split-align": "PASS",
+  "split-align": "WARN",
   "fact-agree": "PASS",
   "fold-action": "PASS",
   "action-count": "PASS",
@@ -1196,7 +1152,7 @@
   "phone-number": "PASS",
   "hero-screen": "PASS",
   "section-height": "FAIL",
-  "section-air": "WARN",
+  "section-air": "FAIL",
   "one-section": "FAIL",
   "one-heading": "PASS",
   "container-edges": "FAIL",
@@ -1206,7 +1162,7 @@
   "count-text": "PASS",
   "loop-cycle": "PASS",
   "section-tile": "PASS",
-  "empty-area": "WARN",
+  "empty-area": "PASS",
   "a11y-name": "PASS",
   "img-alt": "PASS",
   "field-label": "PASS",

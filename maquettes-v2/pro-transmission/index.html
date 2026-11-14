@@ -47,8 +47,8 @@
      une phrase complète exigée par copy.md): sous 640px le pictogramme seul tient dans la barre,
      le nom complet reste dans le h1, le pied de page et la feuille du menu */
   @media (max-width: 639px) { header.nav .nav__logo-text { display: none; } }
-  /* avis: une grille 2x2 de blocs ouverts (nom + avis intégral), fermés par un filet, sans carte */
-  .review { padding: var(--s-5) 0; border-top: 1px solid var(--line); }
+  /* avis: une grille 2x2 de blocs (nom + avis intégral), un fond un cran de la page, sans ombre */
+  .review { background: var(--surface); border-radius: var(--r-lg); padding: var(--s-6); }
   .review h3 { font: 500 var(--t-lead)/1.4 var(--font-text); letter-spacing: 0; margin: 0 0 var(--s-3); }
   .review p { color: var(--ink); margin: 0; max-width: 56ch; }
 </style>
@@ -187,9 +187,9 @@
           <dt data-days="mon-fri">Lundi au vendredi</dt><dd>8 h à 17 h</dd>
           <dt data-days="sat,sun">Samedi et dimanche</dt><dd>Fermé</dd>
         </dl>
-        <div class="frame frame--photo" style="--ratio: 75%; margin-top: var(--s-6)">
-          <img class="frame__img" src="assets/img/photo-f58963082-960.jpg" srcset="assets/img/photo-f58963082-500.jpg 500w, assets/img/photo-f58963082-960.jpg 960w" sizes="(max-width: 1023px) 100vw, 40vw" width="960" height="1279" alt="Pneus d'hiver empilés dans le garage" style="object-position: 50% 65%" loading="lazy" data-source="stand-in" data-subject="stand-in">
-        </div>
+        <ul class="visit__rows">
+          <li><span>Réponse</span><span>Par téléphone ou par courriel, le jour même ou le lendemain ouvrable.</span></li>
+        </ul>
       </div>
       <div class="span-6 start-7">
         <form class="form" action="mailto:info@protransmission.example" method="post" enctype="text/plain" data-endpoint="" novalidate>

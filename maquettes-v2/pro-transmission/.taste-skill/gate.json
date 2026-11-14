@@ -1,6 +1,6 @@
 {
  "start": "2026-11-14T06:46:40.966Z",
- "round": 1,
+ "round": 2,
  "idle": 0,
  "errors": 0,
  "status": "fail",
@@ -11,6 +11,15 @@
    "status": "fail",
    "fails": 20,
    "round": 1,
+   "reused": false,
+   "stopHookActive": false
+  },
+  {
+   "at": "2026-11-14T07:23:33.925Z",
+   "mode": "manual",
+   "status": "fail",
+   "fails": 10,
+   "round": 2,
    "reused": false,
    "stopHookActive": false
   }
@@ -27,46 +36,14 @@
   "primary": "Demander un rendez-vous"
  },
  "manual": true,
- "roundKey": "a26053483e155aa6:da39a3ee",
+ "roundKey": "b6e527e30e33b362:25c6df82",
  "roundFree": false,
  "idleFree": false,
  "blockKey": null,
- "fp": "a26053483e155aa6",
+ "fp": "b6e527e30e33b362",
  "page": "index.html",
  "found": {
   "fails": [
-   {
-    "check": "empty-visual",
-    "where": "div.wrap > div.hero-text.grid > div.hero__media.span-6 > img \"photo-f58963082-960.webp\"",
-    "msg": "the picture shows nothing here: 99% of it is one colour (#d3d2ce); its image photo-f58963082-960.webp did not load (and 1 more like it: \"photo-f198617437-960.web\")",
-    "fix": "make the visual draw at every width: a picture that loads, an effect that renders, or its still fallback; never an empty frame",
-    "widths": [
-     1440
-    ],
-    "from": "consistency",
-    "ids": [
-     "empty-visual"
-    ],
-    "wheres": [
-     "div.wrap > div.hero-text.grid > div.hero__media.span-6 > img \"photo-f58963082-960.webp\""
-    ]
-   },
-   {
-    "check": "empty-visual",
-    "where": "div.wrap > div.grid > div.frame.frame--photo > img.frame__img \"photo-f170813252-960.webp\"",
-    "msg": "the picture shows nothing here: 80% of it is one colour (#313129); its image photo-f170813252-960.webp did not load",
-    "fix": "make the visual draw at every width: a picture that loads, an effect that renders, or its still fallback; never an empty frame",
-    "widths": [
-     1440
-    ],
-    "from": "consistency",
-    "ids": [
-     "empty-visual"
-    ],
-    "wheres": [
-     "div.wrap > div.grid > div.frame.frame--photo > img.frame__img \"photo-f170813252-960.webp\""
-    ]
-   },
    {
     "check": "no-visual",
     "where": "section#avis \"Avis Google sur Pro-Transmission\"",
@@ -85,20 +62,19 @@
     ]
    },
    {
-    "check": "text-only",
-    "where": "section#contact \"Demander un rendez-vous\"",
-    "msg": "the closing section is only text: no picture, icon, mock or effect in it",
-    "fix": "give the section a visual: a photograph that fits, the real icons, or a UI fragment on a ground",
+    "check": "card-layout",
+    "where": "section#services",
+    "msg": "one layout (.frame--photo) in 3 sections: section#services, section#atelier, section#contact; a card layout at most twice",
+    "fix": "a card layout at most twice on a page: build the other sections another way",
     "widths": [
-     1440,
-     390
+     1440
     ],
     "from": "consistency",
     "ids": [
-     "text-only"
+     "card-layout"
     ],
     "wheres": [
-     "section#contact \"Demander un rendez-vous\""
+     "section#services"
     ]
    },
    {
@@ -118,22 +94,6 @@
     ]
    },
    {
-    "check": "section-gaps",
-    "where": "section#contact / footer#bas",
-    "msg": "562px between these sections, +104% against the median 276px of gaps at a change of ground",
-    "fix": "use one gap between sections (all within 25% of each other)",
-    "widths": [
-     1440
-    ],
-    "from": "consistency",
-    "ids": [
-     "section-gaps"
-    ],
-    "wheres": [
-     "section#contact / footer#bas"
-    ]
-   },
-   {
     "check": "phone-number",
     "where": "div.wrap.grid > div.span-5 > address.visit__address > a.link \"tel:+18195698363\"",
     "msg": "a tel: link calls a number in a real dialable format: \"tel:+18195698363\"; a visitor can dial it and reach a stranger (and 1 more like it: div.span-3.footer__col:nth-of-type(4) > ul > li:nth-of-type(3) > a)",
@@ -150,120 +110,24 @@
     ]
    },
    {
-    "check": "empty-area",
-    "where": "section#contact \"Demander un rendez-vous\"",
-    "msg": "58% of the section is empty: 352px under its last (dt:nth-of-type(2)), 9% beside content that covers under half the container, in its 720px of rows (WARN over 35%, FAIL over 50%)",
-    "fix": "fill the section: a picture or a second column beside the words, or more of its own content; the section stays one or two screens tall (T-height)",
-    "widths": [
-     1440
-    ],
-    "from": "consistency",
-    "ids": [
-     "empty-area"
-    ],
-    "wheres": [
-     "section#contact \"Demander un rendez-vous\""
-    ]
-   },
-   {
-    "check": "section-air",
+    "check": "section-height",
     "where": "section#contact \"Demander un rendez-vous Par téléphone ou\"",
-    "msg": "the content fills 37.5% of the section's height (338 of 900px): 55% or more (40% WARN) (SR-3)",
-    "fix": "fill the section to 55%: more content, a picture or a background layer, or merge it into the section above as its last block",
+    "msg": "the section's content does not fit it: its lowest content ends 876px below its top, past 828px (the section less 72px of bottom padding) (SR-2)",
+    "fix": "fit the content above the section's bottom padding (--padb), or make it two screens (.g2) in two groups",
     "widths": [
      1440
     ],
     "from": "consistency",
     "ids": [
-     "section-air"
+     "section-height"
     ],
     "wheres": [
      "section#contact \"Demander un rendez-vous Par téléphone ou\""
     ]
    },
    {
-    "check": "split-pair",
-    "where": "section#atelier > div.wrap > div.grid",
-    "msg": "the split's left column starts with a picture or a box, not text: text left, the visual right, on every split (SR-8)",
-    "fix": "put the text in the left column and the visual in the right, on every split",
-    "widths": [
-     1440
-    ],
-    "from": "consistency",
-    "ids": [
-     "split-pair"
-    ],
-    "wheres": [
-     "section#atelier > div.wrap > div.grid"
-    ]
-   },
-   {
-    "check": "empty-visual",
-    "where": "div.wrap > div.hero-text.grid > div.hero__media.span-6 > img \"photo-f58963082-500.webp\"",
-    "msg": "the picture shows nothing here: 96% of it is one colour (#d3d2ce); its image photo-f58963082-500.webp did not load (and 1 more like it: \"photo-f198617437-500.web\")",
-    "fix": "make the visual draw at every width: a picture that loads, an effect that renders, or its still fallback; never an empty frame",
-    "widths": [
-     390
-    ],
-    "from": "consistency",
-    "ids": [
-     "empty-visual"
-    ],
-    "wheres": [
-     "div.wrap > div.hero-text.grid > div.hero__media.span-6 > img \"photo-f58963082-500.webp\""
-    ]
-   },
-   {
-    "check": "empty-visual",
-    "where": "div.wrap > div.grid > div.frame.frame--photo > img.frame__img \"photo-f170813252-500.webp\"",
-    "msg": "the picture shows nothing here: 97% of it is one colour (#313129); its image photo-f170813252-500.webp did not load",
-    "fix": "make the visual draw at every width: a picture that loads, an effect that renders, or its still fallback; never an empty frame",
-    "widths": [
-     390
-    ],
-    "from": "consistency",
-    "ids": [
-     "empty-visual"
-    ],
-    "wheres": [
-     "div.wrap > div.grid > div.frame.frame--photo > img.frame__img \"photo-f170813252-500.webp\""
-    ]
-   },
-   {
-    "check": "nav",
-    "where": "header.nav.nav--centre",
-    "msg": "the nav has no bar, and its pieces sit past the content's edges (50-421px against 24-366px)",
-    "fix": "make the nav one bar from the content's left edge to its right edge, with every link and action inside it",
-    "widths": [
-     390
-    ],
-    "from": "consistency",
-    "ids": [
-     "nav"
-    ],
-    "wheres": [
-     "header.nav.nav--centre"
-    ]
-   },
-   {
-    "check": "nav",
-    "where": "header.nav.nav--centre > div.wrap.nav__bar > button.nav__toggle",
-    "msg": "\"\" sits outside the nav bar header.nav.nav--centre (0-390px)",
-    "fix": "make the nav one bar from the content's left edge to its right edge, with every link and action inside it",
-    "widths": [
-     390
-    ],
-    "from": "consistency",
-    "ids": [
-     "nav"
-    ],
-    "wheres": [
-     "header.nav.nav--centre > div.wrap.nav__bar > button.nav__toggle"
-    ]
-   },
-   {
     "check": "off-viewport",
-    "where": "header.nav.nav--centre > div.wrap.nav__bar \"Aller au contenu Pro-Transmission Demand\"",
+    "where": "header.nav.nav--centre > div.wrap.nav__bar \"Aller au contenu Demander un rendez-vous\"",
     "msg": "at 320px wide it runs 8px past the screen's right edge (the page is 352px wide and scrolls sideways)",
     "fix": "keep it inside the screen at this width: let it shrink, wrap or stack",
     "widths": [
@@ -274,7 +138,7 @@
      "off-viewport"
     ],
     "wheres": [
-     "header.nav.nav--centre > div.wrap.nav__bar \"Aller au contenu Pro-Transmission Demand\""
+     "header.nav.nav--centre > div.wrap.nav__bar \"Aller au contenu Demander un rendez-vous\""
     ]
    },
    {
@@ -310,35 +174,19 @@
     ]
    },
    {
-    "check": "sparse",
+    "check": "one-sided",
     "where": "#contact section.section \"Demander un rendez-vous Par télé\"",
-    "msg": "its content fills 37% of its screen; merge it or give it its visual (0.55 is the aim)",
-    "fix": "fill the section or make it a screen shorter",
+    "msg": "its visuals end at x 599.3, short of the right line 1360",
+    "fix": "let the row reach both .wrap edges",
     "widths": [
      1440
     ],
     "from": "layout",
     "ids": [
-     "sparse"
+     "one-sided"
     ],
     "wheres": [
      "#contact section.section \"Demander un rendez-vous Par télé\""
-    ]
-   },
-   {
-    "check": "edge-right",
-    "where": "nav actions",
-    "msg": "end at x 433.5, the page's right line is 366",
-    "fix": "end it on the .wrap right line",
-    "widths": [
-     390
-    ],
-    "from": "layout",
-    "ids": [
-     "edge-right"
-    ],
-    "wheres": [
-     "nav actions"
     ]
    },
    {
@@ -360,10 +208,10 @@
   ],
   "warns": [
    {
-    "check": "empty-visual",
-    "where": "div.wrap > div.grid > figure.develop.span-6 > img \"photo-f147728933-960.webp\"",
-    "msg": "the picture shows nothing here: 80% of it is one colour (#26261e); its image photo-f147728933-960.webp did not load (inside a held section or scroll scene, whose motion --quick does not check)",
-    "fix": "make the visual draw at every width: a picture that loads, an effect that renders, or its still fallback; never an empty frame",
+    "check": "flush",
+    "where": "div.wrap.grid > div.span-5 > div.frame.frame--photo > img.frame__img \"img: Pneus d'hiver empilés dans le garag\"",
+    "msg": "its last line sits 23px above the lower edge of section#contact, where the ground changes to the footer",
+    "fix": "give the section its padding at the edge where the ground changes (the closing call keeps a clear gap above the footer)",
     "widths": [
      1440
     ],
@@ -371,8 +219,8 @@
    },
    {
     "check": "scroll-reveal",
-    "where": "section#atelier > div.wrap > div.grid > figure.develop.span-6",
-    "msg": "starts an animation (1.6 s) the moment it is scrolled into view (an IntersectionObserver) on img (inside a dealt moment's section, [data-moment]: an enter moment is expected on every kind; its still is judged under reduced motion)",
+    "where": "section#atelier > div.wrap > div.grid > figure.frame.frame--photo",
+    "msg": "starts \"transform\" (0.4 s) the moment it is scrolled into view (an IntersectionObserver) on img.frame__img (inside a dealt moment's section, [data-moment]: an enter moment is expected on every kind; its still is judged under reduced motion)",
     "fix": "show it at rest: no fade, rise or unmask when it is scrolled into view",
     "widths": [
      1440,
@@ -393,7 +241,7 @@
    {
     "check": "section-gaps",
     "where": "main#top > section.hero.hero--split / section#services",
-    "msg": "178px between these sections, -36% against the median 276px",
+    "msg": "178px between these sections, -35% against the median 274px",
     "fix": "use one gap between sections (all within 25% of each other)",
     "widths": [
      1440,
@@ -404,7 +252,7 @@
    {
     "check": "section-gaps",
     "where": "section#services / section#avis",
-    "msg": "423px between these sections, +53% against the median 276px",
+    "msg": "423px between these sections, +54% against the median 274px",
     "fix": "use one gap between sections (all within 25% of each other)",
     "widths": [
      1440
@@ -414,11 +262,10 @@
    {
     "check": "section-gaps",
     "where": "section#contact / footer#bas",
-    "msg": "uneven space at the edge of a band: 448px outside its edge, 114px inside it (the space on either side of a change of ground reads as one gap only when the two match)",
+    "msg": "137px between these sections, -50% against the median 274px of gaps at a change of ground",
     "fix": "use one gap between sections (all within 25% of each other)",
     "widths": [
-     1440,
-     390
+     1440
     ],
     "from": "consistency"
    },
@@ -447,6 +294,27 @@
     "where": "header.nav.nav--centre",
     "msg": "the nav stays on screen with 4 links to the page's sections, but never marks the one you are in (no link changes as the page scrolls)",
     "fix": "mark the link of the section on screen (a colour, a weight or a line under it) as the visitor scrolls",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "photo-repeat",
+    "where": "div.wrap.grid > div.span-5 > div.frame.frame--photo > img.frame__img \"photo-f58963082.jpg\"",
+    "msg": "the photograph photo-f58963082.jpg is shown 2 times on the page: a picture the visitor has already seen",
+    "fix": "show each photograph once: a different picture of what this section names, or none",
+    "widths": [
+     1440,
+     390
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "empty-area",
+    "where": "section#contact \"Demander un rendez-vous\"",
+    "msg": "37% of the section is empty: 37% beside content that covers under half the container, in its 720px of rows (WARN over 35%, FAIL over 50%)",
+    "fix": "fill the section: a picture or a second column beside the words, or more of its own content; the section stays one or two screens tall (T-height)",
     "widths": [
      1440
     ],
@@ -483,6 +351,27 @@
     "from": "consistency"
    },
    {
+    "check": "nav",
+    "where": "header.nav.nav--centre > div.wrap.nav__bar > button.nav__toggle",
+    "msg": "the nav is lopsided: its last item ends 13px inside the content's edge (366px), while its first starts on the other edge",
+    "fix": "start the nav's first item and end its last on the content's two edges",
+    "widths": [
+     390
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "tap-size",
+    "where": "header.nav.nav--centre > div.wrap.nav__bar > a.nav__logo \"Pro-Transmission\"",
+    "msg": "a 20x44px tap target: under the 44px a phone needs",
+    "fix": "make every link and control outside running text 44px tall on a phone: display: inline-flex; align-items: center; min-height: 44px (a footer list then needs no gap), a 44px small button, or a transparent ::before laid past the box",
+    "widths": [
+     390,
+     320
+    ],
+    "from": "consistency"
+   },
+   {
     "check": "cta",
     "where": "section#avis \"Avis Google sur Pro-Transmission\"",
     "msg": "a section over 1.5 screens long with no link or button in it",
@@ -504,43 +393,11 @@
   ],
   "crashed": [],
   "seconds": {
-   "consistency": 85,
+   "consistency": 91,
    "layout": 4
   }
  },
  "open": [
-  {
-   "check": "empty-visual",
-   "where": "div.wrap > div.hero-text.grid > div.hero__media.span-6 > img \"photo-f58963082-960.webp\"",
-   "msg": "the picture shows nothing here: 99% of it is one colour (#d3d2ce); its image photo-f58963082-960.webp did not load (and 1 more like it: \"photo-f198617437-960.web\")",
-   "fix": "make the visual draw at every width: a picture that loads, an effect that renders, or its still fallback; never an empty frame",
-   "widths": [
-    1440
-   ],
-   "from": "consistency",
-   "ids": [
-    "empty-visual"
-   ],
-   "wheres": [
-    "div.wrap > div.hero-text.grid > div.hero__media.span-6 > img \"photo-f58963082-960.webp\""
-   ]
-  },
-  {
-   "check": "empty-visual",
-   "where": "div.wrap > div.grid > div.frame.frame--photo > img.frame__img \"photo-f170813252-960.webp\"",
-   "msg": "the picture shows nothing here: 80% of it is one colour (#313129); its image photo-f170813252-960.webp did not load",
-   "fix": "make the visual draw at every width: a picture that loads, an effect that renders, or its still fallback; never an empty frame",
-   "widths": [
-    1440
-   ],
-   "from": "consistency",
-   "ids": [
-    "empty-visual"
-   ],
-   "wheres": [
-    "div.wrap > div.grid > div.frame.frame--photo > img.frame__img \"photo-f170813252-960.webp\""
-   ]
-  },
   {
    "check": "no-visual",
    "where": "section#avis \"Avis Google sur Pro-Transmission\"",
@@ -559,20 +416,19 @@
    ]
   },
   {
-   "check": "text-only",
-   "where": "section#contact \"Demander un rendez-vous\"",
-   "msg": "the closing section is only text: no picture, icon, mock or effect in it",
-   "fix": "give the section a visual: a photograph that fits, the real icons, or a UI fragment on a ground",
+   "check": "card-layout",
+   "where": "section#services",
+   "msg": "one layout (.frame--photo) in 3 sections: section#services, section#atelier, section#contact; a card layout at most twice",
+   "fix": "a card layout at most twice on a page: build the other sections another way",
    "widths": [
-    1440,
-    390
+    1440
    ],
    "from": "consistency",
    "ids": [
-    "text-only"
+    "card-layout"
    ],
    "wheres": [
-    "section#contact \"Demander un rendez-vous\""
+    "section#services"
    ]
   },
   {
@@ -592,22 +448,6 @@
    ]
   },
   {
-   "check": "section-gaps",
-   "where": "section#contact / footer#bas",
-   "msg": "562px between these sections, +104% against the median 276px of gaps at a change of ground",
-   "fix": "use one gap between sections (all within 25% of each other)",
-   "widths": [
-    1440
-   ],
-   "from": "consistency",
-   "ids": [
-    "section-gaps"
-   ],
-   "wheres": [
-    "section#contact / footer#bas"
-   ]
-  },
-  {
    "check": "phone-number",
    "where": "div.wrap.grid > div.span-5 > address.visit__address > a.link \"tel:+18195698363\"",
    "msg": "a tel: link calls a number in a real dialable format: \"tel:+18195698363\"; a visitor can dial it and reach a stranger (and 1 more like it: div.span-3.footer__col:nth-of-type(4) > ul > li:nth-of-type(3) > a)",
@@ -624,120 +464,24 @@
    ]
   },
   {
-   "check": "empty-area",
-   "where": "section#contact \"Demander un rendez-vous\"",
-   "msg": "58% of the section is empty: 352px under its last (dt:nth-of-type(2)), 9% beside content that covers under half the container, in its 720px of rows (WARN over 35%, FAIL over 50%)",
-   "fix": "fill the section: a picture or a second column beside the words, or more of its own content; the section stays one or two screens tall (T-height)",
-   "widths": [
-    1440
-   ],
-   "from": "consistency",
-   "ids": [
-    "empty-area"
-   ],
-   "wheres": [
-    "section#contact \"Demander un rendez-vous\""
-   ]
-  },
-  {
-   "check": "section-air",
+   "check": "section-height",
    "where": "section#contact \"Demander un rendez-vous Par téléphone ou\"",
-   "msg": "the content fills 37.5% of the section's height (338 of 900px): 55% or more (40% WARN) (SR-3)",
-   "fix": "fill the section to 55%: more content, a picture or a background layer, or merge it into the section above as its last block",
+   "msg": "the section's content does not fit it: its lowest content ends 876px below its top, past 828px (the section less 72px of bottom padding) (SR-2)",
+   "fix": "fit the content above the section's bottom padding (--padb), or make it two screens (.g2) in two groups",
    "widths": [
     1440
    ],
    "from": "consistency",
    "ids": [
-    "section-air"
+    "section-height"
    ],
    "wheres": [
     "section#contact \"Demander un rendez-vous Par téléphone ou\""
    ]
   },
   {
-   "check": "split-pair",
-   "where": "section#atelier > div.wrap > div.grid",
-   "msg": "the split's left column starts with a picture or a box, not text: text left, the visual right, on every split (SR-8)",
-   "fix": "put the text in the left column and the visual in the right, on every split",
-   "widths": [
-    1440
-   ],
-   "from": "consistency",
-   "ids": [
-    "split-pair"
-   ],
-   "wheres": [
-    "section#atelier > div.wrap > div.grid"
-   ]
-  },
-  {
-   "check": "empty-visual",
-   "where": "div.wrap > div.hero-text.grid > div.hero__media.span-6 > img \"photo-f58963082-500.webp\"",
-   "msg": "the picture shows nothing here: 96% of it is one colour (#d3d2ce); its image photo-f58963082-500.webp did not load (and 1 more like it: \"photo-f198617437-500.web\")",
-   "fix": "make the visual draw at every width: a picture that loads, an effect that renders, or its still fallback; never an empty frame",
-   "widths": [
-    390
-   ],
-   "from": "consistency",
-   "ids": [
-    "empty-visual"
-   ],
-   "wheres": [
-    "div.wrap > div.hero-text.grid > div.hero__media.span-6 > img \"photo-f58963082-500.webp\""
-   ]
-  },
-  {
-   "check": "empty-visual",
-   "where": "div.wrap > div.grid > div.frame.frame--photo > img.frame__img \"photo-f170813252-500.webp\"",
-   "msg": "the picture shows nothing here: 97% of it is one colour (#313129); its image photo-f170813252-500.webp did not load",
-   "fix": "make the visual draw at every width: a picture that loads, an effect that renders, or its still fallback; never an empty frame",
-   "widths": [
-    390
-   ],
-   "from": "consistency",
-   "ids": [
-    "empty-visual"
-   ],
-   "wheres": [
-    "div.wrap > div.grid > div.frame.frame--photo > img.frame__img \"photo-f170813252-500.webp\""
-   ]
-  },
-  {
-   "check": "nav",
-   "where": "header.nav.nav--centre",
-   "msg": "the nav has no bar, and its pieces sit past the content's edges (50-421px against 24-366px)",
-   "fix": "make the nav one bar from the content's left edge to its right edge, with every link and action inside it",
-   "widths": [
-    390
-   ],
-   "from": "consistency",
-   "ids": [
-    "nav"
-   ],
-   "wheres": [
-    "header.nav.nav--centre"
-   ]
-  },
-  {
-   "check": "nav",
-   "where": "header.nav.nav--centre > div.wrap.nav__bar > button.nav__toggle",
-   "msg": "\"\" sits outside the nav bar header.nav.nav--centre (0-390px)",
-   "fix": "make the nav one bar from the content's left edge to its right edge, with every link and action inside it",
-   "widths": [
-    390
-   ],
-   "from": "consistency",
-   "ids": [
-    "nav"
-   ],
-   "wheres": [
-    "header.nav.nav--centre > div.wrap.nav__bar > button.nav__toggle"
-   ]
-  },
-  {
    "check": "off-viewport",
-   "where": "header.nav.nav--centre > div.wrap.nav__bar \"Aller au contenu Pro-Transmission Demand\"",
+   "where": "header.nav.nav--centre > div.wrap.nav__bar \"Aller au contenu Demander un rendez-vous\"",
    "msg": "at 320px wide it runs 8px past the screen's right edge (the page is 352px wide and scrolls sideways)",
    "fix": "keep it inside the screen at this width: let it shrink, wrap or stack",
    "widths": [
@@ -748,7 +492,7 @@
     "off-viewport"
    ],
    "wheres": [
-    "header.nav.nav--centre > div.wrap.nav__bar \"Aller au contenu Pro-Transmission Demand\""
+    "header.nav.nav--centre > div.wrap.nav__bar \"Aller au contenu Demander un rendez-vous\""
    ]
   },
   {
@@ -784,35 +528,19 @@
    ]
   },
   {
-   "check": "sparse",
+   "check": "one-sided",
    "where": "#contact section.section \"Demander un rendez-vous Par télé\"",
-   "msg": "its content fills 37% of its screen; merge it or give it its visual (0.55 is the aim)",
-   "fix": "fill the section or make it a screen shorter",
+   "msg": "its visuals end at x 599.3, short of the right line 1360",
+   "fix": "let the row reach both .wrap edges",
    "widths": [
     1440
    ],
    "from": "layout",
    "ids": [
-    "sparse"
+    "one-sided"
    ],
    "wheres": [
     "#contact section.section \"Demander un rendez-vous Par télé\""
-   ]
-  },
-  {
-   "check": "edge-right",
-   "where": "nav actions",
-   "msg": "end at x 433.5, the page's right line is 366",
-   "fix": "end it on the .wrap right line",
-   "widths": [
-    390
-   ],
-   "from": "layout",
-   "ids": [
-    "edge-right"
-   ],
-   "wheres": [
-    "nav actions"
    ]
   },
   {
@@ -833,6 +561,6 @@
   }
  ],
  "waived": [],
- "warnCount": 14,
- "at": "2026-11-14T07:14:24.072Z"
+ "warnCount": 18,
+ "at": "2026-11-14T07:23:33.925Z"
 }
